@@ -30,10 +30,11 @@ questions:
       of church and using it in a secular setting full of desire. Some radio stations
       banned the song.
     context: >-
-      Ray Charles gives this part of the history a specific person, work, place, or tool.
-      Soul joined gospel-derived singing to secular songs, studio bands, independent
-      labels, radio, and the demands of the singles market. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Ray Charles recorded 'What'd I Say' in 1959, carrying the call-and-response
+      structure of church into a secular setting, a move that sits at the very start of
+      this quiz's journey from soul toward modern dance music. Soul joined gospel-derived
+      singing to secular songs, studio bands, independent labels, radio, and the demands
+      of the singles market.
     sources:
       - publisher: Wikipedia
         title: Ray Charles
@@ -56,10 +57,11 @@ questions:
       Movement. It conveyed dignity instead of anger. Cooke died in December 1964, shortly
       after the song's release.
     context: >-
-      A Change Is Gonna Come gives this part of the history a specific person, work,
-      place, or tool. Soul joined gospel-derived singing to secular songs, studio bands,
-      independent labels, radio, and the demands of the singles market. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      Sam Cooke's 'A Change Is Gonna Come,' released in 1964 during the Civil Rights
+      Movement, conveyed dignity instead of anger, bringing the movement's weight into
+      soul shortly before Cooke's death in December 1964. Soul joined gospel-derived
+      singing to secular songs, studio bands, independent labels, radio, and the demands
+      of the singles market.
     sources:
       - publisher: Wikipedia
         title: A Change Is Gonna Come
@@ -81,10 +83,11 @@ questions:
       The band that played in the house at Motown later became known as the Funk Brothers.
       They created a sound that was smooth, full of melody, and perfect for the radio.
     context: >-
-      The Funk Brothers gives this part of the history a specific person, work, place, or
-      tool. Soul joined gospel-derived singing to secular songs, studio bands, independent
-      labels, radio, and the demands of the singles market. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      The Funk Brothers, Motown's house band, created a smooth, melody-rich sound that was
+      perfect for the radio, supplying the instrumental backbone for one major chapter in
+      this quiz's story from soul toward modern dance music. Soul joined gospel-derived
+      singing to secular songs, studio bands, independent labels, radio, and the demands
+      of the singles market.
     sources:
       - publisher: Wikipedia
         title: The Brothers Johnson
@@ -107,10 +110,11 @@ questions:
       Tenderness.' You can hear breathing, strain, and urgency. Stax didn't try to soften
       that intensity.
     context: >-
-      Otis Redding gives this part of the history a specific person, work, place, or tool.
-      Soul joined gospel-derived singing to secular songs, studio bands, independent
-      labels, radio, and the demands of the singles market. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Otis Redding's voice moved from soft restraint to explosive power on 'Try a Little
+      Tenderness,' and Stax refused to soften that intensity, preserving the raw emotional
+      force that soul handed on to later dance music in this quiz's timeline. Soul joined
+      gospel-derived singing to secular songs, studio bands, independent labels, radio,
+      and the demands of the singles market.
     sources:
       - publisher: Wikipedia
         title: Otis Redding
@@ -133,10 +137,11 @@ questions:
       singles, but this album unfolded like a conversation. The songs flowed seamlessly
       into one another.
     context: >-
-      What's Going On gives this part of the history a specific person, work, place, or
-      tool. Soul joined gospel-derived singing to secular songs, studio bands, independent
-      labels, radio, and the demands of the singles market. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Marvin Gaye's 1971 album What's Going On unfolded like a conversation, with songs
+      flowing seamlessly into one another, a departure from Motown's tight-singles
+      reputation that widened what soul albums could say on the path toward modern dance
+      music. Soul joined gospel-derived singing to secular songs, studio bands,
+      independent labels, radio, and the demands of the singles market.
     sources:
       - publisher: Wikipedia
         title: What's Going On
@@ -159,10 +164,11 @@ questions:
       drug-dealer protagonist. Instead, Mayfield's songs examined the social conditions of
       that time.
     context: >-
-      Super Fly gives this part of the history a specific person, work, place, or tool.
-      Soul joined gospel-derived singing to secular songs, studio bands, independent
-      labels, radio, and the demands of the singles market. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Curtis Mayfield's music for the 1972 film Super Fly refused to glorify the
+      drug-dealer protagonist, examining social conditions instead, and showed how
+      soul-era songwriting could carry social commentary into new formats on the way
+      toward modern dance music. Soul joined gospel-derived singing to secular songs,
+      studio bands, independent labels, radio, and the demands of the singles market.
     sources:
       - publisher: Wikipedia
         title: Super Fly (soundtrack)
@@ -185,10 +191,11 @@ questions:
       stable of musicians who understood how to balance elegance and drive in Philadelphia
       soul.
     context: >-
-      Kenny Gamble and Leon Huff gives this part of the history a specific person, work,
-      place, or tool. Soul joined gospel-derived singing to secular songs, studio bands,
-      independent labels, radio, and the demands of the singles market. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      Kenny Gamble and Leon Huff shaped the Philadelphia soul sound, working with a stable
+      of musicians who understood how to balance elegance and drive, a polished groove
+      that fed the dance-floor styles this quiz traces forward. Soul joined gospel-derived
+      singing to secular songs, studio bands, independent labels, radio, and the demands
+      of the singles market.
     sources:
       - publisher: Wikipedia
         title: Gamble and Huff
@@ -211,9 +218,11 @@ questions:
       Machine' focused a lot on 'the one,' which is the first beat of each measure,
       according to James Brown.
     context: >-
-      The downbeat gives this part of the history a specific person, work, place, or tool.
-      Soul joined gospel-derived singing to secular songs, studio bands, independent
-      labels, radio, and the demands of the singles market.
+      James Brown emphasized 'the one,' the downbeat at the first beat of each measure, in
+      songs like 'Papa's Got a Brand New Bag,' concentrating rhythmic power in a way that
+      later funk and dance music in this quiz build on. Soul joined gospel-derived singing
+      to secular songs, studio bands, independent labels, radio, and the demands of the
+      singles market.
     sources:
       - publisher: Wikipedia
         title: DownBeat
@@ -240,10 +249,11 @@ questions:
       more fragmented. A primitive drum machine, the Maestro Rhythm King MRK-2, was used
       in the production.
     context: >-
-      There's a Riot Goin' On gives this part of the history a specific person, work,
-      place, or tool. Soul joined gospel-derived singing to secular songs, studio bands,
-      independent labels, radio, and the demands of the singles market. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      Sly and the Family Stone's 1971 album There's a Riot Goin' On sounded darker and
+      more fragmented than their earlier work, using the primitive Maestro Rhythm King
+      MRK-2 drum machine, an early machine-driven texture on this quiz's road toward
+      modern dance music. Soul joined gospel-derived singing to secular songs, studio
+      bands, independent labels, radio, and the demands of the singles market.
     sources:
       - publisher: Wikipedia
         title: There's a Riot Goin' On
@@ -266,10 +276,11 @@ questions:
       images were striking. Spaceships landed on stage. Characters like Dr. Funkenstein
       appeared in the lyrics.
     context: >-
-      Mothership Connection gives this part of the history a specific person, work, place,
-      or tool. Soul joined gospel-derived singing to secular songs, studio bands,
-      independent labels, radio, and the demands of the singles market. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      Parliament's 1975 album Mothership Connection made funk a form of liberation, with
+      spaceships landing on stage and characters like Dr. Funkenstein in the lyrics,
+      theatrical imagination that pushed funk's influence toward the electronic dance
+      music this quiz ends with. Soul joined gospel-derived singing to secular songs,
+      studio bands, independent labels, radio, and the demands of the singles market.
     sources:
       - publisher: Wikipedia
         title: Mothership Connection
@@ -290,10 +301,11 @@ questions:
       'Tell Me Something Good,' written by Stevie Wonder, showed how easily she could move
       from warmth to force in a single phrase.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Funk
-      moved rhythmic weight toward the groove, giving bass, drums, guitar, horns, and
-      repeated figures tightly defined roles. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Before launching her solo career, Chaka Khan was the lead singer of Rufus, and on
+      'Tell Me Something Good,' written by Stevie Wonder, she showed how easily her voice
+      could move from warmth to force within a single phrase. Funk moved rhythmic weight
+      toward the groove, giving bass, drums, guitar, horns, and repeated figures tightly
+      defined roles.
     sources:
       - publisher: Wikipedia
         title: Chaka Khan
@@ -316,10 +328,11 @@ questions:
       with long, layered rhythms and strong political messages. His music was not a copy
       of funk. It expanded its logic.
     context: >-
-      Fela Kuti gives this part of the history a specific person, work, place, or tool.
+      Fela Kuti combined highlife, jazz, and American funk to create Afrobeat, a style
+      with long, layered rhythms and strong political messages that expanded funk's logic
+      rather than copying it, extending this quiz's groove narrative across continents.
       Funk moved rhythmic weight toward the groove, giving bass, drums, guitar, horns, and
-      repeated figures tightly defined roles. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      repeated figures tightly defined roles.
     sources:
       - publisher: Wikipedia
         title: Fela Kuti discography
@@ -342,10 +355,11 @@ questions:
       drums and bass to the front. Echo and reverb became central tools, turning the mix
       itself into a creative space.
     context: >-
-      King Tubby gives this part of the history a specific person, work, place, or tool.
-      Funk moved rhythmic weight toward the groove, giving bass, drums, guitar, horns, and
-      repeated figures tightly defined roles. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      The Jamaican producer King Tubby broke tracks down into separate parts, pulling
+      vocals away, bringing drums and bass to the front, and turning echo and reverb into
+      creative tools, treating the mix itself as an instrument that later dance music
+      inherits. Funk moved rhythmic weight toward the groove, giving bass, drums, guitar,
+      horns, and repeated figures tightly defined roles.
     sources:
       - publisher: Wikipedia
         title: King Tubby
@@ -368,10 +382,11 @@ questions:
       1970s, where he pushed dub into stranger territory with dreamlike and sometimes
       chaotic layering.
     context: >-
-      Black Ark Studio gives this part of the history a specific person, work, place, or
-      tool. Funk moved rhythmic weight toward the groove, giving bass, drums, guitar,
-      horns, and repeated figures tightly defined roles. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Black Ark Studio, Lee 'Scratch' Perry's Kingston studio, was where he pushed dub
+      into stranger territory during the 1970s with dreamlike and sometimes chaotic
+      layering, a studio-as-instrument approach that echoes through the dance music this
+      quiz traces. Funk moved rhythmic weight toward the groove, giving bass, drums,
+      guitar, horns, and repeated figures tightly defined roles.
     sources:
       - publisher: Wikipedia
         title: Black Ark Studios
@@ -393,10 +408,11 @@ questions:
       In the late 1970s and 1980s, Adrian Sherwood used his On-U Sound label to mix dub
       music with post-punk and early electronic experimentation.
     context: >-
-      Adrian Sherwood gives this part of the history a specific person, work, place, or
-      tool. Funk moved rhythmic weight toward the groove, giving bass, drums, guitar,
-      horns, and repeated figures tightly defined roles. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      The British producer Adrian Sherwood used his On-U Sound label in the late 1970s and
+      1980s to mix dub with post-punk and early electronic experimentation, carrying dub's
+      studio techniques into new scenes on this quiz's route toward modern dance music.
+      Funk moved rhythmic weight toward the groove, giving bass, drums, guitar, horns, and
+      repeated figures tightly defined roles.
     sources:
       - publisher: Wikipedia
         title: Adrian Sherwood
@@ -419,10 +435,11 @@ questions:
       build tension slowly, sometimes letting a record loop through extended breaks,
       sometimes dropping in unexpected selections.
     context: >-
-      Larry Levan gives this part of the history a specific person, work, place, or tool.
-      Funk moved rhythmic weight toward the groove, giving bass, drums, guitar, horns, and
-      repeated figures tightly defined roles. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Larry Levan approached DJing as a form of storytelling at Paradise Garage, building
+      tension slowly through extended breaks and unexpected selections, a club practice
+      that shapes how the dance music in this quiz reaches audiences. Funk moved rhythmic
+      weight toward the groove, giving bass, drums, guitar, horns, and repeated figures
+      tightly defined roles.
     sources:
       - publisher: Wikipedia
         title: Larry Levan
@@ -445,10 +462,11 @@ questions:
       better sound quality and longer play time. The bass sounds fuller. Drums carried
       more weight.
     context: >-
-      The 12-inch single gives this part of the history a specific person, work, place, or
-      tool. Funk moved rhythmic weight toward the groove, giving bass, drums, guitar,
-      horns, and repeated figures tightly defined roles. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      The 12-inch single was pressed on larger vinyl with wider grooves, allowing better
+      sound quality and longer play time, with fuller bass and heavier drums, a format
+      built for the club play this quiz describes from disco through house and techno.
+      Funk moved rhythmic weight toward the groove, giving bass, drums, guitar, horns, and
+      repeated figures tightly defined roles.
     sources:
       - publisher: Wikipedia
         title: Twelve-inch single
@@ -472,9 +490,10 @@ questions:
       collaborators built the track around a Moog-driven pulse, making it sound futuristic
       and helping point dance music toward a more fully electronic future.
     context: >-
-      I Feel Love gives this part of the history a specific person, work, place, or tool.
-      Funk moved rhythmic weight toward the groove, giving bass, drums, guitar, horns, and
-      repeated figures tightly defined roles.
+      'I Feel Love' (1977) replaced disco's lush orchestration with an insistent sequenced
+      synthesizer pulse, pointing dance music toward the fully electronic future this quiz
+      follows. Funk moved rhythmic weight toward the groove, giving bass, drums, guitar,
+      horns, and repeated figures tightly defined roles.
     sources:
       - publisher: Wikipedia
         title: I Feel Love
@@ -497,10 +516,11 @@ questions:
       He worked closely with Donna Summer and combined disco's steady beat with electronic
       sequencing.
     context: >-
-      Giorgio Moroder gives this part of the history a specific person, work, place, or
-      tool. Funk moved rhythmic weight toward the groove, giving bass, drums, guitar,
-      horns, and repeated figures tightly defined roles. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      The Italian producer Giorgio Moroder started experimenting with synthesizers in
+      Munich and worked closely with Donna Summer, combining disco's steady beat with
+      electronic sequencing, a fusion that moves this quiz's story from soul bands toward
+      machine-made dance music. Funk moved rhythmic weight toward the groove, giving bass,
+      drums, guitar, horns, and repeated figures tightly defined roles.
     sources:
       - publisher: Wikipedia
         title: Giorgio Moroder
@@ -525,10 +545,11 @@ questions:
       approached disco with discipline and clarity. Their records were built on precision
       rather than excess.
     context: >-
-      Nile Rodgers, Bernard Edwards belong together here; the comparison names each part
-      of the change. Funk moved rhythmic weight toward the groove, giving bass, drums,
-      guitar, horns, and repeated figures tightly defined roles. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      As a group, guitarist Nile Rodgers and bassist Bernard Edwards founded Chic,
+      approaching disco with discipline and clarity and building records on precision
+      rather than excess, a lean groove aesthetic that feeds the dance music this quiz
+      follows. Funk moved rhythmic weight toward the groove, giving bass, drums, guitar,
+      horns, and repeated figures tightly defined roles.
     sources:
       - publisher: Wikipedia
         title: Chic (band)
@@ -551,9 +572,11 @@ questions:
       disco records to be destroyed between baseball games. The event quickly spun out of
       control as crowds rushed the field and records were burned and smashed.
     context: >-
-      Disco Demolition Night gives this part of the history a specific person, work,
-      place, or tool. Disco records were arranged for dancers and extended club play,
-      which changed song length, mixing, orchestration, and the work of DJs.
+      Disco Demolition Night at Chicago's Comiskey Park in July 1979 invited fans to
+      destroy disco records between baseball games, an event that quickly spun out of
+      control as crowds rushed the field. Disco records were arranged for dancers and
+      extended club play, which changed song length, mixing, orchestration, and the work
+      of DJs.
     sources:
       - publisher: Wikipedia
         title: July 16
@@ -576,9 +599,11 @@ questions:
       Baker and John Robie. The track was inspired by European electronic music,
       especially Kraftwerk, but also had a strong drum machine beat.
     context: >-
-      Planet Rock gives this part of the history a specific person, work, place, or tool.
-      Disco records were arranged for dancers and extended club play, which changed song
-      length, mixing, orchestration, and the work of DJs.
+      Afrika Bambaataa's 1982 track 'Planet Rock,' produced with Arthur Baker and John
+      Robie, drew on European electronic music, especially Kraftwerk, while riding a
+      strong drum machine beat, a fusion that points this quiz's story toward modern dance
+      music. Disco records were arranged for dancers and extended club play, which changed
+      song length, mixing, orchestration, and the work of DJs.
     sources:
       - publisher: Wikipedia
         title: Planet Rock
@@ -601,10 +626,11 @@ questions:
       bass moved in repeating electronic patterns. The vocals were more like a chant than
       a typical soul performance.
     context: >-
-      Roland TR-808 gives this part of the history a specific person, work, place, or
-      tool. Disco records were arranged for dancers and extended club play, which changed
-      song length, mixing, orchestration, and the work of DJs. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      The Roland TR-808 drum machine supplied the clear, strong rhythm of Afrika
+      Bambaataa's 'Planet Rock,' with bass moving in repeating electronic patterns and
+      vocals closer to a chant than a typical soul performance. Disco records were
+      arranged for dancers and extended club play, which changed song length, mixing,
+      orchestration, and the work of DJs.
     sources:
       - publisher: Wikipedia
         title: Roland TR-808
@@ -627,10 +653,11 @@ questions:
       programming with melodies that were inspired by disco and R&B. Artists like Lisa
       Lisa and Shannon helped create the distinctive sound.
     context: >-
-      Freestyle gives this part of the history a specific person, work, place, or tool.
-      Disco records were arranged for dancers and extended club play, which changed song
-      length, mixing, orchestration, and the work of DJs. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Freestyle emerged in New York's Latin club scene, mixing electronic drum programming
+      with melodies inspired by disco and R&B, with artists like Lisa Lisa and Shannon
+      helping create its distinctive sound. Disco records were arranged for dancers and
+      extended club play, which changed song length, mixing, orchestration, and the work
+      of DJs.
     sources:
       - publisher: Wikipedia
         title: Freestyle rap
@@ -653,9 +680,11 @@ questions:
       called the Warehouse, where he created a unique sound that felt familiar but
       simpler. The term 'house' likely came from the warehouse itself.
     context: >-
-      Frankie Knuckles gives this part of the history a specific person, work, place, or
-      tool. Disco records were arranged for dancers and extended club play, which changed
-      song length, mixing, orchestration, and the work of DJs.
+      Frankie Knuckles worked at the Chicago club called the Warehouse, creating a unique
+      sound that felt familiar but simpler, a shift so central that the term 'house'
+      likely came from the venue itself. Disco records were arranged for dancers and
+      extended club play, which changed song length, mixing, orchestration, and the work
+      of DJs.
     sources:
       - publisher: Wikipedia
         title: Frankie Knuckles
@@ -678,9 +707,10 @@ questions:
       synthesizer, which would later define acid house. The bass lines of early acid
       tracks sounded rough compared to polished disco.
     context: >-
-      Roland TB-303 gives this part of the history a specific person, work, place, or
-      tool. Disco records were arranged for dancers and extended club play, which changed
-      song length, mixing, orchestration, and the work of DJs.
+      The Roland TB-303 bass synthesizer, associated with Ron Hardy's sets at the Music
+      Box, later defined acid house, its rough bass lines standing in sharp contrast to
+      polished disco. Disco records were arranged for dancers and extended club play,
+      which changed song length, mixing, orchestration, and the work of DJs.
     sources:
       - publisher: Wikipedia
         title: "Synthesizing: Ten Ragas to a Disco Beat"
@@ -703,9 +733,11 @@ questions:
       released in 1984. The song was built around a drum machine pattern and a repeating
       bass line. It was simple compared to most disco productions.
     context: >-
-      On and On gives this part of the history a specific person, work, place, or tool.
-      Disco records were arranged for dancers and extended club play, which changed song
-      length, mixing, orchestration, and the work of DJs.
+      Jesse Saunders's 1984 track 'On and On,' built around a drum machine pattern and a
+      repeating bass line, was one of the first house records to become popular, notably
+      simple compared to most disco productions. Disco records were arranged for dancers
+      and extended club play, which changed song length, mixing, orchestration, and the
+      work of DJs.
     sources:
       - publisher: Wikipedia
         title: Jesse Saunders
@@ -732,10 +764,11 @@ questions:
       that reminded people of gospel-influenced disco music. The record quickly became
       known as a 'house anthem.'
     context: >-
-      Move Your Body gives this part of the history a specific person, work, place, or
-      tool. Disco records were arranged for dancers and extended club play, which changed
-      song length, mixing, orchestration, and the work of DJs. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Marshall Jefferson's 'Move Your Body' (1986) used piano notes and happy chords that
+      recalled gospel-influenced disco, and the record quickly became known as a 'house
+      anthem,' carrying soul's warmth into the house era this quiz describes. Disco
+      records were arranged for dancers and extended club play, which changed song length,
+      mixing, orchestration, and the work of DJs.
     sources:
       - publisher: Wikipedia
         title: Move Your Body
@@ -756,10 +789,11 @@ questions:
       tracks. Sometimes, there weren't many records available. The quality control was
       inconsistent. But the records spread quickly through DJ networks.
     context: >-
-      Trax Records gives this part of the history a specific person, work, place, or tool.
-      Disco records were arranged for dancers and extended club play, which changed song
-      length, mixing, orchestration, and the work of DJs. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Trax Records, an independent Chicago label, was key in spreading early house tracks,
+      and even when pressings were scarce and quality control inconsistent, its records
+      spread quickly through DJ networks. Disco records were arranged for dancers and
+      extended club play, which changed song length, mixing, orchestration, and the work
+      of DJs.
     sources:
       - publisher: Wikipedia
         title: Trax Records
@@ -782,10 +816,11 @@ questions:
       clear spiritual tone. The lyrics conveyed hope and perseverance. The piano chords
       made the rhythm feel more lively.
     context: >-
-      Someday gives this part of the history a specific person, work, place, or tool.
-      Disco records were arranged for dancers and extended club play, which changed song
-      length, mixing, orchestration, and the work of DJs. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      'Someday' by CeCe Rogers, produced by Marshall Jefferson in 1987, carried a clear
+      spiritual tone of hope and perseverance over lively piano chords, becoming a vocal
+      house classic in the scene this quiz traces from soul to modern dance music. Disco
+      records were arranged for dancers and extended club play, which changed song length,
+      mixing, orchestration, and the work of DJs.
     sources:
       - publisher: Wikipedia
         title: Maybe Someday
@@ -808,10 +843,11 @@ questions:
       'Clear' mixed strong drum machine beats with soft synthesizer sounds. The atmosphere
       felt like science fiction but wasn't over-the-top.
     context: >-
-      Cybotron gives this part of the history a specific person, work, place, or tool.
+      Juan Atkins released early recordings under the name Cybotron, and the 1983 track
+      'Clear' mixed strong drum machine beats with soft synthesizer sounds in a
+      science-fiction atmosphere, an early blueprint for the techno this quiz follows.
       House and techno producers used drum machines, synthesizers, samplers, and clubs to
-      build different forms of electronic dance music. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      build different forms of electronic dance music.
     sources:
       - publisher: Wikipedia
         title: Cybotron
@@ -834,10 +870,11 @@ questions:
       Rhythim, used a steady electronic beat, energetic chord sequences, and a strong
       piano sound. The record felt urgent and emotional.
     context: >-
-      Strings of Life gives this part of the history a specific person, work, place, or
-      tool. House and techno producers used drum machines, synthesizers, samplers, and
-      clubs to build different forms of electronic dance music. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Derrick May's 1987 track 'Strings of Life,' released under the name Rhythim Is
+      Rhythim, combined a steady electronic beat with energetic chord sequences and a
+      strong piano sound that felt urgent and emotional. House and techno producers used
+      drum machines, synthesizers, samplers, and clubs to build different forms of
+      electronic dance music.
     sources:
       - publisher: Wikipedia
         title: Strings of Life
@@ -860,10 +897,11 @@ questions:
       tracks balanced techno's mechanical pulse with catchy vocal hooks. These records
       were successful in the United Kingdom.
     context: >-
-      Inner City gives this part of the history a specific person, work, place, or tool.
-      House and techno producers used drum machines, synthesizers, samplers, and clubs to
-      build different forms of electronic dance music. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Kevin Saunderson produced 'Big Fun' and 'Good Life' under the name Inner City,
+      balancing techno's mechanical pulse with catchy vocal hooks that found success in
+      the United Kingdom, widening techno's audience beyond Detroit in this quiz's dance
+      narrative. House and techno producers used drum machines, synthesizers, samplers,
+      and clubs to build different forms of electronic dance music.
     sources:
       - publisher: Wikipedia
         title: Inner City Life
@@ -886,11 +924,11 @@ questions:
       music scene. The group was founded by Jeff Mills, 'Mad' Mike Banks, and Robert Hood.
       They rejected commercial gloss and emphasized autonomy.
     context: >-
-      Underground Resistance gives this part of the history a specific person, work,
-      place, or tool. House and techno producers used drum machines, synthesizers,
-      samplers, and clubs to build different forms of electronic dance music. Reading the
-      credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      Underground Resistance, founded in the late 1980s by Jeff Mills, 'Mad' Mike Banks,
+      and Robert Hood, became a strong voice for the Detroit scene by rejecting commercial
+      gloss and emphasizing autonomy. House and techno producers used drum machines,
+      synthesizers, samplers, and clubs to build different forms of electronic dance
+      music.
     sources:
       - publisher: Wikipedia
         title: Underground Resistance
@@ -913,10 +951,11 @@ questions:
       store, became central meeting points. Detroit records were imported and played
       loudly. The simple, intense style was especially appealing.
     context: >-
-      Tresor gives this part of the history a specific person, work, place, or tool. House
-      and techno producers used drum machines, synthesizers, samplers, and clubs to build
-      different forms of electronic dance music. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Tresor opened in 1991 in the basement of a former Berlin department store and became
+      central to techno culture, as Detroit records were imported and played loudly, and
+      its simple, intense style drew a dedicated following. House and techno producers
+      used drum machines, synthesizers, samplers, and clubs to build different forms of
+      electronic dance music.
     sources:
       - publisher: Wikipedia
         title: Tresor (club)
@@ -939,10 +978,10 @@ questions:
       the garage tradition in the 1990s. Their music mixed house music with Latin
       percussion, jazz, and strong singing.
     context: >-
-      Masters at Work (Louie Vega and Kenny 'Dope' Gonzalez) gives this part of the
-      history a specific person, work, place, or tool. House and techno producers used
-      drum machines, synthesizers, samplers, and clubs to build different forms of
-      electronic dance music.
+      Masters at Work, the duo of Louie Vega and Kenny 'Dope' Gonzalez, carried disco's
+      emotional tradition into the 1990s, mixing house with Latin percussion, jazz, and
+      strong singing. House and techno producers used drum machines, synthesizers,
+      samplers, and clubs to build different forms of electronic dance music.
     sources:
       - publisher: Wikipedia
         title: Masters at Work discography
@@ -965,9 +1004,11 @@ questions:
       Discovery in 2001, the duo was more open about the melodic richness of disco. 'One
       More Time' had processed vocals and bright, looping chords.
     context: >-
-      Daft Punk gives this part of the history a specific person, work, place, or tool.
-      House and techno producers used drum machines, synthesizers, samplers, and clubs to
-      build different forms of electronic dance music.
+      Daft Punk moved from the mostly raw house and techno of Homework (1997) to the
+      openly melodic disco richness of Discovery (2001), where 'One More Time' paired
+      processed vocals with bright, looping chords. House and techno producers used drum
+      machines, synthesizers, samplers, and clubs to build different forms of electronic
+      dance music.
     sources:
       - publisher: Wikipedia
         title: Daft Punk
@@ -991,9 +1032,11 @@ questions:
       with local rhythmic detail, restrained melodic writing, and production that feels
       spacious rather than overloaded.
     context: >-
-      Black Coffee gives this part of the history a specific person, work, place, or tool.
-      House and techno producers used drum machines, synthesizers, samplers, and clubs to
-      build different forms of electronic dance music.
+      Black Coffee helped bring Afro-house to international festivals and larger global
+      stages, combining deep house beats and local percussion with restrained melodic
+      writing and spacious production. House and techno producers used drum machines,
+      synthesizers, samplers, and clubs to build different forms of electronic dance
+      music.
     sources:
       - publisher: Wikipedia
         title: Black Coffee (DJ)
@@ -1016,9 +1059,11 @@ questions:
       of musicians in Chicago. Her sets pay tribute to disco, garage, and techno while
       proudly declaring her identity as a trans woman.
     context: >-
-      Honey Dijon gives this part of the history a specific person, work, place, or tool.
-      House and techno producers used drum machines, synthesizers, samplers, and clubs to
-      build different forms of electronic dance music.
+      Honey Dijon, a Chicago-born DJ and producer from a family of musicians, mixes
+      classic house with modern production and pays tribute to disco, garage, and techno
+      while proudly declaring her identity as a trans woman. House and techno producers
+      used drum machines, synthesizers, samplers, and clubs to build different forms of
+      electronic dance music.
     sources:
       - publisher: Wikipedia
         title: Honey Dijon
@@ -1039,10 +1084,11 @@ questions:
       arrange, and mix complete songs on a laptop. Software like Ableton Live and Logic
       Pro brought professional tools into home studios.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. House
-      and techno producers used drum machines, synthesizers, samplers, and clubs to build
-      different forms of electronic dance music. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      By the 2000s, digital audio workstations such as Ableton Live and Logic Pro let
+      producers create, arrange, and mix complete songs on a laptop, bringing professional
+      tools into home studios without major label budgets. House and techno producers used
+      drum machines, synthesizers, samplers, and clubs to build different forms of
+      electronic dance music.
     sources:
       - publisher: Wikipedia
         title: Digital audio workstation

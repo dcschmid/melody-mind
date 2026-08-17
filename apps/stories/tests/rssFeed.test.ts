@@ -69,12 +69,14 @@ describe("stories rss feed", () => {
     expect(config.title).toBe("MelodyMind Stories");
     expect(config.site).toBe("https://stories.melody-mind.de");
     expect(items.map((item) => item.link)).toEqual(["/newer/", "/older/"]);
+    expect(config.xmlns).toEqual({ dc: "http://purl.org/dc/elements/1.1/" });
     expect(items[0]).toMatchObject({
       title: "Story newer",
       description: "Dek for newer.",
       pubDate: new Date("2026-02-01T00:00:00Z"),
       categories: ["scenes"],
-      author: "Editorial Team",
+      customData: "<dc:creator>Editorial Team</dc:creator>",
     });
+    expect(items[0]).not.toHaveProperty("author");
   });
 });

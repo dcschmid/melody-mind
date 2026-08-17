@@ -15,8 +15,9 @@ const artists = quizzes.filter((quiz) => quiz.data.category === "artist");
 const albums = quizzes.filter((quiz) => quiz.data.category === "album");
 const quizIds = quizzes.map((quiz) => quiz.id);
 const canonical = new URL("/", Astro.site).toString();
-const description =
-  "Choose from seven decade quizzes, sixteen genre journeys, two artist spotlights, and two album stories. Every ten-question round includes sources and runs without accounts or tracking.";
+const countLabel = (count: number, singular: string, plural: string) =>
+  `${count} ${count === 1 ? singular : plural}`;
+const description = `Choose from ${countLabel(decades.length, "decade quiz", "decade quizzes")}, ${countLabel(journeys.length, "genre journey", "genre journeys")}, ${countLabel(artists.length, "artist spotlight", "artist spotlights")}, and ${countLabel(albums.length, "album story", "album stories")}. Every ten-question round includes sources and runs without accounts or tracking.`;
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -68,7 +69,6 @@ const structuredData = [
         browser.
       </p>
       <AiDisclosure
-        variant="assisted"
         label="AI-assisted, human-reviewed quizzes"
         detail="Artwork is AI-generated."
         detailsHref="/about/#ai-transparency"
@@ -131,7 +131,7 @@ const structuredData = [
 
     <section class="quiz-library" id="decades" aria-labelledby="decades-title">
       <header class="quiz-library__header">
-        <p class="eyebrow">Seven eras</p>
+        <p class="eyebrow">{countLabel(decades.length, "era", "eras")}</p>
         <h2 id="decades-title">Choose a decade</h2>
         <p>Move from early rock and roll to streaming-era pop culture.</p>
       </header>
@@ -160,7 +160,9 @@ const structuredData = [
       aria-labelledby="journeys-title"
     >
       <header class="quiz-library__header">
-        <p class="eyebrow">Sixteen listening paths</p>
+        <p class="eyebrow">
+          {countLabel(journeys.length, "listening path", "listening paths")}
+        </p>
         <h2 id="journeys-title">Follow a genre journey</h2>
         <p>Trace how artists, studios, formats, and local scenes changed the music.</p>
       </header>
@@ -186,7 +188,9 @@ const structuredData = [
 
     <section class="quiz-library" id="artists" aria-labelledby="artists-title">
       <header class="quiz-library__header">
-        <p class="eyebrow">Two singular careers</p>
+        <p class="eyebrow">
+          {countLabel(artists.length, "singular career", "singular careers")}
+        </p>
         <h2 id="artists-title">Follow an artist</h2>
         <p>
           Connect creative turning points, collaborators, studio methods, and musical
@@ -215,7 +219,9 @@ const structuredData = [
 
     <section class="quiz-library" id="albums" aria-labelledby="albums-title">
       <header class="quiz-library__header">
-        <p class="eyebrow">Two landmark records</p>
+        <p class="eyebrow">
+          {countLabel(albums.length, "landmark record", "landmark records")}
+        </p>
         <h2 id="albums-title">Go inside an album</h2>
         <p>
           Hear how songs, performances, production choices, and cultural afterlives fit

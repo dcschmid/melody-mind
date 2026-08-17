@@ -148,7 +148,6 @@ export default defineConfig({
         "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https://eu2.contabostorage.com blob:; connect-src 'self' https://eu2.contabostorage.com; frame-src 'self' https://embed.melody-mind.de; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'",
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "SAMEORIGIN",
-      "X-XSS-Protection": "1; mode=block",
       "Referrer-Policy": "strict-origin-when-cross-origin",
       "Permissions-Policy":
         "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()",
@@ -163,10 +162,7 @@ export default defineConfig({
         "@components": path.resolve("./src/components"),
         "@layouts": path.resolve("./src/layouts"),
         "@utils": path.resolve("./src/utils"),
-        "@constants": path.resolve("./src/constants"),
-        "@scripts": path.resolve("./src/scripts"),
         "@data": path.resolve("./src/data"),
-        "@types": path.resolve("./src/types"),
       },
     },
     build: {

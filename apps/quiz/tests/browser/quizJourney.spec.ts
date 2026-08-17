@@ -108,6 +108,28 @@ test("reviews revealed answers and recommends the next quiz", async ({ page }) =
   );
 });
 
+test("resumes a saved round after a reload", async ({ page }) => {
+  await page.goto("/1950s/");
+  await page.getByRole("button", { name: "Start quiz" }).click();
+  await page.getByRole("button", { name: "Show answer" }).click();
+  await page.getByRole("button", { name: "Next question" }).click();
+  await expect(page.locator("#quiz-progress-text")).toHaveText("Question 2 of 10");
+
+  await page.reload();
+
+  await expect(page.locator("#quiz-storage-status")).toContainText(
+    "Your unfinished round is saved only in this browser."
+  );
+  const continueButton = page.getByRole("button", {
+    name: "Continue question 2 of 10",
+  });
+  await expect(continueButton).toBeVisible();
+  await continueButton.click();
+
+  await expect(page.locator("#quiz-progress-text")).toHaveText("Question 2 of 10");
+  await expect(page.locator("#quiz-game")).toBeVisible();
+});
+
 test("announces discarded progress and keeps a valid focus target", async ({ page }) => {
   await page.goto("/1950s/");
   await page.getByRole("button", { name: "Start quiz" }).click();

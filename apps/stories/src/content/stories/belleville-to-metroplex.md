@@ -3,7 +3,7 @@ format: scene-report
 title: Belleville to Metroplex
 dek: Detroit techno grew through high-school exchanges, late-night radio, basement studios, independent labels, and a city whose machine age offered material rather than a slogan.
 seoDescription: Detroit techno through Juan Atkins, Derrick May, Kevin Saunderson, Electrifying Mojo radio, Belleville, Metroplex, Transmat, and European exchange.
-publishedAt: 2026-07-19
+publishedAt: 2026-07-19T12:00:00Z
 topics:
   - Detroit techno
   - Belleville Three

@@ -45,6 +45,14 @@ const questionSchema = z
       });
     }
 
+    if (question.type === "true-false" && question.options.length !== 2) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["options"],
+        message: "True/false questions must provide exactly two options.",
+      });
+    }
+
     if (question.type === "single-choice" && typeof question.correct !== "number") {
       ctx.addIssue({
         code: "custom",

@@ -85,6 +85,26 @@ describe("quiz persistence", () => {
     expect(storage.values.has(ACTIVE_QUIZ_STORAGE_KEY)).toBe(false);
   });
 
+  it("discards unparseable JSON so the hint appears only once", () => {
+    const storage = new MemoryStorage();
+    storage.values.set(ACTIVE_QUIZ_STORAGE_KEY, "{not-json");
+
+    expect(readActiveQuiz(storage)).toEqual({ status: "invalid" });
+    expect(storage.values.has(ACTIVE_QUIZ_STORAGE_KEY)).toBe(false);
+    expect(readActiveQuiz(storage)).toEqual({ status: "empty" });
+  });
+
+  it("still reports invalid data when removal fails", () => {
+    const storage = new (class extends MemoryStorage {
+      removeItem(): void {
+        throw new Error("Storage unavailable");
+      }
+    })();
+    storage.values.set(ACTIVE_QUIZ_STORAGE_KEY, "{not-json");
+
+    expect(readActiveQuiz(storage)).toEqual({ status: "invalid" });
+  });
+
   it("fails safely when storage access is blocked", () => {
     const storage = new MemoryStorage();
     storage.failWrites = true;

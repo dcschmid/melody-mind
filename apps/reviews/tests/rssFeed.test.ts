@@ -71,13 +71,14 @@ describe("reviews rss feed", () => {
     ];
   });
 
-  it("sorts published reviews newest first and uses the author entry", async () => {
+  it("sorts published reviews newest first and credits the author via dc:creator", async () => {
     state.author = { data: { name: "Daniel Schmid" } };
 
     const config = await loadFeed();
     const items = config.items as Array<Record<string, unknown>>;
 
     expect(config.title).toBe("MelodyMind Reviews");
+    expect(config.xmlns).toEqual({ dc: "http://purl.org/dc/elements/1.1/" });
     expect(items.map((item) => item.link)).toEqual([
       "/reviews/newer/",
       "/reviews/older/",
@@ -86,16 +87,18 @@ describe("reviews rss feed", () => {
       title: "Review newer",
       description: "Dek for newer.",
       categories: ["metal"],
-      author: "Daniel Schmid",
+      customData: "<dc:creator>Daniel Schmid</dc:creator>",
     });
+    expect(items[0]).not.toHaveProperty("author");
   });
 
-  it("falls back to the default author when the entry is missing", async () => {
+  it("omits the creator credit when the author entry is missing", async () => {
     state.author = undefined;
 
     const config = await loadFeed();
     const items = config.items as Array<Record<string, unknown>>;
 
-    expect(items[0]?.author).toBe("Daniel Schmid");
+    expect(items[0]).not.toHaveProperty("customData");
+    expect(items[0]).not.toHaveProperty("author");
   });
 });

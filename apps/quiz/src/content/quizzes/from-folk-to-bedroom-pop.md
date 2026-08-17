@@ -31,10 +31,11 @@ questions:
       voice to another. No single author owned them, the song belonged to the people who
       sang it.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Traditional songs circulated through memory and performance before collectors,
-      publishers, and record companies fixed particular versions. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Before any music could be recorded, folk songs traveled by memory from one voice to
+      another, and no single author owned them; each song belonged instead to the
+      community that kept singing it. Traditional songs circulated through memory and
+      performance before collectors, publishers, and record companies fixed particular
+      versions.
     sources:
       - publisher: Wikipedia
         title: Folk music
@@ -57,10 +58,11 @@ questions:
       musicians in prisons, on farms, and in small towns across the American South,
       helping preserve voices that might have been lost.
     context: >-
-      Alan Lomax gives this part of the history a specific person, work, place, or tool.
-      Traditional songs circulated through memory and performance before collectors,
-      publishers, and record companies fixed particular versions. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Alan Lomax recorded musicians in prisons, on farms, and in small towns across the
+      American South, preserving voices that might have been lost and fixing versions of
+      songs that later artists, all the way to bedroom pop, would revisit. Traditional
+      songs circulated through memory and performance before collectors, publishers, and
+      record companies fixed particular versions.
     sources:
       - publisher: Wikipedia
         title: Alan Lomax
@@ -83,10 +85,11 @@ questions:
       migrations. He wrote from personal experience and treated songwriting as a civic
       act.
     context: >-
-      Woody Guthrie gives this part of the history a specific person, work, place, or
-      tool. Traditional songs circulated through memory and performance before collectors,
-      publishers, and record companies fixed particular versions. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Woody Guthrie wrote 'This Land Is Your Land' from personal experience shaped by the
+      Dust Bowl migrations, treating songwriting as a civic act that set a standard for
+      intimate, committed writing from folk through bedroom pop. Traditional songs
+      circulated through memory and performance before collectors, publishers, and record
+      companies fixed particular versions.
     sources:
       - publisher: Wikipedia
         title: Woody Guthrie Folk Festival
@@ -109,10 +112,11 @@ questions:
       an immediate and mixed reaction. Some cheered, others booed. The moment symbolized a
       line being crossed between folk purity and rock amplification.
     context: >-
-      Bob Dylan performed with an electric band gives this part of the history a specific
-      person, work, place, or tool. Traditional songs circulated through memory and
-      performance before collectors, publishers, and record companies fixed particular
-      versions.
+      When Bob Dylan performed with an electric band at the 1965 Newport Folk Festival,
+      the mixed reaction showed that a boundary between folk purity and rock amplification
+      had fallen, a rupture later intimate styles would answer. Traditional songs
+      circulated through memory and performance before collectors, publishers, and record
+      companies fixed particular versions.
     sources:
       - publisher: Wikipedia
         title: Electric Dylan controversy
@@ -139,11 +143,11 @@ questions:
       introspective themes and technical refinement. Dylan and Baez were American revival
       artists.
     context: >-
-      Nick Drake, Sandy Denny, Bert Jansch belong together here; the comparison names each
-      part of the change. Traditional songs circulated through memory and performance
+      Nick Drake, Sandy Denny, and Bert Jansch brought introspective themes and technical
+      refinement to British folk, turning the tradition inward toward private feeling in a
+      move that leads straight to bedroom pop's close-mic intimacy, where the personal
+      becomes the point. Traditional songs circulated through memory and performance
       before collectors, publishers, and record companies fixed particular versions.
-      Reading the credit or date beside the musical detail makes the answer easier to
-      check and compare.
     sources:
       - publisher: Wikipedia
         title: Nick Drake discography
@@ -166,10 +170,11 @@ questions:
       a private room. Drake's inward tone was different from the lively energy of earlier
       revival music.
     context: >-
-      Pink Moon gives this part of the history a specific person, work, place, or tool.
-      Traditional songs circulated through memory and performance before collectors,
-      publishers, and record companies fixed particular versions. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Nick Drake's Pink Moon consists mostly of voice and guitar and feels like entering a
+      private room, an inward turn away from the lively energy of earlier revival music
+      toward the intimacy bedroom pop would later perfect. Traditional songs circulated
+      through memory and performance before collectors, publishers, and record companies
+      fixed particular versions.
     sources:
       - publisher: Wikipedia
         title: Pink Moon
@@ -191,10 +196,11 @@ questions:
       Joni Mitchell's Blue, released in 1971, felt intensely personal. Songs like 'A Case
       of You' and 'River' explore love, distance, and longing with emotional directness.
     context: >-
-      Blue gives this part of the history a specific person, work, place, or tool.
+      Joni Mitchell's Blue, released in 1971, felt intensely personal, with songs like 'A
+      Case of You' and 'River' exploring love, distance, and longing through emotional
+      directness that became a model for confessional writing all the way to bedroom pop.
       Traditional songs circulated through memory and performance before collectors,
-      publishers, and record companies fixed particular versions. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      publishers, and record companies fixed particular versions.
     sources:
       - publisher: Wikipedia
         title: In Blue
@@ -217,10 +223,11 @@ questions:
       one of the best-selling albums of its time. It changed how audiences thought about
       authorship.
     context: >-
-      Tapestry gives this part of the history a specific person, work, place, or tool.
+      Carole King's Tapestry, released in 1971, became one of the best-selling albums of
+      its time and changed how audiences thought about authorship, strengthening the
+      singer-songwriter's personal voice on the road that leads to bedroom pop.
       Traditional songs circulated through memory and performance before collectors,
-      publishers, and record companies fixed particular versions. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      publishers, and record companies fixed particular versions.
     sources:
       - publisher: Wikipedia
         title: Tapestry (Carole King album)
@@ -245,10 +252,10 @@ questions:
       well-known poet and novelist in Canada. His literary background influenced how
       people heard his songs.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Traditional songs circulated through memory and performance before collectors,
-      publishers, and record companies fixed particular versions. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      When Leonard Cohen began making music in the late 1960s, he had already built a wide
+      reputation in Canada as a poet and novelist, a literary background that changed how
+      people heard his songs. Traditional songs circulated through memory and performance
+      before collectors, publishers, and record companies fixed particular versions.
     sources:
       - publisher: Wikipedia
         title: Leonard Cohen
@@ -275,11 +282,11 @@ questions:
       Laurel Canyon scene in Los Angeles. Nick Drake and Sandy Denny were British folk
       artists.
     context: >-
-      James Taylor, Linda Ronstadt, Crosby, Stills, Nash & Young belong together here; the
-      comparison names each part of the change. Traditional songs circulated through
-      memory and performance before collectors, publishers, and record companies fixed
-      particular versions. Reading the credit or date beside the musical detail makes the
-      answer easier to check and compare.
+      James Taylor, Linda Ronstadt, and Crosby, Stills, Nash & Young were part of the
+      Laurel Canyon scene in Los Angeles, where songwriter-centered folk rock made private
+      experience public, a step toward the bedroom confessions that followed. Traditional
+      songs circulated through memory and performance before collectors, publishers, and
+      record companies fixed particular versions.
     sources:
       - publisher: Wikipedia
         title: James Taylor
@@ -302,10 +309,11 @@ questions:
       Wrecking Ball, produced by Daniel Lanois, she embraced atmospheric production while
       keeping the focus on the story.
     context: >-
-      Wrecking Ball gives this part of the history a specific person, work, place, or
-      tool. The folk revival connected older repertoire to labor, civil rights, antiwar,
-      and youth movements, sometimes creating disputes over ownership. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      Emmylou Harris's album Wrecking Ball, produced by Daniel Lanois, embraced
+      atmospheric production while keeping the focus on storytelling, showing folk's older
+      repertoire adapting to studio textures on the way to today's bedroom recordings. The
+      folk revival connected older repertoire to labor, civil rights, antiwar, and youth
+      movements, sometimes creating disputes over ownership.
     sources:
       - publisher: Wikipedia
         title: Wrecking Ball
@@ -327,11 +335,11 @@ questions:
       Lucinda Williams's 1998 album, Car Wheels on a Gravel Road, is a great example of
       the Americana style. The songs blended personal reflection and Southern landscape.
     context: >-
-      Car Wheels on a Gravel Road gives this part of the history a specific person, work,
-      place, or tool. The folk revival connected older repertoire to labor, civil rights,
-      antiwar, and youth movements, sometimes creating disputes over ownership. Reading
-      the credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      Lucinda Williams's 1998 album Car Wheels on a Gravel Road is a defining work of the
+      Americana style, blending personal reflection with Southern landscape and keeping
+      intimate songwriting central as folk moved toward independent, home-made forms. The
+      folk revival connected older repertoire to labor, civil rights, antiwar, and youth
+      movements, sometimes creating disputes over ownership.
     sources:
       - publisher: Wikipedia
         title: Car Wheels on a Gravel Road
@@ -354,9 +362,10 @@ questions:
       Carter Family song 'No Depression in Heaven.' Over time, 'No Depression' became
       shorthand for that wider roots-oriented scene.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. The
-      folk revival connected older repertoire to labor, civil rights, antiwar, and youth
-      movements, sometimes creating disputes over ownership.
+      The title of Uncle Tupelo's album 'No Depression' became shorthand for the emerging
+      alt-country style and the wider roots scene around it. The folk revival connected
+      older repertoire to labor, civil rights, antiwar, and youth movements, sometimes
+      creating disputes over ownership.
     sources:
       - publisher: Wikipedia
         title: Uncle Tupelo
@@ -378,10 +387,11 @@ questions:
       Gillian Welch's first album, Revival, which came out in 1996, featured a sound that
       felt like it was from a time long ago. The arrangements were raw and unpolished.
     context: >-
-      Revival gives this part of the history a specific person, work, place, or tool. The
-      folk revival connected older repertoire to labor, civil rights, antiwar, and youth
-      movements, sometimes creating disputes over ownership. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Gillian Welch's first album, Revival, came out in 1996 with a sound that felt like a
+      time long ago, its raw, unpolished arrangements reviving old textures while keeping
+      the personal focus that links folk to bedroom pop. The folk revival connected older
+      repertoire to labor, civil rights, antiwar, and youth movements, sometimes creating
+      disputes over ownership.
     sources:
       - publisher: Wikipedia
         title: Revival (Gillian Welch album)
@@ -403,11 +413,11 @@ questions:
       Belle and Sebastian's 1996 album If You're Feeling Sinister became a touchstone for
       indie listeners who valued narrative detail over loud, maximal production.
     context: >-
-      If You're Feeling Sinister gives this part of the history a specific person, work,
-      place, or tool. The folk revival connected older repertoire to labor, civil rights,
-      antiwar, and youth movements, sometimes creating disputes over ownership. Reading
-      the credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      Belle and Sebastian's 1996 album If You're Feeling Sinister became a touchstone for
+      indie listeners who valued narrative detail over loud, maximal production, proof
+      that quiet, detailed songcraft could carry folk's storytelling instinct toward the
+      bedroom pop era. The folk revival connected older repertoire to labor, civil rights,
+      antiwar, and youth movements, sometimes creating disputes over ownership.
     sources:
       - publisher: Wikipedia
         title: If You're Feeling Sinister
@@ -430,10 +440,11 @@ questions:
       Stephin Merritt. The record explored the love song as both a subject and an
       experiment.
     context: >-
-      69 Love Songs gives this part of the history a specific person, work, place, or
-      tool. The folk revival connected older repertoire to labor, civil rights, antiwar,
-      and youth movements, sometimes creating disputes over ownership. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      The Magnetic Fields' 1999 album 69 Love Songs, led by Stephin Merritt, explored the
+      love song as both a subject and an experiment, widening indie folk's sense of what
+      intimate songwriting could attempt. The folk revival connected older repertoire to
+      labor, civil rights, antiwar, and youth movements, sometimes creating disputes over
+      ownership.
     sources:
       - publisher: Wikipedia
         title: 69 Love Songs
@@ -454,10 +465,11 @@ questions:
       piano more than the guitar, which made her different from many other
       singer-songwriters connected to folk traditions.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. The
-      folk revival connected older repertoire to labor, civil rights, antiwar, and youth
-      movements, sometimes creating disputes over ownership. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      In New York's anti-folk scene, Regina Spektor stood apart from many other
+      guitar-centered singer-songwriters because she built her songs around the piano,
+      playing it far more than the guitar. The folk revival connected older repertoire to
+      labor, civil rights, antiwar, and youth movements, sometimes creating disputes over
+      ownership.
     sources:
       - publisher: Wikipedia
         title: Regina Spektor
@@ -481,9 +493,11 @@ questions:
       sound became hugely influential because it made emotional fragility feel deliberate
       rather than unfinished.
     context: >-
-      Either/Or gives this part of the history a specific person, work, place, or tool.
-      The folk revival connected older repertoire to labor, civil rights, antiwar, and
-      youth movements, sometimes creating disputes over ownership.
+      Elliott Smith's 1997 album Either/Or placed his almost whispered voice close to the
+      microphone, making emotional fragility feel deliberate rather than unfinished and
+      pointing directly at bedroom pop's intimate aesthetics. The folk revival connected
+      older repertoire to labor, civil rights, antiwar, and youth movements, sometimes
+      creating disputes over ownership.
     sources:
       - publisher: Wikipedia
         title: Either/Or (album)
@@ -506,10 +520,11 @@ questions:
       attention while deepening her vulnerability. The album was recorded with members of
       the band Dirty Three.
     context: >-
-      Moon Pix gives this part of the history a specific person, work, place, or tool. The
-      folk revival connected older repertoire to labor, civil rights, antiwar, and youth
-      movements, sometimes creating disputes over ownership. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Chan Marshall's 1998 album Moon Pix, recorded as Cat Power with members of the band
+      Dirty Three, brought wider attention while deepening her vulnerability, keeping
+      personal exposure at the center as indie folk moved toward bedroom pop. The folk
+      revival connected older repertoire to labor, civil rights, antiwar, and youth
+      movements, sometimes creating disputes over ownership.
     sources:
       - publisher: Wikipedia
         title: Moon Pix
@@ -532,10 +547,11 @@ questions:
       banjo, strings, horns and layered vocals into a sound that was both expansive and
       intimate.
     context: >-
-      Illinois gives this part of the history a specific person, work, place, or tool. The
-      folk revival connected older repertoire to labor, civil rights, antiwar, and youth
-      movements, sometimes creating disputes over ownership. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Sufjan Stevens's 2005 album Illinois combined banjo, strings, horns, and layered
+      vocals into a sound both expansive and intimate, a defining indie folk work that
+      kept large arrangements in service of private feeling. The folk revival connected
+      older repertoire to labor, civil rights, antiwar, and youth movements, sometimes
+      creating disputes over ownership.
     sources:
       - publisher: Wikipedia
         title: Silver & Gold (Sufjan Stevens album)
@@ -556,10 +572,11 @@ questions:
       Stills & Nash, as well as traditional choral arrangements. The focus on blending
       voices made the music feel communal.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Singer-songwriters and independent artists used close vocals and detailed lyrics to
-      make private experience the center of a recording. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Fleet Foxes' 2008 debut album built its sound on close, layered vocal harmonies
+      inspired by Crosby, Stills & Nash and by traditional choral arrangements, a blend
+      that made the music feel communal. Singer-songwriters and independent artists used
+      close vocals and detailed lyrics to make private experience the center of a
+      recording.
     sources:
       - publisher: Wikipedia
         title: Fleet Foxes
@@ -586,10 +603,11 @@ questions:
       style within indie folk. Earlier scenes often focused on male perspectives, but
       these artists shared their own experiences without hesitation.
     context: >-
-      Laura Marling, Sharon Van Etten, Phoebe Bridgers belong together here; the
-      comparison names each part of the change. Singer-songwriters and independent artists
-      used close vocals and detailed lyrics to make private experience the center of a
-      recording.
+      Laura Marling, Sharon Van Etten, and Phoebe Bridgers reshaped indie folk by sharing
+      their own experiences without hesitation, creating a new emotional style in scenes
+      that had often centered male perspectives, and widening the path toward bedroom pop.
+      Singer-songwriters and independent artists used close vocals and detailed lyrics to
+      make private experience the center of a recording.
     sources:
       - publisher: Wikipedia
         title: Laura Marling
@@ -612,11 +630,11 @@ questions:
       programs, made it easier and cheaper to get music-making software. A bedroom could
       work as a studio.
     context: >-
-      Pro Tools, Logic, and other affordable programs gives this part of the history a
-      specific person, work, place, or tool. Singer-songwriters and independent artists
-      used close vocals and detailed lyrics to make private experience the center of a
-      recording. Reading the credit or date beside the musical detail makes the answer
-      easier to check and compare.
+      Digital audio workstations like Pro Tools and Logic, followed by more affordable
+      programs, made recording, editing, and mixing possible on home computers, turning
+      bedrooms into studios and completing folk's long move toward self-made pop.
+      Singer-songwriters and independent artists used close vocals and detailed lyrics to
+      make private experience the center of a recording.
     sources:
       - publisher: Wikipedia
         title: Logic Pro
@@ -645,9 +663,9 @@ questions:
       listeners. Together, these platforms reduced the distance between recording a song
       and finding an audience for it.
     context: >-
-      MySpace, YouTube, Bandcamp belong together here; the comparison names each part of
-      the change. Singer-songwriters and independent artists used close vocals and
-      detailed lyrics to make private experience the center of a recording.
+      MySpace, YouTube, and Bandcamp each shortened the distance between recording a song
+      and finding listeners. Singer-songwriters and independent artists used close vocals
+      and detailed lyrics to make private experience the center of a recording.
     sources:
       - publisher: Wikipedia
         title: MySpace Records
@@ -667,10 +685,11 @@ questions:
       Bandcamp, which launched in 2008, gave artists a way to sell digital downloads and
       physical merchandise directly to fans without the need for a major label.
     context: >-
-      Bandcamp gives this part of the history a specific person, work, place, or tool.
-      Singer-songwriters and independent artists used close vocals and detailed lyrics to
-      make private experience the center of a recording. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Bandcamp, launched in 2008, let artists sell digital downloads and physical
+      merchandise directly to fans without a major label, extending the do-it-yourself
+      independence of earlier folk scenes into online distribution within bedroom pop's
+      direct-to-fan economy. Singer-songwriters and independent artists used close vocals
+      and detailed lyrics to make private experience the center of a recording.
     sources:
       - publisher: Wikipedia
         title: Bandcamp
@@ -691,10 +710,11 @@ questions:
       patterns. Shorter introductions and quicker emotional hooks became advantageous as
       songs adapted to playlist environments.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Singer-songwriters and independent artists used close vocals and detailed lyrics to
-      make private experience the center of a recording. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Streaming playlists and algorithms introduced a new form of gatekeeping that reached
+      into song structure itself, rewarding shorter introductions and quicker emotional
+      hooks as songs adapted to the demands of playlist environments. Singer-songwriters
+      and independent artists used close vocals and detailed lyrics to make private
+      experience the center of a recording.
     sources:
       - publisher: Wikipedia
         title: Streaming media
@@ -718,7 +738,8 @@ questions:
       relaxed singing felt immediate and unforced, which helped define how many listeners
       came to imagine bedroom pop in the late 2010s.
     context: >-
-      Pretty Girl gives this part of the history a specific person, work, place, or tool.
+      Clairo's 2017 song 'Pretty Girl', uploaded to YouTube with a simple bedroom video,
+      went viral and helped define how listeners came to imagine bedroom pop.
       Singer-songwriters and independent artists used close vocals and detailed lyrics to
       make private experience the center of a recording.
     sources:
@@ -743,10 +764,11 @@ questions:
       from her bedroom in Norway. Her songs often addressed themes of queer identity and
       emotional uncertainty.
     context: >-
-      Marie Ulven gives this part of the history a specific person, work, place, or tool.
+      Marie Ulven, also known as Girl in Red, built her audience almost entirely online
+      from her bedroom in Norway, writing about queer identity and emotional uncertainty
+      in a direct, personal voice, continuing folk's confessional line in digital form.
       Singer-songwriters and independent artists used close vocals and detailed lyrics to
-      make private experience the center of a recording. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      make private experience the center of a recording.
     sources:
       - publisher: Wikipedia
         title: Girl in Red
@@ -771,9 +793,10 @@ questions:
       media circulation. The path from bedroom upload to global recognition moved much
       faster than it had in earlier singer-songwriter eras.
     context: >-
-      Coffee gives this part of the history a specific person, work, place, or tool.
-      Singer-songwriters and independent artists used close vocals and detailed lyrics to
-      make private experience the center of a recording.
+      beabadoobee's song 'Coffee' reached a massive mainstream context when a hit record
+      used it, proof that a small bedroom song could travel far. Singer-songwriters and
+      independent artists used close vocals and detailed lyrics to make private experience
+      the center of a recording.
     sources:
       - publisher: Wikipedia
         title: Death Bed (Coffee for Your Head)
@@ -798,9 +821,10 @@ questions:
       success showed that minimalist, intimate production could work on the largest global
       pop stages.
     context: >-
-      When We All Fall Asleep, Where Do We Go? gives this part of the history a specific
-      person, work, place, or tool. Singer-songwriters and independent artists used close
-      vocals and detailed lyrics to make private experience the center of a recording.
+      Billie Eilish's 2019 album When We All Fall Asleep, Where Do We Go? carried
+      intimate, simply produced bedroom pop onto the largest global stages.
+      Singer-songwriters and independent artists used close vocals and detailed lyrics to
+      make private experience the center of a recording.
     sources:
       - publisher: Wikipedia
         title: Birds of a Feather (Billie Eilish song)
@@ -821,10 +845,11 @@ questions:
       She often filmed herself playing the ukulele in her bedroom. Songs like 'Prom Dress'
       had gentle melodies and honest reflections.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Bedroom pop keeps that intimate scale while using laptops, home microphones, and
-      online distribution instead of a formal studio route. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Known as mxmtoon, Maia started uploading songs to YouTube as a teenager, often
+      filming herself in her bedroom playing the ukulele, with tracks like 'Prom Dress'
+      offering gentle melodies and honest reflections. Bedroom pop keeps that intimate
+      scale while using laptops, home microphones, and online distribution instead of a
+      formal studio route.
     sources:
       - publisher: Wikipedia
         title: YouTube Music
@@ -844,11 +869,11 @@ questions:
       During the folk revival, authenticity was a symbol of loyalty to tradition and
       strong political beliefs. The use of acoustic instruments made the music feel real.
     context: >-
-      Loyalty to tradition and political beliefs gives this part of the history a specific
-      person, work, place, or tool. Bedroom pop keeps that intimate scale while using
+      During the folk revival, authenticity symbolized loyalty to tradition and strong
+      political beliefs, with acoustic instruments making the music feel real, a standard
+      bedroom pop would later reinterpret around closeness instead of ideology, keeping
+      intimacy as the shared test. Bedroom pop keeps that intimate scale while using
       laptops, home microphones, and online distribution instead of a formal studio route.
-      Reading the credit or date beside the musical detail makes the answer easier to
-      check and compare.
     sources:
       - publisher: Wikipedia
         title: Folk music
@@ -876,11 +901,11 @@ questions:
       access, and time without immediate economic pressure. Class and location still
       affect visibility.
     context: >-
-      Stable housing, Equipment, Internet access, Time without immediate economic pressure
-      belong together here; the comparison names each part of the change. Bedroom pop
-      keeps that intimate scale while using laptops, home microphones, and online
-      distribution instead of a formal studio route. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Bedroom pop seems democratic but depends on stable housing, equipment, internet
+      access, and time without immediate economic pressure, resources that still shape who
+      gets heard in a lineage that began with folk's ordinary voices, a reminder that
+      access still matters. Bedroom pop keeps that intimate scale while using laptops,
+      home microphones, and online distribution instead of a formal studio route.
     sources:
       - publisher: Wikipedia
         title: Housing Works
@@ -901,10 +926,11 @@ questions:
       feeds is affected by completion rates, skip behavior, and engagement patterns. Song
       structure can adapt to these pressures.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Bedroom pop keeps that intimate scale while using laptops, home microphones, and
-      online distribution instead of a formal studio route. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      On streaming platforms, discovery is guided by data metrics such as completion
+      rates, skip behavior, and engagement patterns, signals that shape how often a track
+      appears in recommendation feeds and how songs are structured. Bedroom pop keeps that
+      intimate scale while using laptops, home microphones, and online distribution
+      instead of a formal studio route.
     sources:
       - publisher: Wikipedia
         title: Suno (platform)
@@ -932,10 +958,10 @@ questions:
       through the singer-songwriter era, into indie folk, and finally to bedroom pop.
       Heavy metal is not part of this lineage.
     context: >-
-      Field recordings and protest ballads, Singer-songwriter era, Indie folk, Bedroom pop
-      belong together here; the comparison names each part of the change. Bedroom pop
-      keeps that intimate scale while using laptops, home microphones, and online
-      distribution instead of a formal studio route.
+      The article traces intimate songwriting from field recordings and protest ballads
+      through the singer-songwriter era and indie folk into bedroom pop, a lineage heavy
+      metal does not belong to. Bedroom pop keeps that intimate scale while using laptops,
+      home microphones, and online distribution instead of a formal studio route.
     sources:
       - publisher: Wikipedia
         title: Field recording
@@ -956,10 +982,11 @@ questions:
       anti-war anthem. She brought Indigenous history and contemporary struggles directly
       into her music.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
+      Buffy Sainte-Marie wrote 'Universal Soldier,' which appeared on her first album and
+      became an anti-war anthem, and across her music she addressed Indigenous rights,
+      bringing Indigenous history and contemporary struggles directly into her songs.
       Bedroom pop keeps that intimate scale while using laptops, home microphones, and
-      online distribution instead of a formal studio route. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      online distribution instead of a formal studio route.
     sources:
       - publisher: Wikipedia
         title: Buffy Sainte-Marie
@@ -981,10 +1008,11 @@ questions:
       Fairport Convention's 1969 album Liege & Lief is an important example of British
       folk rock. It combined old and new songs with energy and precision.
     context: >-
-      Liege & Lief gives this part of the history a specific person, work, place, or tool.
-      Bedroom pop keeps that intimate scale while using laptops, home microphones, and
-      online distribution instead of a formal studio route. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Fairport Convention's 1969 album Liege & Lief combined old and new songs with energy
+      and precision, an important example of British folk rock's electrification that
+      parallels the route from folk purity to bedroom pop's plugged-in intimacy. Bedroom
+      pop keeps that intimate scale while using laptops, home microphones, and online
+      distribution instead of a formal studio route.
     sources:
       - publisher: Wikipedia
         title: Liege & Lief
@@ -1009,11 +1037,11 @@ questions:
       Bedroom pop lyrics focus on personal experiences, uncertainty, queer identity, and
       longing. Political revolution is more characteristic of earlier protest folk.
     context: >-
-      Personal experiences, Feelings of uncertainty, Queer identity, Longing and yearning
-      belong together here; the comparison names each part of the change. Bedroom pop
-      keeps that intimate scale while using laptops, home microphones, and online
-      distribution instead of a formal studio route. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Bedroom pop lyrics focus on personal experiences, feelings of uncertainty, queer
+      identity, and longing, turning inward where earlier protest folk aimed at political
+      revolution, a shift that defines this arc from public causes to private rooms
+      recorded at home. Bedroom pop keeps that intimate scale while using laptops, home
+      microphones, and online distribution instead of a formal studio route.
     sources:
       - publisher: Wikipedia
         title: Longing
@@ -1035,9 +1063,10 @@ questions:
       field recording could preserve a voice while simultaneously reshaping it for a much
       larger public.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Bedroom pop keeps that intimate scale while using laptops, home microphones, and
-      online distribution instead of a formal studio route.
+      Lead Belly was recorded while imprisoned in Louisiana, and his songs reached a much
+      wider public after Alan Lomax helped make them known. Bedroom pop keeps that
+      intimate scale while using laptops, home microphones, and online distribution
+      instead of a formal studio route.
     sources:
       - publisher: Wikipedia
         title: Lead Belly
@@ -1058,10 +1087,11 @@ questions:
       which mixed acoustic elements with ambient textures. Her work showed that this
       generation feels comfortable talking about their feelings.
     context: >-
-      Punisher gives this part of the history a specific person, work, place, or tool.
-      Bedroom pop keeps that intimate scale while using laptops, home microphones, and
-      online distribution instead of a formal studio route. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Phoebe Bridgers's album Punisher mixed acoustic elements with ambient textures,
+      showing a generation comfortable talking about its feelings and carrying folk's
+      confessional tradition into bedroom pop's textured intimacy. Bedroom pop keeps that
+      intimate scale while using laptops, home microphones, and online distribution
+      instead of a formal studio route.
     sources:
       - publisher: Wikipedia
         title: Punisher (album)

@@ -6,7 +6,7 @@ import { load as loadYaml } from "js-yaml";
 const CONTENT_DIRECTORY = new URL("../src/content/stories/", import.meta.url);
 const MIN_WORDS = 1800;
 const MAX_WORDS = 2500;
-const EXPECTED_STORIES = 44;
+const MINIMUM_STORIES = 44;
 const MIN_FIGURES = 5;
 const MAX_FIGURES = 7;
 const ALLOWED_FORMATS = new Set([
@@ -204,9 +204,9 @@ async function main() {
     }
   }
 
-  if (files.length !== EXPECTED_STORIES) {
+  if (files.length < MINIMUM_STORIES) {
     failures.push(
-      `expected exactly ${EXPECTED_STORIES} published stories, found ${files.length}.`
+      `expected at least ${MINIMUM_STORIES} published stories, found ${files.length}.`
     );
   }
 

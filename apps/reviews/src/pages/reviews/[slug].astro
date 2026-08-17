@@ -174,6 +174,35 @@ const articleSchema = {
       </div>
     </div>
 
+    <section class="review__assessment reading-shell" aria-labelledby="assessment-title">
+      <p class="eyebrow">The argument</p>
+      <h2 id="assessment-title">Strengths and limits</h2>
+      <div class="review__assessment-columns">
+        <div class="review__assessment-block">
+          <h3>Strengths</h3>
+          <ul>
+            {review.data.strengths.map((strength) => <li>{strength}</li>)}
+          </ul>
+        </div>
+        <div class="review__assessment-block">
+          <h3>Limits</h3>
+          <ul>
+            {review.data.limits.map((limit) => <li>{limit}</li>)}
+          </ul>
+        </div>
+      </div>
+      {
+        review.data.furtherReading && (
+          <p class="review__further">
+            Further reading:{" "}
+            <a href={review.data.furtherReading.url} rel="noopener noreferrer">
+              {review.data.furtherReading.label}
+            </a>
+          </p>
+        )
+      }
+    </section>
+
     <section class="review__sources reading-shell" aria-labelledby="sources-title">
       <p class="eyebrow">Documentation</p>
       <h2 id="sources-title">Sources</h2>
@@ -290,7 +319,8 @@ const articleSchema = {
   }
 
   .review__meta dt,
-  .review__listen h2 {
+  .review__listen h2,
+  .review__assessment-block h3 {
     font-size: 0.72rem;
     font-weight: 700;
     color: var(--quiet-ink);
@@ -342,6 +372,7 @@ const articleSchema = {
     max-inline-size: var(--reading-width);
   }
 
+  .review__assessment,
   .review__sources,
   .review__disclosure,
   .review__footer {
@@ -349,9 +380,32 @@ const articleSchema = {
     gap: var(--space-lg);
   }
 
+  .review__assessment h2,
   .review__sources h2,
   .review__footer h2 {
     font-size: clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .review__assessment-columns {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .review__assessment-block {
+    display: grid;
+    gap: var(--space-sm);
+    align-content: start;
+  }
+
+  .review__assessment-block ul {
+    display: grid;
+    gap: var(--space-sm);
+    padding: 0;
+    list-style: none;
+  }
+
+  .review__further {
+    color: var(--quiet-ink);
   }
 
   .review__sources ol {
@@ -413,6 +467,10 @@ const articleSchema = {
       grid-template-columns: 17rem minmax(0, var(--reading-width));
       gap: clamp(3rem, 7vw, 7rem);
       justify-content: center;
+    }
+
+    .review__assessment-columns {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .review__rail {

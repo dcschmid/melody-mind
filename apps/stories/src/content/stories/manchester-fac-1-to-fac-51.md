@@ -3,7 +3,7 @@ format: scene-report
 title: Manchester, FAC 1 to FAC 51
 dek: Between a Hulme club night and a purpose-built dance floor, Factory became a network of posters, recordings, debts, arguments, and rooms spread across Greater Manchester.
 seoDescription: A sourced scene report on Factory Records from the Russell Club and Strawberry Studios to the Haçienda, following people, places, catalog numbers, and conflict.
-publishedAt: 2026-07-18
+publishedAt: 2026-07-18T12:00:00Z
 topics:
   - Factory Records
   - Manchester

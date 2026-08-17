@@ -3,7 +3,7 @@ format: artist-portrait
 title: The Guitar Before Rock Had a Name
 dek: Sister Rosetta Tharpe made the electric guitar answer a gospel voice, then carried that sound through churches, theaters, studios, stadiums, and a railway platform.
 seoDescription: How Sister Rosetta Tharpe shaped electric guitar performance through gospel, recording technology, touring, and a career that rock history recognized late.
-publishedAt: 2026-07-25
+publishedAt: 2026-07-25T12:00:00Z
 topics:
   - Sister Rosetta Tharpe
   - gospel

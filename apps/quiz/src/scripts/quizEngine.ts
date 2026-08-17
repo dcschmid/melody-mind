@@ -49,12 +49,8 @@ export function normalizeQuestion(
   question: QuizQuestion,
   random: RandomSource
 ): RuntimeQuestion {
-  const labels =
-    question.type === "true-false" && question.options.length !== 2
-      ? ["True", "False"]
-      : question.options;
   const correctIndexes = getCorrectIndexes(question);
-  const options = labels.map((label, index) => ({
+  const options = question.options.map((label, index) => ({
     id: `${question.id}-option-${index + 1}`,
     label,
     correct: correctIndexes.includes(index),

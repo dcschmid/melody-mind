@@ -12,11 +12,14 @@ export async function GET(context: { site?: URL }) {
   const quizzes = (await getCollection("quizzes", ({ data }) => !data.draft)).toSorted(
     (left, right) => newestCheckedAt(right) - newestCheckedAt(left)
   );
+  const count = (category: string) =>
+    quizzes.filter((quiz) => quiz.data.category === category).length;
+  const countLabel = (value: number, singular: string, plural: string) =>
+    `${value} ${value === 1 ? singular : plural}`;
 
   return rss({
     title: "MelodyMind Quiz",
-    description:
-      "Sourced music history quizzes on seven decades, sixteen genre journeys, two artist spotlights, and two album stories.",
+    description: `Sourced music history quizzes on ${countLabel(count("decade"), "decade", "decades")}, ${countLabel(count("genre-evolution"), "genre journey", "genre journeys")}, ${countLabel(count("artist"), "artist spotlight", "artist spotlights")}, and ${countLabel(count("album"), "album story", "album stories")}.`,
     site: context.site ?? "https://quiz.melody-mind.de",
     items: quizzes.map((quiz) => ({
       title: quiz.data.title,

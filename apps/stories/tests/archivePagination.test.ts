@@ -26,4 +26,26 @@ describe("Stories archive pagination", () => {
     expect(formatArchivePageUrl("/page/1")).toBe("/");
     expect(formatArchivePageUrl("/page/2")).toBe("/page/2/");
   });
+
+  it("links adjacent pages through nextUrl and prevUrl", () => {
+    const items = Array.from({ length: 31 });
+    expect(getArchivePageSlice(items, 1)).toMatchObject({
+      nextUrl: "/page/2/",
+      prevUrl: undefined,
+    });
+    expect(getArchivePageSlice(items, 2)).toMatchObject({
+      nextUrl: undefined,
+      prevUrl: "/",
+    });
+  });
+
+  it("clamps out-of-range pages to the archive bounds", () => {
+    const items = Array.from({ length: 31 });
+    expect(getArchivePageSlice(items, 0)).toMatchObject({ currentPage: 1 });
+    expect(getArchivePageSlice(items, 99)).toMatchObject({
+      currentPage: 2,
+      nextUrl: undefined,
+      prevUrl: "/",
+    });
+  });
 });

@@ -31,10 +31,10 @@ questions:
       absorbing American jazz, swing, and early rock through radio broadcasts, records,
       and performances near military bases, then blending these with local traditions.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. J-pop
-      and K-pop come from different languages, industries, broadcast histories, and local
-      styles, even when they share some production tools. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      East Asian pop grew out of postwar cultural exchange, as musicians in Japan, Korea,
+      Hong Kong, and Taiwan absorbed American jazz, swing, and early rock and blended them
+      with local traditions. J-pop and K-pop come from different languages, industries,
+      broadcast histories, and local styles, even when they share some production tools.
     sources:
       - publisher: Wikipedia
         title: Music of East Asia
@@ -59,9 +59,10 @@ questions:
       international listeners, it was also one of the earliest major encounters with
       Japanese popular music.
     context: >-
-      Sukiyaki by Kyu Sakamoto gives this part of the history a specific person, work,
-      place, or tool. J-pop and K-pop come from different languages, industries, broadcast
-      histories, and local styles, even when they share some production tools.
+      Kyu Sakamoto's 'Sukiyaki' became the first Japanese-language song to top the US
+      Billboard Hot 100 in 1963. J-pop and K-pop come from different languages,
+      industries, broadcast histories, and local styles, even when they share some
+      production tools.
     sources:
       - publisher: Wikipedia
         title: Sukiyaki and Other Japanese Hits
@@ -89,11 +90,11 @@ questions:
       patterns and expressive vocals) and traditional ballads. Kayokyoku and Cantopop were
       Japanese and Chinese genres respectively, while hip hop came later.
     context: >-
-      Trot, Traditional ballads belong together here; the comparison names each part of
-      the change. J-pop and K-pop come from different languages, industries, broadcast
-      histories, and local styles, even when they share some production tools. Reading the
-      credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      Before modern K-pop, Korea's pop industry was built on trot, a genre of simple
+      rhythmic patterns and expressive vocals, and on traditional ballads rather than on
+      Japanese or Chinese genres. J-pop and K-pop come from different languages,
+      industries, broadcast histories, and local styles, even when they share some
+      production tools.
     sources:
       - publisher: Wikipedia
         title: Trot (music)
@@ -114,9 +115,10 @@ questions:
       in the 1950s and appeared on The Ed Sullivan Show in 1959, becoming one of the first
       Korean acts to gain international visibility.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. J-pop
-      and K-pop come from different languages, industries, broadcast histories, and local
-      styles, even when they share some production tools.
+      The Kim Sisters, a Korean vocal trio, performed for American troops in the 1950s and
+      appeared on The Ed Sullivan Show in 1959, one of the first Korean acts to reach
+      international visibility. J-pop and K-pop come from different languages, industries,
+      broadcast histories, and local styles, even when they share some production tools.
     sources:
       - publisher: Wikipedia
         title: The Forester Sisters
@@ -137,8 +139,9 @@ questions:
       recordings combined emotional clarity with precise vocal control, and songs like
       'Camellia Lady' helped define the sound of the genre.
     context: >-
-      She was a defining figure of trot music gives this part of the history a specific
-      person, work, place, or tool. J-pop and K-pop come from different languages,
+      Lee Mi-ja stood out as one of Korean trot's most influential voices, combining
+      emotional clarity with precise vocal control on songs like 'Camellia Lady' that
+      helped define the genre's sound. J-pop and K-pop come from different languages,
       industries, broadcast histories, and local styles, even when they share some
       production tools.
     sources:
@@ -163,9 +166,10 @@ questions:
       presence. Songs such as 'Bad Girl' helped redefine the image of female pop stars in
       Hong Kong, and she became a cultural icon in fashion, film, and public life.
     context: >-
-      Anita Mui gives this part of the history a specific person, work, place, or tool.
-      J-pop and K-pop come from different languages, industries, broadcast histories, and
-      local styles, even when they share some production tools.
+      Anita Mui combined strong vocals with an energetic stage presence that reshaped the
+      image of female pop stars in Hong Kong, making her a cultural icon in fashion and
+      film. J-pop and K-pop come from different languages, industries, broadcast
+      histories, and local styles, even when they share some production tools.
     sources:
       - publisher: Wikipedia
         title: Anita Mui
@@ -186,10 +190,11 @@ questions:
       Takahashi. Their early albums explored synthesizers, sequencers, and electronic
       rhythm machines, influencing electronic music globally.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. J-pop
-      and K-pop come from different languages, industries, broadcast histories, and local
-      styles, even when they share some production tools. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Yellow Magic Orchestra, formed in Japan in 1978 by Haruomi Hosono, Ryuichi Sakamoto,
+      and Yukihiro Takahashi, became pioneers of electronic music on early albums built
+      from synthesizers, sequencers, and electronic rhythm machines. J-pop and K-pop come
+      from different languages, industries, broadcast histories, and local styles, even
+      when they share some production tools.
     sources:
       - publisher: Wikipedia
         title: Yellow Magic Orchestra
@@ -210,11 +215,11 @@ questions:
       inspired by the British Invasion. They brought a youthful energy that contrasted
       with earlier orchestral ballads.
     context: >-
-      Guitar bands inspired by the British Invasion gives this part of the history a
-      specific person, work, place, or tool. J-pop and K-pop come from different
+      Inspired by the British Invasion, the 'Group Sounds' era featured Japanese guitar
+      bands like The Spiders and The Tigers, whose youthful energy contrasted sharply with
+      the orchestral ballads that came before. J-pop and K-pop come from different
       languages, industries, broadcast histories, and local styles, even when they share
-      some production tools. Reading the credit or date beside the musical detail makes
-      the answer easier to check and compare.
+      some production tools.
     sources:
       - publisher: Wikipedia
         title: British Invasion
@@ -235,8 +240,9 @@ questions:
       city pop. His recordings displayed an extraordinary sense of arrangement and vocal
       harmony, with songs like 'Ride on Time' and 'Sparkle' defining the genre.
     context: >-
-      Tatsuro Yamashita gives this part of the history a specific person, work, place, or
-      tool. J-pop and K-pop come from different languages, industries, broadcast
+      Tatsuro Yamashita is widely regarded as an architect of city pop, known for
+      extraordinary arrangements and vocal harmonies on songs like 'Ride on Time' and
+      'Sparkle.' J-pop and K-pop come from different languages, industries, broadcast
       histories, and local styles, even when they share some production tools.
     sources:
       - publisher: Wikipedia
@@ -258,10 +264,11 @@ questions:
       international attention decades later through online music communities, introducing
       younger listeners worldwide to the city pop sound.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. J-pop
-      and K-pop come from different languages, industries, broadcast histories, and local
-      styles, even when they share some production tools. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Mariya Takeuchi's 'Plastic Love,' from her 1984 album 'Variety,' found an unexpected
+      second life decades later, gaining international attention as online music
+      communities introduced the city pop track to younger listeners worldwide. J-pop and
+      K-pop come from different languages, industries, broadcast histories, and local
+      styles, even when they share some production tools.
     sources:
       - publisher: Wikipedia
         title: Mariya Takeuchi
@@ -286,11 +293,11 @@ questions:
       Hyun-suk), and JYP Entertainment (founded by Park Jin-young) are traditionally
       considered the 'Big Three' agencies that shaped the K-Pop industry.
     context: >-
-      SM Entertainment, YG Entertainment, JYP Entertainment belong together here; the
-      comparison names each part of the change. Japanese popular music moved through
+      Founded by Lee Soo-man, Yang Hyun-suk, and Park Jin-young, SM Entertainment, YG
+      Entertainment, and JYP Entertainment form the traditional 'Big Three' agencies
+      behind the rise of the modern K-pop industry. Japanese popular music moved through
       kayokyoku, idol pop, rock, electronic music, television, anime, and a large domestic
-      record market. Reading the credit or date beside the musical detail makes the answer
-      easier to check and compare.
+      record market.
     sources:
       - publisher: Wikipedia
         title: JYP Entertainment
@@ -313,9 +320,10 @@ questions:
       States studying the American pop industry. He believed Korean music companies could
       develop a stronger emphasis on training and long-term artist development.
     context: >-
-      Lee Soo-man gives this part of the history a specific person, work, place, or tool.
-      Japanese popular music moved through kayokyoku, idol pop, rock, electronic music,
-      television, anime, and a large domestic record market.
+      After studying the American pop industry, former singer Lee Soo-man founded SM
+      Entertainment and pushed Korean music companies toward structured training and
+      long-term artist development. Japanese popular music moved through kayokyoku, idol
+      pop, rock, electronic music, television, anime, and a large domestic record market.
     sources:
       - publisher: Wikipedia
         title: Lee Soo-man
@@ -334,10 +342,11 @@ questions:
       K-Pop idol group. Their debut included 'Candy,' which became a youth anthem, and
       they demonstrated how organized fan communities could support an idol group.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Japanese popular music moved through kayokyoku, idol pop, rock, electronic music,
-      television, anime, and a large domestic record market. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      H.O.T., created by SM Entertainment in 1996, is widely considered the first major
+      K-Pop idol group, with a debut that included the youth anthem 'Candy' and showed how
+      organized fan communities could support an idol group. Japanese popular music moved
+      through kayokyoku, idol pop, rock, electronic music, television, anime, and a large
+      domestic record market.
     sources:
       - publisher: Wikipedia
         title: H.O.T.
@@ -362,11 +371,10 @@ questions:
       system where new members could join while older members graduated, allowing the
       group to remain active and constantly evolving.
     context: >-
-      They had a rotating membership system gives this part of the history a specific
-      person, work, place, or tool. Japanese popular music moved through kayokyoku, idol
+      Created by producer Tsunku in 1997, Morning Musume built its long life on a rotating
+      membership: new members joined while older members graduated, keeping the group
+      active and constantly evolving. Japanese popular music moved through kayokyoku, idol
       pop, rock, electronic music, television, anime, and a large domestic record market.
-      Reading the credit or date beside the musical detail makes the answer easier to
-      check and compare.
     sources:
       - publisher: Wikipedia
         title: Morning Musume
@@ -389,11 +397,12 @@ questions:
       important figures in early K-Pop expansion. Her Japanese album 'Listen to My Heart'
       (2002) reached the top of the Japanese charts, proving that a Korean artist could
       succeed in one of the region's most competitive music markets. That success helped
-      turn overseas expansion into.
+      turn overseas expansion into a viable strategy.
     context: >-
-      BoA gives this part of the history a specific person, work, place, or tool. Japanese
-      popular music moved through kayokyoku, idol pop, rock, electronic music, television,
-      anime, and a large domestic record market.
+      BoA debuted at thirteen under SM Entertainment and reached the top of the Japanese
+      charts with 'Listen to My Heart' in 2002. Japanese popular music moved through
+      kayokyoku, idol pop, rock, electronic music, television, anime, and a large domestic
+      record market.
     sources:
       - publisher: Wikipedia
         title: BoA
@@ -417,10 +426,11 @@ questions:
       True. Hallyu, or the Korean Wave, describes the growing popularity of Korean music,
       television dramas, films, and fashion across Asia and eventually around the world.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
+      The term 'Hallyu,' or the Korean Wave, names the growing popularity of Korean
+      culture worldwide, covering Korean music, television dramas, films, and fashion as
+      they spread first across Asia and eventually reached audiences around the world.
       Japanese popular music moved through kayokyoku, idol pop, rock, electronic music,
-      television, anime, and a large domestic record market. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      television, anime, and a large domestic record market.
     sources:
       - publisher: Wikipedia
         title: Korean Wave
@@ -442,10 +452,11 @@ questions:
       Girls' Generation's 2009 hit 'Gee' became a cultural phenomenon. The song's bright
       melody and synchronized choreography made it instantly recognizable across Asia.
     context: >-
-      Girls' Generation gives this part of the history a specific person, work, place, or
-      tool. Japanese popular music moved through kayokyoku, idol pop, rock, electronic
-      music, television, anime, and a large domestic record market. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Girls' Generation's 2009 hit 'Gee' became a cultural phenomenon, with a bright
+      melody and synchronized choreography that made it instantly recognizable in South
+      Korea and across Asia, proof that a K-pop single could resonate far beyond its home
+      market. Japanese popular music moved through kayokyoku, idol pop, rock, electronic
+      music, television, anime, and a large domestic record market.
     sources:
       - publisher: Wikipedia
         title: Gee (Girls' Generation song)
@@ -471,11 +482,11 @@ questions:
       networks, online platforms, music videos, drama soundtracks, and international
       tours. Government restrictions would have hindered, not helped, this expansion.
     context: >-
-      Structured training system for performers, Television networks and online platforms,
-      Music videos and drama soundtracks, International tours belong together here; the
-      comparison names each part of the change. Japanese popular music moved through
-      kayokyoku, idol pop, rock, electronic music, television, anime, and a large domestic
-      record market.
+      The Korean Wave expanded through a structured training system, television networks
+      and online platforms, music videos and drama soundtracks, and international tours, a
+      combination of industry practices and media channels that carried K-pop beyond
+      Korea. Japanese popular music moved through kayokyoku, idol pop, rock, electronic
+      music, television, anime, and a large domestic record market.
     sources:
       - publisher: Wikipedia
         title: Incheon Korean Music Wave
@@ -493,10 +504,10 @@ questions:
       False. 'Gangnam Style' reached number TWO on the Billboard Hot 100, not number one.
       It still marked an unprecedented achievement for a Korean song on the US charts.
     context: >-
-      The false answer fixes the chronology before later styles are compared with it.
-      Japanese popular music moved through kayokyoku, idol pop, rock, electronic music,
-      television, anime, and a large domestic record market. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      PSY's 'Gangnam Style' peaked at number two on the Billboard Hot 100 rather than
+      number one, but even that runner-up spot was an unprecedented achievement for a
+      Korean song on the US charts. Japanese popular music moved through kayokyoku, idol
+      pop, rock, electronic music, television, anime, and a large domestic record market.
     sources:
       - publisher: Wikipedia
         title: Psy
@@ -519,11 +530,11 @@ questions:
       relying heavily on international promotion. Language differences and complex
       licensing arrangements also limited international distribution.
     context: >-
-      Strong domestic market reduced need for international expansion gives this part of
-      the history a specific person, work, place, or tool. Japanese popular music moved
-      through kayokyoku, idol pop, rock, electronic music, television, anime, and a large
-      domestic record market. Reading the credit or date beside the musical detail makes
-      the answer easier to check and compare.
+      J-pop stayed less globally visible than K-pop in the early streaming era partly
+      because Japan's strong domestic market let artists build successful careers without
+      heavy international promotion, while language differences and complex licensing
+      limited distribution abroad. Japanese popular music moved through kayokyoku, idol
+      pop, rock, electronic music, television, anime, and a large domestic record market.
     sources:
       - publisher: Wikipedia
         title: This Is Why
@@ -549,11 +560,12 @@ questions:
       soundtrack distribution, universal emotional themes, and streaming service
       promotion. J-Pop artists are real people, not anime characters.
     context: >-
-      Opening and ending themes introduced artists, Anime soundtracks traveled
-      internationally, Emotional themes in anime resonated universally, Streaming services
-      promoted anime music belong together here; the comparison names each part of the
-      change. Modern K-pop developed through Korean broadcast culture, entertainment
-      companies, rap and R&B influence, choreography, and organized fandom.
+      Anime helped bring J-pop to international audiences through opening and ending
+      themes that introduced artists, soundtracks that traveled abroad, emotional themes
+      that resonated universally, and streaming services that promoted anime music,
+      connecting Japanese artists with listeners around the world. Modern K-pop developed
+      through Korean broadcast culture, entertainment companies, rap and R&B influence,
+      choreography, and organized fandom.
     sources:
       - publisher: Wikipedia
         title: J-pop
@@ -574,10 +586,11 @@ questions:
       'Gurenge,' used as the opening theme for Demon Slayer, reached listeners around the
       world and demonstrated how anime themes can bring Japanese artists global attention.
     context: >-
-      LiSA gives this part of the history a specific person, work, place, or tool. Modern
-      K-pop developed through Korean broadcast culture, entertainment companies, rap and
-      R&B influence, choreography, and organized fandom. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      LiSA became closely associated with anime productions through her powerful voice,
+      and 'Gurenge,' her opening theme for Demon Slayer, brought Japanese artists global
+      attention by reaching listeners around the world. Modern K-pop developed through
+      Korean broadcast culture, entertainment companies, rap and R&B influence,
+      choreography, and organized fandom.
     sources:
       - publisher: Wikipedia
         title: Lisa
@@ -598,11 +611,11 @@ questions:
       a central creative figure in J-Pop. He shaped Perfume's futuristic electronic sound
       and worked with Kyary Pamyu Pamyu on hits like 'PonPonPon.'
     context: >-
-      Yasutaka Nakata gives this part of the history a specific person, work, place, or
-      tool. Modern K-pop developed through Korean broadcast culture, entertainment
-      companies, rap and R&B influence, choreography, and organized fandom. Reading the
-      credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      Yasutaka Nakata became a central creative figure in J-pop, shaping Perfume's
+      futuristic electronic sound and working with Kyary Pamyu Pamyu on hits like
+      'PonPonPon' after gaining attention with the electronic duo Capsule. Modern K-pop
+      developed through Korean broadcast culture, entertainment companies, rap and R&B
+      influence, choreography, and organized fandom.
     sources:
       - publisher: Wikipedia
         title: Yasutaka Nakata
@@ -626,12 +639,12 @@ questions:
       production. Many Korean agencies have worked with writers from Sweden and other
       European pop centers, while Dem Jointz has created songs for SM Entertainment
       artists. Quincy Jones and Rick Rubin are major Western producers, but they are not
-      closely associated with K-Pop's production network in the way.
+      closely associated with K-Pop's production network in the way these producers are.
     context: >-
-      Scandinavian songwriting teams, Dem Jointz belong together here; the comparison
-      names each part of the change. Modern K-pop developed through Korean broadcast
-      culture, entertainment companies, rap and R&B influence, choreography, and organized
-      fandom.
+      Scandinavian songwriting teams and Dem Jointz contributed directly to K-pop
+      production, working with Korean agencies and SM Entertainment artists. Modern K-pop
+      developed through Korean broadcast culture, entertainment companies, rap and R&B
+      influence, choreography, and organized fandom.
     sources:
       - publisher: Wikipedia
         title: Stargate (music producers)
@@ -653,10 +666,11 @@ questions:
       BTS became the first Korean act to top the Billboard 200 album chart in the United
       States. Their concerts filled stadiums across North America, Europe, and Asia.
     context: >-
-      BTS gives this part of the history a specific person, work, place, or tool. Modern
-      K-pop developed through Korean broadcast culture, entertainment companies, rap and
-      R&B influence, choreography, and organized fandom. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      BTS became the first Korean act to top the Billboard 200 album chart in the United
+      States, a milestone that reflected how far K-pop had traveled from a domestic
+      industry toward a global force, with concerts filling stadiums across North America,
+      Europe, and Asia. Modern K-pop developed through Korean broadcast culture,
+      entertainment companies, rap and R&B influence, choreography, and organized fandom.
     sources:
       - publisher: Wikipedia
         title: BTS
@@ -679,10 +693,11 @@ questions:
       the group built its international audience. BLINK is the fandom name for BLACKPINK,
       so the statement mixes up two different major K-Pop fan communities.
     context: >-
-      The false answer fixes the chronology before later styles are compared with it.
-      Modern K-pop developed through Korean broadcast culture, entertainment companies,
-      rap and R&B influence, choreography, and organized fandom. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      BTS's fan community is called ARMY, a name recognized around the world as the group
+      built its international audience, while BLINK is the fandom name of BLACKPINK, a
+      different major K-Pop group. Modern K-pop developed through Korean broadcast
+      culture, entertainment companies, rap and R&B influence, choreography, and organized
+      fandom.
     sources:
       - publisher: Wikipedia
         title: BTS
@@ -708,9 +723,10 @@ questions:
       idol groups directly. American Idol and The Voice are major talent shows, but they
       were not designed around creating K-Pop groups.
     context: >-
-      Produce 101, Sixteen, Girls Planet 999 belong together here; the comparison names
-      each part of the change. Modern K-pop developed through Korean broadcast culture,
-      entertainment companies, rap and R&B influence, choreography, and organized fandom.
+      These survival shows formed idol groups directly: Produce 101 led to I.O.I, Sixteen
+      to TWICE, and Girls Planet 999 to Kep1er. Modern K-pop developed through Korean
+      broadcast culture, entertainment companies, rap and R&B influence, choreography, and
+      organized fandom.
     sources:
       - publisher: Wikipedia
         title: Produce 101
@@ -740,9 +756,10 @@ questions:
       include members from different cultural backgrounds, especially as agencies recruit
       talent from across Asia and build groups with a broader international identity.
     context: >-
-      Lisa gives this part of the history a specific person, work, place, or tool. Modern
-      K-pop developed through Korean broadcast culture, entertainment companies, rap and
-      R&B influence, choreography, and organized fandom.
+      Born in Thailand, Lisa (Lalisa Manobal) joined BLACKPINK through YG Entertainment,
+      an example of K-pop groups increasingly drawing members from across different
+      cultural backgrounds. Modern K-pop developed through Korean broadcast culture,
+      entertainment companies, rap and R&B influence, choreography, and organized fandom.
     sources:
       - publisher: Wikipedia
         title: Lisa (Japanese musician, born 1987)
@@ -761,10 +778,11 @@ questions:
       America, and Europe. Many successful groups include international members like Lisa
       from Thailand or Mark Tuan from the United States.
     context: >-
-      The false answer fixes the chronology before later styles are compared with it.
-      Modern K-pop developed through Korean broadcast culture, entertainment companies,
-      rap and R&B influence, choreography, and organized fandom. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      K-pop entertainment companies regularly recruit members from across Asia, North
+      America, and Europe, and many successful groups include international members such
+      as Lisa from Thailand and Mark Tuan from the United States. Modern K-pop developed
+      through Korean broadcast culture, entertainment companies, rap and R&B influence,
+      choreography, and organized fandom.
     sources:
       - publisher: Wikipedia
         title: K-pop
@@ -785,11 +803,11 @@ questions:
       group participates in different challenges, allowing members to display their
       individual personalities while reinforcing teamwork.
     context: >-
-      A variety program featuring BTS members gives this part of the history a specific
-      person, work, place, or tool. Modern K-pop developed through Korean broadcast
-      culture, entertainment companies, rap and R&B influence, choreography, and organized
-      fandom. Reading the credit or date beside the musical detail makes the answer easier
-      to check and compare.
+      In the variety program 'Run BTS,' episodes are built around different challenges
+      that allow each member of BTS to display an individual personality while reinforcing
+      the teamwork at the heart of the group. Modern K-pop developed through Korean
+      broadcast culture, entertainment companies, rap and R&B influence, choreography, and
+      organized fandom.
     sources:
       - publisher: Wikipedia
         title: Be (BTS album)
@@ -810,10 +828,11 @@ questions:
       synchronized patterns. Each group typically has their own unique light stick design
       representing their identity.
     context: >-
-      Light sticks gives this part of the history a specific person, work, place, or tool.
-      Video platforms and social media widened international access, while translation,
-      touring, licensing, and fan communities supported that reach. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      At K-pop concerts, fans carry coordinated colored light sticks that illuminate
+      arenas with synchronized patterns, and each group typically has its own unique
+      design representing its identity, turning the crowd into a visible part of each
+      show. Video platforms and social media widened international access, while
+      translation, touring, licensing, and fan communities supported that reach.
     sources:
       - publisher: Wikipedia
         title: Lightstick protests
@@ -833,9 +852,10 @@ questions:
       subtle R&B influences, creating a clear contrast with the louder, more dramatic
       concepts that shaped many earlier idol groups.
     context: >-
-      The false answer fixes the chronology before later styles are compared with it.
-      Video platforms and social media widened international access, while translation,
-      touring, licensing, and fan communities supported that reach.
+      NewJeans is known for a relaxed, understated style, favoring smooth melodies and
+      subtle R&B influences instead of the louder, more dramatic concepts of earlier
+      K-Pop. Video platforms and social media widened international access, while
+      translation, touring, licensing, and fan communities supported that reach.
     sources:
       - publisher: Wikipedia
         title: NewJeans
@@ -858,10 +878,11 @@ questions:
       Albums such as 'Palette' and 'Lilac' showcase a thoughtful approach blending pop
       melodies with acoustic and jazz influences.
     context: >-
-      IU gives this part of the history a specific person, work, place, or tool. Video
-      platforms and social media widened international access, while translation, touring,
-      licensing, and fan communities supported that reach. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      IU gradually earned recognition for her thoughtful songwriting and creative control
+      as a singer-songwriter, bridging mainstream and independent music by mixing pop
+      melodies with acoustic and jazz influences on albums like 'Palette' and 'Lilac.'
+      Video platforms and social media widened international access, while translation,
+      touring, licensing, and fan communities supported that reach.
     sources:
       - publisher: Wikipedia
         title: Korean Music Awards
@@ -887,11 +908,12 @@ questions:
       conditions have all become more visible in discussions about the K-Pop industry as
       it gained global visibility.
     context: >-
-      Mental health, Beauty standards, Cultural appropriation, Trainee working conditions
-      belong together here; the comparison names each part of the change. Video platforms
-      and social media widened international access, while translation, touring,
-      licensing, and fan communities supported that reach. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      As K-pop gained global visibility, discussions about the industry broadened to
+      include mental health, beauty standards, cultural appropriation debates, and trainee
+      working conditions, topics that now shape how international audiences understand the
+      system behind the music. Video platforms and social media widened international
+      access, while translation, touring, licensing, and fan communities supported that
+      reach.
     sources:
       - publisher: Wikipedia
         title: K-pop
@@ -913,9 +935,11 @@ questions:
       sound in Japanese pop by combining thoughtful lyrics, polished melodies, and smooth
       R&B-inspired production on tracks such as 'Automatic' and the title song.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Video
-      platforms and social media widened international access, while translation, touring,
-      licensing, and fan communities supported that reach.
+      Hikaru Utada's 1999 debut 'First Love' became one of the best-selling albums in
+      Japanese history, pairing thoughtful lyrics and polished melodies with smooth
+      R&B-inspired production. Video platforms and social media widened international
+      access, while translation, touring, licensing, and fan communities supported that
+      reach.
     sources:
       - publisher: Wikipedia
         title: Hikari (Hikaru Utada song)
@@ -942,10 +966,10 @@ questions:
       treated as a regional act entering foreign markets from the outside, BLACKPINK was
       positioned as part of the global pop conversation itself.
     context: >-
-      Working with Lady Gaga on 'Sour Candy' gives this part of the history a specific
-      person, work, place, or tool. Video platforms and social media widened international
-      access, while translation, touring, licensing, and fan communities supported that
-      reach.
+      Working with Lady Gaga on 'Sour Candy' helped position BLACKPINK inside the
+      international pop industry rather than outside it. Video platforms and social media
+      widened international access, while translation, touring, licensing, and fan
+      communities supported that reach.
     sources:
       - publisher: Wikipedia
         title: Sour Candy (Lady Gaga and Blackpink song)
@@ -971,11 +995,11 @@ questions:
       artists, and while they released some English songs, multi-language releases weren't
       a primary factor.
     context: >-
-      Emphasis on storytelling in lyrics, Direct fan communication via social media,
-      Organized streaming campaigns by fans belong together here; the comparison names
-      each part of the change. Video platforms and social media widened international
-      access, while translation, touring, licensing, and fan communities supported that
-      reach.
+      BTS's global success rested on storytelling lyrics, direct communication with fans
+      through social media, and organized streaming campaigns coordinated by those fans,
+      strengthening the bond between group and audience. Video platforms and social media
+      widened international access, while translation, touring, licensing, and fan
+      communities supported that reach.
     sources:
       - publisher: Wikipedia
         title: Teen of Denial (Joe's Story)
@@ -996,10 +1020,12 @@ questions:
       many countries. Compact discs and collectible editions remained popular in Japan
       even as streaming became dominant elsewhere.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Video
-      platforms and social media widened international access, while translation, touring,
-      licensing, and fan communities supported that reach. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Unlike many countries, Japan's music market stayed focused on physical media such as
+      CDs, and collectible compact disc editions remained popular there long after
+      streaming became dominant elsewhere, making Japan a clear exception to the global
+      shift toward streaming. Video platforms and social media widened international
+      access, while translation, touring, licensing, and fan communities supported that
+      reach.
     sources:
       - publisher: Wikipedia
         title: Music of Japan
@@ -1020,11 +1046,11 @@ questions:
       beyond music to include television, film, advertising, and carefully managed
       relationships with fans.
     context: >-
-      Young performers with multimedia careers and fan relationships gives this part of
-      the history a specific person, work, place, or tool. Video platforms and social
-      media widened international access, while translation, touring, licensing, and fan
-      communities supported that reach. Reading the credit or date beside the musical
-      detail makes the answer easier to check and compare.
+      In East Asian pop culture, idols are young performers whose multimedia careers reach
+      beyond music into television, film, and advertising, and whose appeal rests on
+      carefully managed relationships with fans that shape how audiences follow them.
+      Video platforms and social media widened international access, while translation,
+      touring, licensing, and fan communities supported that reach.
     sources:
       - publisher: Wikipedia
         title: Music industry of East Asia
@@ -1047,9 +1073,11 @@ questions:
       join fan communities that translated interviews, lyrics, and news for global
       audiences.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Video
-      platforms and social media widened international access, while translation, touring,
-      licensing, and fan communities supported that reach.
+      Digital platforms helped East Asian pop reach global audiences by removing the
+      barriers that had limited access to it, letting viewers anywhere watch new releases
+      soon after they appeared online. Video platforms and social media widened
+      international access, while translation, touring, licensing, and fan communities
+      supported that reach.
     sources:
       - publisher: Wikipedia
         title: K-pop

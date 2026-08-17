@@ -3,7 +3,7 @@ format: artist-portrait
 title: The Business in Ma Rainey’s Voice
 dek: Before record companies could sell the blues as a category, Ma Rainey had learned how to make it work in tents, theaters, train cars, and towns across the South.
 seoDescription: Ma Rainey’s career through touring, Paramount records, See See Rider, stagecraft, blues authorship, and the Columbus house where she retired.
-publishedAt: 2026-07-24
+publishedAt: 2026-07-24T12:00:00Z
 topics:
   - Ma Rainey
   - blues

@@ -184,17 +184,6 @@ const navigation = [
         },
         { signal }
       );
-      document.addEventListener(
-        "astro:before-swap",
-        () => {
-          setOpen(false, false);
-          controller.abort();
-        },
-        {
-          once: true,
-          signal,
-        }
-      );
     });
   };
 

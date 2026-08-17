@@ -5,7 +5,7 @@ import { load as loadYaml } from "js-yaml";
 
 const CONTENT_DIRECTORY = new URL("../src/content/reviews/", import.meta.url);
 const WORD_RANGE = [650, 2300];
-const EXPECTED_REVIEW_COUNT = 30;
+const MINIMUM_REVIEW_COUNT = 30;
 const REQUIRED_SECTION_COUNT = 6;
 
 export function countEditorialWords(markdown) {
@@ -81,15 +81,17 @@ async function main() {
     }
   }
 
-  if (files.length !== EXPECTED_REVIEW_COUNT) {
-    failures.push(`expected ${EXPECTED_REVIEW_COUNT} reviews, found ${files.length}.`);
+  if (files.length < MINIMUM_REVIEW_COUNT) {
+    failures.push(
+      `expected at least ${MINIMUM_REVIEW_COUNT} reviews, found ${files.length}.`
+    );
   }
 
   if (failures.length) {
     throw new Error(`Content validation failed:\n${failures.join("\n")}`);
   }
   console.log(
-    `Validated ${EXPECTED_REVIEW_COUNT} structured full reviews and their editorial metadata.`
+    `Validated ${files.length} structured full reviews and their editorial metadata.`
   );
 }
 

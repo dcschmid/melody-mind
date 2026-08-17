@@ -13,6 +13,9 @@ apps/reviews/public/og/
 # dependencies
 node_modules/
 
+# local script caches
+.cache/
+
 # git worktrees (local)
 .worktrees/
 

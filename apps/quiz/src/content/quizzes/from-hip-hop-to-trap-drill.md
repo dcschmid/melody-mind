@@ -29,10 +29,10 @@ questions:
       Hip hop began in the South Bronx in the early 1970s. At block parties, DJs played
       the instrumental breaks of funk records, giving dancers more time to move.
     context: >-
-      South Bronx gives this part of the history a specific person, work, place, or tool.
-      Hip-hop began as a live culture built from DJs, MCs, dancers, graffiti writers,
-      sound systems, and neighborhood parties. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      The story that later becomes trap and drill starts in the South Bronx in the early
+      1970s, where DJs at block parties played the instrumental breaks of funk records,
+      giving dancers more time to move. Hip-hop began as a live culture built from DJs,
+      MCs, dancers, graffiti writers, sound systems, and neighborhood parties.
     sources:
       - publisher: Wikipedia
         title: Hip-hop
@@ -55,10 +55,11 @@ questions:
       1973, where he used two turntables to extend the instrumental breaks of funk
       records.
     context: >-
-      DJ Kool Herc gives this part of the history a specific person, work, place, or tool.
-      Hip-hop began as a live culture built from DJs, MCs, dancers, graffiti writers,
-      sound systems, and neighborhood parties. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      DJ Kool Herc is credited with hosting the first hip-hop party, at 1520 Sedgwick
+      Avenue on August 11, 1973, using two turntables to extend the instrumental breaks of
+      funk records, the point where the history of trap and drill begins. Hip-hop began as
+      a live culture built from DJs, MCs, dancers, graffiti writers, sound systems, and
+      neighborhood parties.
     sources:
       - publisher: Wikipedia
         title: DJ Kool Herc
@@ -87,10 +88,11 @@ questions:
       The four main elements of hip hop culture are DJing, MCing, breaking (breakdancing),
       and graffiti. These developed side by side, using the same energy at block parties.
     context: >-
-      DJing, MCing, Breaking, Graffiti belong together here; the comparison names each
-      part of the change. Hip-hop began as a live culture built from DJs, MCs, dancers,
-      graffiti writers, sound systems, and neighborhood parties. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      These four elements, DJing, MCing, breaking, and graffiti, developed side by side at
+      block parties, sharing the same energy, and together they defined the culture whose
+      recorded forms later evolved into modern trap and drill. Hip-hop began as a live
+      culture built from DJs, MCs, dancers, graffiti writers, sound systems, and
+      neighborhood parties.
     sources:
       - publisher: Wikipedia
         title: History of DJing
@@ -111,10 +113,11 @@ questions:
       switch between two copies of the same record, keeping the break going longer than
       the original recording allowed.
     context: >-
-      The merry-go-round gives this part of the history a specific person, work, place, or
-      tool. Hip-hop began as a live culture built from DJs, MCs, dancers, graffiti
-      writers, sound systems, and neighborhood parties. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Kool Herc's 'The merry-go-round' technique used two turntables to switch between two
+      copies of the same record, keeping the break alive longer than the original allowed,
+      an early DJ practice in the culture that led to trap and drill. Hip-hop began as a
+      live culture built from DJs, MCs, dancers, graffiti writers, sound systems, and
+      neighborhood parties.
     sources:
       - publisher: Wikipedia
         title: The Merry-Go-Round
@@ -137,9 +140,10 @@ questions:
       hop records to reach mainstream audiences. It used the bass line of Chic's 'Good
       Times' and stretched across more than fourteen minutes.
     context: >-
-      Rapper's Delight gives this part of the history a specific person, work, place, or
-      tool. Hip-hop began as a live culture built from DJs, MCs, dancers, graffiti
-      writers, sound systems, and neighborhood parties.
+      Released in 1979 by The Sugarhill Gang, 'Rapper's Delight' carried hip-hop from the
+      party into the mainstream, an early step on the road to trap and drill. Hip-hop
+      began as a live culture built from DJs, MCs, dancers, graffiti writers, sound
+      systems, and neighborhood parties.
     sources:
       - publisher: Wikipedia
         title: Rapper's Delight
@@ -166,10 +170,10 @@ questions:
       about urban life - 'Don't push me, 'cause I'm close to the edge.' It was more
       serious than party lyrics that came before.
     context: >-
-      The Message gives this part of the history a specific person, work, place, or tool.
-      Hip-hop began as a live culture built from DJs, MCs, dancers, graffiti writers,
-      sound systems, and neighborhood parties. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      'The Message' (1982) by Grandmaster Flash and the Furious Five pushed recorded rap
+      toward serious social commentary about urban life, widening what hip-hop could say
+      on the way to trap and drill. Hip-hop began as a live culture built from DJs, MCs,
+      dancers, graffiti writers, sound systems, and neighborhood parties.
     sources:
       - publisher: Wikipedia
         title: Grandmaster Flash
@@ -192,10 +196,10 @@ questions:
       the minimalist 1980s hip hop sound. Rubin liked simple, heavy drum beats that
       sounded good on small speakers.
     context: >-
-      Def Jam Recordings gives this part of the history a specific person, work, place, or
-      tool. Hip-hop began as a live culture built from DJs, MCs, dancers, graffiti
-      writers, sound systems, and neighborhood parties. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Def Jam Recordings, started by Rick Rubin and Russell Simmons, was key in creating
+      the minimalist 1980s hip-hop sound, with simple heavy drum beats that point forward
+      to trap and drill. Hip-hop began as a live culture built from DJs, MCs, dancers,
+      graffiti writers, sound systems, and neighborhood parties.
     sources:
       - publisher: Wikipedia
         title: Def Jam Recordings
@@ -218,10 +222,11 @@ questions:
       naturally. The video was played heavily on MTV, exposing hip hop to audiences who
       didn't usually watch it.
     context: >-
-      Walk This Way gives this part of the history a specific person, work, place, or
-      tool. Hip-hop began as a live culture built from DJs, MCs, dancers, graffiti
-      writers, sound systems, and neighborhood parties. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      'Walk This Way,' the 1986 collaboration between Run-D.M.C. and Aerosmith, mixed rap
+      and rock so naturally that heavy MTV play carried hip-hop to audiences who rarely
+      watched it, widening the audience that trap and drill now inherit. Hip-hop began as
+      a live culture built from DJs, MCs, dancers, graffiti writers, sound systems, and
+      neighborhood parties.
     sources:
       - publisher: Wikipedia
         title: Walk This Way
@@ -242,10 +247,11 @@ questions:
       His goal was to turn street rivalries into creative competition, using music to
       bring people together instead of causing conflict.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Hip-hop began as a live culture built from DJs, MCs, dancers, graffiti writers,
-      sound systems, and neighborhood parties. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      After leaving gang life, Afrika Bambaataa founded the Universal Zulu Nation to
+      redirect street rivalries into creative competition, using music to bring people
+      together instead of driving them into conflict. Hip-hop began as a live culture
+      built from DJs, MCs, dancers, graffiti writers, sound systems, and neighborhood
+      parties.
     sources:
       - publisher: Wikipedia
         title: Afrika Bambaataa
@@ -269,9 +275,10 @@ questions:
       could take one snare or kick and create new patterns, an approach that became
       central to late-1980s hip hop production.
     context: >-
-      Marley Marl gives this part of the history a specific person, work, place, or tool.
-      Hip-hop began as a live culture built from DJs, MCs, dancers, graffiti writers,
-      sound systems, and neighborhood parties.
+      Marley Marl's habit of isolating single drum hits and reprogramming them on samplers
+      became central to late-1980s production, a step toward the programmed rhythms of
+      trap and drill. Hip-hop began as a live culture built from DJs, MCs, dancers,
+      graffiti writers, sound systems, and neighborhood parties.
     sources:
       - publisher: Wikipedia
         title: Marley Marl
@@ -294,10 +301,11 @@ questions:
       Nas's 'N.Y. State of Mind' featured somber piano loops and precise drums that framed
       Nas's storytelling.
     context: >-
-      DJ Premier gives this part of the history a specific person, work, place, or tool.
-      Sampling and drum programming turned recorded sound into material for new rhythm,
-      arrangement, and commentary. Reading the credit or date beside the musical detail
-      makes the answer easier to check and compare.
+      DJ Premier's carefully chosen jazz samples, like the somber piano loops and precise
+      drums that frame Nas's storytelling on 'N.Y. State of Mind,' show how jazz sampling
+      became a durable hip-hop practice on the road to trap and drill. Sampling and drum
+      programming turned recorded sound into material for new rhythm, arrangement, and
+      commentary.
     sources:
       - publisher: Wikipedia
         title: DJ Premier
@@ -318,10 +326,11 @@ questions:
       featured slower tempos, heavy bass lines, and high-pitched synthesizer sounds
       inspired by 1970s Parliament-Funkadelic records.
     context: >-
-      The Chronic gives this part of the history a specific person, work, place, or tool.
-      Sampling and drum programming turned recorded sound into material for new rhythm,
-      arrangement, and commentary. Reading the credit or date beside the musical detail
-      makes the answer easier to check and compare.
+      Dr. Dre's 1992 album 'The Chronic' introduced G-Funk to the world, pairing slower
+      tempos and heavy bass lines with high-pitched synthesizer sounds inspired by 1970s
+      Parliament-Funkadelic records, a formula whose bass weight points forward to trap
+      and drill. Sampling and drum programming turned recorded sound into material for new
+      rhythm, arrangement, and commentary.
     sources:
       - publisher: Wikipedia
         title: The Chronic
@@ -346,10 +355,10 @@ questions:
       Kanye West came later - The Neptunes in the late 1990s/early 2000s and Kanye in the
       early-to-mid 2000s.
     context: >-
-      Marley Marl, DJ Premier, Dr. Dre belong together here; the comparison names each
-      part of the change. Sampling and drum programming turned recorded sound into
-      material for new rhythm, arrangement, and commentary. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Marley Marl, DJ Premier, and Dr. Dre were key Golden Age producers, and their
+      approaches to sampling and drum programming became building blocks that later trap
+      and drill producers reused and built on. Sampling and drum programming turned
+      recorded sound into material for new rhythm, arrangement, and commentary.
     sources:
       - publisher: Wikipedia
         title: Marley Marl
@@ -372,10 +381,11 @@ questions:
       used internal rhymes within lines and changed his pace subtly to match the beat,
       setting a new standard for technical precision.
     context: >-
-      Paid in Full gives this part of the history a specific person, work, place, or tool.
-      Sampling and drum programming turned recorded sound into material for new rhythm,
-      arrangement, and commentary. Reading the credit or date beside the musical detail
-      makes the answer easier to check and compare.
+      Eric B. & Rakim's 'Paid in Full' (1987) introduced a new style of rapping, with
+      internal rhymes inside lines and a pace that shifted subtly with the beat,
+      broadening what flow could do on the path that leads to trap and drill. Sampling and
+      drum programming turned recorded sound into material for new rhythm, arrangement,
+      and commentary.
     sources:
       - publisher: Wikipedia
         title: Paid in Full
@@ -398,9 +408,11 @@ questions:
       sampling collages by The Bomb Squad. Sirens, speech samples, and drum loops created
       a restless sound that matched the political lyrics.
     context: >-
-      It Takes a Nation of Millions to Hold Us Back gives this part of the history a
-      specific person, work, place, or tool. Sampling and drum programming turned recorded
-      sound into material for new rhythm, arrangement, and commentary.
+      Public Enemy's 1988 album 'It Takes a Nation of Millions to Hold Us Back' built
+      dense sampling collages with The Bomb Squad, matching restless political lyrics with
+      sirens, speech samples, and drum loops, an approach that pushed sampling toward the
+      urgency trap later inherited. Sampling and drum programming turned recorded sound
+      into material for new rhythm, arrangement, and commentary.
     sources:
       - publisher: Wikipedia
         title: Public Enemy
@@ -427,11 +439,11 @@ questions:
       Tongues movement. They approached hip hop with playfulness, warmth, and cultural
       curiosity, using jazz-influenced beats and lighter textures.
     context: >-
-      A Tribe Called Quest, De La Soul, Jungle Brothers belong together here; the
-      comparison names each part of the change. Sampling and drum programming turned
-      recorded sound into material for new rhythm, arrangement, and commentary. Reading
-      the credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      A Tribe Called Quest, De La Soul, and the Jungle Brothers belonged to the Native
+      Tongues movement, approaching hip-hop with playfulness, warmth, and jazz-influenced
+      beats, a lighter texture that widened the style before trap and drill arrived.
+      Sampling and drum programming turned recorded sound into material for new rhythm,
+      arrangement, and commentary.
     sources:
       - publisher: Wikipedia
         title: A Tribe Called Quest
@@ -452,10 +464,11 @@ questions:
       national attention. It featured hard drum patterns and real-life stories about
       police brutality and street life in South Central Los Angeles.
     context: >-
-      Straight Outta Compton gives this part of the history a specific person, work,
-      place, or tool. Sampling and drum programming turned recorded sound into material
-      for new rhythm, arrangement, and commentary. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      N.W.A.'s 1988 album 'Straight Outta Compton' brought West Coast gangsta rap to
+      national attention with hard drum patterns and real-life stories about police
+      brutality and street life in South Central Los Angeles, a regional voice that
+      reshaped the path toward trap and drill. Sampling and drum programming turned
+      recorded sound into material for new rhythm, arrangement, and commentary.
     sources:
       - publisher: Wikipedia
         title: Straight Outta Compton
@@ -478,10 +491,11 @@ questions:
       With production from DJ Premier, Pete Rock, Q-Tip, and Large Professor, it combined
       jazz-influenced loops with Nas's detailed street storytelling.
     context: >-
-      Illmatic gives this part of the history a specific person, work, place, or tool.
+      Nas's 'Illmatic' (1994) combined jazz-influenced loops with detailed street
+      storytelling, with production from DJ Premier, Pete Rock, Q-Tip, and Large
+      Professor, a model that still shapes how trap and drill artists narrate street life.
       Sampling and drum programming turned recorded sound into material for new rhythm,
-      arrangement, and commentary. Reading the credit or date beside the musical detail
-      makes the answer easier to check and compare.
+      arrangement, and commentary.
     sources:
       - publisher: Wikipedia
         title: Illmatic
@@ -504,10 +518,11 @@ questions:
       patterns created by RZA. Dialogue from martial arts movies and soul record elements
       created a distinctive, raw sound.
     context: >-
-      Wu-Tang Clan gives this part of the history a specific person, work, place, or tool.
-      Sampling and drum programming turned recorded sound into material for new rhythm,
-      arrangement, and commentary. Reading the credit or date beside the musical detail
-      makes the answer easier to check and compare.
+      Wu-Tang Clan's 'Enter the Wu-Tang (36 Chambers)' (1993) used rough samples,
+      soul-record elements, and martial-arts movie dialogue over drum patterns created by
+      RZA, a raw approach whose rough textures reappear in trap and drill. Sampling and
+      drum programming turned recorded sound into material for new rhythm, arrangement,
+      and commentary.
     sources:
       - publisher: Wikipedia
         title: Wu-Tang Clan
@@ -526,10 +541,10 @@ questions:
       history taught him to understand injustice from a young age, influencing his
       politically aware lyrics.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Sampling and drum programming turned recorded sound into material for new rhythm,
-      arrangement, and commentary. Reading the credit or date beside the musical detail
-      makes the answer easier to check and compare.
+      Tupac Shakur's mother, Afeni Shakur, was a member of the Black Panther Party, a
+      family history that taught him to understand injustice from a young age and left a
+      clear mark on his politically aware lyrics. Sampling and drum programming turned
+      recorded sound into material for new rhythm, arrangement, and commentary.
     sources:
       - publisher: Wikipedia
         title: Murder of Tupac Shakur
@@ -552,10 +567,11 @@ questions:
       detailed street stories. Working with Sean 'Puff Daddy' Combs, it featured polished
       beats and strong hooks like 'Juicy.'
     context: >-
-      Ready to Die gives this part of the history a specific person, work, place, or tool.
-      Regional scenes developed different tempos, vocal approaches, and production methods
-      rather than following one national formula. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      The Notorious B.I.G.'s 'Ready to Die' (1994) introduced his smooth, relaxed flow and
+      detailed street stories, with polished beats and strong hooks like 'Juicy' crafted
+      alongside Sean 'Puff Daddy' Combs, a blend of polish and street detail that trap
+      later drew from. Regional scenes developed different tempos, vocal approaches, and
+      production methods rather than following one national formula.
     sources:
       - publisher: Wikipedia
         title: Ready to Die
@@ -578,10 +594,11 @@ questions:
       The album mixed rap, reggae, and soul, with Lauryn Hill's clear, controlled delivery
       as a standout element.
     context: >-
-      The Score gives this part of the history a specific person, work, place, or tool.
+      The Fugees' 1996 album 'The Score' mixed rap, reggae, and soul, with Lauryn Hill's
+      clear, controlled delivery and a hit cover of 'Killing Me Softly,' showing how
+      hip-hop could absorb other styles, a flexibility that trap and drill continue.
       Regional scenes developed different tempos, vocal approaches, and production methods
-      rather than following one national formula. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      rather than following one national formula.
     sources:
       - publisher: Wikipedia
         title: SCORE
@@ -604,10 +621,10 @@ questions:
       Source Awards. The line resonated because it addressed the perception that Southern
       artists were dismissed by industry gatekeepers.
     context: >-
-      André 3000 gives this part of the history a specific person, work, place, or tool.
-      Regional scenes developed different tempos, vocal approaches, and production methods
-      rather than following one national formula. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      OutKast's André 3000 declared 'The South has something to say' at the 1995 Source
+      Awards, answering the dismissal of Southern artists with a new regional confidence
+      that trap soon carried nationwide. Regional scenes developed different tempos, vocal
+      approaches, and production methods rather than following one national formula.
     sources:
       - publisher: Wikipedia
         title: André 3000
@@ -635,11 +652,11 @@ questions:
       identity in the 1990s. Migos came later, becoming prominent in the 2010s with their
       triplet flow.
     context: >-
-      OutKast, UGK, Goodie Mob, Three 6 Mafia belong together here; the comparison names
-      each part of the change. Regional scenes developed different tempos, vocal
-      approaches, and production methods rather than following one national formula.
-      Reading the credit or date beside the musical detail makes the answer easier to
-      check and compare.
+      OutKast, UGK, Goodie Mob, and Three 6 Mafia together helped establish Southern
+      hip-hop's regional identity in the 1990s, years before trap took over, which makes
+      them a natural starting point for the style's later evolution. Regional scenes
+      developed different tempos, vocal approaches, and production methods rather than
+      following one national formula.
     sources:
       - publisher: Wikipedia
         title: Outkast
@@ -662,10 +679,11 @@ questions:
       sound. On Clipse's 'Grindin',' the percussion was the main focus with strong,
       off-beat rhythms instead of rich instrumentation.
     context: >-
-      The Neptunes gives this part of the history a specific person, work, place, or tool.
-      Regional scenes developed different tempos, vocal approaches, and production methods
-      rather than following one national formula. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      The Neptunes, Pharrell Williams and Chad Hugo, created a minimalist, futuristic
+      sound in the early 2000s, as on Clipse's 'Grindin',' where strong off-beat
+      percussion replaced rich instrumentation, a spare aesthetic that points toward
+      trap's own stripped-down productions. Regional scenes developed different tempos,
+      vocal approaches, and production methods rather than following one national formula.
     sources:
       - publisher: Wikipedia
         title: Clipse
@@ -688,10 +706,11 @@ questions:
       emotional warmth back to hip hop. Songs like 'Through the Wire' mixed gospel
       influences with modern rap.
     context: >-
-      The College Dropout gives this part of the history a specific person, work, place,
-      or tool. Regional scenes developed different tempos, vocal approaches, and
-      production methods rather than following one national formula. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Kanye West's 'The College Dropout' (2004) brought emotional warmth back to hip-hop
+      with sped-up soul samples, mixing gospel influences with modern rap on songs like
+      'Through the Wire,' a melodic direction that shaped the years before trap's
+      dominance. Regional scenes developed different tempos, vocal approaches, and
+      production methods rather than following one national formula.
     sources:
       - publisher: Wikipedia
         title: The College Dropout
@@ -714,10 +733,11 @@ questions:
       online, she released 'Bodak Yellow' in 2017, which reached number one on the
       Billboard Hot 100.
     context: >-
-      Cardi B gives this part of the history a specific person, work, place, or tool.
-      Regional scenes developed different tempos, vocal approaches, and production methods
-      rather than following one national formula. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Cardi B's rise shows how social media changed hip-hop's path to fame: after building
+      a fan base online, she released 'Bodak Yellow' in 2017 and reached number one on the
+      Billboard Hot 100, the kind of direct-to-audience route trap and drill artists now
+      rely on. Regional scenes developed different tempos, vocal approaches, and
+      production methods rather than following one national formula.
     sources:
       - publisher: Wikipedia
         title: Cardi B
@@ -740,10 +760,10 @@ questions:
       Atlanta. T.I. helped popularize the term with his 2003 album 'Trap Muzik,' and it
       later became a genre defined by 808 drums and heavy bass.
     context: >-
-      Trap gives this part of the history a specific person, work, place, or tool.
-      Regional scenes developed different tempos, vocal approaches, and production methods
-      rather than following one national formula. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      'Trap' first named houses or corners associated with the drug trade in Atlanta
+      before T.I. popularized the term with 'Trap Muzik' in 2003 and it became a genre
+      defined by 808 drums and heavy bass. Regional scenes developed different tempos,
+      vocal approaches, and production methods rather than following one national formula.
     sources:
       - publisher: Wikipedia
         title: Trap music
@@ -768,10 +788,11 @@ questions:
       popularized the term with 'Trap Muzik' (2003), Jeezy reinforced it with 'Thug
       Motivation 101' (2005), and Gucci Mane spread it through mixtapes.
     context: >-
-      T.I., Young Jeezy, Gucci Mane belong together here; the comparison names each part
-      of the change. Regional scenes developed different tempos, vocal approaches, and
-      production methods rather than following one national formula. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      These three artists are considered trap's early architects: T.I. popularized the
+      term with 'Trap Muzik' (2003), Young Jeezy reinforced it with 'Thug Motivation 101'
+      (2005), and Gucci Mane spread it through mixtapes. Regional scenes developed
+      different tempos, vocal approaches, and production methods rather than following one
+      national formula.
     sources:
       - publisher: Wikipedia
         title: T.I.
@@ -794,10 +815,11 @@ questions:
       His name became a brand, with producer tags ('Metro Boomin want some more') at the
       start of tracks identifying authorship.
     context: >-
-      Metro Boomin gives this part of the history a specific person, work, place, or tool.
-      Regional scenes developed different tempos, vocal approaches, and production methods
-      rather than following one national formula. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Metro Boomin's dark, moody production with Future and 21 Savage turned his name into
+      a brand, with producer tags like 'Metro Boomin want some more' at the start of
+      tracks identifying authorship, a marketing move that defines trap today. Regional
+      scenes developed different tempos, vocal approaches, and production methods rather
+      than following one national formula.
     sources:
       - publisher: Wikipedia
         title: Metro Boomin
@@ -820,10 +842,11 @@ questions:
       vulnerable trap sound. His voice had a relaxed, fragile quality while maintaining
       street-rooted aesthetics.
     context: >-
-      Future gives this part of the history a specific person, work, place, or tool. Trap
+      Future's 2015 album 'DS2' and mixtape 'Monster' used Auto-Tune to shape a melodic,
+      vulnerable trap sound, keeping a relaxed, fragile vocal quality while staying rooted
+      in street aesthetics, showing how newer software changed rap's emotional range. Trap
       and drill carry earlier rap practices forward while responding to newer software,
-      local conditions, and online distribution. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      local conditions, and online distribution.
     sources:
       - publisher: Wikipedia
         title: Future (Future album)
@@ -844,10 +867,11 @@ questions:
       2016-2017. The song popularized the triplet flow - three evenly spaced syllables
       over trap hi-hats.
     context: >-
-      Bad and Boujee gives this part of the history a specific person, work, place, or
-      tool. Trap and drill carry earlier rap practices forward while responding to newer
-      software, local conditions, and online distribution. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Migos' 'Bad and Boujee' took off on social media before climbing the charts in
+      2016-2017, and its triplet flow, three evenly spaced syllables over trap hi-hats,
+      became one of the style's most recognizable rhythms. Trap and drill carry earlier
+      rap practices forward while responding to newer software, local conditions, and
+      online distribution.
     sources:
       - publisher: Wikipedia
         title: Bad (album)
@@ -868,10 +892,11 @@ questions:
       by Kanye West. The song's simple production and repetitive hook fit with drill's
       raw, cold style.
     context: >-
-      Chief Keef gives this part of the history a specific person, work, place, or tool.
-      Trap and drill carry earlier rap practices forward while responding to newer
-      software, local conditions, and online distribution. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Chief Keef's 2012 song 'I Don't Like' became popular on the internet and was remixed
+      by Kanye West, and its simple production and repetitive hook fit drill's raw, cold
+      style as the genre spread from Chicago. Trap and drill carry earlier rap practices
+      forward while responding to newer software, local conditions, and online
+      distribution.
     sources:
       - publisher: Wikipedia
         title: Chief Keef
@@ -892,10 +917,11 @@ questions:
       the tempo and rhythm to fit London accents and slang while keeping the dark
       atmosphere and heavy bass.
     context: >-
-      The false answer fixes the chronology before later styles are compared with it. Trap
-      and drill carry earlier rap practices forward while responding to newer software,
-      local conditions, and online distribution. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      When drill crossed from Chicago to the UK, British producers did not keep the tempo
+      and rhythm patterns unchanged; they reshaped them to fit London accents and slang
+      while holding onto the dark atmosphere and heavy bass. Trap and drill carry earlier
+      rap practices forward while responding to newer software, local conditions, and
+      online distribution.
     sources:
       - publisher: Wikipedia
         title: Chicago (band)
@@ -918,10 +944,11 @@ questions:
       (2019). His deep, gravelly voice over UK drill-influenced production created a
       distinctive sound.
     context: >-
-      Pop Smoke gives this part of the history a specific person, work, place, or tool.
+      Pop Smoke became the most famous Brooklyn drill artist when 'Welcome to the Party'
+      (2019) paired his deep, gravelly voice with UK drill-influenced production, a
+      distinctive blend that marks drill's latest turn in the story this quiz follows.
       Trap and drill carry earlier rap practices forward while responding to newer
-      software, local conditions, and online distribution. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      software, local conditions, and online distribution.
     sources:
       - publisher: Wikipedia
         title: Pop Smoke
@@ -944,10 +971,11 @@ questions:
       It addressed themes of immigration, inequality, and Mediterranean identity,
       reflecting France's colonial history.
     context: >-
-      IAM gives this part of the history a specific person, work, place, or tool. Trap and
-      drill carry earlier rap practices forward while responding to newer software, local
-      conditions, and online distribution. Reading the credit or date beside the musical
-      detail makes the answer easier to check and compare.
+      IAM's 1997 album 'L'École du micro d'argent' shows how hip-hop absorbed local
+      history as it evolved toward trap and drill, addressing immigration, inequality, and
+      Mediterranean identity from the group's home base in Marseille and reflecting
+      France's colonial history. Trap and drill carry earlier rap practices forward while
+      responding to newer software, local conditions, and online distribution.
     sources:
       - publisher: Wikipedia
         title: IAM
@@ -970,10 +998,11 @@ questions:
       bass, quick MC delivery, and electronic beats. Dizzee Rascal's 'Boy in da Corner'
       (2003) won the Mercury Prize.
     context: >-
-      Grime gives this part of the history a specific person, work, place, or tool. Trap
-      and drill carry earlier rap practices forward while responding to newer software,
-      local conditions, and online distribution. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Grime emerged from East London in the early 2000s with fast tempos, heavy bass,
+      quick MC delivery, and electronic beats, and Dizzee Rascal's 'Boy in da Corner'
+      (2003) won the Mercury Prize, evidence of hip-hop's continuing mutation into forms
+      like trap and drill. Trap and drill carry earlier rap practices forward while
+      responding to newer software, local conditions, and online distribution.
     sources:
       - publisher: Wikipedia
         title: Grime
@@ -1002,11 +1031,11 @@ questions:
       Germany, Brazil, Japan, and South Africa all adapted hip hop to local languages,
       accents, and political contexts.
     context: >-
-      France (MC Solaar, IAM), Germany (Die Fantastischen Vier), Brazil (Racionais MC's),
-      Japan (Rhymester), South Africa (Prophets of Da City) belong together here; the
-      comparison names each part of the change. Trap and drill carry earlier rap practices
-      forward while responding to newer software, local conditions, and online
-      distribution.
+      These scenes in France, Germany, Brazil, Japan, and South Africa all developed
+      distinctive hip-hop styles in the 1990s, adapting rap to local languages, accents,
+      and political contexts as the culture spread toward its trap and drill era. Trap and
+      drill carry earlier rap practices forward while responding to newer software, local
+      conditions, and online distribution.
     sources:
       - publisher: Wikipedia
         title: Music of France
@@ -1029,10 +1058,11 @@ questions:
       'Acid Rap' (2013) and Lil Uzi Vert's early work spread through the platform, making
       it easier for new artists to get noticed.
     context: >-
-      SoundCloud gives this part of the history a specific person, work, place, or tool.
-      Trap and drill carry earlier rap practices forward while responding to newer
-      software, local conditions, and online distribution. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      SoundCloud helped artists build audiences without label support, as Chance the
+      Rapper's 'Acid Rap' (2013) and Lil Uzi Vert's early work spread through the
+      platform, one of the online channels that now feed trap and drill. Trap and drill
+      carry earlier rap practices forward while responding to newer software, local
+      conditions, and online distribution.
     sources:
       - publisher: Wikipedia
         title: SoundCloud indie
@@ -1053,10 +1083,11 @@ questions:
       millions before most heard the full track. Producers adapted: intros got shorter,
       hooks arrived faster, and the most memorable parts came first.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Trap
-      and drill carry earlier rap practices forward while responding to newer software,
-      local conditions, and online distribution. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      TikTok's short clips reshaped hip-hop song structure: a fifteen-second preview could
+      reach millions before the full track, so producers shortened intros and let hooks
+      arrive faster, placing the most memorable parts first. Trap and drill carry earlier
+      rap practices forward while responding to newer software, local conditions, and
+      online distribution.
     sources:
       - publisher: Wikipedia
         title: TikTok

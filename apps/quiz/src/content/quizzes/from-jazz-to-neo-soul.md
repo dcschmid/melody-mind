@@ -33,8 +33,9 @@ questions:
       player could shape the emotional center of a performance while the band supported
       it.
     context: >-
-      Louis Armstrong gives this part of the history a specific person, work, place, or
-      tool. Jazz developed through ensemble interaction, improvisation, arranging, and the
+      The path from early jazz to neo soul begins with players like Louis Armstrong, whose
+      trumpet moved the music from collective front-line improvisation toward the featured
+      solo. Jazz developed through ensemble interaction, improvisation, arranging, and the
       individual sound of players working inside shared forms.
     sources:
       - publisher: Wikipedia
@@ -57,10 +58,11 @@ questions:
       Count Basie's orchestra made swing smoother and steadier. Basie played piano in a
       simple style, leaving silences that allowed the rhythm section to find their groove.
     context: >-
-      Count Basie gives this part of the history a specific person, work, place, or tool.
-      Jazz developed through ensemble interaction, improvisation, arranging, and the
-      individual sound of players working inside shared forms. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Count Basie's orchestra made swing smoother and steadier, with his spare piano
+      leaving silences that let the rhythm section find its groove, an attention to feel
+      that echoes through the groove music that followed, including neo soul. Jazz
+      developed through ensemble interaction, improvisation, arranging, and the individual
+      sound of players working inside shared forms.
     sources:
       - publisher: Wikipedia
         title: Count Basie
@@ -82,10 +84,11 @@ questions:
       Charlie Parker was at the heart of bebop. His alto saxophone solos on 'Ko-Ko' are
       fast but not hurried, with melodies of sharp angles moving through chord changes.
     context: >-
-      Charlie Parker gives this part of the history a specific person, work, place, or
-      tool. Jazz developed through ensemble interaction, improvisation, arranging, and the
-      individual sound of players working inside shared forms. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Charlie Parker was at the heart of bebop, building alto saxophone solos like 'Ko-Ko'
+      out of sharp angles and fast chord changes, a solo language that pushed jazz forward
+      on the road that eventually reaches neo soul. Jazz developed through ensemble
+      interaction, improvisation, arranging, and the individual sound of players working
+      inside shared forms.
     sources:
       - publisher: Wikipedia
         title: Charlie Parker discography
@@ -105,11 +108,11 @@ questions:
       Dizzy Gillespie played trumpet with bebop intensity. In 'A Night in Tunisia,' he
       incorporated Afro-Cuban rhythms, expanding jazz's rhythmic vocabulary.
     context: >-
-      Dizzy Gillespie gives this part of the history a specific person, work, place, or
-      tool. Jazz developed through ensemble interaction, improvisation, arranging, and the
-      individual sound of players working inside shared forms. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare. It also
-      separates a documented fact from a broad claim about the whole style.
+      Dizzy Gillespie played trumpet with bebop intensity, and on 'A Night in Tunisia' he
+      incorporated Afro-Cuban rhythms, expanding jazz's rhythmic vocabulary at an early
+      point on the line of development that this quiz follows from bebop through fusion
+      all the way to neo soul. Jazz developed through ensemble interaction, improvisation,
+      arranging, and the individual sound of players working inside shared forms.
     sources:
       - publisher: Wikipedia
         title: Dizzy Gillespie
@@ -129,10 +132,11 @@ questions:
       Duke Ellington wrote with specific musicians in mind. Pieces like 'Mood Indigo'
       reveal refined sensitivity to tone color, making large ensembles feel intimate.
     context: >-
-      Duke Ellington gives this part of the history a specific person, work, place, or
-      tool. Jazz developed through ensemble interaction, improvisation, arranging, and the
-      individual sound of players working inside shared forms. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Duke Ellington wrote with specific musicians in mind, and pieces like 'Mood Indigo'
+      reveal a refined sensitivity to tone color that made large ensembles feel intimate,
+      an arranging craft that feeds directly forward into the layered textures of neo
+      soul. Jazz developed through ensemble interaction, improvisation, arranging, and the
+      individual sound of players working inside shared forms.
     sources:
       - publisher: Wikipedia
         title: Duke Ellington
@@ -154,10 +158,12 @@ questions:
       Charles Mingus's album Mingus Ah Um combines precise arrangements with chaotic
       sections. His music shows social tensions while balancing written and open passages.
     context: >-
-      Charles Mingus gives this part of the history a specific person, work, place, or
-      tool. Jazz developed through ensemble interaction, improvisation, arranging, and the
-      individual sound of players working inside shared forms. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Charles Mingus's album 'Mingus Ah Um' combines precise arrangements with chaotic
+      sections, balancing written and open passages while showing social tensions, an
+      expressive ambition that points ahead along the path this quiz traces from early
+      jazz through to neo soul. Jazz developed through ensemble interaction,
+      improvisation, arranging, and the individual sound of players working inside shared
+      forms.
     sources:
       - publisher: Wikipedia
         title: Charles Mingus
@@ -178,9 +184,11 @@ questions:
       Instead of moving quickly through dense chord changes, the music often lingers on a
       mode or scale, giving soloists more space to shape melody, tone, and mood.
     context: >-
-      Kind of Blue gives this part of the history a specific person, work, place, or tool.
-      Jazz developed through ensemble interaction, improvisation, arranging, and the
-      individual sound of players working inside shared forms.
+      On Kind of Blue (1959), Miles Davis and his collaborators explored modal jazz,
+      lingering on a mode or scale instead of rushing through dense chord changes, which
+      gave soloists more space for melody, tone, and mood. Jazz developed through ensemble
+      interaction, improvisation, arranging, and the individual sound of players working
+      inside shared forms.
     sources:
       - publisher: Wikipedia
         title: Kind of Blue
@@ -202,11 +210,12 @@ questions:
       John Coltrane's A Love Supreme, released in 1965, is a four-part suite focusing on
       spirituality, gratitude, struggle, and affirmation.
     context: >-
-      A Love Supreme gives this part of the history a specific person, work, place, or
-      tool. Jazz developed through ensemble interaction, improvisation, arranging, and the
-      individual sound of players working inside shared forms. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare. It also
-      separates a documented fact from a broad claim about the whole style.
+      John Coltrane's 'A Love Supreme,' released in 1965, is a four-part suite focused on
+      spirituality, gratitude, struggle, and affirmation, and its spiritual focus gives
+      the album a clear place in the longer evolution that this quiz traces from early
+      jazz through to neo soul. Jazz developed through ensemble interaction,
+      improvisation, arranging, and the individual sound of players working inside shared
+      forms.
     sources:
       - publisher: Wikipedia
         title: A Love Supreme
@@ -229,10 +238,11 @@ questions:
       bands and later embraced bebop. She helped train Dizzy Gillespie and Thelonious
       Monk.
     context: >-
-      Mary Lou Williams gives this part of the history a specific person, work, place, or
-      tool. Jazz developed through ensemble interaction, improvisation, arranging, and the
-      individual sound of players working inside shared forms. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Mary Lou Williams, a pianist, composer, and arranger, worked with famous swing
+      bands, later embraced bebop, and helped train Dizzy Gillespie and Thelonious Monk,
+      passing technique and tradition directly to the next generation in jazz's evolution.
+      Jazz developed through ensemble interaction, improvisation, arranging, and the
+      individual sound of players working inside shared forms.
     sources:
       - publisher: Wikipedia
         title: Mary Lou Williams
@@ -254,10 +264,11 @@ questions:
       Melba Liston was a trombonist and arranger who worked closely with Randy Weston. Her
       music added depth and warmth, often drawing on African themes.
     context: >-
-      Melba Liston gives this part of the history a specific person, work, place, or tool.
-      Jazz developed through ensemble interaction, improvisation, arranging, and the
-      individual sound of players working inside shared forms. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Melba Liston was a trombonist and arranger who worked closely with Randy Weston,
+      adding depth and warmth to music that often drew on African themes, a contribution
+      that widens the story jazz tells on its way toward neo soul. Jazz developed through
+      ensemble interaction, improvisation, arranging, and the individual sound of players
+      working inside shared forms.
     sources:
       - publisher: Wikipedia
         title: Melba Liston
@@ -277,10 +288,11 @@ questions:
       Antônio Carlos Jobim worked with João Gilberto to create bossa nova, mixing samba
       rhythms with cool jazz harmony. Getz/Gilberto introduced this sound globally.
     context: >-
-      Antônio Carlos Jobim gives this part of the history a specific person, work, place,
-      or tool. Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm,
-      instrumentation, and the relationship between soloist and group. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      Antônio Carlos Jobim worked with João Gilberto to create bossa nova, mixing samba
+      rhythms with cool jazz harmony, and Getz/Gilberto introduced this sound globally,
+      showing how jazz kept absorbing new rhythms on the way toward fusion and neo soul.
+      Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm, instrumentation,
+      and the relationship between soloist and group.
     sources:
       - publisher: Wikipedia
         title: Wave (Antônio Carlos Jobim album)
@@ -303,10 +315,10 @@ questions:
       detailed sound. Its recordings often emphasized clarity, tone, and a calm intensity
       that helped define one influential strand of European jazz.
     context: >-
-      ECM Records gives this part of the history a specific person, work, place, or tool.
-      Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm, instrumentation,
-      and the relationship between soloist and group. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      ECM Records, founded by Manfred Eicher in 1969, became known for a spacious, highly
+      detailed sound that emphasized clarity, tone, and calm intensity, defining one
+      influential strand of European jazz. Bebop, hard bop, modal jazz, and fusion changed
+      harmony, rhythm, instrumentation, and the relationship between soloist and group.
     sources:
       - publisher: Wikipedia
         title: ECM Records
@@ -328,10 +340,11 @@ questions:
       Jimmy Smith was key to soul jazz. His recordings for Blue Note in the 1950s and
       1960s made the organ trio popular with music that felt direct and relatable.
     context: >-
-      Jimmy Smith gives this part of the history a specific person, work, place, or tool.
-      Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm, instrumentation,
-      and the relationship between soloist and group. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Jimmy Smith was key to soul jazz, and his Blue Note recordings in the 1950s and
+      1960s made the organ trio popular with music that felt direct and relatable,
+      bridging jazz and the soul styles that follow in this quiz. Bebop, hard bop, modal
+      jazz, and fusion changed harmony, rhythm, instrumentation, and the relationship
+      between soloist and group.
     sources:
       - publisher: Wikipedia
         title: Jimmy Smith
@@ -355,9 +368,10 @@ questions:
       piano, relaxed groove, and sermon-like warmth showed how jazz could feel accessible
       without giving up its musical depth.
     context: >-
-      Cannonball Adderley gives this part of the history a specific person, work, place,
-      or tool. Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm,
-      instrumentation, and the relationship between soloist and group.
+      Cannonball Adderley's 'Mercy, Mercy, Mercy' (1966), written by Joe Zawinul, showed
+      how jazz could feel accessible without giving up its depth. Bebop, hard bop, modal
+      jazz, and fusion changed harmony, rhythm, instrumentation, and the relationship
+      between soloist and group.
     sources:
       - publisher: Wikipedia
         title: Cannonball Adderley
@@ -379,10 +393,11 @@ questions:
       Roy Ayers built a bridge between jazz harmony and soulful vocals. 'Everybody Loves
       the Sunshine' (1976) later became a favorite source for hip hop sampling.
     context: >-
-      Roy Ayers gives this part of the history a specific person, work, place, or tool.
+      Roy Ayers built a bridge between jazz harmony and soulful vocals, and 'Everybody
+      Loves the Sunshine' (1976) later became a favorite source for hip-hop sampling,
+      connecting jazz directly to the sample-based styles that this quiz traces forward.
       Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm, instrumentation,
-      and the relationship between soloist and group. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      and the relationship between soloist and group.
     sources:
       - publisher: Wikipedia
         title: Roy Ayers
@@ -405,10 +420,11 @@ questions:
       sounds. His productions featured polished arrangements, lush strings, and refined
       studio sound.
     context: >-
-      Creed Taylor gives this part of the history a specific person, work, place, or tool.
+      Creed Taylor founded CTI Records and created one of the most unique jazz-funk
+      sounds, with polished arrangements, lush strings, and refined studio sound, a
+      producer-led polish that in many ways prefigures the studio craft of neo soul.
       Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm, instrumentation,
-      and the relationship between soloist and group. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      and the relationship between soloist and group.
     sources:
       - publisher: Wikipedia
         title: Creed Taylor
@@ -430,10 +446,11 @@ questions:
       Patrice Rushen studied jazz piano and made fusion albums before moving toward R&B
       and funk. 'Forget Me Nots' became popular and was sampled in many hip hop songs.
     context: >-
-      Patrice Rushen gives this part of the history a specific person, work, place, or
-      tool. Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm,
-      instrumentation, and the relationship between soloist and group. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      Patrice Rushen studied jazz piano and made fusion albums before moving toward R&B
+      and funk, and 'Forget Me Nots' became popular and was sampled in many hip-hop songs,
+      placing her squarely on the bridge between jazz and neo soul. Bebop, hard bop, modal
+      jazz, and fusion changed harmony, rhythm, instrumentation, and the relationship
+      between soloist and group.
     sources:
       - publisher: Wikipedia
         title: Patrice Rushen
@@ -456,10 +473,11 @@ questions:
       adding harp, organ, and elements of Indian classical music on Journey in
       Satchidananda.
     context: >-
-      Alice Coltrane gives this part of the history a specific person, work, place, or
-      tool. Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm,
-      instrumentation, and the relationship between soloist and group. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      Alice Coltrane kept exploring spiritual and modal forms after John Coltrane's death,
+      adding harp, organ, and elements of Indian classical music on 'Journey in
+      Satchidananda,' an expansive turn that points ahead toward neo soul's layered
+      harmony and spirituality. Bebop, hard bop, modal jazz, and fusion changed harmony,
+      rhythm, instrumentation, and the relationship between soloist and group.
     sources:
       - publisher: Wikipedia
         title: Transcendence (Alice Coltrane album)
@@ -482,10 +500,11 @@ questions:
       and political urgency. His band Africa 70 used repeating bass lines and interlocking
       percussion.
     context: >-
-      Fela Kuti gives this part of the history a specific person, work, place, or tool.
-      Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm, instrumentation,
-      and the relationship between soloist and group. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Fela Kuti created Afrobeat with long, layered compositions, strong rhythms, and
+      political urgency, while his band Africa 70 used repeating bass lines and
+      interlocking percussion, extending jazz's reach into groove music that later feeds
+      neo soul. Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm,
+      instrumentation, and the relationship between soloist and group.
     sources:
       - publisher: Wikipedia
         title: Fela Kuti discography
@@ -507,10 +526,11 @@ questions:
       The Fender Rhodes electric piano has a warm, bell-like tone that could hold notes
       longer than acoustic pianos. It became essential to fusion and neo soul.
     context: >-
-      Fender Rhodes gives this part of the history a specific person, work, place, or
-      tool. Bebop, hard bop, modal jazz, and fusion changed harmony, rhythm,
-      instrumentation, and the relationship between soloist and group. Reading the credit
-      or date beside the musical detail makes the answer easier to check and compare.
+      The Fender Rhodes electric piano, with its warm, bell-like tone and long sustain,
+      became essential to fusion and neo soul, one of the key tools linking the earlier
+      acoustic jazz past to the genre's electric future. Bebop, hard bop, modal jazz, and
+      fusion changed harmony, rhythm, instrumentation, and the relationship between
+      soloist and group.
     sources:
       - publisher: Wikipedia
         title: Harold Rhodes (inventor)
@@ -533,10 +553,11 @@ questions:
       Bitches Brew (1970), reimagining form through electric keyboards, guitars, and
       studio manipulation.
     context: >-
-      In a Silent Way, Bitches Brew belong together here; the comparison names each part
-      of the change. Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove
-      through bands, samples, drum programming, and club culture. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      These two albums marked Miles Davis's big step into electric territory, reimagining
+      form through electric keyboards, guitars, and studio manipulation, a turn that
+      opened the road from jazz to funk, hip-hop sampling, and neo soul. Soul, funk,
+      hip-hop, and acid jazz reused jazz harmony and groove through bands, samples, drum
+      programming, and club culture.
     sources:
       - publisher: Wikipedia
         title: In a Silent Way
@@ -558,10 +579,11 @@ questions:
       Herbie Hancock's 1973 album Head Hunters is a classic of jazz-funk. 'Chameleon'
       features a strong bass line and groove-centered sound.
     context: >-
-      Head Hunters gives this part of the history a specific person, work, place, or tool.
-      Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove through bands,
-      samples, drum programming, and club culture. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Herbie Hancock's 1973 album 'Head Hunters' is a classic of jazz-funk, with
+      'Chameleon' built on a strong bass line and a groove-centered sound, exactly the
+      kind of groove-forward jazz material that hip-hop producers and neo soul artists
+      later reused and reworked. Soul, funk, hip-hop, and acid jazz reused jazz harmony
+      and groove through bands, samples, drum programming, and club culture.
     sources:
       - publisher: Wikipedia
         title: Head Hunters
@@ -583,10 +605,11 @@ questions:
       Return to Forever, led by Chick Corea, followed a path from Latin-influenced lighter
       styles to complex, almost symphonic fusion on albums like Romantic Warrior.
     context: >-
-      Return to Forever gives this part of the history a specific person, work, place, or
-      tool. Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove through
-      bands, samples, drum programming, and club culture. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Return to Forever, led by Chick Corea, followed a path from Latin-influenced lighter
+      styles to complex, almost symphonic fusion on albums like 'Romantic Warrior,'
+      showing how far fusion stretched on the way from jazz to neo soul. Soul, funk,
+      hip-hop, and acid jazz reused jazz harmony and groove through bands, samples, drum
+      programming, and club culture.
     sources:
       - publisher: Wikipedia
         title: Return to Forever
@@ -610,9 +633,10 @@ questions:
       memorable and inviting while the arrangement still reflected the band's layered,
       electric jazz language.
     context: >-
-      Weather Report gives this part of the history a specific person, work, place, or
-      tool. Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove through
-      bands, samples, drum programming, and club culture.
+      Weather Report, co-led by Joe Zawinul and Wayne Shorter, created 'Birdland,' one of
+      fusion's best-known pieces, pairing a memorable melody with the band's layered,
+      electric jazz language. Soul, funk, hip-hop, and acid jazz reused jazz harmony and
+      groove through bands, samples, drum programming, and club culture.
     sources:
       - publisher: Wikipedia
         title: Weather Report
@@ -634,10 +658,11 @@ questions:
       Jaco Pastorius joined Weather Report in the mid-1970s. His fretless electric bass
       added melodic independence to the low end, playing it like a lyrical instrument.
     context: >-
-      Jaco Pastorius gives this part of the history a specific person, work, place, or
-      tool. Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove through
-      bands, samples, drum programming, and club culture. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Jaco Pastorius joined Weather Report in the mid-1970s and played fretless electric
+      bass like a lyrical instrument, adding melodic independence to the low end, an
+      approach that shaped the bass-forward sound later prized by hip-hop and neo soul.
+      Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove through bands,
+      samples, drum programming, and club culture.
     sources:
       - publisher: Wikipedia
         title: Jaco Pastorius (album)
@@ -660,10 +685,11 @@ questions:
       early 1980s. Their recordings combined tight ensemble playing with bright, melodic
       themes.
     context: >-
-      Casiopea gives this part of the history a specific person, work, place, or tool.
-      Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove through bands,
-      samples, drum programming, and club culture. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Casiopea became one of the most popular fusion groups in Japan in the late 1970s and
+      early 1980s, combining tight ensemble playing with bright, melodic themes, proof of
+      fusion's international reach as the story moves toward neo soul. Soul, funk,
+      hip-hop, and acid jazz reused jazz harmony and groove through bands, samples, drum
+      programming, and club culture.
     sources:
       - publisher: Wikipedia
         title: Casiopea
@@ -685,10 +711,11 @@ questions:
       Gilles Peterson founded Talkin' Loud and was central to the acid jazz movement. As
       DJ and curator, he connected club culture to recording projects.
     context: >-
-      Gilles Peterson gives this part of the history a specific person, work, place, or
-      tool. Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove through
-      bands, samples, drum programming, and club culture. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Gilles Peterson founded Talkin' Loud and stood at the center of the acid jazz
+      movement, connecting club culture to recording projects as DJ and curator, a link
+      that carried jazz's harmony and groove into hip-hop and neo soul. Soul, funk,
+      hip-hop, and acid jazz reused jazz harmony and groove through bands, samples, drum
+      programming, and club culture.
     sources:
       - publisher: Wikipedia
         title: Acid jazz
@@ -708,10 +735,11 @@ questions:
       Jamiroquai's first album, Emergency on Planet Earth (1993), is a clear example of
       acid jazz. The grooves were based on 1970s funk and jazz-funk styles.
     context: >-
-      Jamiroquai gives this part of the history a specific person, work, place, or tool.
-      Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove through bands,
-      samples, drum programming, and club culture. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Jamiroquai's first album, 'Emergency on Planet Earth' (1993), is a clear example of
+      acid jazz, with grooves based on 1970s funk and jazz-funk styles, one step in the
+      chain that connects jazz to hip-hop and neo soul. Soul, funk, hip-hop, and acid jazz
+      reused jazz harmony and groove through bands, samples, drum programming, and club
+      culture.
     sources:
       - publisher: Wikipedia
         title: Jamiroquai
@@ -733,10 +761,11 @@ questions:
       A Tribe Called Quest's The Low End Theory (1991) connected jazz and hip hop. The
       album features strong bass lines, simple drum beats, and focus on space.
     context: >-
-      A Tribe Called Quest gives this part of the history a specific person, work, place,
-      or tool. Soul, funk, hip-hop, and acid jazz reused jazz harmony and groove through
-      bands, samples, drum programming, and club culture. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      A Tribe Called Quest's 'The Low End Theory' (1991) connected jazz and hip-hop,
+      featuring strong bass lines, simple drum beats, and a focus on space, a meeting
+      point that later neo-soul artists would build on. Soul, funk, hip-hop, and acid jazz
+      reused jazz harmony and groove through bands, samples, drum programming, and club
+      culture.
     sources:
       - publisher: Wikipedia
         title: A Tribe Called Quest
@@ -758,10 +787,11 @@ questions:
       Guru's Jazzmatazz, Vol. 1 (1993) brought jazz musicians like Donald Byrd and Roy
       Ayers directly into the studio to play along with programmed beats.
     context: >-
-      Guru gives this part of the history a specific person, work, place, or tool. Soul,
-      funk, hip-hop, and acid jazz reused jazz harmony and groove through bands, samples,
-      drum programming, and club culture. Reading the credit or date beside the musical
-      detail makes the answer easier to check and compare.
+      Guru's 'Jazzmatazz, Vol. 1' (1993) brought jazz musicians like Donald Byrd and Roy
+      Ayers directly into the studio to play along with programmed beats, fusing live jazz
+      and hip-hop production in a way that anticipates neo soul. Soul, funk, hip-hop, and
+      acid jazz reused jazz harmony and groove through bands, samples, drum programming,
+      and club culture.
     sources:
       - publisher: Wikipedia
         title: Guru Guru
@@ -785,9 +815,10 @@ questions:
       slightly off-center pocket associated with J Dilla, making the groove feel loose,
       deep, and intensely human.
     context: >-
-      Voodoo gives this part of the history a specific person, work, place, or tool. Neo
-      soul places those materials around the singer, often favoring flexible timing,
-      layered harmony, and audible instrumental interplay.
+      D'Angelo's 'Voodoo' (2000) featured Questlove and key members of The Roots, and its
+      slightly off-center pocket became one of neo soul's defining sounds. Neo soul places
+      those materials around the singer, often favoring flexible timing, layered harmony,
+      and audible instrumental interplay.
     sources:
       - publisher: Wikipedia
         title: Voodoo (D'Angelo album)
@@ -811,9 +842,11 @@ questions:
       recalled earlier jazz singers such as Billie Holiday and Betty Carter while still
       sounding unmistakably contemporary.
     context: >-
-      Baduizm gives this part of the history a specific person, work, place, or tool. Neo
-      soul places those materials around the singer, often favoring flexible timing,
-      layered harmony, and audible instrumental interplay.
+      Erykah Badu's 'Baduizm' (1997) quickly became a landmark neo-soul debut, with songs
+      like 'On & On' combining spiritual reflection, relaxed groove, and vocal phrasing
+      that recalled earlier jazz singers. Neo soul places those materials around the
+      singer, often favoring flexible timing, layered harmony, and audible instrumental
+      interplay.
     sources:
       - publisher: Wikipedia
         title: Baduizm
@@ -835,11 +868,11 @@ questions:
       Lauryn Hill's The Miseducation of Lauryn Hill (1998) mixed live instruments with hip
       hop rhythm. 'Doo Wop (That Thing)' featured both singing and rapping.
     context: >-
-      The Miseducation of Lauryn Hill gives this part of the history a specific person,
-      work, place, or tool. Neo soul places those materials around the singer, often
-      favoring flexible timing, layered harmony, and audible instrumental interplay.
-      Reading the credit or date beside the musical detail makes the answer easier to
-      check and compare.
+      Lauryn Hill's 'The Miseducation of Lauryn Hill' (1998) mixed live instruments with
+      hip-hop rhythm, and 'Doo Wop (That Thing)' featured both singing and rapping,
+      blending exactly the materials that neo soul later places around the singer's own
+      voice. Neo soul places those materials around the singer, often favoring flexible
+      timing, layered harmony, and audible instrumental interplay.
     sources:
       - publisher: Wikipedia
         title: The Miseducation of Lauryn Hill
@@ -861,10 +894,11 @@ questions:
       Jill Scott's first album (2000) shows Philadelphia's tight-knit music scene. Songs
       like 'A Long Walk' have warm bass lines and gentle drums with spoken word influence.
     context: >-
-      Jill Scott gives this part of the history a specific person, work, place, or tool.
-      Neo soul places those materials around the singer, often favoring flexible timing,
-      layered harmony, and audible instrumental interplay. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Jill Scott's first album (2000) shows Philadelphia's tight-knit music scene, with
+      songs like 'A Long Walk' built on warm bass lines, gentle drums, and spoken-word
+      influence, a clear local example of neo soul's intimate, singer-centered craft. Neo
+      soul places those materials around the singer, often favoring flexible timing,
+      layered harmony, and audible instrumental interplay.
     sources:
       - publisher: Wikipedia
         title: Jill Scott (singer)
@@ -886,10 +920,11 @@ questions:
       Questlove, drummer of The Roots, played on D'Angelo's Voodoo. His drumming style
       mixes jazz feeling with hip hop timing, often hitting slightly after the beat.
     context: >-
-      Questlove gives this part of the history a specific person, work, place, or tool.
-      Neo soul places those materials around the singer, often favoring flexible timing,
-      layered harmony, and audible instrumental interplay. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Questlove, drummer of The Roots, played on D'Angelo's 'Voodoo' with relaxed,
+      off-beat swing, mixing jazz feeling with hip-hop timing and often hitting slightly
+      after the beat, a flexible pocket that neo soul treats as essential to its feel. Neo
+      soul places those materials around the singer, often favoring flexible timing,
+      layered harmony, and audible instrumental interplay.
     sources:
       - publisher: Wikipedia
         title: Questlove
@@ -911,10 +946,11 @@ questions:
       India.Arie's first album Acoustic Soul (2001) had a warm, clear sound with acoustic
       guitar and focus on authenticity, showing neo soul's flexibility.
     context: >-
-      India.Arie gives this part of the history a specific person, work, place, or tool.
-      Neo soul places those materials around the singer, often favoring flexible timing,
-      layered harmony, and audible instrumental interplay. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      India.Arie's first album, 'Acoustic Soul' (2001), had a warm, clear sound with
+      acoustic guitar and a focus on authenticity, and its folk influences showed how
+      flexible neo soul had become by the end of the evolution this quiz traces from jazz
+      to neo soul. Neo soul places those materials around the singer, often favoring
+      flexible timing, layered harmony, and audible instrumental interplay.
     sources:
       - publisher: Wikipedia
         title: India Arie
@@ -938,9 +974,10 @@ questions:
       Collaborators such as Erykah Badu and Bilal helped show how modern jazz could move
       naturally inside contemporary Black popular music.
     context: >-
-      Robert Glasper gives this part of the history a specific person, work, place, or
-      tool. Neo soul places those materials around the singer, often favoring flexible
-      timing, layered harmony, and audible instrumental interplay.
+      Robert Glasper's 'Black Radio' (2012) mixed live jazz instruments with R&B vocals
+      and hip-hop rhythm in a way that reached beyond traditional jazz audiences. Neo soul
+      places those materials around the singer, often favoring flexible timing, layered
+      harmony, and audible instrumental interplay.
     sources:
       - publisher: Wikipedia
         title: Robert Glasper
@@ -964,9 +1001,10 @@ questions:
       victory showed that jazz-informed musicianship could still break through on a major
       awards stage.
     context: >-
-      Esperanza Spalding gives this part of the history a specific person, work, place, or
-      tool. Neo soul places those materials around the singer, often favoring flexible
-      timing, layered harmony, and audible instrumental interplay.
+      Esperanza Spalding won the Best New Artist Grammy in 2011, showing that
+      jazz-informed musicianship could break through on a major awards stage. Neo soul
+      places those materials around the singer, often favoring flexible timing, layered
+      harmony, and audible instrumental interplay.
     sources:
       - publisher: Wikipedia
         title: Esperanza (Esperanza Spalding album)
@@ -988,10 +1026,11 @@ questions:
       Hiatus Kaiyote from Melbourne mixes jazz harmony, neo soul groove, and experimental
       structure. Nai Palm's voice moves over extended chords with unpredictable phrasing.
     context: >-
-      Hiatus Kaiyote gives this part of the history a specific person, work, place, or
-      tool. Neo soul places those materials around the singer, often favoring flexible
-      timing, layered harmony, and audible instrumental interplay. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Hiatus Kaiyote, a band from Melbourne, mixes jazz harmony, neo soul groove, and
+      experimental structure, with Nai Palm's voice moving over extended chords with
+      unpredictable phrasing, a current-day endpoint for the long evolution from jazz that
+      this quiz follows. Neo soul places those materials around the singer, often favoring
+      flexible timing, layered harmony, and audible instrumental interplay.
     sources:
       - publisher: Wikipedia
         title: Hiatus Kaiyote
@@ -1015,9 +1054,10 @@ questions:
       studio edits, and dense ensemble textures, moving jazz toward the scale and sound
       world of rock without abandoning improvisation.
     context: >-
-      Bitches Brew gives this part of the history a specific person, work, place, or tool.
-      Neo soul places those materials around the singer, often favoring flexible timing,
-      layered harmony, and audible instrumental interplay.
+      Miles Davis's 'Bitches Brew' (1970) is one of the clearest starting points for jazz
+      fusion, moving the music toward rock's scale and sound world without abandoning
+      improvisation. Neo soul places those materials around the singer, often favoring
+      flexible timing, layered harmony, and audible instrumental interplay.
     sources:
       - publisher: Wikipedia
         title: Bitches Brew

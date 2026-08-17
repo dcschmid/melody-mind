@@ -3,7 +3,7 @@ format: cover-story
 title: How to Play a Record Without Language
 dek: The Voyager Golden Record cover does not advertise the music inside. Its etched diagrams try to explain playback, image decoding, location, and time without a shared alphabet.
 seoDescription: A close reading of the Voyager Golden Record cover, its playback diagram, image raster, pulsar map, hydrogen clock, uranium source, and design limits.
-publishedAt: 2026-07-18
+publishedAt: 2026-07-18T12:00:00Z
 topics:
   - Voyager Golden Record
   - information design

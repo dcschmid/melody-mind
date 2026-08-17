@@ -3,20 +3,17 @@ interface Props {
   detailsHref: string;
   detail?: string;
   label: string;
-  variant: "generated" | "assisted";
 }
 
-const { detailsHref, detail, label, variant } = Astro.props;
-const iconSrc = variant === "generated" ? "/ai-generated-eu.svg" : "/ai-eu.svg";
+const { detailsHref, detail, label } = Astro.props;
 ---
 
 <a
   class="ai-disclosure"
-  data-ai-disclosure={variant}
   href={detailsHref}
   aria-label={`${label}. Read AI transparency details.`}
 >
-  <img src={iconSrc} width="34" height="34" alt="" aria-hidden="true" />
+  <img src="/ai-eu.svg" width="34" height="34" alt="" aria-hidden="true" />
   <span class="ai-disclosure__copy">
     <strong>{label}</strong>
     {detail && <span>{detail}</span>}

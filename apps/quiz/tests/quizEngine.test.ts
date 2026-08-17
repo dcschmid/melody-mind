@@ -107,6 +107,39 @@ describe("createQuizSession", () => {
       "Saved question is no longer available"
     );
   });
+
+  it("rejects saved progress when a stored option id no longer exists", () => {
+    const original = createQuizSession(buildPool(), () => 0.999);
+    const snapshot = createQuizSessionSnapshot(original, []);
+    snapshot.questions[0].optionIds = [
+      "missing-option",
+      ...snapshot.questions[0].optionIds.slice(1),
+    ];
+
+    expect(() => restoreQuizSession(buildPool(), snapshot)).toThrow(
+      "Saved answer option is no longer available"
+    );
+  });
+
+  it("rejects saved progress when the stored option set does not match", () => {
+    const original = createQuizSession(buildPool(), () => 0.999);
+    const snapshot = createQuizSessionSnapshot(original, []);
+    snapshot.questions[0].optionIds = snapshot.questions[0].optionIds.slice(0, 2);
+
+    expect(() => restoreQuizSession(buildPool(), snapshot)).toThrow(
+      "Saved answer options are invalid"
+    );
+  });
+
+  it("rejects saved progress with an out-of-range question index", () => {
+    const original = createQuizSession(buildPool(), () => 0.999);
+    const snapshot = createQuizSessionSnapshot(original, []);
+    snapshot.currentIndex = snapshot.questions.length;
+
+    expect(() => restoreQuizSession(buildPool(), snapshot)).toThrow(
+      "Saved quiz progress is invalid"
+    );
+  });
 });
 
 describe("answer evaluation", () => {

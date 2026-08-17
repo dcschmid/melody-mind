@@ -98,7 +98,6 @@ const collectionSchema = {
             </time>
           </p>
           <AiDisclosure
-            variant="assisted"
             label="AI-assisted, human-reviewed"
             detailsHref="/about/#ai-transparency"
           />
@@ -136,7 +135,7 @@ const collectionSchema = {
       </p>
     </header>
 
-    <ol class="archive__grid" start={cardStart} style={`--card-start: ${cardStart - 1}`}>
+    <ol class="archive__grid" style={`--card-start: ${cardStart - 1}`}>
       {
         cards.map((story, index) => (
           <li class:list={["story-card", index % 7 === 0 && "story-card--wide"]}>

@@ -31,10 +31,11 @@ questions:
       Arsenio Rodríguez, who was blind from a young age, expanded son by adding congas and
       making the rhythm more complex, strengthening its ties to African roots.
     context: >-
-      Arsenio Rodríguez gives this part of the history a specific person, work, place, or
-      tool. The broad label Latin music contains distinct histories shaped by African,
-      Indigenous, European, Caribbean, and American traditions. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      In the 1940s, the Cuban musician Arsenio Rodríguez expanded son by adding congas and
+      strengthening its African roots, an early example of how Latin music kept absorbing
+      new influences on the long path that eventually reaches Latin trap. The broad label
+      Latin music contains distinct histories shaped by African, Indigenous, European,
+      Caribbean, and American traditions.
     sources:
       - publisher: Wikipedia
         title: Arsenio Rodríguez
@@ -57,10 +58,11 @@ questions:
       dance often played with drums and percussion, usually improvised and closely tied to
       everyday life.
     context: >-
-      Rumba gives this part of the history a specific person, work, place, or tool. The
-      broad label Latin music contains distinct histories shaped by African, Indigenous,
-      European, Caribbean, and American traditions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Rumba grew in the working-class neighborhoods of Havana and Matanzas as a dance
+      tradition played with drums and percussion, one of the distinct Cuban roots feeding
+      the broader Latin music history that later produces Latin trap. The broad label
+      Latin music contains distinct histories shaped by African, Indigenous, European,
+      Caribbean, and American traditions.
     sources:
       - publisher: Wikipedia
         title: Rumba
@@ -80,10 +82,11 @@ questions:
       The term 'Nuyorican' was created to describe Puerto Ricans born or raised in New
       York City, whose experience was different from their parents.
     context: >-
-      Nuyorican gives this part of the history a specific person, work, place, or tool.
+      The term Nuyorican named Puerto Ricans born or raised in New York City, whose
+      experience differed from that of their parents', reflecting how migration reshaped
+      Latin music in U.S. cities along the path from older Latin traditions to Latin trap.
       The broad label Latin music contains distinct histories shaped by African,
-      Indigenous, European, Caribbean, and American traditions. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Indigenous, European, Caribbean, and American traditions.
     sources:
       - publisher: Wikipedia
         title: Nuyorican Soul
@@ -103,10 +106,11 @@ questions:
       Fania Records was founded in 1964 by Johnny Pacheco and Jerry Masucci. The label
       built a brand around the salsa sound that was forming in New York clubs.
     context: >-
-      Johnny Pacheco gives this part of the history a specific person, work, place, or
-      tool. The broad label Latin music contains distinct histories shaped by African,
-      Indigenous, European, Caribbean, and American traditions. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Johnny Pacheco, who founded Fania Records with Jerry Masucci in 1964, helped build a
+      label around the salsa sound forming in New York clubs, a key step in the Latin
+      story this quiz traces toward Latin trap. The broad label Latin music contains
+      distinct histories shaped by African, Indigenous, European, Caribbean, and American
+      traditions.
     sources:
       - publisher: Wikipedia
         title: Johnny Pacheco
@@ -129,10 +133,11 @@ questions:
       influenced by young Latinos in New York who combined Afro-Cuban rhythms with simpler
       arrangements and English choruses.
     context: >-
-      Boogaloo gives this part of the history a specific person, work, place, or tool. The
-      broad label Latin music contains distinct histories shaped by African, Indigenous,
-      European, Caribbean, and American traditions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Boogaloo, which peaked between 1966 and 1968, showed young Latinos in New York
+      combining Afro-Cuban rhythms with English lyrics, one of the hybrid turns that move
+      this quiz's timeline from traditional Latin forms toward Latin trap. The broad label
+      Latin music contains distinct histories shaped by African, Indigenous, European,
+      Caribbean, and American traditions.
     sources:
       - publisher: Wikipedia
         title: Boogaloo
@@ -153,10 +158,11 @@ questions:
       captured the style's mix of Latin rhythm, bilingual street energy, and a looser,
       more urban feel than earlier dance-band arrangements.
     context: >-
-      Joe Cuba gives this part of the history a specific person, work, place, or tool. The
-      broad label Latin music contains distinct histories shaped by African, Indigenous,
-      European, Caribbean, and American traditions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Joe Cuba stood at the center of boogaloo, and his group's hit 'Bang Bang' pushed
+      Latin rhythm toward a looser, more urban feel, part of the urbanizing current that
+      runs through this quiz from salsa to Latin trap. The broad label Latin music
+      contains distinct histories shaped by African, Indigenous, European, Caribbean, and
+      American traditions.
     sources:
       - publisher: Wikipedia
         title: Joe Acosta
@@ -178,10 +184,11 @@ questions:
       Rubén Blades worked with Willie Colón, and their collaboration reached its peak with
       the 1978 album Siembra, which was one of the best-selling salsa records of its time.
     context: >-
-      Siembra gives this part of the history a specific person, work, place, or tool. The
-      broad label Latin music contains distinct histories shaped by African, Indigenous,
-      European, Caribbean, and American traditions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Siembra, the 1978 album by Rubén Blades and Willie Colón, became one of the
+      best-selling salsa records of its time, marking a commercial high point in the Latin
+      trajectory this quiz follows toward Latin trap. The broad label Latin music contains
+      distinct histories shaped by African, Indigenous, European, Caribbean, and American
+      traditions.
     sources:
       - publisher: Wikipedia
         title: Siembra
@@ -205,10 +212,11 @@ questions:
       'Pedro Navaja,' from the album Siembra, tells the story of a street hustler whose
       life ends suddenly. The song sounded like a short movie with cinematic storytelling.
     context: >-
-      Pedro Navaja gives this part of the history a specific person, work, place, or tool.
-      The broad label Latin music contains distinct histories shaped by African,
-      Indigenous, European, Caribbean, and American traditions. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      'Pedro Navaja,' from the album Siembra, told the story of a street hustler whose
+      life ends suddenly, bringing cinematic storytelling into salsa as the genre evolved
+      along the path this quiz traces from Latin roots to Latin trap. The broad label
+      Latin music contains distinct histories shaped by African, Indigenous, European,
+      Caribbean, and American traditions.
     sources:
       - publisher: Wikipedia
         title: Pedro Navaja
@@ -232,9 +240,11 @@ questions:
       'Quimbara,' while later hits like 'La Vida Es Un Carnaval' showed how long her reach
       extended beyond the classic Fania era.
     context: >-
-      Celia Cruz gives this part of the history a specific person, work, place, or tool.
-      The broad label Latin music contains distinct histories shaped by African,
-      Indigenous, European, Caribbean, and American traditions.
+      Celia Cruz, the Havana-born Queen of Salsa who joined the Fania roster, carried
+      salsa from its classic era toward later audiences, anchoring one major chapter of
+      this quiz's Latin-to-Latin-trap story. The broad label Latin music contains distinct
+      histories shaped by African, Indigenous, European, Caribbean, and American
+      traditions.
     sources:
       - publisher: Wikipedia
         title: Celia Cruz
@@ -257,10 +267,11 @@ questions:
       focused on love, heartbreak, and longing, with artists like Eddie Santiago and
       Frankie Ruiz.
     context: >-
-      Salsa romántica gives this part of the history a specific person, work, place, or
-      tool. The broad label Latin music contains distinct histories shaped by African,
-      Indigenous, European, Caribbean, and American traditions. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Salsa romántica emerged in the 1980s with polished, melodic singing about love and
+      heartbreak from artists like Eddie Santiago and Frankie Ruiz, a softer turn in the
+      Latin evolution this quiz traces from salsa toward Latin trap. The broad label Latin
+      music contains distinct histories shaped by African, Indigenous, European,
+      Caribbean, and American traditions.
     sources:
       - publisher: Wikipedia
         title: Salsa romántica
@@ -283,10 +294,11 @@ questions:
       influences. Their 2002 hit 'Obsesión' was popular everywhere, especially in Europe
       and beyond.
     context: >-
-      Aventura gives this part of the history a specific person, work, place, or tool.
-      Migration between the Caribbean, Latin America, and U.S. cities changed ensembles,
-      lyrics, dance practice, and the business around the music. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Aventura, led by Romeo Santos, blended traditional bachata rhythm with modern urban
+      influences, and their 2002 hit 'Obsesión' showed how Caribbean styles kept adapting
+      for new audiences on the route from Latin roots to Latin trap. Migration between the
+      Caribbean, Latin America, and U.S. cities changed ensembles, lyrics, dance practice,
+      and the business around the music.
     sources:
       - publisher: Wikipedia
         title: Aventura
@@ -309,10 +321,11 @@ questions:
       Latin vocal melodies. Artists like Lisa Lisa & Cult Jam created hits like 'Head to
       Toe.'
     context: >-
-      Freestyle gives this part of the history a specific person, work, place, or tool.
+      Freestyle emerged in 1980s New York, pairing synthesizers with Latin vocal melodies
+      for bilingual youth, with artists like Lisa Lisa & Cult Jam marking an early
+      electronic step on this quiz's path from Latin dance styles toward Latin trap.
       Migration between the Caribbean, Latin America, and U.S. cities changed ensembles,
-      lyrics, dance practice, and the business around the music. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      lyrics, dance practice, and the business around the music.
     sources:
       - publisher: Wikipedia
         title: Freestyle rap
@@ -335,11 +348,11 @@ questions:
       American pop with Miami Sound Machine. Songs like 'Conga' made Afro-Cuban rhythms
       popular in English-speaking countries.
     context: >-
-      Gloria Estefan gives this part of the history a specific person, work, place, or
-      tool. Migration between the Caribbean, Latin America, and U.S. cities changed
-      ensembles, lyrics, dance practice, and the business around the music. Reading the
-      credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      Gloria Estefan, born in Havana and raised in Miami, bridged Latin rhythm and
+      American pop with Miami Sound Machine, moving Afro-Cuban rhythms into
+      English-speaking markets along this quiz's path from Latin roots to Latin trap.
+      Migration between the Caribbean, Latin America, and U.S. cities changed ensembles,
+      lyrics, dance practice, and the business around the music.
     sources:
       - publisher: Wikipedia
         title: Gloria Estefan
@@ -362,10 +375,11 @@ questions:
       tragically in 1995. The posthumous release 'Dreaming of You' debuted at number one
       on the Billboard 200.
     context: >-
-      Selena gives this part of the history a specific person, work, place, or tool.
-      Migration between the Caribbean, Latin America, and U.S. cities changed ensembles,
-      lyrics, dance practice, and the business around the music. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Selena, the Tejano singer who died in 1995 while preparing an English-language
+      crossover album, carried Latin music toward a wider pop audience, a step in the
+      crossover narrative that runs through this quiz toward Latin trap. Migration between
+      the Caribbean, Latin America, and U.S. cities changed ensembles, lyrics, dance
+      practice, and the business around the music.
     sources:
       - publisher: Wikipedia
         title: Selena
@@ -388,10 +402,11 @@ questions:
       underground network. His Playero mixtapes featured new artists including a young
       Daddy Yankee.
     context: >-
-      DJ Playero gives this part of the history a specific person, work, place, or tool.
+      DJ Playero was a reggaeton pioneer who helped build Puerto Rico's underground
+      network, and his Playero mixtapes featured young artists such as Daddy Yankee,
+      laying groundwork for the styles this quiz follows from Latin roots to Latin trap.
       Migration between the Caribbean, Latin America, and U.S. cities changed ensembles,
-      lyrics, dance practice, and the business around the music. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      lyrics, dance practice, and the business around the music.
     sources:
       - publisher: Wikipedia
         title: DJ Playero
@@ -414,10 +429,11 @@ questions:
       Puerto Rico. He mixed hip-hop beats with Spanish-language lyrics, helping shape the
       style that would become reggaeton.
     context: >-
-      Vico C gives this part of the history a specific person, work, place, or tool.
-      Migration between the Caribbean, Latin America, and U.S. cities changed ensembles,
-      lyrics, dance practice, and the business around the music. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Vico C mixed hip-hop beats with Spanish-language lyrics in Puerto Rico, helping
+      shape the style that would become reggaeton, a direct link in this quiz's chain from
+      Latin roots through rap to Latin trap. Migration between the Caribbean, Latin
+      America, and U.S. cities changed ensembles, lyrics, dance practice, and the business
+      around the music.
     sources:
       - publisher: Wikipedia
         title: Vico C
@@ -440,9 +456,10 @@ questions:
       performance and promotional space where young reggaeton artists tested songs, built
       reputations, and connected club energy to the cassette underground.
     context: >-
-      The Noise gives this part of the history a specific person, work, place, or tool.
-      Migration between the Caribbean, Latin America, and U.S. cities changed ensembles,
-      lyrics, dance practice, and the business around the music.
+      The Noise in San Juan gave young reggaeton artists a space to test songs and build
+      reputations, connecting club energy to the cassette underground on the way toward
+      Latin trap. Migration between the Caribbean, Latin America, and U.S. cities changed
+      ensembles, lyrics, dance practice, and the business around the music.
     sources:
       - publisher: Wikipedia
         title: Noise
@@ -465,10 +482,11 @@ questions:
       of early 2000s reggaeton. Their compilation album Mas Flow featured several singers
       over carefully designed instrumentals.
     context: >-
-      Luny Tunes gives this part of the history a specific person, work, place, or tool.
-      Migration between the Caribbean, Latin America, and U.S. cities changed ensembles,
-      lyrics, dance practice, and the business around the music. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Luny Tunes, the duo of Francisco Saldaña and Víctor Cabrera, helped create the
+      polished sound of early 2000s reggaeton with compilations like Mas Flow, pushing the
+      genre up this quiz's arc from salsa to Latin trap. Migration between the Caribbean,
+      Latin America, and U.S. cities changed ensembles, lyrics, dance practice, and the
+      business around the music.
     sources:
       - publisher: Wikipedia
         title: "Luny Tunes Presents: Erre XI"
@@ -490,11 +508,11 @@ questions:
       Wisin & Yandel perfected a two-singer format that became very popular in the
       mid-2000s. After a hiatus that began in 2013, they reunited in 2018.
     context: >-
-      Wisin & Yandel gives this part of the history a specific person, work, place, or
-      tool. Migration between the Caribbean, Latin America, and U.S. cities changed
-      ensembles, lyrics, dance practice, and the business around the music. Reading the
-      credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      Wisin & Yandel perfected a two-singer format that dominated mid-2000s reggaeton,
+      then reunited in 2018 after a hiatus that began in 2013, and stayed a defining duo
+      as reggaeton moved toward Latin trap in the years since. Migration between the
+      Caribbean, Latin America, and U.S. cities changed ensembles, lyrics, dance practice,
+      and the business around the music.
     sources:
       - publisher: Wikipedia
         title: Wisin
@@ -517,10 +535,11 @@ questions:
       'Yo Quiero Bailar' challenged traditional gender roles, establishing her as a
       central figure in reggaeton.
     context: >-
-      Ivy Queen gives this part of the history a specific person, work, place, or tool.
+      Ivy Queen, known as the Queen of Reggaeton, rose through Puerto Rico's underground
+      scene in the 1990s, and songs like 'Yo Quiero Bailar' challenged traditional gender
+      roles, widening the genre's voice as this quiz moves from salsa toward Latin trap.
       Migration between the Caribbean, Latin America, and U.S. cities changed ensembles,
-      lyrics, dance practice, and the business around the music. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      lyrics, dance practice, and the business around the music.
     sources:
       - publisher: Wikipedia
         title: Ivy Queen
@@ -544,9 +563,11 @@ questions:
       Spanish-language catalog showed that worldwide recognition no longer depended on a
       full move into English.
     context: >-
-      J Balvin gives this part of the history a specific person, work, place, or tool.
-      Salsa and reggaeton are tied to particular urban scenes, even though records and
-      touring carried them far beyond those starting points.
+      J Balvin became a global Latin urban star through bright visuals and a mostly
+      Spanish-language catalog, proof that the styles this quiz traces from salsa to Latin
+      trap can reach worldwide audiences without switching into English. Salsa and
+      reggaeton are tied to particular urban scenes, even though records and touring
+      carried them far beyond those starting points.
     sources:
       - publisher: Wikipedia
         title: J Balvin
@@ -570,9 +591,11 @@ questions:
       a Spanish-language-led song could dominate the U.S. pop mainstream on a massive
       scale.
     context: >-
-      Despacito gives this part of the history a specific person, work, place, or tool.
-      Salsa and reggaeton are tied to particular urban scenes, even though records and
-      touring carried them far beyond those starting points.
+      In 2017, Luis Fonsi's 'Despacito' featuring Daddy Yankee topped the Billboard Hot
+      100, proving a Spanish-language song could dominate U.S. pop, a milestone near the
+      end of this quiz's route from Latin roots to Latin trap. Salsa and reggaeton are
+      tied to particular urban scenes, even though records and touring carried them far
+      beyond those starting points.
     sources:
       - publisher: Wikipedia
         title: Despacito
@@ -596,8 +619,10 @@ questions:
       across the region. That made the country especially influential in the Latin urban
       era.
     context: >-
-      Mexico gives this part of the history a specific person, work, place, or tool. Salsa
-      and reggaeton are tied to particular urban scenes, even though records and touring
+      Mexico became one of the largest streaming markets in Latin music, with listener
+      scale shaping charts, playlists, and label strategy across the region during the
+      Latin urban era that closes this quiz's route from salsa to Latin trap. Salsa and
+      reggaeton are tied to particular urban scenes, even though records and touring
       carried them far beyond those starting points.
     sources:
       - publisher: Wikipedia
@@ -625,10 +650,11 @@ questions:
       incorporated reggaeton and trap elements. Her rise led to discussions about
       appropriation, heritage, and artistic freedom.
     context: >-
-      Rosalía gives this part of the history a specific person, work, place, or tool.
-      Salsa and reggaeton are tied to particular urban scenes, even though records and
-      touring carried them far beyond those starting points. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Rosalía moved from flamenco traditions into reggaeton and trap elements, sparking
+      discussions about cultural ownership that show how contested the genre boundaries
+      become late in this quiz's path from Latin roots to Latin trap. Salsa and reggaeton
+      are tied to particular urban scenes, even though records and touring carried them
+      far beyond those starting points.
     sources:
       - publisher: Wikipedia
         title: Rosalía
@@ -650,10 +676,11 @@ questions:
       El Alfa became well-known for his high-pitched voice and fast lyrics, which make
       Dominican dembow different from Puerto Rican reggaeton's smoother sound.
     context: >-
-      El Alfa gives this part of the history a specific person, work, place, or tool.
-      Salsa and reggaeton are tied to particular urban scenes, even though records and
-      touring carried them far beyond those starting points. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      El Alfa's high-pitched voice and fast lyrics set Dominican dembow apart from the
+      smoother sound of Puerto Rican reggaeton, adding a distinct national branch to the
+      Latin urban story this quiz follows from salsa toward Latin trap. Salsa and
+      reggaeton are tied to particular urban scenes, even though records and touring
+      carried them far beyond those starting points.
     sources:
       - publisher: Wikipedia
         title: El Hombre (El Alfa album)
@@ -675,10 +702,11 @@ questions:
       Tokischa became well-known in Santo Domingo by being herself and dressing boldly.
       Her lyrics addressed desire, autonomy, and social hypocrisy with direct clarity.
     context: >-
-      Tokischa gives this part of the history a specific person, work, place, or tool.
+      Tokischa became known in Santo Domingo for bold self-expression and lyrics that
+      address desire, autonomy, and social hypocrisy with direct clarity, extending the
+      frank street-level voice this quiz follows from salsa and reggaeton into Latin trap.
       Salsa and reggaeton are tied to particular urban scenes, even though records and
-      touring carried them far beyond those starting points. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      touring carried them far beyond those starting points.
     sources:
       - publisher: Wikipedia
         title: Tokischa
@@ -701,9 +729,11 @@ questions:
       image. His style mixed raw street detail, boastful confidence, and flashes of
       vulnerability, helping give the genre a recognizable emotional and visual identity.
     context: >-
-      Anuel AA gives this part of the history a specific person, work, place, or tool.
-      Salsa and reggaeton are tied to particular urban scenes, even though records and
-      touring carried them far beyond those starting points.
+      Anuel AA helped define Latin trap's early public image, mixing raw street detail
+      with boastful confidence and flashes of vulnerability that gave the genre a
+      recognizable emotional and visual identity. Salsa and reggaeton are tied to
+      particular urban scenes, even though records and touring carried them far beyond
+      those starting points.
     sources:
       - publisher: Wikipedia
         title: Anuel AA
@@ -730,10 +760,11 @@ questions:
       and alternative pop, emphasizing album identity in a streaming environment dominated
       by playlists.
     context: >-
-      Bad Bunny gives this part of the history a specific person, work, place, or tool.
-      Salsa and reggaeton are tied to particular urban scenes, even though records and
-      touring carried them far beyond those starting points. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Bad Bunny's 2018 debut album X 100PRE blended trap, reggaeton, and alternative pop,
+      emphasizing album identity in a playlist-dominated streaming environment, a late
+      milestone in this quiz's journey from Latin roots to Latin trap. Salsa and reggaeton
+      are tied to particular urban scenes, even though records and touring carried them
+      far beyond those starting points.
     sources:
       - publisher: Wikipedia
         title: Bad Bunny
@@ -756,10 +787,11 @@ questions:
       early work helped mix classic reggaeton with more melodic styles that became very
       popular in the 2010s.
     context: >-
-      Tainy gives this part of the history a specific person, work, place, or tool. Salsa
-      and reggaeton are tied to particular urban scenes, even though records and touring
-      carried them far beyond those starting points. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Tainy began working with well-known reggaeton artists as a teenager, and his
+      productions helped mix classic reggaeton with the melodic styles that became very
+      popular in the 2010s, bridging eras in this quiz's path to Latin trap. Salsa and
+      reggaeton are tied to particular urban scenes, even though records and touring
+      carried them far beyond those starting points.
     sources:
       - publisher: Wikipedia
         title: Tainy
@@ -781,10 +813,11 @@ questions:
       Nicki Nicole is one of the most well-known voices of Argentina's trap wave. Her
       style mixed trap music with melodic sensitivity and R&B influences.
     context: >-
-      Nicki Nicole gives this part of the history a specific person, work, place, or tool.
-      Salsa and reggaeton are tied to particular urban scenes, even though records and
-      touring carried them far beyond those starting points. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Nicki Nicole is one of the best-known voices of Argentina's trap wave, mixing trap
+      with melodic sensitivity and R&B influences, evidence that the styles this quiz
+      traces from Latin roots to Latin trap now span multiple countries. Salsa and
+      reggaeton are tied to particular urban scenes, even though records and touring
+      carried them far beyond those starting points.
     sources:
       - publisher: Wikipedia
         title: Nicki Nicole
@@ -808,7 +841,8 @@ questions:
       also reflects how parts of Latin urban music have become more open to identities
       that were often less visible in earlier eras.
     context: >-
-      Young Miko gives this part of the history a specific person, work, place, or tool.
+      Young Miko represents a newer generation of Latin trap that mixes melodic singing
+      with trap-based production while speaking more openly about gender and sexuality.
       Latin trap uses rap delivery and digital production within a Spanish-language market
       already transformed by reggaeton and streaming.
     sources:
@@ -833,10 +867,11 @@ questions:
       Black Puerto Ricans, with songs like 'Pa' Que Retozen' addressing race and class
       issues.
     context: >-
-      Tego Calderón gives this part of the history a specific person, work, place, or
-      tool. Latin trap uses rap delivery and digital production within a Spanish-language
-      market already transformed by reggaeton and streaming. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Tego Calderón addressed Afro-Latin identity in songs like 'Pa' Que Retozen,'
+      focusing on the lives of Black Puerto Ricans and issues of race and class, a
+      perspective that deepens the reggaeton chapters of this quiz's route toward Latin
+      trap. Latin trap uses rap delivery and digital production within a Spanish-language
+      market already transformed by reggaeton and streaming.
     sources:
       - publisher: Wikipedia
         title: Tego Calderón
@@ -859,10 +894,11 @@ questions:
       reggaeton. The beat was named after Shabba Ranks' song 'Dem Bow' from the early
       1990s.
     context: >-
-      Dembow gives this part of the history a specific person, work, place, or tool. Latin
-      trap uses rap delivery and digital production within a Spanish-language market
-      already transformed by reggaeton and streaming. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      The dembow rhythm, adapted from Jamaican dancehall and named after Shabba Ranks'
+      early 1990s song 'Dem Bow,' became the foundation of reggaeton, the beat that
+      carries much of this quiz's story as it moves toward Latin trap. Latin trap uses rap
+      delivery and digital production within a Spanish-language market already transformed
+      by reggaeton and streaming.
     sources:
       - publisher: Wikipedia
         title: Dominican dembow
@@ -883,10 +919,11 @@ questions:
       minutes can generate more repeat plays, so there is a clear incentive to keep them
       concise.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Latin
-      trap uses rap delivery and digital production within a Spanish-language market
-      already transformed by reggaeton and streaming. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      In the streaming era, songs have generally become shorter, because tracks under
+      three minutes can earn more repeat plays, raising total stream counts and creating a
+      clear incentive to keep songs concise. Latin trap uses rap delivery and digital
+      production within a Spanish-language market already transformed by reggaeton and
+      streaming.
     sources:
       - publisher: Wikipedia
         title: Music streaming service
@@ -911,11 +948,11 @@ questions:
       Ricky Martin, Shakira, and Jennifer Lopez were key figures in the late 1990s Latin
       pop crossover boom. Bad Bunny rose to prominence later in the streaming era.
     context: >-
-      Ricky Martin, Shakira, Jennifer Lopez belong together here; the comparison names
-      each part of the change. Latin trap uses rap delivery and digital production within
-      a Spanish-language market already transformed by reggaeton and streaming. Reading
-      the credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      As a group, Ricky Martin, Shakira, and Jennifer Lopez were the key figures of the
+      late 1990s Latin pop crossover boom, opening mainstream doors that later
+      streaming-era artists such as Bad Bunny and today's Latin trap acts would walk
+      through. Latin trap uses rap delivery and digital production within a
+      Spanish-language market already transformed by reggaeton and streaming.
     sources:
       - publisher: Wikipedia
         title: Ricky Martin
@@ -941,11 +978,11 @@ questions:
       percussion emphasis continue to influence modern Latin urban music. Brass sections
       are more associated with salsa orchestras.
     context: >-
-      Clave rhythm patterns, Call-and-response structure, Percussion emphasis belong
-      together here; the comparison names each part of the change. Latin trap uses rap
-      delivery and digital production within a Spanish-language market already transformed
-      by reggaeton and streaming. Reading the credit or date beside the musical detail
-      makes the answer easier to check and compare.
+      As a group, clave rhythm patterns, call-and-response structure, and percussion
+      emphasis are Afro-Caribbean elements that continue to shape modern Latin urban
+      music, tying today's Latin trap back through salsa to the oldest layers of this
+      quiz's timeline. Latin trap uses rap delivery and digital production within a
+      Spanish-language market already transformed by reggaeton and streaming.
     sources:
       - publisher: Wikipedia
         title: Clave (rhythm)
@@ -966,10 +1003,10 @@ questions:
       that was already taking shape in clubs, bringing artists together under one label
       and turning salsa into a recognizable movement.
     context: >-
-      The false answer fixes the chronology before later styles are compared with it.
-      Latin trap uses rap delivery and digital production within a Spanish-language market
-      already transformed by reggaeton and streaming. Reading the credit or date beside
-      the musical detail makes the answer easier to check and compare.
+      Salsa's rhythms were not created by Fania Records; the label took a sound already
+      taking shape in clubs, gathered artists under one roof, and marketed it into a
+      recognizable movement. Latin trap uses rap delivery and digital production within a
+      Spanish-language market already transformed by reggaeton and streaming.
     sources:
       - publisher: Wikipedia
         title: Fania Records
@@ -993,9 +1030,10 @@ questions:
       to top that chart, showing how Latin trap and reggaeton could compete at the center
       of the U.S. album market without switching into English.
     context: >-
-      El Último Tour Del Mundo gives this part of the history a specific person, work,
-      place, or tool. Latin trap uses rap delivery and digital production within a
-      Spanish-language market already transformed by reggaeton and streaming.
+      Bad Bunny's El Último Tour Del Mundo became the first all-Spanish-language album to
+      top the Billboard 200, proof that Latin trap could compete in the U.S. album market.
+      Latin trap uses rap delivery and digital production within a Spanish-language market
+      already transformed by reggaeton and streaming.
     sources:
       - publisher: Wikipedia
         title: El Último Tour Del Mundo
@@ -1023,8 +1061,9 @@ questions:
       her work moved between flamenco, pop, reggaeton, and experimental club production
       while still being recognized by a major Latin music institution.
     context: >-
-      Rosalía gives this part of the history a specific person, work, place, or tool.
-      Latin trap uses rap delivery and digital production within a Spanish-language market
+      Rosalía became the first woman to win Latin Grammy Album of the Year twice, as her
+      work moved between flamenco, pop, reggaeton, and experimental club production. Latin
+      trap uses rap delivery and digital production within a Spanish-language market
       already transformed by reggaeton and streaming.
     sources:
       - publisher: Wikipedia
@@ -1053,9 +1092,11 @@ questions:
       each collaboration arrived as a numbered session with its own video, sound, and
       release moment.
     context: >-
-      Bizarrap gives this part of the history a specific person, work, place, or tool.
-      Latin trap uses rap delivery and digital production within a Spanish-language market
-      already transformed by reggaeton and streaming.
+      Bizarrap's Music Sessions turned the producer into a visible lead artist, with each
+      numbered collaboration arriving as its own session with a distinct video, sound, and
+      release moment, a new model for the Latin trap and urban pop covered late in this
+      quiz. Latin trap uses rap delivery and digital production within a Spanish-language
+      market already transformed by reggaeton and streaming.
     sources:
       - publisher: Wikipedia
         title: Bizarrap

@@ -30,10 +30,11 @@ questions:
       and early soul through radio and imported records, then blended these with Caribbean
       rhythmic ideas to create something new.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
+      Growing out of postwar cultural exchange, Jamaican musicians in late-1950s Kingston
+      absorbed American R&B, jump blues, and early soul through radio and imported
+      records, then blended them with Caribbean rhythmic ideas into new local styles.
       Jamaican sound systems linked record selection, engineering, live speech,
-      competition, and neighborhood business in one musical setting. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      competition, and neighborhood business in one musical setting.
     sources:
       - publisher: Wikipedia
         title: Music of Jamaica
@@ -56,10 +57,11 @@ questions:
       They became the center of urban nightlife and were more than equipment - they were
       small businesses and social spaces.
     context: >-
-      Sound systems gives this part of the history a specific person, work, place, or
-      tool. Jamaican sound systems linked record selection, engineering, live speech,
-      competition, and neighborhood business in one musical setting. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Sound systems, large wooden speaker stacks playing music at outdoor parties in
+      Kingston, became small businesses and social spaces, the setting in which Jamaican
+      popular music grew and later spread into global bass culture. Jamaican sound systems
+      linked record selection, engineering, live speech, competition, and neighborhood
+      business in one musical setting.
     sources:
       - publisher: Wikipedia
         title: Sound system
@@ -84,10 +86,11 @@ questions:
       system operators who built powerful systems and competed for crowds. Bob Marley was
       a singer, and King Tubby was primarily an engineer.
     context: >-
-      Clement 'Coxsone' Dodd, Duke Reid, Prince Buster belong together here; the
-      comparison names each part of the change. Jamaican sound systems linked record
-      selection, engineering, live speech, competition, and neighborhood business in one
-      musical setting.
+      Clement 'Coxsone' Dodd, Duke Reid, and Prince Buster built powerful sound systems
+      and competed for crowds in Kingston, rivalry that drove recording, selection, and
+      engineering forward on the road from ska to global bass. Jamaican sound systems
+      linked record selection, engineering, live speech, competition, and neighborhood
+      business in one musical setting.
     sources:
       - publisher: Wikipedia
         title: Coxsone Dodd
@@ -108,10 +111,11 @@ questions:
       instrumentalists, including Don Drummond, Tommy McCook, and Jackie Mittoo, giving
       ska its musical backbone.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Jamaican sound systems linked record selection, engineering, live speech,
-      competition, and neighborhood business in one musical setting. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Formed in 1964 as a studio band, The Skatalites gathered some of Jamaica's most
+      skilled instrumentalists, including Don Drummond, Tommy McCook, and Jackie Mittoo,
+      and their playing helped define the early sound of ska, giving the style its musical
+      backbone. Jamaican sound systems linked record selection, engineering, live speech,
+      competition, and neighborhood business in one musical setting.
     sources:
       - publisher: Wikipedia
         title: The Skatalites
@@ -132,10 +136,11 @@ questions:
       Guitarists emphasized this offbeat rhythm while bass and drums kept steady forward
       motion.
     context: >-
-      The offbeat skank gives this part of the history a specific person, work, place, or
-      tool. Jamaican sound systems linked record selection, engineering, live speech,
-      competition, and neighborhood business in one musical setting. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      The offbeat skank became a signature element of ska and reggae, guitarists
+      emphasizing offbeat strokes while bass and drums kept steady forward motion, a
+      rhythmic idea that global bass music still leans on across scenes and genres.
+      Jamaican sound systems linked record selection, engineering, live speech,
+      competition, and neighborhood business in one musical setting.
     sources:
       - publisher: Wikipedia
         title: "This Is Reggae Music: The Golden Era 1960–1975"
@@ -160,9 +165,10 @@ questions:
       international pop markets. For many listeners outside the Caribbean, it was an early
       introduction to ska-inflected Jamaican music.
     context: >-
-      My Boy Lollipop gives this part of the history a specific person, work, place, or
-      tool. Jamaican sound systems linked record selection, engineering, live speech,
-      competition, and neighborhood business in one musical setting.
+      Millie Small's 'My Boy Lollipop' broke Jamaican music into international pop markets
+      in 1964, becoming a global hit and an early introduction to ska-flavored sound for
+      many listeners. Jamaican sound systems linked record selection, engineering, live
+      speech, competition, and neighborhood business in one musical setting.
     sources:
       - publisher: Wikipedia
         title: My Boy Lollipop
@@ -183,10 +189,11 @@ questions:
       background in soul music and brought a deeper emotional tone to recordings like
       'Rock Steady' and 'Girl I've Got a Date.'
     context: >-
-      Alton Ellis gives this part of the history a specific person, work, place, or tool.
-      Jamaican sound systems linked record selection, engineering, live speech,
-      competition, and neighborhood business in one musical setting. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Alton Ellis, often called the 'Godfather of Rocksteady', brought a soul background
+      and a deeper emotional tone to recordings like 'Rock Steady', helping slow Jamaican
+      music down from ska toward rocksteady and later bass styles. Jamaican sound systems
+      linked record selection, engineering, live speech, competition, and neighborhood
+      business in one musical setting.
     sources:
       - publisher: Wikipedia
         title: Alton Ellis
@@ -211,11 +218,11 @@ questions:
       rocksteady. The Wailers were active but not primarily known as a rocksteady harmony
       group, and The Beatles were British.
     context: >-
-      The Paragons, The Heptones, The Techniques belong together here; the comparison
-      names each part of the change. Jamaican sound systems linked record selection,
-      engineering, live speech, competition, and neighborhood business in one musical
-      setting. Reading the credit or date beside the musical detail makes the answer
-      easier to check and compare.
+      The Paragons, The Heptones, and The Techniques helped define the rocksteady era with
+      their harmonies, vocal groups whose close arrangements carried Jamaican music's
+      emotional detail forward as ska slowed and bass culture later grew. Jamaican sound
+      systems linked record selection, engineering, live speech, competition, and
+      neighborhood business in one musical setting.
     sources:
       - publisher: Wikipedia
         title: Paragon
@@ -238,10 +245,11 @@ questions:
       title. The track carried a lively rhythm that pointed clearly toward the new reggae
       direction.
     context: >-
-      Do the Reggay gives this part of the history a specific person, work, place, or
-      tool. Jamaican sound systems linked record selection, engineering, live speech,
-      competition, and neighborhood business in one musical setting. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Toots and the Maytals' 1968 song 'Do the Reggay' used the word reggae directly in
+      its title, its lively rhythm pointing clearly toward a new direction in the flow
+      from ska toward global bass. Jamaican sound systems linked record selection,
+      engineering, live speech, competition, and neighborhood business in one musical
+      setting.
     sources:
       - publisher: Wikipedia
         title: Do the Reggay
@@ -263,7 +271,8 @@ questions:
       audiences outside Jamaica. His support through Island Records helped bring the
       Wailers to a much broader international public.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
+      Through Island Records, Chris Blackwell shaped 'Catch a Fire' for rock audiences
+      outside Jamaica, helping bring the Wailers to a much broader international public.
       Jamaican sound systems linked record selection, engineering, live speech,
       competition, and neighborhood business in one musical setting.
     sources:
@@ -290,11 +299,11 @@ questions:
       Joseph Hill) were central roots reggae figures. Millie Small was ska era, and
       Yellowman was dancehall.
     context: >-
-      Burning Spear, Dennis Brown, Culture belong together here; the comparison names each
-      part of the change. Ska, rocksteady, and reggae differ in tempo and feel, but each
-      grew through close exchange among singers, players, producers, and dancers. Reading
-      the credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      Burning Spear, Dennis Brown, the 'Crown Prince of Reggae', and Culture, led by
+      Joseph Hill, were central roots reggae figures of the 1970s, keeping Jamaican
+      music's momentum moving as its rhythms traveled toward global bass. Ska, rocksteady,
+      and reggae differ in tempo and feel, but each grew through close exchange among
+      singers, players, producers, and dancers.
     sources:
       - publisher: Wikipedia
         title: Burning Spear
@@ -315,10 +324,10 @@ questions:
       He treated the mixing process as a creative performance, using echo, reverb, and
       sudden drops to transform recordings.
     context: >-
-      King Tubby gives this part of the history a specific person, work, place, or tool.
-      Ska, rocksteady, and reggae differ in tempo and feel, but each grew through close
-      exchange among singers, players, producers, and dancers. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      King Tubby treated the mixing process as a creative performance, using echo, reverb,
+      and sudden drops to transform recordings, techniques that made dub a foundation for
+      later global bass genres. Ska, rocksteady, and reggae differ in tempo and feel, but
+      each grew through close exchange among singers, players, producers, and dancers.
     sources:
       - publisher: Wikipedia
         title: King Tubby
@@ -339,10 +348,11 @@ questions:
       Engineers started altering these tracks by removing vocals, emphasizing bass and
       drums, and adding echo and reverb.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Ska,
-      rocksteady, and reggae differ in tempo and feel, but each grew through close
-      exchange among singers, players, producers, and dancers. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Dub began with the instrumental B-sides of reggae singles, which let sound systems
+      play rhythms while DJs spoke over them, before engineers began stripping out vocals
+      and pushing the bass and drums forward. Ska, rocksteady, and reggae differ in tempo
+      and feel, but each grew through close exchange among singers, players, producers,
+      and dancers.
     sources:
       - publisher: Wikipedia
         title: Rub-a-dub-dub
@@ -363,10 +373,11 @@ questions:
       It became one of the most distinctive chapters in dub and reggae history, known for
       experimental production.
     context: >-
-      Black Ark Studio gives this part of the history a specific person, work, place, or
-      tool. Ska, rocksteady, and reggae differ in tempo and feel, but each grew through
-      close exchange among singers, players, producers, and dancers. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Lee 'Scratch' Perry established Black Ark Studio in his Kingston backyard in the
+      early 1970s, and its experimental production became one of the most distinctive
+      chapters in dub and reggae history. Ska, rocksteady, and reggae differ in tempo and
+      feel, but each grew through close exchange among singers, players, producers, and
+      dancers.
     sources:
       - publisher: Wikipedia
         title: Black Ark Studios
@@ -392,10 +403,11 @@ questions:
       drums, and sudden drops. Orchestral strings are not a typical dub technique - dub is
       more about stripping away and manipulating existing elements.
     context: >-
-      Echo and reverb effects, Removing vocal lines, Emphasizing bass and drums, Sudden
-      drops in arrangement belong together here; the comparison names each part of the
-      change. Ska, rocksteady, and reggae differ in tempo and feel, but each grew through
-      close exchange among singers, players, producers, and dancers.
+      Dub mixing built on echo and reverb, removed vocal lines, emphasized bass and drums,
+      and used sudden drops in arrangement, a way of reshaping existing recordings that
+      later bass genres inherited directly. Ska, rocksteady, and reggae differ in tempo
+      and feel, but each grew through close exchange among singers, players, producers,
+      and dancers.
     sources:
       - publisher: Wikipedia
         title: Echo
@@ -416,11 +428,11 @@ questions:
       rhythm sections in music history. Their partnership reshaped the foundation of
       reggae and influenced many other genres.
     context: >-
-      Sly Dunbar and Robbie Shakespeare gives this part of the history a specific person,
-      work, place, or tool. Ska, rocksteady, and reggae differ in tempo and feel, but each
-      grew through close exchange among singers, players, producers, and dancers. Reading
-      the credit or date beside the musical detail makes the answer easier to check and
-      compare.
+      Sly Dunbar and Robbie Shakespeare formed one of the most influential rhythm sections
+      in music history, reshaping the foundation of reggae and influencing many other
+      genres on the path toward global bass. Ska, rocksteady, and reggae differ in tempo
+      and feel, but each grew through close exchange among singers, players, producers,
+      and dancers.
     sources:
       - publisher: Wikipedia
         title: Sly Stone
@@ -441,10 +453,10 @@ questions:
       new wave, funk, and electronic music. Their versatility allowed them to move easily
       between reggae and other styles.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Ska,
-      rocksteady, and reggae differ in tempo and feel, but each grew through close
-      exchange among singers, players, producers, and dancers. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Sly & Robbie carried reggae into international pop through work with artists like
+      Grace Jones, blending reggae rhythm with new wave, funk, and electronic music and
+      moving easily between styles. Ska, rocksteady, and reggae differ in tempo and feel,
+      but each grew through close exchange among singers, players, producers, and dancers.
     sources:
       - publisher: Wikipedia
         title: Sly Stone
@@ -469,11 +481,11 @@ questions:
       combined storytelling, humor, commentary, and crowd engagement, creating a vocal
       style that predated rap.
     context: >-
-      Rhythmic speaking over instrumental tracks gives this part of the history a specific
-      person, work, place, or tool. Ska, rocksteady, and reggae differ in tempo and feel,
-      but each grew through close exchange among singers, players, producers, and dancers.
-      Reading the credit or date beside the musical detail makes the answer easier to
-      check and compare.
+      Toasting, rhythmic speaking over instrumental tracks, combined storytelling, humor,
+      commentary, and crowd engagement in a vocal style that predated rap, connecting
+      Jamaican sound system practice directly to hip hop and the global bass culture that
+      followed. Ska, rocksteady, and reggae differ in tempo and feel, but each grew
+      through close exchange among singers, players, producers, and dancers.
     sources:
       - publisher: Wikipedia
         title: Toasting (Jamaican music)
@@ -498,8 +510,9 @@ questions:
       tradition that fed directly into early dancehall culture. Bob Marley and Jimmy Cliff
       were central reggae singers, but they were not known primarily as DJs or toasters.
     context: >-
-      Yellowman, Big Youth, Sister Nancy belong together here; the comparison names each
-      part of the change. Ska, rocksteady, and reggae differ in tempo and feel, but each
+      Yellowman, Big Youth, and Sister Nancy were key figures in the Jamaican DJ tradition
+      that fed directly into early dancehall culture, carrying toasting forward into the
+      era of global bass. Ska, rocksteady, and reggae differ in tempo and feel, but each
       grew through close exchange among singers, players, producers, and dancers.
     sources:
       - publisher: Wikipedia
@@ -520,9 +533,10 @@ questions:
       while King Jammy helped turn it into the defining production that launched digital
       dancehall in 1985.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Ska,
-      rocksteady, and reggae differ in tempo and feel, but each grew through close
-      exchange among singers, players, producers, and dancers.
+      The 'Sleng Teng' riddim of 1985 launched digital dancehall, built from a preset on a
+      Casio MT-40 keyboard that Wayne Smith found and King Jammy shaped into a defining
+      production. Ska, rocksteady, and reggae differ in tempo and feel, but each grew
+      through close exchange among singers, players, producers, and dancers.
     sources:
       - publisher: Wikipedia
         title: Sleng Teng
@@ -543,10 +557,10 @@ questions:
       became a hub where artists experimented with digital technology while maintaining
       Jamaican music's deep bass tradition.
     context: >-
-      King Jammy gives this part of the history a specific person, work, place, or tool.
-      Dub engineers used the mixing desk, tape delay, reverb, and existing multitrack
-      recordings as instruments for new versions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      King Jammy produced 'Under Mi Sleng Teng' with Wayne Smith in 1985, helping define
+      early digital dancehall while his studio kept Jamaican music's deep bass tradition
+      at the center of technological change. Dub engineers used the mixing desk, tape
+      delay, reverb, and existing multitrack recordings as instruments for new versions.
     sources:
       - publisher: Wikipedia
         title: King Jammy
@@ -568,9 +582,10 @@ questions:
       dancehall deejay but a major reggae singer whose warm tone and emotional phrasing
       influenced generations of vocalists.
     context: >-
-      Dennis Brown gives this part of the history a specific person, work, place, or tool.
-      Dub engineers used the mixing desk, tape delay, reverb, and existing multitrack
-      recordings as instruments for new versions.
+      Dennis Brown, the 'Crown Prince of Reggae', was a major singer rather than a
+      dancehall DJ, whose warm tone and emotional phrasing influenced generations of
+      vocalists. Dub engineers used the mixing desk, tape delay, reverb, and existing
+      multitrack recordings as instruments for new versions.
     sources:
       - publisher: Wikipedia
         title: Dennis Brown
@@ -591,10 +606,11 @@ questions:
       reggae. It grew from the Caribbean diaspora experience and created space for female
       singers in reggae.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Dub
-      engineers used the mixing desk, tape delay, reverb, and existing multitrack
-      recordings as instruments for new versions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Lovers rock emerged in mid-1970s London from Britain's Caribbean communities, a
+      softer, more romantic style of reggae that grew out of the diaspora experience and
+      created new space for female singers within the genre. Dub engineers used the mixing
+      desk, tape delay, reverb, and existing multitrack recordings as instruments for new
+      versions.
     sources:
       - publisher: Wikipedia
         title: Legendary Lovers
@@ -614,10 +630,11 @@ questions:
       Dennis Bovell produced 'Silly Games' by Janet Kay. The song became one of the
       defining tracks of lovers rock and later reached the British pop charts.
     context: >-
-      Dennis Bovell gives this part of the history a specific person, work, place, or
-      tool. Dub engineers used the mixing desk, tape delay, reverb, and existing
-      multitrack recordings as instruments for new versions. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Dennis Bovell produced Janet Kay's lovers rock hit 'Silly Games' in 1979, a defining
+      track of the style that later reached the British pop charts, showing how
+      Jamaican-rooted sounds kept moving into global pop and bass culture. Dub engineers
+      used the mixing desk, tape delay, reverb, and existing multitrack recordings as
+      instruments for new versions.
     sources:
       - publisher: Wikipedia
         title: Dennis Bovell
@@ -638,10 +655,11 @@ questions:
       Artists recorded personalized versions mentioning the crew's name, giving the sound
       system a strong advantage during clashes.
     context: >-
-      A special recording made exclusively for a particular sound system gives this part
-      of the history a specific person, work, place, or tool. Dub engineers used the
-      mixing desk, tape delay, reverb, and existing multitrack recordings as instruments
-      for new versions.
+      A dubplate is a special recording made exclusively for a particular sound system,
+      often with personalized versions naming the crew, giving that system an advantage in
+      clashes that kept sound culture competitive and alive. Dub engineers used the mixing
+      desk, tape delay, reverb, and existing multitrack recordings as instruments for new
+      versions.
     sources:
       - publisher: Wikipedia
         title: Sound system (Jamaican)
@@ -669,9 +687,10 @@ questions:
       all drew from dub and sound system culture. Country music was not directly
       influenced by Jamaican music traditions.
     context: >-
-      Hip hop, Jungle and drum & bass, Trip hop, Post-punk belong together here; the
-      comparison names each part of the change. Dub engineers used the mixing desk, tape
-      delay, reverb, and existing multitrack recordings as instruments for new versions.
+      Hip hop, jungle and drum & bass, trip hop, and post-punk all drew from dub and sound
+      system culture, proof that Jamaican production ideas traveled far beyond the island
+      into global bass. Dub engineers used the mixing desk, tape delay, reverb, and
+      existing multitrack recordings as instruments for new versions.
     sources:
       - publisher: Wikipedia
         title: Hip-hop
@@ -692,10 +711,10 @@ questions:
       and produced by Lee 'Scratch' Perry. This showed how reggae rhythm could blend with
       punk rock's raw energy.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it. Dub
-      engineers used the mixing desk, tape delay, reverb, and existing multitrack
-      recordings as instruments for new versions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      When The Clash covered 'Police and Thieves,' originally recorded by Junior Murvin
+      and produced by Lee 'Scratch' Perry, the result showed how naturally reggae rhythm
+      could blend with punk rock's raw energy. Dub engineers used the mixing desk, tape
+      delay, reverb, and existing multitrack recordings as instruments for new versions.
     sources:
       - publisher: Wikipedia
         title: The Clash
@@ -716,10 +735,11 @@ questions:
       Caribbean culture through its reggae sound systems. Massive Attack's 1991 album
       'Blue Lines' defined the genre.
     context: >-
-      Bristol gives this part of the history a specific person, work, place, or tool. Dub
-      engineers used the mixing desk, tape delay, reverb, and existing multitrack
-      recordings as instruments for new versions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Bristol was central to trip hop's development, its long connection to Caribbean
+      culture through reggae sound systems feeding a British scene where Jamaican ideas
+      merged with local ones, from ska roots to global bass. Dub engineers used the mixing
+      desk, tape delay, reverb, and existing multitrack recordings as instruments for new
+      versions.
     sources:
       - publisher: Wikipedia
         title: Which One
@@ -745,11 +765,11 @@ questions:
       interaction, and crowd participation. Classical orchestras are not part of this
       tradition - it's about amplified electronic/dance music.
     context: >-
-      Powerful speaker stacks, Bass-heavy rhythms, DJ and MC interaction, Crowd
-      participation belong together here; the comparison names each part of the change.
-      Dub engineers used the mixing desk, tape delay, reverb, and existing multitrack
-      recordings as instruments for new versions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      Jamaican sound system culture centers on powerful speaker stacks, bass-heavy
+      rhythms, DJ and MC interaction, and crowd participation, amplified dance values that
+      traveled from Kingston yards into global bass scenes around the world today. Dub
+      engineers used the mixing desk, tape delay, reverb, and existing multitrack
+      recordings as instruments for new versions.
     sources:
       - publisher: Wikipedia
         title: Sound reinforcement system
@@ -772,10 +792,10 @@ questions:
       means multiple artists can record different songs over the same riddim, each adding
       new lyrics while preserving the instrumental groove.
     context: >-
-      Riddim gives this part of the history a specific person, work, place, or tool. Dub
-      engineers used the mixing desk, tape delay, reverb, and existing multitrack
-      recordings as instruments for new versions. Reading the credit or date beside the
-      musical detail makes the answer easier to check and compare.
+      'Riddim' is the Jamaican term for the rhythmic foundation that multiple artists
+      record over, the engine of a version culture where new lyrics ride shared grooves, a
+      practice global bass music still follows. Dub engineers used the mixing desk, tape
+      delay, reverb, and existing multitrack recordings as instruments for new versions.
     sources:
       - publisher: Wikipedia
         title: Riddim
@@ -796,9 +816,11 @@ questions:
       Tubby's echo-driven production. It became one of the most admired dub recordings,
       demonstrating how dub could transform rhythm into soundscape.
     context: >-
-      King Tubby Meets Rockers Uptown gives this part of the history a specific person,
-      work, place, or tool. Dancehall and later bass music carried Jamaican rhythmic and
-      production ideas into new local scenes without making those scenes identical.
+      'King Tubby Meets Rockers Uptown' combined Augustus Pablo's melodic ideas with King
+      Tubby's echo-driven production, showing how dub could transform rhythm into
+      soundscape on the way from Kingston studios to global bass. Dancehall and later bass
+      music carried Jamaican rhythmic and production ideas into new local scenes without
+      making those scenes identical.
     sources:
       - publisher: Wikipedia
         title: King Tubbys Meets Rockers Uptown
@@ -823,8 +845,9 @@ questions:
       became widely known as Bob Marley's backing vocalists but each had her own career.
       Sister Nancy and Lady Saw were dancehall artists from a later generation.
     context: >-
-      Marcia Griffiths, Judy Mowatt, Rita Marley belong together here; the comparison
-      names each part of the change. Dancehall and later bass music carried Jamaican
+      The I-Threes consisted of Marcia Griffiths, Judy Mowatt, and Rita Marley, widely
+      known as Bob Marley's backing vocalists while each maintained her own career within
+      Jamaican music's wider story. Dancehall and later bass music carried Jamaican
       rhythmic and production ideas into new local scenes without making those scenes
       identical.
     sources:
@@ -849,10 +872,11 @@ questions:
       studio career. Working at studios like Tip Top and High Note, she produced
       recordings that captured the elegance of rocksteady.
     context: >-
-      Sonia Pottinger gives this part of the history a specific person, work, place, or
-      tool. Dancehall and later bass music carried Jamaican rhythmic and production ideas
-      into new local scenes without making those scenes identical. Reading the credit or
-      date beside the musical detail makes the answer easier to check and compare.
+      Sonia Pottinger built a successful studio career in an industry dominated by male
+      producers, working at studios like Tip Top and High Note and capturing the elegance
+      of rocksteady within Jamaican music's history. Dancehall and later bass music
+      carried Jamaican rhythmic and production ideas into new local scenes without making
+      those scenes identical.
     sources:
       - publisher: Wikipedia
         title: Sonia Pottinger
@@ -873,10 +897,11 @@ questions:
       rhythm captured the optimism of the time. Derrick Morgan's 'Forward March'
       celebrated independence and became associated with national pride.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
+      Jamaica gained independence from Britain in 1962, and ska's energetic,
+      forward-looking rhythm matched the optimism of the moment, with Derrick Morgan's
+      'Forward March' celebrating the occasion and tying the music to national pride.
       Dancehall and later bass music carried Jamaican rhythmic and production ideas into
-      new local scenes without making those scenes identical. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      new local scenes without making those scenes identical.
     sources:
       - publisher: Wikipedia
         title: Music of Jamaica
@@ -901,10 +926,11 @@ questions:
       desire for more vocal expression all contributed to rocksteady's slower tempo.
       Government regulations and classical music were not factors.
     context: >-
-      Hot weather in crowded dance halls, Focus on bass lines over horns, Desire for more
-      vocal expression belong together here; the comparison names each part of the change.
-      Dancehall and later bass music carried Jamaican rhythmic and production ideas into
-      new local scenes without making those scenes identical.
+      Hot weather in crowded dance halls, a focus on bass lines over horns, and a desire
+      for more vocal expression all pushed rocksteady toward a slower tempo than ska,
+      reshaping the groove Jamaican bass culture inherited. Dancehall and later bass music
+      carried Jamaican rhythmic and production ideas into new local scenes without making
+      those scenes identical.
     sources:
       - publisher: Wikipedia
         title: Electronic dance music
@@ -927,10 +953,11 @@ questions:
       reggae rhythm. His work addressed racism, policing, and political issues, using
       rhythm as a platform for social commentary.
     context: >-
-      Dub poetry gives this part of the history a specific person, work, place, or tool.
-      Dancehall and later bass music carried Jamaican rhythmic and production ideas into
-      new local scenes without making those scenes identical. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Dub poetry, with Linton Kwesi Johnson as a key pioneer, combined spoken poetry with
+      reggae rhythm, using rhythm as a platform for social commentary in the British
+      branch of Jamaican music's global spread. Dancehall and later bass music carried
+      Jamaican rhythmic and production ideas into new local scenes without making those
+      scenes identical.
     sources:
       - publisher: Wikipedia
         title: Dub poetry
@@ -951,10 +978,11 @@ questions:
       discussed stories in Jamaican music during the 1990s. Their lyrical exchanges pushed
       both performers to improve their craft.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Dancehall and later bass music carried Jamaican rhythmic and production ideas into
-      new local scenes without making those scenes identical. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      The rivalry between Beenie Man and Bounty Killer became one of the most widely
+      discussed stories in 1990s Jamaican music, as their lyrical exchanges pushed both
+      performers to sharpen their craft. Dancehall and later bass music carried Jamaican
+      rhythmic and production ideas into new local scenes without making those scenes
+      identical.
     sources:
       - publisher: Wikipedia
         title: Beenie Man
@@ -979,10 +1007,10 @@ questions:
       and phrasing became part of global music culture, sampled and referenced by
       producers worldwide decades after its release.
     context: >-
-      Bam Bam gives this part of the history a specific person, work, place, or tool.
-      Dancehall and later bass music carried Jamaican rhythmic and production ideas into
-      new local scenes without making those scenes identical. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Sister Nancy's 'Bam Bam' (1982) became her most famous recording, its rhythm and
+      phrasing sampled and referenced by producers worldwide, a direct line from dancehall
+      into global bass culture. Dancehall and later bass music carried Jamaican rhythmic
+      and production ideas into new local scenes without making those scenes identical.
     sources:
       - publisher: Wikipedia
         title: BamBam
@@ -1005,10 +1033,11 @@ questions:
       heavily on deep bass, spiritual themes, and extended dub versions, creating
       experiences described as both musical and spiritual.
     context: >-
-      Jah Shaka gives this part of the history a specific person, work, place, or tool.
-      Dancehall and later bass music carried Jamaican rhythmic and production ideas into
-      new local scenes without making those scenes identical. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Jah Shaka became widely respected within the UK reggae scene, his sessions focused
+      on deep bass, spiritual themes, and extended dub versions, experiences both musical
+      and spiritual that anchored Jamaican sound culture in Britain. Dancehall and later
+      bass music carried Jamaican rhythmic and production ideas into new local scenes
+      without making those scenes identical.
     sources:
       - publisher: Wikipedia
         title: Jah Shaka
@@ -1029,10 +1058,11 @@ questions:
       bass-heavy rhythm directly influenced hip hop, jungle, drum & bass, dubstep, and
       many other genres, proving that island innovation reshaped the global soundscape.
     context: >-
-      The true answer fixes the chronology before later styles are compared with it.
-      Dancehall and later bass music carried Jamaican rhythmic and production ideas into
-      new local scenes without making those scenes identical. Reading the credit or date
-      beside the musical detail makes the answer easier to check and compare.
+      Through sound system culture, dub production, toasting, and bass-heavy rhythm,
+      Jamaican innovations flowed directly into hip-hop, UK garage, jungle, drum & bass,
+      and dubstep, reshaping the wider global soundscape. Dancehall and later bass music
+      carried Jamaican rhythmic and production ideas into new local scenes without making
+      those scenes identical.
     sources:
       - publisher: Wikipedia
         title: Music of Jamaica

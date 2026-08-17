@@ -216,7 +216,10 @@ questions:
     explanation: >-
       The final cover places Hill's face as if carved into a wooden school desk. The image makes the education theme visible without using a conventional studio portrait.
     context: >-
-      The album's classroom frame appears in image and sound. Cover, title, intro, and student discussions turn education into a metaphor for emotional knowledge that formal lessons cannot supply. Hill shifts between rap cadence, melodic singing, direct address, and layered harmony, so changes in vocal delivery become part of the argument inside each song.
+      The cover portrait carved into a wooden school desk announces the album's education
+      theme before the first track begins. That classroom frame runs through the title,
+      the spoken interludes, and Hill's argument that emotional knowledge often arrives
+      outside formal lessons and standard curricula.
     sources:
       - publisher: "Recording Academy"
         title: "The Miseducation of Lauryn Hill: 25 Facts"
@@ -235,7 +238,10 @@ questions:
     explanation: >-
       Photographer Eric Johnson shot Hill at Columbia High School in South Orange. The final design used her face from that session within the carved-desk concept.
     context: >-
-      The album's classroom frame appears in image and sound. Cover, title, intro, and student discussions turn education into a metaphor for emotional knowledge that formal lessons cannot supply. Hill shifts between rap cadence, melodic singing, direct address, and layered harmony, so changes in vocal delivery become part of the argument inside each song.
+      The carved-desk cover began with a real school photo session. Eric Johnson
+      photographed Hill at Columbia High School in South Orange, and the final design
+      lifted her face from that session into the desk concept, tying the artwork to an
+      actual building rather than a studio setup.
     sources:
       - publisher: "Recording Academy"
         title: "The Miseducation of Lauryn Hill: 25 Facts"
@@ -254,7 +260,10 @@ questions:
     explanation: >-
       Teacher and poet Ras Baraka leads the children's discussions. He later became mayor of Newark, but at the time he was teaching eighth grade and active locally.
     context: >-
-      The album's classroom frame appears in image and sound. Cover, title, intro, and student discussions turn education into a metaphor for emotional knowledge that formal lessons cannot supply. Hill shifts between rap cadence, melodic singing, direct address, and layered harmony, so changes in vocal delivery become part of the argument inside each song.
+      The classroom voices between the songs belong to a real class led by teacher and
+      poet Ras Baraka, who later became mayor of Newark. At the time he taught eighth
+      grade, and his discussions give the album its school frame: education arrives as
+      conversation rather than lecture.
     sources:
       - publisher: "Recording Academy"
         title: "The Miseducation of Lauryn Hill: 25 Facts"
@@ -273,7 +282,10 @@ questions:
     explanation: >-
       Baraka asks the children to define and discuss love. Their answers recur between tracks, giving the album a loose curriculum that develops alongside Hill's adult songs.
     context: >-
-      The album's classroom frame appears in image and sound. Cover, title, intro, and student discussions turn education into a metaphor for emotional knowledge that formal lessons cannot supply. Hill shifts between rap cadence, melodic singing, direct address, and layered harmony, so changes in vocal delivery become part of the argument inside each song.
+      Across the interludes Baraka asks the children to define and discuss love, and their
+      answers recur between the tracks. That loose curriculum develops alongside Hill's
+      adult songs, so the school frame teaches feeling rather than theory, and the
+      children's words become part of the album's argument.
     sources:
       - publisher: "Recording Academy"
         title: "The Miseducation of Lauryn Hill: 25 Facts"

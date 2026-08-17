@@ -1,17 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import { getCollection, render, type CollectionEntry } from "astro:content";
+import { render, type CollectionEntry } from "astro:content";
 
 import AnnotatedArtifact from "@components/AnnotatedArtifact.astro";
 import AiDisclosure from "@components/AiDisclosure.astro";
 import EditorialFigure from "@components/EditorialFigure.astro";
 import Layout from "@layouts/Layout.astro";
+import { formatStoryLabel, getPublishedStories } from "@utils/archive";
 
 export async function getStaticPaths() {
-  const stories = await getCollection("stories", ({ data }) => !data.draft);
-  const sorted = stories.toSorted(
-    (left, right) => right.data.publishedAt.valueOf() - left.data.publishedAt.valueOf()
-  );
+  const sorted = await getPublishedStories();
 
   return sorted.map((story, index) => ({
     params: { slug: story.id },
@@ -37,10 +35,7 @@ const allImages = [story.data.hero, ...story.data.figures];
 const artifactImage = story.data.artifact
   ? allImages.find((entry) => entry.id === story.data.artifact?.imageId)
   : undefined;
-const formatLabel = story.data.format
-  .split("-")
-  .map((word) => word[0]?.toUpperCase() + word.slice(1))
-  .join(" ");
+const formatLabel = formatStoryLabel(story.data.format);
 const hasLongTitleWord = story.data.title
   .split(/\s+/)
   .some((word) => word.replace(/[^\p{L}\p{N}]/gu, "").length >= 10);
@@ -82,7 +77,6 @@ const articleSchema = {
       <div class="story__hero-copy">
         <p class="story__format eyebrow reveal">{formatLabel}</p>
         <AiDisclosure
-          variant="assisted"
           label="AI-assisted, human-reviewed"
           detailsHref="#editorial-disclosure"
         />

@@ -233,11 +233,6 @@ ol {
     animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
   }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 @media (forced-colors: active) {

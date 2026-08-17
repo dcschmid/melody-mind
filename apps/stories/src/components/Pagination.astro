@@ -18,14 +18,18 @@ const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
   {
     lastPage > 1 && (
       <nav aria-label="Story archive pages">
-        <a
-          class="pagination__direction"
-          href={getArchivePageHref(currentPage - 1)}
-          aria-disabled={currentPage === 1 ? "true" : undefined}
-          tabindex={currentPage === 1 ? -1 : undefined}
-        >
-          Previous
-        </a>
+        {currentPage > 1 ? (
+          <a class="pagination__direction" href={getArchivePageHref(currentPage - 1)}>
+            Previous
+          </a>
+        ) : (
+          <span
+            class="pagination__direction pagination__direction--inactive"
+            aria-hidden="true"
+          >
+            Previous
+          </span>
+        )}
         <ol>
           {pages.map((page) => (
             <li>
@@ -39,14 +43,18 @@ const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
             </li>
           ))}
         </ol>
-        <a
-          class="pagination__direction"
-          href={getArchivePageHref(currentPage + 1)}
-          aria-disabled={currentPage === lastPage ? "true" : undefined}
-          tabindex={currentPage === lastPage ? -1 : undefined}
-        >
-          Next
-        </a>
+        {currentPage < lastPage ? (
+          <a class="pagination__direction" href={getArchivePageHref(currentPage + 1)}>
+            Next
+          </a>
+        ) : (
+          <span
+            class="pagination__direction pagination__direction--inactive"
+            aria-hidden="true"
+          >
+            Next
+          </span>
+        )}
       </nav>
     )
   }
@@ -104,8 +112,14 @@ const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
     border-color: var(--archive-teal-strong);
   }
 
-  .pagination a[aria-disabled="true"] {
-    pointer-events: none;
+  .pagination__direction--inactive {
+    display: inline-grid;
+    place-items: center;
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-sm);
+    color: var(--quiet-ink);
+    border: 1px solid transparent;
+    border-radius: 999px;
     opacity: 0.45;
   }
 

@@ -55,10 +55,14 @@ const fingerprint = createHash("sha256")
   .update(JSON.stringify(questions))
   .digest("hex")
   .slice(0, 16);
+const catalogIds = (await getCollection("quizzes", ({ data }) => !data.draft)).map(
+  (entry) => entry.id
+);
 const serializedData = JSON.stringify({
   quizId: quiz.id,
   title: quiz.data.title,
   fingerprint,
+  catalogIds,
   questions,
 }).replaceAll("<", "\\u003c");
 const categoryLabels = {
@@ -156,7 +160,6 @@ const structuredData = [
       </div>
       <div class="quiz-intro__disclosure">
         <AiDisclosure
-          variant="assisted"
           label="AI-assisted, human-reviewed quiz"
           detail="Artwork is AI-generated."
           detailsHref="/about/#ai-transparency"
@@ -195,7 +198,14 @@ const structuredData = [
           <span id="quiz-progress-text">Question 1 of 10</span>
           <a id="quiz-exit" href="/">Save &amp; exit</a>
         </div>
-        <progress id="quiz-progress" value="1" max="10">1 of 10</progress>
+        <progress
+          id="quiz-progress"
+          value="1"
+          max="10"
+          aria-labelledby="quiz-progress-text"
+        >
+          1 of 10
+        </progress>
       </header>
       <div id="quiz-question"></div>
       <section class="quiz-feedback" id="quiz-feedback" hidden></section>

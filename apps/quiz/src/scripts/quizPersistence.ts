@@ -115,6 +115,11 @@ export function readActiveQuiz(storage: StorageLike): ActiveQuizReadResult {
 
     return { status: "ready", round: value };
   } catch {
+    try {
+      storage.removeItem(ACTIVE_QUIZ_STORAGE_KEY);
+    } catch {
+      /* Unreadable storage may also be unwritable; the UI still shows the hint. */
+    }
     return { status: "invalid" };
   }
 }

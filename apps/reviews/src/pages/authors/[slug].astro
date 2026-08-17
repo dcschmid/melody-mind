@@ -11,9 +11,12 @@ interface Props {
 }
 const { author } = Astro.props;
 const { Content } = await render(author);
-const reviews = (await getCollection("reviews", ({ data }) => !data.draft)).toSorted(
-  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
-);
+const reviews = (
+  await getCollection(
+    "reviews",
+    ({ data }) => !data.draft && data.author.id === author.id
+  )
+).toSorted((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const schema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -33,6 +36,9 @@ const schema = {
       <p class="eyebrow">{author.data.role}</p>
       <h1>{author.data.name}</h1>
       <p>{author.data.shortBio}</p>
+      <ul class="author__interests" aria-label="Review interests">
+        {author.data.interests.map((interest) => <li>{interest}</li>)}
+      </ul>
     </header>
     <div class="author__bio prose"><Content /></div>
     <section aria-labelledby="author-reviews">
@@ -58,9 +64,26 @@ const schema = {
     font-size: clamp(3.5rem, 9vw, 7rem);
   }
 
-  .author header > p:last-child {
+  .author header > p:last-of-type {
     font-size: 1.2rem;
     color: var(--quiet-ink);
+  }
+
+  .author__interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding: 0;
+    list-style: none;
+  }
+
+  .author__interests li {
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-md);
+    font-size: 0.85rem;
+    color: var(--quiet-ink);
+    border: 1px solid var(--line);
+    border-radius: 999px;
   }
 
   .author__bio {

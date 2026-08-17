@@ -3,7 +3,7 @@ format: artist-portrait
 title: Forty-Five Seconds of Room
 dek: "Pauline Oliveros entered an empty water cistern with an accordion and left with a practical question: what changes when musicians treat the echo as a member of the group?"
 seoDescription: Pauline Oliveros’s Deep Listening practice through tape, text scores, accordion, the 1988 Fort Worden cistern session, and collective attention.
-publishedAt: 2026-07-22
+publishedAt: 2026-07-22T12:00:00Z
 topics:
   - Pauline Oliveros
   - Deep Listening

@@ -3,7 +3,7 @@ format: artist-portrait
 title: Five Strings, No Drummer
 dek: Django Reinhardt’s Quintette made rhythm guitar carry the floor, then placed an improvising soloist above it with no brass section or drum kit to hide behind.
 seoDescription: Django Reinhardt’s guitar method through musette, the Hot Club quintet, Roma identity, wartime Paris, electric guitar, and his 1946 U.S. tour.
-publishedAt: 2026-07-23
+publishedAt: 2026-07-23T12:00:00Z
 topics:
   - Django Reinhardt
   - jazz guitar

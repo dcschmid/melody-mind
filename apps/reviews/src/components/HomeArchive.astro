@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { getEntry, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 
 import AiDisclosure from "@components/AiDisclosure.astro";
@@ -35,6 +35,10 @@ const {
 const isFirstPage = currentPage === 1;
 const featured = isFirstPage ? reviews[0] : undefined;
 if (isFirstPage && !featured) throw new Error("Reviews requires published content.");
+const featuredAuthor = featured ? await getEntry(featured.data.author) : undefined;
+if (featured && !featuredAuthor) {
+  throw new Error(`Missing author for ${featured.id}.`);
+}
 const featuredCoverAsset =
   featured && featured.data.cover.mode === "original"
     ? getReviewCoverImage(featured.data.cover.src)
@@ -99,7 +103,8 @@ const schema = {
           <p class="home-hero__artist">{featured.data.album.artist}</p>
           <p class="home-hero__thesis">{featured.data.thesis}</p>
           <p class="home-hero__meta">
-            By <a href="/authors/daniel-schmid/">Daniel Schmid</a> ·{" "}
+            By <a href={`/authors/${featuredAuthor?.id}/`}>{featuredAuthor?.data.name}</a>{" "}
+            ·{" "}
             <time datetime={featured.data.publishedAt.toISOString()}>
               {featured.data.publishedAt.toLocaleDateString("en-US", {
                 month: "long",

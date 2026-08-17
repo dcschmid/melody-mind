@@ -136,7 +136,9 @@ import Layout from "@layouts/Layout.astro";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 ```
 
-**Path Aliases**: `@components/*`, `@layouts/*`, `@utils/*`, `@constants/*`, `@scripts/*`, `@data/*`, `@types/*`
+**Path Aliases**: `@components/*`, `@layouts/*`, `@utils/*`, `@data/*` (Music), plus
+app-local aliases such as `@scripts/*`, `@styles/*`, and `@assets/*` where an app's
+tsconfig declares them
 
 ### Formatting
 

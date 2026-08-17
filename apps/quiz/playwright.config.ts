@@ -6,13 +6,12 @@ export default defineConfig({
   reporter: "line",
   use: {
     baseURL: "http://127.0.0.1:4329",
-    launchOptions: {
-      executablePath: "/usr/bin/chromium",
-    },
     screenshot: "only-on-failure",
     trace: "retain-on-failure",
   },
   webServer: {
+    /* ASTRO_PREVIEW_BACKGROUND keeps astro preview out of its agent-detection
+       mode, which would print JSON and exit instead of serving. */
     command:
       "ASTRO_PREVIEW_BACKGROUND=0 pnpm exec astro preview --host 127.0.0.1 --port 4329",
     url: "http://127.0.0.1:4329",

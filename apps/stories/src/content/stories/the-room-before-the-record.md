@@ -3,7 +3,7 @@ format: scene-report
 title: The Room Before the Record
 dek: Chicago house did not begin as a drum-machine preset. It took shape through queer Black and Latino dance floors, DJs extending records, local radio, and small labels.
 seoDescription: Chicago house from the Warehouse and Music Box to drum machines, WBMX, local labels, queer dance floors, and the preservation of 206 South Jefferson.
-publishedAt: 2026-07-20
+publishedAt: 2026-07-20T12:00:00Z
 topics:
   - Chicago house
   - Frankie Knuckles

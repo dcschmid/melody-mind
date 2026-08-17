@@ -3,7 +3,7 @@ format: cover-story
 title: One Hundred Pulses, No Band Name
 dek: Unknown Pleasures turned a scientific plot into a sleeve with almost no sales language. Its afterlife reveals what the object kept, what it erased, and why the pulse count is disputed.
 seoDescription: The origin, design, printing, and cultural afterlife of the Unknown Pleasures sleeve, from Harold Craft's pulsar plot to Peter Saville's unlabelled cover.
-publishedAt: 2026-07-11
+publishedAt: 2026-07-11T12:00:00Z
 topics:
   - Unknown Pleasures
   - Peter Saville

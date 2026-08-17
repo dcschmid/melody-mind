@@ -24,6 +24,7 @@ interface QuizPayload {
   quizId: string;
   title: string;
   fingerprint: string;
+  catalogIds: string[];
   questions: QuizQuestion[];
 }
 
@@ -271,6 +272,7 @@ export function initQuiz(): void {
 
     progress.value = session.currentIndex + 1;
     progress.max = session.questions.length;
+    progress.textContent = `${session.currentIndex + 1} of ${session.questions.length}`;
     progressText.textContent = `Question ${session.currentIndex + 1} of ${session.questions.length}`;
 
     const fieldset = document.createElement("fieldset");
@@ -289,6 +291,10 @@ export function initQuiz(): void {
         : "Choose one answer."
     );
     hint.dataset.selectionHint = "";
+    if (question.type === "multi-choice") {
+      hint.setAttribute("aria-live", "polite");
+      hint.setAttribute("aria-atomic", "true");
+    }
     const finalOptionLetter = String.fromCharCode(64 + question.options.length);
     const shortcut = createTextElement(
       "span",
@@ -637,12 +643,15 @@ export function initQuiz(): void {
               "Saved progress no longer matched this quiz and was discarded.";
           }
         }
-      } else {
+      } else if (payload.catalogIds.includes(activeRound.quizId)) {
         startMode = "replace";
         continueOtherLink.href = `/${activeRound.quizId}/`;
         continueOtherLink.textContent = `Continue ${activeRound.title}`;
         continueOtherLink.hidden = false;
         storageStatus.textContent = `Question ${activeRound.snapshot.currentIndex + 1} of ${activeRound.snapshot.questions.length} is saved in ${activeRound.title}. Starting this quiz will replace it.`;
+      } else {
+        clearActiveQuiz(storage);
+        activeRound = null;
       }
     }
   }

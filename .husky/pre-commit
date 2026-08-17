@@ -1,4 +1,4 @@
-pnpm format:check
-pnpm lint:check
+pnpm format:check:all
+pnpm lint:check:all
 pnpm check
 pnpm test

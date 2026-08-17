@@ -3,7 +3,7 @@ format: artist-portrait
 title: A Jazz History at the Keyboard
 dek: Mary Lou Williams did not move from swing to bebop as if changing departments. She wrote, played, taught, and argued for a continuous music with the blues running through it.
 seoDescription: Mary Lou Williams’s career through Andy Kirk, Night Life, the Zodiac Suite, bebop, sacred work, teaching, and her illustrated history of jazz.
-publishedAt: 2026-07-21
+publishedAt: 2026-07-21T12:00:00Z
 topics:
   - Mary Lou Williams
   - jazz piano

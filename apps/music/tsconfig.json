@@ -19,10 +19,7 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@utils/*": ["src/utils/*"],
-      "@constants/*": ["src/constants/*"],
-      "@scripts/*": ["src/scripts/*"],
-      "@data/*": ["src/data/*"],
-      "@types/*": ["src/types/*"]
+      "@data/*": ["src/data/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"],
