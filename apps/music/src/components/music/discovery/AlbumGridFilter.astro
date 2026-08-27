@@ -83,13 +83,15 @@ const showFilter = albumCount >= threshold;
 
   .album-grid-filter__controls {
     display: grid;
-    grid-template-columns: minmax(14rem, 30rem) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: var(--spacing-xs) var(--spacing-base);
-    align-items: end;
+    align-items: center;
+    inline-size: min(100%, 32rem);
   }
 
   .album-grid-filter__label {
-    grid-column: 1 / -1;
+    grid-row: 1;
+    grid-column: 1;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
@@ -99,8 +101,11 @@ const showFilter = albumCount >= threshold;
   .album-grid-filter__field {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-row: 2;
+    grid-column: 1 / -1;
     gap: var(--spacing-xs);
     align-items: center;
+    inline-size: min(100%, 32rem);
     min-block-size: var(--control-min-block-size);
     padding-inline: var(--spacing-sm);
     background: var(--surface-2);
@@ -167,6 +172,9 @@ const showFilter = albumCount >= threshold;
   }
 
   .album-grid-filter__status {
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: end;
     margin: 0;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
@@ -197,6 +205,17 @@ const showFilter = albumCount >= threshold;
   @media (width <= 640px) {
     .album-grid-filter__controls {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    .album-grid-filter__label,
+    .album-grid-filter__field,
+    .album-grid-filter__status {
+      grid-row: auto;
+      grid-column: auto;
+    }
+
+    .album-grid-filter__status {
+      justify-self: start;
     }
   }
 </style>

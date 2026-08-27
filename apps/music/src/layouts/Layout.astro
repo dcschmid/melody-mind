@@ -188,6 +188,7 @@ const headerNavItems: HeaderNavItem[] = [
     href: item.href,
     label: item.label,
     icon: (item.icon || "music") as IconName,
+    secondary: true,
     ...(item.target ? { target: item.target } : {}),
     ...(item.rel ? { rel: item.rel } : {}),
   })),

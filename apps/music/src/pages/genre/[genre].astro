@@ -145,9 +145,11 @@ const GRID_COVER_IMAGE_SIZES =
         </a>
         <p class="genre-landing__eyebrow">{page.eyebrow}</p>
         <h1 id="genre-landing-title" class="genre-landing__title">{page.title}</h1>
-        <div class="genre-landing__intro">
-          <Content />
-        </div>
+        <a class="genre-landing__catalog-link" href="#genre-albums-title">
+          Browse albums
+          <Icon name="arrow-right" aria-hidden="true" />
+        </a>
+        <p class="genre-landing__summary">{page.description}</p>
         <p class="genre-landing__catalog-note">
           <Icon name="disc" aria-hidden="true" />
           <span>
@@ -156,6 +158,12 @@ const GRID_COVER_IMAGE_SIZES =
             }
           </span>
         </p>
+        <details class="genre-landing__context">
+          <summary>About this genre</summary>
+          <div class="genre-landing__intro">
+            <Content />
+          </div>
+        </details>
       </div>
     </header>
 
@@ -314,6 +322,35 @@ const GRID_COVER_IMAGE_SIZES =
     text-wrap: balance;
   }
 
+  .genre-landing__catalog-link {
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-min-block-size);
+    margin-block: 0.8rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-primary);
+    text-decoration: none;
+  }
+
+  .genre-landing__catalog-link:hover,
+  .genre-landing__catalog-link:focus-visible {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .genre-landing__catalog-link:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 0.2rem;
+  }
+
+  .genre-landing__catalog-link :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
   .genre-landing__intro {
     max-inline-size: 68ch;
     margin: 0;
@@ -321,6 +358,38 @@ const GRID_COVER_IMAGE_SIZES =
     line-height: 1.62;
     color: var(--genre-landing-muted);
     text-wrap: pretty;
+  }
+
+  .genre-landing__summary {
+    max-inline-size: 68ch;
+    margin: 0;
+    font-size: var(--font-size-md);
+    line-height: 1.62;
+    color: var(--genre-landing-muted);
+    text-wrap: pretty;
+  }
+
+  .genre-landing__context {
+    max-inline-size: 68ch;
+  }
+
+  .genre-landing__context summary {
+    inline-size: fit-content;
+    min-block-size: var(--control-min-block-size);
+    padding-block: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--genre-landing-accent);
+    cursor: pointer;
+  }
+
+  .genre-landing__context summary:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 0.2rem;
+  }
+
+  .genre-landing__context[open] summary {
+    margin-block-end: var(--spacing-sm);
   }
 
   .genre-landing__catalog-note {

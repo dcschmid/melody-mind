@@ -52,7 +52,11 @@ const breadcrumbs = [
           Open any album and press the heart to save it here. Favorites are stored locally
           in your browser.
         </p>
-        <a class="favorites-page__empty-link" href="/genre/">Browse albums by genre</a>
+        <div class="favorites-page__empty-actions">
+          <a class="favorites-page__empty-link" href="/">Browse new releases</a>
+          <a class="favorites-page__empty-link" href="/radio/">Start radio</a>
+          <a class="favorites-page__empty-link" href="/genre/">Browse by genre</a>
+        </div>
       </div>
 
       <p class="favorites-page__error" data-favorites-error hidden>
@@ -321,6 +325,12 @@ const breadcrumbs = [
     font-weight: var(--font-weight-bold);
     color: var(--accent-primary);
     border-radius: var(--radius-base);
+  }
+
+  .favorites-page__empty-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
   }
 
   .favorites-page__empty-link:hover,

@@ -8,6 +8,7 @@ export interface HeaderNavItem {
   icon: IconName;
   target?: string;
   rel?: string;
+  secondary?: boolean;
 }
 
 interface Props {
@@ -66,7 +67,12 @@ const isActiveItem = (href: string) => {
       const isActive = isActiveItem(item.href);
 
       return (
-        <li class="music-header-nav__item">
+        <li
+          class:list={[
+            "music-header-nav__item",
+            { "music-header-nav__item--secondary": item.secondary },
+          ]}
+        >
           <a
             class="music-header-nav__link"
             href={item.href}
@@ -156,6 +162,18 @@ const isActiveItem = (href: string) => {
   .music-header-nav__link:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (width >= 1024px) {
+    .music-header-nav__item--secondary {
+      padding-inline-start: var(--spacing-xs);
+      border-inline-start: 1px solid var(--border-default);
+    }
+
+    .music-header-nav__item--secondary .music-header-nav__link {
+      font-size: var(--font-size-sm);
+      color: var(--text-tertiary);
+    }
   }
 
   .music-header-nav__link:focus-visible::after,
