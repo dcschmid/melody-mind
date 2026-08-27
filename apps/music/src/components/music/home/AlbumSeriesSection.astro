@@ -92,6 +92,7 @@ const {
                       </span>
                     ))}
                   </span>
+                  <span class="series-directory__action">Open series</span>
                   <Icon name="chevron-right" class="series-directory__arrow" />
                 </span>
               </a>
@@ -244,6 +245,14 @@ const {
     color: var(--series-directory-accent);
   }
 
+  .series-directory__action {
+    flex: 0 0 auto;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--series-directory-accent);
+    white-space: nowrap;
+  }
+
   .series-directory__link:hover,
   .series-directory__link:focus-visible {
     background: color-mix(in srgb, var(--series-directory-accent) 7%, transparent);
@@ -252,6 +261,12 @@ const {
   .series-directory__link:hover .series-directory__title,
   .series-directory__link:focus-visible .series-directory__title {
     color: var(--series-directory-accent);
+  }
+
+  .series-directory__link:hover .series-directory__action,
+  .series-directory__link:focus-visible .series-directory__action {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
   }
 
   .series-directory__link:focus-visible {
@@ -348,6 +363,14 @@ const {
     .series-directory__link,
     .series-directory__visual {
       gap: var(--spacing-sm);
+    }
+
+    .series-directory__link {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .series-directory__visual {
+      justify-content: flex-start;
     }
 
     .series-directory__covers {
