@@ -1,0 +1,4 @@
+interface:
+  display_name: "MelodyMind Browser QA"
+  short_description: "Verify MelodyMind UI flows in real browsers"
+  default_prompt: "Use $melodymind-browser-qa to verify the changed MelodyMind UI flow in a real browser."
