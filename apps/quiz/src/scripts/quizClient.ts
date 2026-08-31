@@ -75,8 +75,9 @@ export function initQuiz(): void {
   const shareButton = getElement<HTMLButtonElement>("quiz-share");
   const shareStatus = getElement<HTMLElement>("quiz-share-status");
   const exitLink = getElement<HTMLAnchorElement>("quiz-exit");
-  const resultReview = getElement<HTMLElement>("quiz-result-review");
+  const resultReview = getElement<HTMLDetailsElement>("quiz-result-review");
   const resultReviewList = getElement<HTMLElement>("quiz-result-review-list");
+  const resultReviewCount = getElement<HTMLElement>("quiz-result-review-count");
   const resultPerfect = getElement<HTMLElement>("quiz-result-perfect");
   const challengeBox = getElement<HTMLElement>("quiz-challenge");
   const challengeCopy = getElement<HTMLElement>("quiz-challenge-copy");
@@ -93,6 +94,7 @@ export function initQuiz(): void {
     game.hidden = view !== "game";
     result.hidden = view !== "result";
     error.hidden = view !== "error";
+    document.body.dataset.quizView = view;
   };
 
   const announceStorageFailure = () => {
@@ -348,8 +350,13 @@ export function initQuiz(): void {
     const activeSession = session;
     const reviewItems = getReviewItems(activeSession);
     resultReviewList.replaceChildren();
+    resultReview.open = false;
     resultReview.hidden = reviewItems.length === 0;
     resultPerfect.hidden = reviewItems.length > 0;
+    resultReviewCount.textContent =
+      reviewItems.length === 1
+        ? "1 question to revisit"
+        : `${reviewItems.length} questions to revisit`;
 
     reviewItems.forEach((item) => {
       const details = document.createElement("details");

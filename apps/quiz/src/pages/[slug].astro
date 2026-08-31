@@ -230,35 +230,35 @@ const structuredData = [
     >
       <p class="eyebrow">Round complete</p>
       <h1 id="quiz-result-title" tabindex="-1">Your result</h1>
-      <p class="quiz-result__score" id="quiz-score"></p>
-      <p class="quiz-result__band" id="quiz-score-band"></p>
-      <dl class="quiz-result__breakdown" aria-label="Result breakdown">
-        <div class="quiz-result__breakdown-item">
-          <dt>Correct</dt>
-          <dd id="quiz-result-correct">0</dd>
-        </div>
-        <div class="quiz-result__breakdown-item">
-          <dt>Incorrect</dt>
-          <dd id="quiz-result-incorrect">0</dd>
-        </div>
-        <div class="quiz-result__breakdown-item">
-          <dt>Revealed</dt>
-          <dd id="quiz-result-revealed">0</dd>
-        </div>
-      </dl>
+      <div class="quiz-result__summary">
+        <p class="quiz-result__score" id="quiz-score"></p>
+        <p class="quiz-result__band" id="quiz-score-band"></p>
+        <dl class="quiz-result__breakdown" aria-label="Result breakdown">
+          <div class="quiz-result__breakdown-item">
+            <dt>Correct</dt>
+            <dd id="quiz-result-correct">0</dd>
+          </div>
+          <div class="quiz-result__breakdown-item">
+            <dt>Incorrect</dt>
+            <dd id="quiz-result-incorrect">0</dd>
+          </div>
+          <div class="quiz-result__breakdown-item">
+            <dt>Revealed</dt>
+            <dd id="quiz-result-revealed">0</dd>
+          </div>
+        </dl>
+      </div>
       <p class="quiz-result__copy">
         Review the questions that need another listen, then continue through music
         history.
       </p>
-      <section
-        class="quiz-result__review"
-        id="quiz-result-review"
-        aria-labelledby="quiz-result-review-title"
-        hidden
-      >
-        <h2 id="quiz-result-review-title">Review this round</h2>
+      <details class="quiz-result__review" id="quiz-result-review" hidden>
+        <summary class="quiz-result__review-summary">
+          <span>Review this round</span>
+          <span id="quiz-result-review-count"></span>
+        </summary>
         <div class="quiz-result__review-list" id="quiz-result-review-list"></div>
-      </section>
+      </details>
       <p class="quiz-result__perfect" id="quiz-result-perfect" hidden>
         You answered every question correctly. No review needed this time.
       </p>
@@ -459,6 +459,7 @@ const structuredData = [
   .quiz-game {
     display: grid;
     gap: var(--space-xl);
+    scroll-margin-block-start: calc(var(--site-header-block-size) + var(--space-lg));
   }
 
   .quiz-intro[hidden],
@@ -706,11 +707,19 @@ const structuredData = [
   .quiz-result h1,
   .quiz-error h1 {
     font-size: 2.5rem;
+    scroll-margin-block-start: calc(var(--site-header-block-size) + var(--space-md));
+  }
+
+  .quiz-result__summary {
+    display: grid;
+    gap: var(--space-md);
   }
 
   .quiz-result__score {
-    font-size: 1.75rem;
+    font-size: clamp(3.25rem, 12vw, 5rem);
     font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
   }
 
   .quiz-result__band {
@@ -769,7 +778,32 @@ const structuredData = [
     padding-block: var(--space-md);
   }
 
-  .quiz-result__review h2,
+  .quiz-result__review-summary {
+    display: flex;
+    gap: var(--space-md);
+    align-items: baseline;
+    justify-content: space-between;
+    min-block-size: var(--control-min-size);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--raised-night);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-md);
+  }
+
+  .quiz-result__review-summary::marker {
+    color: var(--signal-teal);
+  }
+
+  .quiz-result__review-count {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    white-space: nowrap;
+  }
+
   .quiz-result__next h2 {
     font-size: 1.5rem;
   }
@@ -951,6 +985,24 @@ const structuredData = [
     .quiz-result__next-image {
       inline-size: 7rem;
       block-size: 7rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .quiz-result:not([hidden]) .quiz-result__summary {
+      animation: quiz-result-reveal 240ms ease-out;
+    }
+  }
+
+  @keyframes quiz-result-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>

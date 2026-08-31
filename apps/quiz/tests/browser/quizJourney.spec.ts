@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 test("keeps the catalog actionable and compact on a phone", async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 800 });
@@ -20,8 +20,16 @@ test("exposes the expanded catalog without desktop overflow", async ({ page }) =
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/");
 
-  await expect(page.getByRole("link", { name: "Artists", exact: true })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Albums", exact: true })).toBeVisible();
+  await expect(
+    page
+      .locator(".quiz-home__category-nav")
+      .getByRole("link", { name: "Artists", exact: true })
+  ).toBeVisible();
+  await expect(
+    page
+      .locator(".quiz-home__category-nav")
+      .getByRole("link", { name: "Albums", exact: true })
+  ).toBeVisible();
   await expect(page.getByRole("heading", { name: "Follow an artist" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Go inside an album" })).toBeVisible();
   await expect(page.locator("html")).toHaveJSProperty("scrollWidth", 1280);
@@ -199,7 +207,7 @@ test("keeps keyboard shortcuts working after focus leaves the quiz area", async 
   await page.getByRole("button", { name: "Start quiz" }).click();
 
   // Clicking non-interactive page chrome moves focus outside the quiz.
-  await page.locator(".quiz-footer__brand p").click();
+  await page.locator("#quiz-progress").click();
 
   await page.keyboard.press("1");
   await expect(page.locator('input[name="quiz-answer"]:checked')).toHaveCount(1);
@@ -207,4 +215,109 @@ test("keeps keyboard shortcuts working after focus leaves the quiz area", async 
 
   await page.keyboard.press("Enter");
   await expect(page.locator(".quiz-feedback__title")).toBeVisible();
+});
+
+async function revealAllRemainingQuestions(page: Page) {
+  for (let question = 0; question < 10; question += 1) {
+    await page.getByRole("button", { name: "Show answer" }).click();
+    await page
+      .getByRole("button", {
+        name: question === 9 ? "See your result" : "Next question",
+      })
+      .click();
+  }
+}
+
+test("keeps progress and legend below the sticky header on a phone", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/1980s/");
+
+  const assertGeometry = async () => {
+    const geometry = await page.evaluate(() => {
+      const game = document.getElementById("quiz-game");
+      const header = document.querySelector("[data-quiz-header]");
+      if (!game || !header) {
+        return null;
+      }
+      return {
+        gameTop: game.getBoundingClientRect().top,
+        headerBottom: header.getBoundingClientRect().bottom,
+      };
+    });
+    expect(geometry).not.toBeNull();
+    expect(geometry?.gameTop).toBeGreaterThanOrEqual((geometry?.headerBottom ?? 0) + 16);
+    await expect(page.locator("#quiz-progress-text")).toBeInViewport();
+    await expect(page.locator(".quiz-question__legend")).toBeInViewport();
+  };
+
+  await page.getByRole("button", { name: "Start quiz" }).click();
+  await assertGeometry();
+
+  await page.getByRole("button", { name: "Show answer" }).click();
+  await page.getByRole("button", { name: "Next question" }).click();
+  await expect(page.locator("#quiz-progress-text")).toHaveText("Question 2 of 10");
+  await assertGeometry();
+});
+
+test("hides navigation and footer only while a round is running", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/1950s/");
+
+  await expect(page.locator(".quiz-header__desktop-nav")).toBeVisible();
+  await expect(page.locator(".quiz-footer")).toBeVisible();
+
+  await page.getByRole("button", { name: "Start quiz" }).click();
+  await expect(page.locator("body")).toHaveAttribute("data-quiz-view", "game");
+  await expect(page.locator(".quiz-header__desktop-nav")).toBeHidden();
+  await expect(page.locator(".quiz-header__menu-button")).toBeHidden();
+  await expect(page.locator(".quiz-footer")).toBeHidden();
+  await expect(page.getByRole("link", { name: "Save & exit" })).toBeVisible();
+
+  await revealAllRemainingQuestions(page);
+  await expect(page.locator("body")).toHaveAttribute("data-quiz-view", "result");
+  await expect(page.locator(".quiz-header__desktop-nav")).toBeVisible();
+  await expect(page.locator(".quiz-footer")).toBeVisible();
+});
+
+test("folds extra genre journeys behind a disclosure on a phone", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+
+  const featuredGrid = page.locator("#genre-journeys .quiz-grid--journeys").first();
+  await expect(featuredGrid.locator(".quiz-card")).toHaveCount(4);
+  await expect(page.locator("#genre-journeys .quiz-library__more")).toBeVisible();
+  await expect(page.locator("#genre-journeys .quiz-library__more")).not.toHaveAttribute(
+    "open"
+  );
+
+  await page.locator("#genre-journeys .quiz-library__more summary").click();
+  await expect(page.locator("#genre-journeys .quiz-library__more")).toHaveAttribute(
+    "open",
+    ""
+  );
+  await expect(page.locator("#genre-journeys .quiz-card")).toHaveCount(16);
+  await expect(
+    page.locator("#genre-journeys .quiz-library__more .quiz-card")
+  ).toHaveCount(12);
+  await expect(page.locator("html")).toHaveJSProperty("scrollWidth", 390);
+});
+
+test("opens the result review progressively with an accurate count", async ({ page }) => {
+  await page.goto("/1950s/");
+  await page.getByRole("button", { name: "Start quiz" }).click();
+  await revealAllRemainingQuestions(page);
+
+  const review = page.locator("#quiz-result-review");
+  await expect(review).toBeVisible();
+  await expect(review).not.toHaveAttribute("open");
+  await expect(page.locator("#quiz-result-review-count")).toHaveText(
+    "10 questions to revisit"
+  );
+  await expect(page.locator(".quiz-review-item")).toHaveCount(10);
+  await expect(page.getByRole("link", { name: "Start next quiz" })).toBeVisible();
+
+  await page.locator("#quiz-result-review > summary").click();
+  await expect(review).toHaveAttribute("open", "");
+  await expect(page.locator(".quiz-review-item")).toHaveCount(10);
 });

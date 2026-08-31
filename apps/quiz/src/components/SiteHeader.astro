@@ -223,7 +223,7 @@ const navigation = [
     gap: var(--space-sm) var(--space-xl);
     align-items: center;
     justify-content: space-between;
-    min-block-size: 4.5rem;
+    min-block-size: var(--site-header-block-size);
     padding-block: var(--space-sm);
   }
 
@@ -314,10 +314,10 @@ const navigation = [
 
   .quiz-header__backdrop {
     position: fixed;
-    inset: 4.5rem 0 0;
+    inset: var(--site-header-block-size) 0 0;
     z-index: -1;
     inline-size: 100%;
-    block-size: calc(100dvh - 4.5rem);
+    block-size: calc(100dvh - var(--site-header-block-size));
     padding: 0;
     cursor: pointer;
     background: color-mix(in srgb, var(--room-night) 72%, transparent);
@@ -334,7 +334,7 @@ const navigation = [
     z-index: 1;
     display: grid;
     visibility: hidden;
-    max-block-size: calc(100dvh - 4.5rem);
+    max-block-size: calc(100dvh - var(--site-header-block-size));
     padding: var(--space-lg) max(1rem, calc((100% - 76rem) / 2))
       max(var(--space-2xl), env(safe-area-inset-bottom));
     overflow-y: auto;
@@ -380,6 +380,13 @@ const navigation = [
   .quiz-header__mobile-nav a:focus-visible,
   .quiz-header__mobile-nav a[aria-current="page"] {
     color: var(--signal-teal);
+  }
+
+  :global(body[data-quiz-view="game"]) .quiz-header__desktop-nav,
+  :global(body[data-quiz-view="game"]) .quiz-header__menu-button,
+  :global(body[data-quiz-view="game"]) .quiz-header__mobile-nav,
+  :global(body[data-quiz-view="game"]) .quiz-header__backdrop {
+    display: none;
   }
 
   .quiz-header[data-open="true"] .quiz-header__mobile-nav {
