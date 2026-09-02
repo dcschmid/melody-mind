@@ -1,11 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [".env.example"],
+  "globalDependencies": [".env.example", "scripts/**"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".astro/**"],
-      "passThroughEnv": ["NODE_OPTIONS"]
+      "passThroughEnv": ["NODE_OPTIONS"],
+      "env": ["GOOGLE_SITE_VERIFICATION", "PUBLIC_EMBED_ORIGIN"]
     },
     "dev": {
       "cache": false,

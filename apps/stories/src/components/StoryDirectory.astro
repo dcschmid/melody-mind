@@ -1,0 +1,671 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+import { STORY_FORMATS, formatStoryLabel } from "@utils/storySearch";
+
+interface Props {
+  stories: CollectionEntry<"stories">[];
+  totalStories: number;
+  /** Number of the first card in the server-rendered grid (1-based). */
+  cardStart?: number;
+}
+
+const { stories, totalStories, cardStart = 1 } = Astro.props;
+---
+
+<div class="story-directory" data-story-directory>
+  <div class="story-directory__controls" data-story-directory-controls>
+    <form class="story-directory__search" role="search" data-story-search-form>
+      <label for="story-archive-search">Search the story archive</label>
+      <div class="story-directory__search-row">
+        <input
+          id="story-archive-search"
+          type="search"
+          name="q"
+          autocomplete="off"
+          placeholder="Title, dek, topic, or story type"
+          data-story-search-input
+        />
+        <button type="submit">Search</button>
+        <button
+          type="button"
+          class="story-directory__clear"
+          data-story-search-clear
+          hidden
+        >
+          Clear
+        </button>
+      </div>
+    </form>
+
+    <div class="story-directory__filters">
+      <p id="story-format-filter-label">Filter by story type</p>
+      <div role="group" aria-labelledby="story-format-filter-label">
+        <button type="button" data-story-format="" aria-pressed="true"> All </button>
+        {
+          STORY_FORMATS.map((format) => (
+            <button type="button" data-story-format={format} aria-pressed="false">
+              {formatStoryLabel(format)}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <p
+      class="story-directory__status"
+      role="status"
+      aria-live="polite"
+      data-story-search-status
+    >
+      Search or choose a story type across all {totalStories} stories.
+    </p>
+  </div>
+
+  <ol
+    class="archive__grid"
+    data-story-static-grid
+    style={`--card-start: ${cardStart - 1}`}
+  >
+    {
+      stories.map((story, index) => (
+        <li class:list={["story-card", index % 7 === 0 && "story-card--wide"]}>
+          <a href={`/${story.id}/`}>
+            <span class="story-card__image">
+              <Image
+                src={story.data.hero.image}
+                alt=""
+                widths={[360, 560, 800, 1100]}
+                sizes="(min-width: 64rem) 31vw, (min-width: 42rem) 46vw, 100vw"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+            <span class="story-card__copy">
+              <span class="eyebrow">
+                {formatStoryLabel(story.data.format)} ·{" "}
+                <time datetime={story.data.publishedAt.toISOString()}>
+                  {story.data.publishedAt.toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                </time>
+              </span>
+              <h2>{story.data.title}</h2>
+              <span class="story-card__dek">{story.data.dek}</span>
+              <span class="story-card__action">
+                Read story <span aria-hidden="true">→</span>
+              </span>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+
+  <ol class="archive__grid" data-story-search-grid hidden></ol>
+  <nav
+    class="story-directory__result-pages"
+    aria-label="Filtered story result pages"
+    data-story-result-pages
+    hidden
+  >
+    <button type="button" data-story-result-previous> Previous results </button>
+    <span data-story-result-page>Page 1 of 1</span>
+    <button type="button" data-story-result-next> Next results </button>
+  </nav>
+  <template data-story-card-template>
+    <li class="story-card">
+      <a href="/">
+        <span class="story-card__image">
+          <img src="" alt="" loading="lazy" decoding="async" />
+        </span>
+        <span class="story-card__copy">
+          <span class="eyebrow">
+            <span data-story-card-format></span> ·{" "}
+            <time data-story-card-date></time>
+          </span>
+          <h2 data-story-card-title>Story title</h2>
+          <span class="story-card__dek" data-story-card-dek></span>
+          <span class="story-card__action">
+            Read story <span aria-hidden="true">→</span>
+          </span>
+        </span>
+      </a>
+    </li>
+  </template>
+</div>
+
+<script>
+  import {
+    filterStorySearchRecords,
+    formatStoryLabel,
+    paginateStorySearchRecords,
+    type StorySearchRecord,
+  } from "@utils/storySearch";
+
+  const initializeStorySearch = () => {
+    document.querySelectorAll<HTMLElement>("[data-story-directory]").forEach((root) => {
+      if (root.dataset.ready === "true") {
+        return;
+      }
+      root.dataset.ready = "true";
+
+      const form = root.querySelector<HTMLFormElement>("[data-story-search-form]");
+      const input = root.querySelector<HTMLInputElement>("[data-story-search-input]");
+      const clear = root.querySelector<HTMLButtonElement>("[data-story-search-clear]");
+      const formatButtons =
+        root.querySelectorAll<HTMLButtonElement>("[data-story-format]");
+      const status = root.querySelector<HTMLElement>("[data-story-search-status]");
+      const staticGrid = root.querySelector<HTMLOListElement>("[data-story-static-grid]");
+      const searchGrid = root.querySelector<HTMLOListElement>("[data-story-search-grid]");
+      const template = root.querySelector<HTMLTemplateElement>(
+        "[data-story-card-template]"
+      );
+      const resultPages = root.querySelector<HTMLElement>("[data-story-result-pages]");
+      const resultPage = root.querySelector<HTMLElement>("[data-story-result-page]");
+      const previous = root.querySelector<HTMLButtonElement>(
+        "[data-story-result-previous]"
+      );
+      const next = root.querySelector<HTMLButtonElement>("[data-story-result-next]");
+      const defaultPagination =
+        root.parentElement?.querySelector<HTMLElement>(".pagination");
+
+      if (
+        !form ||
+        !input ||
+        !clear ||
+        !status ||
+        !staticGrid ||
+        !searchGrid ||
+        !template ||
+        !resultPages ||
+        !resultPage ||
+        !previous ||
+        !next
+      ) {
+        return;
+      }
+
+      let records: StorySearchRecord[] | undefined;
+      let requestedResultPage = 1;
+      let debounceTimer = 0;
+      const readState = () => {
+        const params = new URL(window.location.href).searchParams;
+        input.value = params.get("q") ?? "";
+        const format = params.get("format") ?? "";
+        requestedResultPage = Number.parseInt(params.get("resultsPage") ?? "1", 10) || 1;
+        formatButtons.forEach((button) =>
+          button.setAttribute(
+            "aria-pressed",
+            String(button.dataset.storyFormat === format)
+          )
+        );
+      };
+
+      const selectedFormat = () =>
+        Array.from(formatButtons).find(
+          (button) => button.getAttribute("aria-pressed") === "true"
+        )?.dataset.storyFormat ?? "";
+
+      const writeState = (currentPage: number) => {
+        const url = new URL(window.location.href);
+        const query = input.value.trim();
+        const format = selectedFormat();
+        query ? url.searchParams.set("q", query) : url.searchParams.delete("q");
+        format
+          ? url.searchParams.set("format", format)
+          : url.searchParams.delete("format");
+        currentPage > 1
+          ? url.searchParams.set("resultsPage", String(currentPage))
+          : url.searchParams.delete("resultsPage");
+        window.history.replaceState({}, "", url);
+      };
+
+      const loadRecords = async () => {
+        if (records) {
+          return records;
+        }
+        root.setAttribute("aria-busy", "true");
+        const response = await fetch("/story-search-index.json");
+        if (!response.ok) {
+          throw new Error(`Search index returned ${response.status}.`);
+        }
+        records = (await response.json()) as StorySearchRecord[];
+        root.removeAttribute("aria-busy");
+        return records;
+      };
+
+      const createCard = (record: StorySearchRecord, index: number) => {
+        const card = template.content.firstElementChild?.cloneNode(true);
+        if (!(card instanceof HTMLElement)) {
+          return undefined;
+        }
+        if (index % 7 === 0) {
+          card.classList.add("story-card--wide");
+        }
+        card.querySelector<HTMLAnchorElement>("a")!.href = record.url;
+        card.querySelector<HTMLImageElement>("img")!.src = record.imageSrc;
+        card.querySelector<HTMLElement>("[data-story-card-format]")!.textContent =
+          formatStoryLabel(record.format);
+        const time = card.querySelector<HTMLElement>("[data-story-card-date]")!;
+        time.setAttribute("datetime", record.publishedAt);
+        time.textContent = new Date(record.publishedAt).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        });
+        card.querySelector<HTMLElement>("[data-story-card-title]")!.textContent =
+          record.title;
+        card.querySelector<HTMLElement>("[data-story-card-dek]")!.textContent =
+          record.dek;
+        return card;
+      };
+
+      const restoreArchive = () => {
+        staticGrid.hidden = false;
+        searchGrid.hidden = true;
+        searchGrid.replaceChildren();
+        resultPages.hidden = true;
+        if (defaultPagination) {
+          defaultPagination.hidden = false;
+        }
+        clear.hidden = true;
+        status.textContent = `Search or choose a story type across the full story archive.`;
+        writeState(1);
+      };
+
+      const render = async (updateUrl = true) => {
+        const query = input.value.trim();
+        const format = selectedFormat();
+        const active = Boolean(query || format);
+        if (!active) {
+          restoreArchive();
+          return;
+        }
+
+        clear.hidden = false;
+        status.textContent = "Searching the story archive…";
+        try {
+          const allRecords = await loadRecords();
+          const matches = filterStorySearchRecords(allRecords, query, format);
+          const page = paginateStorySearchRecords(matches, requestedResultPage);
+          requestedResultPage = page.currentPage;
+          searchGrid.replaceChildren(
+            ...page.data
+              .map((record, index) => createCard(record, index))
+              .filter((card): card is HTMLElement => Boolean(card))
+          );
+          staticGrid.hidden = true;
+          searchGrid.hidden = false;
+          if (defaultPagination) {
+            defaultPagination.hidden = true;
+          }
+          resultPages.hidden = page.lastPage <= 1;
+          previous.disabled = page.currentPage === 1;
+          next.disabled = page.currentPage === page.lastPage;
+          resultPage.textContent = `Page ${page.currentPage} of ${page.lastPage}`;
+          status.textContent =
+            page.total === 0
+              ? "No stories match this search and story type."
+              : `Showing ${page.start}–${page.end} of ${page.total} matching stories.`;
+          if (updateUrl) {
+            writeState(page.currentPage);
+          }
+        } catch {
+          root.removeAttribute("aria-busy");
+          staticGrid.hidden = false;
+          searchGrid.hidden = true;
+          resultPages.hidden = true;
+          if (defaultPagination) {
+            defaultPagination.hidden = false;
+          }
+          status.textContent =
+            "Search is temporarily unavailable. The paginated archive remains below.";
+        }
+      };
+
+      const resetResultPageAndRender = () => {
+        requestedResultPage = 1;
+        void render();
+      };
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        resetResultPageAndRender();
+      });
+      input.addEventListener("input", () => {
+        window.clearTimeout(debounceTimer);
+        debounceTimer = window.setTimeout(resetResultPageAndRender, 180);
+      });
+      clear.addEventListener("click", () => {
+        input.value = "";
+        formatButtons.forEach((button) =>
+          button.setAttribute("aria-pressed", String(button.dataset.storyFormat === ""))
+        );
+        requestedResultPage = 1;
+        restoreArchive();
+        input.focus();
+      });
+      formatButtons.forEach((button) =>
+        button.addEventListener("click", () => {
+          formatButtons.forEach((candidate) =>
+            candidate.setAttribute("aria-pressed", String(candidate === button))
+          );
+          resetResultPageAndRender();
+        })
+      );
+      previous.addEventListener("click", () => {
+        requestedResultPage -= 1;
+        void render();
+      });
+      next.addEventListener("click", () => {
+        requestedResultPage += 1;
+        void render();
+      });
+      window.addEventListener("popstate", () => {
+        readState();
+        void render(false);
+      });
+
+      readState();
+      if (input.value.trim() || selectedFormat()) {
+        void render(false);
+      }
+    });
+  };
+
+  initializeStorySearch();
+  document.addEventListener("astro:page-load", initializeStorySearch);
+</script>
+
+<style>
+  .story-directory {
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .story-directory__controls {
+    display: grid;
+    gap: var(--space-lg);
+    padding-block: var(--space-lg);
+    border-block: 1px solid var(--line);
+  }
+
+  .story-directory__search {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .story-directory__search label,
+  .story-directory__filters > p {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+  }
+
+  .story-directory__search-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .story-directory__search input {
+    flex: 1 1 18rem;
+    min-inline-size: 0;
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-md);
+    font: inherit;
+    color: var(--paper-ink);
+    background: var(--desk-night);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .story-directory__search button,
+  .story-directory__filters button,
+  .story-directory__result-pages button {
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-md);
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--paper-ink);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .story-directory__search button:hover,
+  .story-directory__search button:focus-visible,
+  .story-directory__filters button:hover,
+  .story-directory__filters button:focus-visible,
+  .story-directory__filters button[aria-pressed="true"],
+  .story-directory__result-pages button:hover,
+  .story-directory__result-pages button:focus-visible {
+    color: var(--archive-night);
+    background: var(--archive-teal-strong);
+    border-color: var(--archive-teal-strong);
+  }
+
+  .story-directory__filters {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .story-directory__filters > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .story-directory__status {
+    margin: 0;
+    color: var(--quiet-ink);
+  }
+
+  .archive__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    counter-reset: story-index var(--card-start, 0);
+  }
+
+  .story-card {
+    min-inline-size: 0;
+    counter-increment: story-index;
+  }
+
+  .story-card a {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    block-size: 100%;
+    padding-block-start: var(--space-md);
+    color: var(--paper-ink);
+    text-decoration: none;
+    border-block-start: 1px solid var(--line);
+    transition: border-color 300ms var(--ease-out);
+  }
+
+  .story-card a::before {
+    justify-self: end;
+    margin-block-end: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+    font-weight: 600;
+    line-height: 1;
+    color: color-mix(in oklch, var(--oxide) 68%, transparent);
+    content: counter(story-index, decimal-leading-zero);
+    transition: color 300ms var(--ease-out);
+  }
+
+  .story-card a:hover,
+  .story-card a:focus-visible {
+    border-block-start-color: color-mix(in oklch, var(--archive-teal) 55%, var(--line));
+  }
+
+  .story-card a:hover::before,
+  .story-card a:focus-visible::before {
+    color: var(--oxide);
+  }
+
+  .story-card__image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--archive-night);
+  }
+
+  .story-card--wide .story-card__image {
+    aspect-ratio: 16 / 10;
+  }
+
+  .story-card__image :global(img) {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    filter: saturate(0.86) contrast(1.04);
+    transition:
+      filter 300ms var(--ease-out),
+      transform 500ms var(--ease-out);
+  }
+
+  .story-card__copy {
+    display: grid;
+    gap: var(--space-md);
+    align-content: start;
+    padding-block-start: var(--space-lg);
+  }
+
+  .story-card h2 {
+    max-inline-size: 17ch;
+    font-size: clamp(1.7rem, 3.6vw, 2.8rem);
+    letter-spacing: -0.025em;
+    transition: color 300ms var(--ease-out);
+  }
+
+  .story-card__dek {
+    color: var(--quiet-ink);
+  }
+
+  .story-card__action {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+    align-self: end;
+    min-block-size: var(--control-size);
+    font-weight: 700;
+    color: var(--archive-teal-strong);
+  }
+
+  .story-card a:hover .story-card__image :global(img),
+  .story-card a:focus-visible .story-card__image :global(img) {
+    filter: saturate(1) contrast(1);
+    transform: scale(1.02);
+  }
+
+  .story-card a:hover h2,
+  .story-card a:focus-visible h2 {
+    color: var(--archive-teal-strong);
+  }
+
+  .story-directory__result-pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: space-between;
+    padding-block-start: var(--space-lg);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .story-directory__result-pages button:disabled {
+    cursor: default;
+    opacity: 0.45;
+  }
+
+  .story-directory [hidden] {
+    display: none !important;
+  }
+
+  @media (width >= 42rem) {
+    .archive__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 64rem) {
+    .archive__grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-flow: dense;
+    }
+
+    .story-card {
+      grid-column: span 2;
+    }
+
+    .story-card--wide {
+      grid-column: span 4;
+    }
+
+    .story-card--wide a {
+      grid-template-rows: auto 1fr;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .story-card--wide a::before {
+      grid-column: 2;
+    }
+
+    .story-card--wide .story-card__image {
+      grid-row: 1 / 3;
+      grid-column: 1;
+      min-block-size: 16rem;
+      aspect-ratio: auto;
+    }
+
+    .story-card--wide .story-card__copy {
+      grid-row: 2;
+      grid-column: 2;
+      align-content: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .story-card a {
+      transition: none;
+    }
+
+    .story-card a::before {
+      transition: none;
+    }
+
+    .story-card__image :global(img) {
+      transition: none;
+    }
+
+    .story-card h2 {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .story-card a {
+      border-block-start-color: CanvasText;
+    }
+
+    .story-directory__search input {
+      border-color: CanvasText;
+    }
+  }
+</style>

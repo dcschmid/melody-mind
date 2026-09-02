@@ -32,6 +32,7 @@
     "preview:stories": "turbo run preview --filter=stories",
     "preview:reviews": "turbo run preview --filter=reviews",
     "test": "turbo run test",
+    "test:browser:all": "pnpm --filter music test:browser && pnpm --filter quiz test:browser && pnpm --filter stories test:browser && pnpm --filter reviews test:browser",
     "check": "turbo run check",
     "lint": "turbo run lint --filter=music",
     "lint:all": "turbo run lint",

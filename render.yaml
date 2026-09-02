@@ -12,6 +12,7 @@ services:
     buildFilter:
       paths:
         - apps/music/**
+        - scripts/**
         - package.json
         - pnpm-lock.yaml
         - turbo.json
@@ -64,6 +65,7 @@ services:
     buildFilter:
       paths:
         - apps/music/**
+        - scripts/**
         - package.json
         - pnpm-lock.yaml
         - turbo.json
@@ -100,6 +102,7 @@ services:
     buildFilter:
       paths:
         - apps/quiz/**
+        - scripts/**
         - package.json
         - pnpm-lock.yaml
         - turbo.json
@@ -141,6 +144,7 @@ services:
     buildFilter:
       paths:
         - apps/stories/**
+        - scripts/**
         - package.json
         - pnpm-lock.yaml
         - turbo.json
@@ -162,6 +166,9 @@ services:
       - path: /*
         name: Content-Security-Policy
         value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; font-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
+      - path: /story-search-index.json
+        name: Cache-Control
+        value: public, max-age=3600, stale-while-revalidate=86400
       - path: /*
         name: Cache-Control
         value: public, max-age=0, must-revalidate
@@ -182,7 +189,7 @@ services:
     buildFilter:
       paths:
         - apps/reviews/**
-        - package.json
+        - scripts/**
         - pnpm-lock.yaml
         - turbo.json
         - pnpm-workspace.yaml
@@ -203,6 +210,9 @@ services:
       - path: /*
         name: Content-Security-Policy
         value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; font-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
+      - path: /review-search-index.json
+        name: Cache-Control
+        value: public, max-age=3600, stale-while-revalidate=86400
       - path: /*
         name: Cache-Control
         value: public, max-age=0, must-revalidate

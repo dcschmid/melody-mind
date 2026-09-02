@@ -6,7 +6,8 @@ import AnnotatedArtifact from "@components/AnnotatedArtifact.astro";
 import AiDisclosure from "@components/AiDisclosure.astro";
 import EditorialFigure from "@components/EditorialFigure.astro";
 import Layout from "@layouts/Layout.astro";
-import { formatStoryLabel, getPublishedStories } from "@utils/archive";
+import { getPublishedStories } from "@utils/archive";
+import { formatStoryLabel } from "@utils/storySearch";
 
 export async function getStaticPaths() {
   const sorted = await getPublishedStories();

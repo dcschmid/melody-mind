@@ -65,7 +65,7 @@ export default defineConfig({
       namespaces: {
         image: true,
       },
-      filter: (page) => getPathname(page) !== "/404/",
+      filter: (page) => !new Set(["/404/", "/story-search-index.json"]).has(getPathname(page)),
       serialize: (item) => {
         const pathname = getPathname(item.url);
         const archivePage = pathname === "/" || pathname.startsWith("/page/");

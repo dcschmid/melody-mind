@@ -19,6 +19,7 @@
     "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet",
     "test": "vitest run",
+    "test:browser": "pnpm run build && playwright test",
     "indexnow:submit": "node ../../scripts/submit-indexnow.mjs"
   },
   "dependencies": {
@@ -30,6 +31,7 @@
     "sharp": "^0.35.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "js-yaml": "^5.2.3",
     "vitest": "^4.1.10"
   }

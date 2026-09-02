@@ -4,8 +4,9 @@ import type { CollectionEntry } from "astro:content";
 
 import AiDisclosure from "@components/AiDisclosure.astro";
 import Pagination from "@components/Pagination.astro";
+import StoryDirectory from "@components/StoryDirectory.astro";
 import Layout from "@layouts/Layout.astro";
-import { formatStoryLabel } from "@utils/archive";
+import { formatStoryLabel } from "@utils/storySearch";
 
 interface Props {
   stories: CollectionEntry<"stories">[];
@@ -130,48 +131,12 @@ const collectionSchema = {
         )
       }
       <p>
-        Artist portraits, scene reports, instrument and technology stories, and cover
-        histories, each with numbered sources and a visible image-rights record.
+        Search the archive, narrow it by story type, or read straight through: every story
+        keeps its place in the chronological 30-per-page listing.
       </p>
     </header>
 
-    <ol class="archive__grid" style={`--card-start: ${cardStart - 1}`}>
-      {
-        cards.map((story, index) => (
-          <li class:list={["story-card", index % 7 === 0 && "story-card--wide"]}>
-            <a href={`/${story.id}/`}>
-              <span class="story-card__image">
-                <Image
-                  src={story.data.hero.image}
-                  alt=""
-                  widths={[360, 560, 800, 1100]}
-                  sizes="(min-width: 64rem) 31vw, (min-width: 42rem) 46vw, 100vw"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-              <span class="story-card__copy">
-                <span class="eyebrow">
-                  {formatStoryLabel(story.data.format)} ·{" "}
-                  <time datetime={story.data.publishedAt.toISOString()}>
-                    {story.data.publishedAt.toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
-                  </time>
-                </span>
-                <h2>{story.data.title}</h2>
-                <span class="story-card__dek">{story.data.dek}</span>
-                <span class="story-card__action">
-                  Read story <span aria-hidden="true">→</span>
-                </span>
-              </span>
-            </a>
-          </li>
-        ))
-      }
-    </ol>
+    <StoryDirectory stories={cards} totalStories={total} cardStart={cardStart} />
 
     <Pagination {currentPage} {lastPage} {start} {end} {total} />
   </section>
@@ -323,160 +288,6 @@ const collectionSchema = {
     color: var(--quiet-ink);
   }
 
-  .archive__grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    counter-reset: story-index var(--card-start, 0);
-  }
-
-  .story-card {
-    min-inline-size: 0;
-    counter-increment: story-index;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .story-card a {
-      display: grid;
-      grid-template-rows: auto auto 1fr;
-      block-size: 100%;
-      padding-block-start: var(--space-md);
-      color: var(--paper-ink);
-      text-decoration: none;
-      border-block-start: 1px solid var(--line);
-      transition: none;
-    }
-  }
-
-  .story-card a {
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    block-size: 100%;
-    padding-block-start: var(--space-md);
-    color: var(--paper-ink);
-    text-decoration: none;
-    border-block-start: 1px solid var(--line);
-    transition: border-color 300ms var(--ease-out);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .story-card a::before {
-      justify-self: end;
-      margin-block-end: var(--space-sm);
-      font-family: var(--font-display);
-      font-size: clamp(1.7rem, 2.6vw, 2.3rem);
-      font-weight: 600;
-      line-height: 1;
-      color: color-mix(in oklch, var(--oxide) 68%, transparent);
-      content: counter(story-index, decimal-leading-zero);
-      transition: none;
-    }
-  }
-
-  .story-card a::before {
-    justify-self: end;
-    margin-block-end: var(--space-sm);
-    font-family: var(--font-display);
-    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
-    font-weight: 600;
-    line-height: 1;
-    color: color-mix(in oklch, var(--oxide) 68%, transparent);
-    content: counter(story-index, decimal-leading-zero);
-    transition: color 300ms var(--ease-out);
-  }
-
-  .story-card a:hover,
-  .story-card a:focus-visible {
-    border-block-start-color: color-mix(in oklch, var(--archive-teal) 55%, var(--line));
-  }
-
-  .story-card a:hover::before,
-  .story-card a:focus-visible::before {
-    color: var(--oxide);
-  }
-
-  .story-card__image {
-    display: block;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background: var(--archive-night);
-  }
-
-  .story-card--wide .story-card__image {
-    aspect-ratio: 16 / 10;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .story-card__image :global(img) {
-      inline-size: 100%;
-      block-size: 100%;
-      object-fit: cover;
-      filter: saturate(0.86) contrast(1.04);
-      transition: none;
-    }
-  }
-
-  .story-card__image :global(img) {
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    filter: saturate(0.86) contrast(1.04);
-    transition:
-      filter 300ms var(--ease-out),
-      transform 500ms var(--ease-out);
-  }
-
-  .story-card__copy {
-    display: grid;
-    gap: var(--space-md);
-    align-content: start;
-    padding-block-start: var(--space-lg);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .story-card h2 {
-      max-inline-size: 17ch;
-      font-size: clamp(1.7rem, 3.6vw, 2.8rem);
-      letter-spacing: -0.025em;
-      transition: none;
-    }
-  }
-
-  .story-card h2 {
-    max-inline-size: 17ch;
-    font-size: clamp(1.7rem, 3.6vw, 2.8rem);
-    letter-spacing: -0.025em;
-    transition: color 300ms var(--ease-out);
-  }
-
-  .story-card__dek {
-    color: var(--quiet-ink);
-  }
-
-  .story-card__action {
-    display: inline-flex;
-    gap: var(--space-xs);
-    align-items: center;
-    align-self: end;
-    min-block-size: var(--control-size);
-    font-weight: 700;
-    color: var(--archive-teal-strong);
-  }
-
-  .story-card a:hover .story-card__image :global(img),
-  .story-card a:focus-visible .story-card__image :global(img) {
-    filter: saturate(1) contrast(1);
-    transform: scale(1.02);
-  }
-
-  .story-card a:hover h2,
-  .story-card a:focus-visible h2 {
-    color: var(--archive-teal-strong);
-  }
-
   .home-note {
     display: grid;
     gap: var(--space-lg);
@@ -487,12 +298,6 @@ const collectionSchema = {
     font-family: var(--font-display);
     font-size: clamp(1.5rem, 3vw, 2.4rem);
     line-height: 1.45;
-  }
-
-  @media (width >= 42rem) {
-    .archive__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
   }
 
   @media (width >= 64rem) {
@@ -516,60 +321,16 @@ const collectionSchema = {
     .home-hero__copy h1 {
       font-size: clamp(4.4rem, 5.8vw, 5.35rem);
     }
-
-    .archive__grid {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      grid-auto-flow: dense;
-    }
-
-    .story-card {
-      grid-column: span 2;
-    }
-
-    .story-card--wide {
-      grid-column: span 4;
-    }
-
-    .story-card--wide a {
-      grid-template-rows: auto 1fr;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      column-gap: clamp(1.5rem, 3vw, 2.5rem);
-    }
-
-    .story-card--wide a::before {
-      grid-column: 2;
-    }
-
-    .story-card--wide .story-card__image {
-      grid-row: 1 / 3;
-      grid-column: 1;
-      min-block-size: 16rem;
-      aspect-ratio: auto;
-    }
-
-    .story-card--wide .story-card__copy {
-      grid-row: 2;
-      grid-column: 2;
-      align-content: center;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .home-hero__cta,
-    .home-hero__cta span,
-    .story-card a,
-    .story-card a::before,
-    .story-card__image :global(img),
-    .story-card h2 {
+    .home-hero__cta span {
       transition: none;
     }
   }
 
   @media (forced-colors: active) {
-    .story-card a {
-      border-block-start-color: CanvasText;
-    }
-
     .home-hero__cta {
       border-color: ButtonText;
     }

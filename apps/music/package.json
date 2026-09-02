@@ -20,6 +20,7 @@
     "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet",
     "test": "vitest run && node scripts/audit-visual-catalog.mjs",
+    "test:browser": "pnpm run build && playwright test",
     "audit:visuals": "node scripts/audit-visual-catalog.mjs",
     "indexnow:submit": "node ../../scripts/submit-indexnow.mjs",
     "update:audio-metadata": "node scripts/update-audio-metadata.mjs"
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@playwright/test": "^1.62.1",
     "js-yaml": "^5.2.3",
     "music-metadata": "^11.14.0",
     "typescript": "^6.0.3",
