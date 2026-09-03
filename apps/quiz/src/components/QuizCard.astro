@@ -69,7 +69,7 @@ const showAction = variant === "lead" || variant === "feature";
 
   .quiz-card__image {
     inline-size: 100%;
-    block-size: 100%;
+    block-size: auto;
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: var(--radius-sm);
@@ -121,7 +121,7 @@ const showAction = variant === "lead" || variant === "feature";
   .quiz-card--lead .quiz-card__image,
   .quiz-card--feature .quiz-card__image {
     block-size: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     border-radius: 0;
   }
 
