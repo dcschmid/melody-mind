@@ -100,15 +100,6 @@ li {
   margin-inline: auto;
 }
 
-.eyebrow {
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--signal);
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-}
-
 .skip-link {
   position: fixed;
   inset-block-start: var(--space-sm);

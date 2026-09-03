@@ -93,12 +93,7 @@ const schema = {
           )}
         </div>
         <div class="home-hero__copy">
-          <p class="eyebrow">Latest review</p>
-          <AiDisclosure
-            variant="assisted"
-            label="AI-assisted, human-reviewed"
-            detailsHref="/editorial-standards/#ai-transparency"
-          />
+          <p class="home-hero__label">Latest review</p>
           <h1>{featured.data.album.title}</h1>
           <p class="home-hero__artist">{featured.data.album.artist}</p>
           <p class="home-hero__thesis">{featured.data.thesis}</p>
@@ -113,6 +108,11 @@ const schema = {
               })}
             </time>
           </p>
+          <AiDisclosure
+            variant="assisted"
+            label="AI-assisted, human-reviewed"
+            detailsHref="/editorial-standards/#ai-transparency"
+          />
           <a class="home-hero__action" href={`/reviews/${featured.id}/`}>
             Read the review <span aria-hidden="true">→</span>
           </a>
@@ -123,19 +123,19 @@ const schema = {
 
   <section class="review-index page-shell" aria-labelledby="review-archive-title">
     <header>
-      <p class="eyebrow">
-        {isFirstPage ? "Review archive" : `Archive page ${currentPage} of ${lastPage}`}
-      </p>
       {
         isFirstPage ? (
-          <h2 id="review-archive-title">Arguments, not scores.</h2>
+          <h2 id="review-archive-title">Review archive</h2>
         ) : (
           <h1 id="review-archive-title">Reviews archive</h1>
         )
       }
       <p>
-        Search every published review or browse the chronological archive in groups of
-        thirty.
+        {
+          isFirstPage
+            ? "Browse sourced arguments without numerical scores, or search by album, artist, genre, or thesis."
+            : "Search every published review or browse the chronological archive in groups of thirty."
+        }
       </p>
     </header>
 
@@ -149,7 +149,6 @@ const schema = {
   {
     isFirstPage && (
       <aside class="editorial-note reading-shell">
-        <p class="eyebrow">Editorial position</p>
         <h2>Criticism stays separate from promotion.</h2>
         <p>
           MelodyMind Reviews covers external releases. Research and drafting may use AI
@@ -190,10 +189,17 @@ const schema = {
     object-fit: cover;
   }
 
+  .home-hero__label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--signal);
+    letter-spacing: 0.04em;
+  }
+
   .home-hero h1 {
     max-inline-size: 11ch;
     font-size: clamp(3rem, 9vw, 7rem);
-    letter-spacing: -0.05em;
+    letter-spacing: -0.025em;
   }
 
   .home-hero__artist {

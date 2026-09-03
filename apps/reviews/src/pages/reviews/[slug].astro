@@ -109,12 +109,6 @@ const articleSchema = {
         )
       }
       <div class="review__hero-copy">
-        <p class="eyebrow">Full Review</p>
-        <AiDisclosure
-          variant="assisted"
-          label="AI-assisted, human-reviewed"
-          detailsHref="#editorial-disclosure"
-        />
         <h1>{review.data.album.title}</h1>
         <p class="review__artist">{review.data.album.artist}</p>
         <p class="review__thesis">{review.data.thesis}</p>
@@ -146,6 +140,11 @@ const articleSchema = {
             <dd>{review.data.album.runtime}</dd>
           </div>
         </dl>
+        <AiDisclosure
+          variant="assisted"
+          label="AI-assisted, human-reviewed"
+          detailsHref="#editorial-disclosure"
+        />
       </div>
     </header>
 
@@ -175,7 +174,6 @@ const articleSchema = {
     </div>
 
     <section class="review__assessment reading-shell" aria-labelledby="assessment-title">
-      <p class="eyebrow">The argument</p>
       <h2 id="assessment-title">Strengths and limits</h2>
       <div class="review__assessment-columns">
         <div class="review__assessment-block">
@@ -204,7 +202,6 @@ const articleSchema = {
     </section>
 
     <section class="review__sources reading-shell" aria-labelledby="sources-title">
-      <p class="eyebrow">Documentation</p>
       <h2 id="sources-title">Sources</h2>
       <ol>
         {
@@ -235,13 +232,12 @@ const articleSchema = {
 
     <footer class="review__footer reading-shell">
       <div>
-        <p class="eyebrow">Byline</p>
         <h2>{author.data.name}</h2>
         <p>{author.data.shortBio}</p>
         <a href={`/authors/${author.id}/`}>Read the author profile</a>
       </div>
       <a class="review__next" href={`/reviews/${related.id}/`}>
-        <span class="eyebrow">Read next</span>
+        <span class="review__next-label">Next review</span>
         <strong>{related.data.album.title}</strong>
         <span>{related.data.album.artist}</span>
       </a>
@@ -279,7 +275,6 @@ const articleSchema = {
     block-size: auto;
     aspect-ratio: 1;
     object-fit: cover;
-    border: 1px solid var(--line);
     box-shadow: 0 1.5rem 4rem color-mix(in oklch, var(--archive-night) 65%, transparent);
   }
 
@@ -291,7 +286,7 @@ const articleSchema = {
   .review__hero h1 {
     max-inline-size: 12ch;
     font-size: clamp(3rem, 8vw, 6.8rem);
-    letter-spacing: -0.05em;
+    letter-spacing: -0.025em;
   }
 
   .review__artist {
@@ -455,6 +450,13 @@ const articleSchema = {
   .review__next strong {
     font-family: var(--font-display);
     font-size: 1.5rem;
+  }
+
+  .review__next-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--signal);
+    letter-spacing: 0.04em;
   }
 
   @media (width >= 60rem) {

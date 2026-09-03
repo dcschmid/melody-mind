@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-import ReviewCard from "@components/ReviewCard.astro";
+import ReviewListItem from "@components/ReviewListItem.astro";
 
 interface Props {
   reviews: CollectionEntry<"reviews">[];
@@ -26,7 +26,7 @@ const {
 >
   {
     searchable && (
-      <div class="review-directory__controls">
+      <div class="review-directory__controls" data-review-controls hidden>
         <form class="review-directory__search" role="search" data-review-search-form>
           <label for="review-archive-search">Search the review archive</label>
           <div class="review-directory__search-row">
@@ -38,7 +38,6 @@ const {
               placeholder="Album, artist, genre, or argument"
               data-review-search-input
             />
-            <button type="submit">Search</button>
             <button
               type="button"
               class="review-directory__clear"
@@ -76,14 +75,14 @@ const {
     )
   }
 
-  <ol class="review-directory__grid" data-review-static-grid>
-    {reviews.map((review) => <ReviewCard {review} />)}
+  <ol class="review-directory__list" data-review-static-list>
+    {reviews.map((review) => <ReviewListItem {review} />)}
   </ol>
 
   {
     searchable && (
       <>
-        <ol class="review-directory__grid" data-review-search-grid hidden />
+        <ol class="review-directory__list" data-review-search-list hidden />
         <nav
           class="review-directory__result-pages"
           aria-label="Filtered review result pages"
@@ -98,10 +97,10 @@ const {
             Next results
           </button>
         </nav>
-        <template data-review-card-template>
-          <li class="review-card">
+        <template data-review-entry-template>
+          <li class="review-list-item">
             <a href="/">
-              <span class="review-card__cover">
+              <span class="review-list-item__cover">
                 <img
                   src=""
                   alt=""
@@ -111,19 +110,20 @@ const {
                   decoding="async"
                   hidden
                 />
-                <span class="review-card__typographic" aria-hidden="true">
-                  <span data-review-card-title-mark />
-                  <small data-review-card-artist-mark />
+                <span class="review-list-item__typographic" aria-hidden="true">
+                  <span data-review-entry-title-mark />
+                  <small data-review-entry-artist-mark />
                 </span>
               </span>
-              <span class="review-card__copy">
-                <span class="review-card__genre" data-review-card-genre />
-                <h3 data-review-card-title>Review title</h3>
-                <strong data-review-card-artist />
-                <span class="review-card__thesis" data-review-card-thesis />
-                <span class="review-card__read">
-                  Read review <span aria-hidden="true">→</span>
-                </span>
+              <span class="review-list-item__identity">
+                <span class="review-list-item__genre" data-review-entry-genre />
+                <time class="review-list-item__date" data-review-entry-date datetime="" />
+                <h3 data-review-entry-title>Review title</h3>
+                <strong data-review-entry-artist />
+              </span>
+              <span class="review-list-item__thesis" data-review-entry-thesis />
+              <span class="review-list-item__arrow" aria-hidden="true">
+                →
               </span>
             </a>
           </li>
@@ -155,15 +155,16 @@ const {
         const genreButtons =
           root.querySelectorAll<HTMLButtonElement>("[data-review-genre]");
         const status = root.querySelector<HTMLElement>("[data-review-search-status]");
-        const staticGrid = root.querySelector<HTMLOListElement>(
-          "[data-review-static-grid]"
+        const staticList = root.querySelector<HTMLOListElement>(
+          "[data-review-static-list]"
         );
-        const searchGrid = root.querySelector<HTMLOListElement>(
-          "[data-review-search-grid]"
+        const searchList = root.querySelector<HTMLOListElement>(
+          "[data-review-search-list]"
         );
         const template = root.querySelector<HTMLTemplateElement>(
-          "[data-review-card-template]"
+          "[data-review-entry-template]"
         );
+        const controls = root.querySelector<HTMLElement>("[data-review-controls]");
         const resultPages = root.querySelector<HTMLElement>("[data-review-result-pages]");
         const resultPage = root.querySelector<HTMLElement>("[data-review-result-page]");
         const previous = root.querySelector<HTMLButtonElement>(
@@ -179,13 +180,14 @@ const {
           !input ||
           !clear ||
           !status ||
-          !staticGrid ||
-          !searchGrid ||
+          !staticList ||
+          !searchList ||
           !template ||
           !resultPages ||
           !resultPage ||
           !previous ||
-          !next
+          !next ||
+          !controls
         ) {
           return;
         }
@@ -241,14 +243,14 @@ const {
           return records;
         };
 
-        const createCard = (record: ReviewSearchRecord) => {
-          const card = template.content.firstElementChild?.cloneNode(true);
-          if (!(card instanceof HTMLElement)) {
+        const createEntry = (record: ReviewSearchRecord) => {
+          const entry = template.content.firstElementChild?.cloneNode(true);
+          if (!(entry instanceof HTMLElement)) {
             return undefined;
           }
-          const link = card.querySelector<HTMLAnchorElement>("a");
-          const image = card.querySelector<HTMLImageElement>("img");
-          const mark = card.querySelector<HTMLElement>(".review-card__typographic");
+          const link = entry.querySelector<HTMLAnchorElement>("a");
+          const image = entry.querySelector<HTMLImageElement>("img");
+          const mark = entry.querySelector<HTMLElement>(".review-list-item__typographic");
           if (link) {
             link.href = record.url;
           }
@@ -259,26 +261,34 @@ const {
               image.src = record.cover.src;
             }
           }
-          card.querySelector<HTMLElement>("[data-review-card-title-mark]")!.textContent =
-            record.title;
-          card.querySelector<HTMLElement>("[data-review-card-artist-mark]")!.textContent =
-            record.artist;
-          card.querySelector<HTMLElement>("[data-review-card-genre]")!.textContent =
+          entry.querySelector<HTMLElement>(
+            "[data-review-entry-title-mark]"
+          )!.textContent = record.title;
+          entry.querySelector<HTMLElement>(
+            "[data-review-entry-artist-mark]"
+          )!.textContent = record.artist;
+          entry.querySelector<HTMLElement>("[data-review-entry-genre]")!.textContent =
             record.genres[0] ?? "Review";
-          card.querySelector<HTMLElement>("[data-review-card-title]")!.textContent =
+          entry.querySelector<HTMLElement>("[data-review-entry-title]")!.textContent =
             record.title;
-          card.querySelector<HTMLElement>("[data-review-card-artist]")!.textContent =
+          entry.querySelector<HTMLElement>("[data-review-entry-artist]")!.textContent =
             record.artist;
-          card.querySelector<HTMLElement>("[data-review-card-thesis]")!.textContent =
+          entry.querySelector<HTMLElement>("[data-review-entry-thesis]")!.textContent =
             record.thesis;
-          return card;
+          const date = entry.querySelector<HTMLElement>("[data-review-entry-date]")!;
+          date.textContent = new Date(record.publishedAt).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          });
+          date.setAttribute("datetime", record.publishedAt);
+          return entry;
         };
 
         const restoreArchive = () => {
-          staticGrid.hidden = false;
-          searchGrid.hidden = true;
-          searchGrid.replaceChildren();
-          resultPages.hidden = true;
+          staticList.hidden = false;
+          searchList.hidden = true;
+          searchList.replaceChildren();
           if (defaultPagination) {
             defaultPagination.hidden = false;
           }
@@ -303,13 +313,13 @@ const {
             const matches = filterReviewSearchRecords(allRecords, query, genre);
             const page = paginateReviewSearchRecords(matches, requestedResultPage);
             requestedResultPage = page.currentPage;
-            searchGrid.replaceChildren(
+            searchList.replaceChildren(
               ...page.data
-                .map(createCard)
-                .filter((card): card is HTMLElement => Boolean(card))
+                .map(createEntry)
+                .filter((entry): entry is HTMLElement => Boolean(entry))
             );
-            staticGrid.hidden = true;
-            searchGrid.hidden = false;
+            staticList.hidden = true;
+            searchList.hidden = false;
             if (defaultPagination) {
               defaultPagination.hidden = true;
             }
@@ -326,8 +336,8 @@ const {
             }
           } catch {
             root.removeAttribute("aria-busy");
-            staticGrid.hidden = false;
-            searchGrid.hidden = true;
+            staticList.hidden = false;
+            searchList.hidden = true;
             resultPages.hidden = true;
             if (defaultPagination) {
               defaultPagination.hidden = false;
@@ -381,6 +391,7 @@ const {
         });
 
         readState();
+        controls.hidden = false;
         if (input.value.trim() || selectedGenre()) {
           void render(false);
         }
@@ -392,6 +403,7 @@ const {
 </script>
 
 <style is:global>
+  /* ── Base (0,1,0) ── */
   .review-directory {
     display: grid;
     gap: var(--space-xl);
@@ -409,184 +421,25 @@ const {
     gap: var(--space-sm);
   }
 
-  .review-directory__search label,
-  .review-directory__filters > p {
-    margin: 0;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--quiet-ink);
-    text-transform: uppercase;
-    letter-spacing: 0.09em;
-  }
-
   .review-directory__search-row {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
-  }
-
-  .review-directory__search input {
-    flex: 1 1 18rem;
-    min-inline-size: 0;
-    min-block-size: var(--control-size);
-    padding-inline: var(--space-md);
-    font: inherit;
-    color: var(--paper-ink);
-    background: var(--desk-night);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-  }
-
-  .review-directory__search button,
-  .review-directory__filters button,
-  .review-directory__result-pages button {
-    min-block-size: var(--control-size);
-    padding-inline: var(--space-md);
-    font: inherit;
-    font-size: 0.84rem;
-    font-weight: 700;
-    color: var(--paper-ink);
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-  }
-
-  .review-directory__search button:hover,
-  .review-directory__search button:focus-visible,
-  .review-directory__filters button:hover,
-  .review-directory__filters button:focus-visible,
-  .review-directory__filters button[aria-pressed="true"],
-  .review-directory__result-pages button:hover,
-  .review-directory__result-pages button:focus-visible {
-    color: var(--archive-night);
-    background: var(--signal);
-    border-color: var(--signal);
-  }
-
-  .review-directory__filters {
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .review-directory__filters > div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-  }
-
-  .review-directory__status {
-    margin: 0;
-    color: var(--quiet-ink);
-  }
-
-  .review-directory__grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: clamp(2rem, 5vw, 4rem) clamp(1rem, 2.5vw, 2rem);
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .review-card {
-    min-inline-size: 0;
-  }
-
-  .review-card > a {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    gap: var(--space-md);
-    block-size: 100%;
-    color: var(--paper-ink);
-    text-decoration: none;
-  }
-
-  .review-card__cover {
-    position: relative;
-    display: block;
-    aspect-ratio: 1;
-    overflow: hidden;
-    background: var(--desk-night);
-    border: 1px solid var(--line);
-  }
-
-  .review-card__cover > img {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .review-card__typographic {
-    display: grid;
-    gap: var(--space-xs);
-    align-content: end;
-    block-size: 100%;
-    padding: var(--space-lg);
-    font-family: var(--font-display);
-    font-size: clamp(1.7rem, 5vw, 2.8rem);
-    font-weight: 700;
-    color: var(--archive-night);
-    background: var(--paper-ink);
-  }
-
-  .review-card__typographic small {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-  }
-
-  .review-card__copy {
-    display: grid;
-    gap: 0.3rem;
-    align-content: start;
-  }
-
-  .review-card__genre {
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: var(--signal);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .review-card__copy h3 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(1.55rem, 4vw, 2.25rem);
-    line-height: 1.05;
-    text-wrap: balance;
-  }
-
-  .review-card__copy > strong {
-    font-size: 0.92rem;
-    color: var(--quiet-ink);
-  }
-
-  .review-card__thesis {
-    margin-block-start: var(--space-xs);
-    color: var(--quiet-ink);
-  }
-
-  .review-card__read {
-    display: inline-flex;
-    gap: var(--space-xs);
     align-items: center;
-    align-self: end;
-    inline-size: fit-content;
+  }
+
+  .review-directory__clear {
     min-block-size: var(--control-size);
-    margin-block-start: var(--space-xs);
+    padding-inline: 0;
+    font: inherit;
     font-size: 0.84rem;
     font-weight: 700;
-    color: var(--signal);
+    color: var(--paper-ink);
     text-decoration: underline;
     text-underline-offset: 0.2em;
-  }
-
-  .review-card > a:hover img,
-  .review-card > a:focus-visible img {
-    transform: scale(1.025);
+    cursor: pointer;
+    background: transparent;
+    border: none;
   }
 
   .review-directory__result-pages {
@@ -599,35 +452,237 @@ const {
     border-block-start: 1px solid var(--line);
   }
 
-  .review-directory__result-pages button:disabled {
-    cursor: default;
-    opacity: 0.45;
+  .review-directory__filters {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .review-directory__status {
+    margin: 0;
+    color: var(--quiet-ink);
+  }
+
+  .review-directory__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-block-end: 1px solid var(--line);
+  }
+
+  .review-list-item {
+    min-inline-size: 0;
+    border-block-start: 1px solid var(--line);
+  }
+
+  .review-list-item__cover {
+    position: relative;
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--desk-night);
+  }
+
+  .review-list-item__typographic {
+    display: grid;
+    gap: var(--space-2xs);
+    align-content: end;
+    block-size: 100%;
+    padding: var(--space-xs);
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--archive-night);
+    background: var(--paper-ink);
+  }
+
+  .review-list-item__identity {
+    display: grid;
+    gap: 0.2rem;
+    align-content: start;
+    min-inline-size: 0;
+  }
+
+  .review-list-item__genre {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--signal);
+    letter-spacing: 0.04em;
+  }
+
+  .review-list-item__date {
+    font-size: 0.78rem;
+    color: var(--quiet-ink);
+  }
+
+  .review-list-item__thesis {
+    grid-column: 1 / -1;
+    max-inline-size: 62ch;
+    font-size: 0.95rem;
+    color: var(--quiet-ink);
+  }
+
+  .review-list-item__arrow {
+    display: none;
+    font-size: 1.1rem;
+    color: var(--quiet-ink);
+  }
+
+  /* ── Compound (0,1,1) ── */
+  .review-directory__search label,
+  .review-directory__filters > p {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+  }
+
+  .review-directory__search input {
+    flex: 1 1 18rem;
+    min-inline-size: 0;
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-md);
+    font: inherit;
+    color: var(--paper-ink);
+    background: var(--desk-night);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+
+  .review-directory__result-pages button {
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-md);
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--paper-ink);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+
+  .review-directory__filters > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-md);
+  }
+
+  .review-directory__filters button {
+    min-block-size: var(--control-size);
+    padding-inline: 0.1rem;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--paper-ink);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .review-list-item > a {
+    display: grid;
+    grid-template-columns: 5.25rem minmax(0, 1fr);
+    gap: var(--space-md);
+    align-items: center;
+    block-size: 100%;
+    padding-block: var(--space-md);
+    color: var(--paper-ink);
+    text-decoration: none;
+  }
+
+  .review-list-item__cover > img {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .review-list-item__typographic > span {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    font-size: 0.78rem;
+    line-height: 1.15;
+    -webkit-box-orient: vertical;
+  }
+
+  .review-list-item__typographic small {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    line-height: 1.2;
+  }
+
+  .review-list-item__identity h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    line-height: 1.15;
+  }
+
+  .review-list-item__identity > strong {
+    font-size: 0.92rem;
+    color: var(--quiet-ink);
+  }
+
+  /* ── Pseudo/attribute (0,2,0) ── */
+  .review-directory__clear:hover,
+  .review-directory__clear:focus-visible {
+    color: var(--signal-strong);
   }
 
   .review-directory [hidden] {
     display: none !important;
   }
 
-  @media (width >= 38rem) {
-    .review-directory__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  /* ── Compound + pseudo (0,2,1) ── */
+  .review-directory__result-pages button:hover,
+  .review-directory__result-pages button:focus-visible {
+    color: var(--archive-night);
+    background: var(--signal);
+    border-color: var(--signal);
   }
 
-  @media (width >= 64rem) {
-    .review-directory__grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+  .review-directory__result-pages button:disabled {
+    cursor: default;
+    opacity: 0.45;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .review-card__cover > img {
-      transition: none;
+  .review-directory__filters button:hover,
+  .review-directory__filters button:focus-visible {
+    color: var(--signal-strong);
+  }
+
+  .review-directory__filters button[aria-pressed="true"] {
+    border-bottom-color: var(--signal);
+  }
+
+  /* ── Deep hover/focus (0,3,2) ── */
+  .review-list-item > a:hover .review-list-item__identity h3,
+  .review-list-item > a:focus-visible .review-list-item__identity h3,
+  .review-list-item > a:hover .review-list-item__arrow,
+  .review-list-item > a:focus-visible .review-list-item__arrow {
+    color: var(--signal-strong);
+  }
+
+  @media (width >= 48rem) {
+    .review-list-item__thesis {
+      grid-column: auto;
+    }
+
+    .review-list-item__arrow {
+      display: block;
+      justify-self: end;
+    }
+
+    .review-list-item > a {
+      grid-template-columns: 6.5rem minmax(12rem, 0.65fr) minmax(20rem, 1fr) 2.75rem;
+      column-gap: var(--space-lg);
     }
   }
 
   @media (forced-colors: active) {
-    .review-card__cover,
     .review-directory__search input {
       border-color: CanvasText;
     }

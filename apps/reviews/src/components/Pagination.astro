@@ -101,7 +101,7 @@ const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
     color: var(--paper-ink);
     text-decoration: none;
     border: 1px solid var(--line);
-    border-radius: 999px;
+    border-radius: var(--radius-sm);
   }
 
   .pagination a:hover,
@@ -119,7 +119,7 @@ const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
     padding-inline: var(--space-sm);
     color: var(--quiet-ink);
     border: 1px solid transparent;
-    border-radius: 999px;
+    border-radius: var(--radius-sm);
     opacity: 0.45;
   }
 

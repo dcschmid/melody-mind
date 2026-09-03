@@ -8,7 +8,7 @@ import Layout from "@layouts/Layout.astro";
   index={false}
 >
   <section class="not-found reading-shell">
-    <p class="eyebrow">404 · Missing from the catalog</p>
+    <p class="not-found__code">404</p>
     <h1>This review is not in the catalog.</h1>
     <p>The address may be incomplete, or the review may have moved before publication.</p>
     <a href="/">Return to MelodyMind Reviews <span>→</span></a>
@@ -29,9 +29,16 @@ import Layout from "@layouts/Layout.astro";
     font-size: clamp(3rem, 8vw, 6.5rem);
   }
 
-  .not-found > p:not(.eyebrow) {
+  .not-found > p:not(.not-found__code) {
     max-inline-size: 50ch;
     font-size: 1.2rem;
     color: var(--quiet-ink);
+  }
+
+  .not-found__code {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--signal);
+    letter-spacing: 0.04em;
   }
 </style>

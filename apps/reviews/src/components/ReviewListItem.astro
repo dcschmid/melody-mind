@@ -13,11 +13,16 @@ const coverAsset =
   review.data.cover.mode === "original"
     ? getReviewCoverImage(review.data.cover.src)
     : undefined;
+const publishedAt = review.data.publishedAt.toLocaleDateString("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
 ---
 
-<li class="review-card">
+<li class="review-list-item">
   <a href={`/reviews/${review.id}/`}>
-    <span class="review-card__cover">
+    <span class="review-list-item__cover">
       {
         coverAsset ? (
           <Image
@@ -26,22 +31,28 @@ const coverAsset =
             width={640}
             height={640}
             loading="lazy"
-            sizes="(max-width: 37.99rem) calc(100vw - 3rem), (max-width: 63.99rem) 45vw, 26rem"
+            sizes="(max-width: 47.99rem) 5.25rem, 6.5rem"
           />
         ) : (
-          <span class="review-card__typographic" aria-hidden="true">
+          <span class="review-list-item__typographic" aria-hidden="true">
             <span>{review.data.album.title}</span>
             <small>{review.data.album.artist}</small>
           </span>
         )
       }
     </span>
-    <span class="review-card__copy">
-      <span class="review-card__genre">{review.data.album.genres[0]}</span>
+    <span class="review-list-item__identity">
+      <span class="review-list-item__genre">{review.data.album.genres[0]}</span>
+      <time
+        class="review-list-item__date"
+        datetime={review.data.publishedAt.toISOString()}
+      >
+        {publishedAt}
+      </time>
       <h3>{review.data.album.title}</h3>
       <strong>{review.data.album.artist}</strong>
-      <span class="review-card__thesis">{review.data.thesis}</span>
-      <span class="review-card__read">Read review <span aria-hidden="true">→</span></span>
     </span>
+    <span class="review-list-item__thesis">{review.data.thesis}</span>
+    <span class="review-list-item__arrow" aria-hidden="true">→</span>
   </a>
 </li>

@@ -7,25 +7,25 @@ test("searches, combines genre, survives reload, and degrades on 503", async ({
 
   const input = page.locator("[data-review-search-input]");
   const status = page.locator("[data-review-search-status]");
-  const staticGrid = page.locator("[data-review-static-grid]");
-  const searchGrid = page.locator("[data-review-search-grid]");
+  const staticList = page.locator("[data-review-static-list]");
+  const searchList = page.locator("[data-review-search-list]");
 
   // Artist search surfaces the matching review.
   await input.fill("Portishead");
   await input.press("Enter");
-  await expect(staticGrid).toBeHidden();
-  await expect(searchGrid).toBeVisible();
-  const dummyCard = searchGrid.getByRole("heading", { name: /Dummy/ });
+  await expect(staticList).toBeHidden();
+  await expect(searchList).toBeVisible();
+  const dummyCard = searchList.getByRole("heading", { name: /Dummy/ });
   await expect(dummyCard).toBeVisible();
-  expect(await searchGrid.locator(".review-card").count()).toBe(1);
+  expect(await searchList.getByRole("listitem").count()).toBe(1);
 
   // Query plus genre stays an intersection.
   await input.fill("Kate Bush");
   await page.locator('[data-review-genre="Rock"]').click();
-  await expect(searchGrid).toBeVisible();
-  const houndsCard = searchGrid.getByRole("heading", { name: /Hounds of Love/ });
+  await expect(searchList).toBeVisible();
+  const houndsCard = searchList.getByRole("heading", { name: /Hounds of Love/ });
   await expect(houndsCard).toBeVisible();
-  expect(await searchGrid.locator(".review-card").count()).toBe(1);
+  expect(await searchList.getByRole("listitem").count()).toBe(1);
 
   // URL state survives a reload.
   await page.reload();
@@ -34,7 +34,7 @@ test("searches, combines genre, survives reload, and degrades on 503", async ({
     "aria-pressed",
     "true"
   );
-  await expect(searchGrid).toBeVisible();
+  await expect(searchList).toBeVisible();
   await expect(houndsCard).toBeVisible();
 
   // A failed index fetch keeps the paginated archive visible.
@@ -42,9 +42,22 @@ test("searches, combines genre, survives reload, and degrades on 503", async ({
     route.fulfill({ status: 503, body: "unavailable" })
   );
   await page.goto("/?q=Kate%20Bush&genre=Rock");
-  await expect(staticGrid).toBeVisible();
-  await expect(searchGrid).toBeHidden();
+  await expect(staticList).toBeVisible();
+  await expect(searchList).toBeHidden();
   await expect(status).toHaveText(
     "Search is temporarily unavailable. The paginated archive remains below."
   );
+});
+
+test("hides inert search controls without JavaScript", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto("/");
+
+  await expect(page.locator("[data-review-controls]")).toBeHidden();
+  const staticList = page.locator("[data-review-static-list]");
+  await expect(staticList).toBeVisible();
+  expect(await staticList.getByRole("listitem").count()).toBeGreaterThan(0);
+  await expect(staticList.getByRole("link").first()).toBeVisible();
+  await context.close();
 });

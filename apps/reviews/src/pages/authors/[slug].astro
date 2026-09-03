@@ -33,7 +33,7 @@ const schema = {
 >
   <article class="author page-shell">
     <header>
-      <p class="eyebrow">{author.data.role}</p>
+      <p class="author__role">{author.data.role}</p>
       <h1>{author.data.name}</h1>
       <p>{author.data.shortBio}</p>
       <ul class="author__interests" aria-label="Review interests">
@@ -62,6 +62,13 @@ const schema = {
 
   .author h1 {
     font-size: clamp(3.5rem, 9vw, 7rem);
+  }
+
+  .author__role {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--signal);
+    letter-spacing: 0.04em;
   }
 
   .author header > p:last-of-type {
