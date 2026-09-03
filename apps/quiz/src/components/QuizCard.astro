@@ -5,22 +5,20 @@ import { Image } from "astro:assets";
 interface Props {
   href: string;
   image: ImageMetadata;
-  eyebrow: string;
   title: string;
-  description: string;
+  description?: string;
   topics?: string[];
-  variant?: "decade" | "journey";
+  variant: "decade" | "lead" | "compact" | "feature";
 }
 
-const {
-  href,
-  image,
-  eyebrow,
-  title,
-  description,
-  topics = [],
-  variant = "journey",
-} = Astro.props;
+const { href, image, title, description, topics = [], variant } = Astro.props;
+const compactImage = variant === "decade" || variant === "compact";
+const sizes = compactImage
+  ? "(max-width: 47.99rem) 4rem, 5.5rem"
+  : variant === "lead"
+    ? "(max-width: 63.99rem) calc(100vw - 2rem), 48rem"
+    : "(max-width: 47.99rem) calc(100vw - 2rem), 40rem";
+const showAction = variant === "lead" || variant === "feature";
 ---
 
 <a class:list={["quiz-card", `quiz-card--${variant}`]} {href}>
@@ -31,38 +29,42 @@ const {
     width={640}
     height={640}
     loading="lazy"
-    sizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) 44vw, 27rem"
+    {sizes}
   />
   <span class="quiz-card__body">
-    <span class="eyebrow">{eyebrow}</span>
     <strong class="quiz-card__title">{title}</strong>
-    <span class="quiz-card__description">{description}</span>
+    {description && <span class="quiz-card__description">{description}</span>}
     {
       topics.length > 0 && (
         <span class="quiz-card__topics">{topics.slice(0, 3).join(" · ")}</span>
       )
     }
-    <span class="quiz-card__action" aria-hidden="true">
-      Start quiz <span>→</span>
-    </span>
+    {
+      showAction && (
+        <span class="quiz-card__action" aria-hidden="true">
+          Start quiz <span>→</span>
+        </span>
+      )
+    }
   </span>
 </a>
 
 <style>
   .quiz-card {
     display: grid;
-    grid-template-columns: 5.5rem minmax(0, 1fr);
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: var(--space-sm);
+    align-items: center;
     block-size: 100%;
-    overflow: hidden;
+    min-block-size: var(--control-min-size);
     color: var(--warm-ink);
     text-decoration: none;
-    background: var(--raised-night);
-    border: 1px solid var(--line-soft);
-    border-radius: var(--radius-lg);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
     transition:
       background-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+      border-color 180ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .quiz-card__image {
@@ -70,18 +72,20 @@ const {
     block-size: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+    border-radius: var(--radius-sm);
   }
 
   .quiz-card__body {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
-    padding: var(--space-md);
+    gap: var(--space-2xs);
+    min-inline-size: 0;
+    padding: var(--space-xs) var(--space-sm);
   }
 
   .quiz-card__title {
-    font-size: 1.25rem;
-    line-height: 1.15;
+    font-size: 1rem;
+    line-height: 1.2;
     text-wrap: balance;
   }
 
@@ -94,7 +98,7 @@ const {
   }
 
   .quiz-card__topics {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     color: var(--quiet-ink);
   }
 
@@ -102,43 +106,36 @@ const {
     display: inline-flex;
     gap: var(--space-xs);
     align-items: center;
-    padding-block-start: var(--space-sm);
+    padding-block-start: var(--space-xs);
     margin-block-start: auto;
     font-weight: 700;
     color: var(--signal-teal);
   }
 
-  .quiz-card--journey {
+  .quiz-card--lead,
+  .quiz-card--feature {
     grid-template-rows: auto 1fr;
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .quiz-card--journey .quiz-card__image {
+  .quiz-card--lead .quiz-card__image,
+  .quiz-card--feature .quiz-card__image {
     block-size: auto;
     aspect-ratio: 16 / 9;
+    border-radius: 0;
   }
 
-  .quiz-card--decade .quiz-card__description {
-    display: none;
+  .quiz-card--lead .quiz-card__body,
+  .quiz-card--feature .quiz-card__body {
+    padding: var(--space-md);
   }
 
-  @media (width >= 48rem) {
-    .quiz-card--decade {
-      grid-template-rows: auto 1fr;
-      grid-template-columns: 1fr;
-    }
+  .quiz-card--lead .quiz-card__title {
+    font-size: 1.5rem;
+  }
 
-    .quiz-card--decade .quiz-card__image {
-      block-size: auto;
-    }
-
-    .quiz-card--decade .quiz-card__body {
-      padding: var(--space-lg);
-    }
-
-    .quiz-card--decade .quiz-card__title {
-      font-size: 1.5rem;
-    }
+  .quiz-card--feature .quiz-card__title {
+    font-size: 1.25rem;
   }
 
   @media (hover: hover) {
@@ -146,7 +143,6 @@ const {
     .quiz-card:focus-visible {
       background: var(--listening-surface);
       border-color: var(--signal-teal);
-      transform: translateY(-0.2rem);
     }
 
     .quiz-card:hover .quiz-card__action,

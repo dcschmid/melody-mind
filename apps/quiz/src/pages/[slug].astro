@@ -125,7 +125,7 @@ const structuredData = [
         sizes="(max-width: 639px) 8rem, 12rem"
       />
       <div class="quiz-intro__copy">
-        <p class="eyebrow">{categoryLabel}</p>
+        <p class="quiz-intro__category">{categoryLabel}</p>
         <h1 id="quiz-title">{quiz.data.title}</h1>
       </div>
       <p class="quiz-intro__description">{quiz.data.description}</p>
@@ -228,11 +228,10 @@ const structuredData = [
       aria-labelledby="quiz-result-title"
       hidden
     >
-      <p class="eyebrow">Round complete</p>
+      <p class="quiz-result__label">Round complete</p>
       <h1 id="quiz-result-title" tabindex="-1">Your result</h1>
       <div class="quiz-result__summary">
         <p class="quiz-result__score" id="quiz-score"></p>
-        <p class="quiz-result__band" id="quiz-score-band"></p>
         <dl class="quiz-result__breakdown" aria-label="Result breakdown">
           <div class="quiz-result__breakdown-item">
             <dt>Correct</dt>
@@ -271,8 +270,8 @@ const structuredData = [
           height={112}
           loading="lazy"
         />
-        <div>
-          <p class="eyebrow">Continue exploring</p>
+        <p class="quiz-result__next-label">Up next</p>
+        <div class="quiz-result__next-copy">
           <h2 id="quiz-result-next-title">{nextQuiz.data.title}</h2>
           <p>{nextQuiz.data.description}</p>
           <a class="button button--primary" href={`/${nextQuiz.id}/`}>
@@ -355,6 +354,12 @@ const structuredData = [
     font-size: 1.75rem;
   }
 
+  .quiz-intro__category {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--signal-teal);
+  }
+
   .quiz-intro__description {
     grid-column: 1 / -1;
     color: var(--quiet-ink);
@@ -364,9 +369,7 @@ const structuredData = [
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-column: 1 / -1;
-    gap: 1px;
     margin: var(--space-xs) 0 0;
-    background: var(--line-soft);
     border-block: 1px solid var(--line-soft);
   }
 
@@ -374,15 +377,17 @@ const structuredData = [
     display: grid;
     gap: var(--space-2xs);
     padding: var(--space-sm);
-    background: var(--room-night);
+    border-inline-start: 1px solid var(--line-soft);
+  }
+
+  .quiz-intro__facts div:first-child {
+    border-inline-start: 0;
   }
 
   .quiz-intro__facts dt {
     font-size: 0.875rem;
     font-weight: 700;
     color: var(--signal-teal);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
   }
 
   .quiz-intro__facts dd {
@@ -626,6 +631,13 @@ const structuredData = [
     gap: var(--space-sm);
   }
 
+  #quiz-check.button--primary:disabled {
+    color: var(--quiet-ink);
+    background: var(--listening-surface);
+    border-color: var(--line);
+    opacity: 1;
+  }
+
   .quiz-feedback {
     display: grid;
     gap: var(--space-sm);
@@ -650,12 +662,15 @@ const structuredData = [
   }
 
   .quiz-feedback__explanation {
+    max-inline-size: 62ch;
     color: var(--quiet-ink);
   }
 
   .quiz-feedback__context-title {
-    margin-block-start: var(--space-sm);
+    padding-block-start: var(--space-md);
+    margin-block-start: var(--space-md);
     font-size: 1rem;
+    border-block-start: 1px solid var(--line-soft);
   }
 
   .quiz-feedback__context {
@@ -722,25 +737,18 @@ const structuredData = [
     letter-spacing: -0.03em;
   }
 
-  .quiz-result__band {
-    inline-size: fit-content;
-    padding: var(--space-xs) var(--space-sm);
+  .quiz-result__label {
+    font-size: 0.875rem;
     font-weight: 700;
-    color: var(--room-night);
-    background: var(--signal-teal);
-    border-radius: var(--radius-pill);
+    color: var(--quiet-ink);
   }
 
   .quiz-result__breakdown {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px;
     padding: 0;
     margin: 0;
-    overflow: hidden;
-    background: var(--line-soft);
-    border: 1px solid var(--line-soft);
-    border-radius: var(--radius-md);
+    border-block: 1px solid var(--line-soft);
   }
 
   .quiz-result__breakdown-item {
@@ -748,7 +756,11 @@ const structuredData = [
     gap: var(--space-2xs);
     padding: var(--space-sm);
     text-align: center;
-    background: var(--raised-night);
+    border-inline-start: 1px solid var(--line-soft);
+  }
+
+  .quiz-result__breakdown-item:first-child {
+    border-inline-start: 0;
   }
 
   .quiz-result__breakdown dt {
@@ -768,6 +780,7 @@ const structuredData = [
 
   .quiz-result__copy,
   .quiz-result__perfect,
+  .quiz-result__next-copy > p,
   .quiz-error > p:not(.eyebrow) {
     color: var(--quiet-ink);
   }
@@ -784,13 +797,10 @@ const structuredData = [
     align-items: baseline;
     justify-content: space-between;
     min-block-size: var(--control-min-size);
-    padding: var(--space-sm) var(--space-md);
+    padding-block: var(--space-sm);
     font-size: 1.25rem;
     font-weight: 700;
     cursor: pointer;
-    background: var(--raised-night);
-    border: 1px solid var(--line-soft);
-    border-radius: var(--radius-md);
   }
 
   .quiz-result__review-summary::marker {
@@ -814,16 +824,13 @@ const structuredData = [
   }
 
   .quiz-review-item {
-    background: var(--raised-night);
-    border: 1px solid var(--line-soft);
-    border-radius: var(--radius-md);
+    border-block-start: 1px solid var(--line-soft);
   }
 
   .quiz-review-item__summary {
     display: grid;
     gap: var(--space-xs);
     min-block-size: var(--control-min-size);
-    padding: var(--space-md);
     cursor: pointer;
   }
 
@@ -878,10 +885,8 @@ const structuredData = [
     grid-template-columns: 5rem minmax(0, 1fr);
     gap: var(--space-md);
     align-items: start;
-    padding: var(--space-md);
-    background: var(--raised-night);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
+    padding-block: var(--space-lg);
+    border-block: 1px solid var(--line-soft);
   }
 
   .quiz-result__next-image {
@@ -891,19 +896,21 @@ const structuredData = [
     border-radius: var(--radius-md);
   }
 
-  .quiz-result__next > div {
+  .quiz-result__next-copy {
     display: grid;
     gap: var(--space-sm);
     min-inline-size: 0;
   }
 
-  .quiz-result__next > div > p:not(.eyebrow) {
-    color: var(--quiet-ink);
-  }
-
   .quiz-result__next .button {
     inline-size: fit-content;
     margin-block-start: var(--space-xs);
+  }
+
+  .quiz-result__next-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
   }
 
   .quiz-result__actions,
@@ -928,6 +935,10 @@ const structuredData = [
     .quiz-question__shortcut {
       display: inline;
     }
+  }
+
+  .quiz-question:focus-within .quiz-question__shortcut {
+    display: inline;
   }
 
   @media (width >= 40rem) {

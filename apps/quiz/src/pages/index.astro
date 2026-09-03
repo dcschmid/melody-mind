@@ -11,9 +11,9 @@ const quizzes = (await getCollection("quizzes", ({ data }) => !data.draft)).sort
 );
 const decades = quizzes.filter((quiz) => quiz.data.category === "decade");
 const journeys = quizzes.filter((quiz) => quiz.data.category === "genre-evolution");
-const journeyPreviewCount = 4;
-const featuredJourneys = journeys.slice(0, journeyPreviewCount);
-const moreJourneys = journeys.slice(journeyPreviewCount);
+const journeyLead = journeys[0];
+const journeyPreview = journeys.slice(1, 4);
+const moreJourneys = journeys.slice(4);
 const artists = quizzes.filter((quiz) => quiz.data.category === "artist");
 const albums = quizzes.filter((quiz) => quiz.data.category === "album");
 const quizIds = quizzes.map((quiz) => quiz.id);
@@ -102,7 +102,6 @@ const structuredData = [
       </p>
     </aside>
     <header class="quiz-home__hero">
-      <p class="eyebrow">Listen closer</p>
       <h1>Music history, one question at a time.</h1>
       <p class="quiz-home__lead">
         Pick a decade, trace a genre, follow an artist, or go inside a landmark album.
@@ -111,30 +110,30 @@ const structuredData = [
       </p>
       <div class="quiz-home__actions">
         <a class="button button--primary" id="quiz-random" href={`/${quizIds[0]}/`}>
-          Start a random quiz
+          Choose a quiz for me
         </a>
       </div>
-      <nav class="quiz-home__category-nav" aria-label="Browse quiz categories">
-        <a href="#decades">Decades</a>
-        <a href="#genre-journeys">Genre journeys</a>
-        <a href="#artists">Artists</a>
-        <a href="#albums">Albums</a>
-      </nav>
-      <p class="quiz-home__privacy">
-        No account. No timer. No analytics. An unfinished round is saved only in this
-        browser.
-      </p>
-      <AiDisclosure
-        label="AI-assisted, human-reviewed quizzes"
-        detail="Artwork is AI-generated."
-        detailsHref="/about/#ai-transparency"
-      />
+      <div class="quiz-home__trust">
+        <p class="quiz-home__privacy">
+          No account. No timer. No analytics. An unfinished round is saved only in this
+          browser.
+        </p>
+        <AiDisclosure
+          label="AI-assisted, human-reviewed quizzes"
+          detail="Artwork is AI-generated."
+          detailsHref="/about/#ai-transparency"
+        />
+      </div>
     </header>
 
     <section class="quiz-library" id="decades" aria-labelledby="decades-title">
       <header class="quiz-library__header">
-        <p class="eyebrow">{countLabel(decades.length, "era", "eras")}</p>
-        <h2 id="decades-title">Choose a decade</h2>
+        <div class="quiz-library__heading-row">
+          <h2 id="decades-title">Choose a decade</h2>
+          <p class="quiz-library__count">
+            {countLabel(decades.length, "era", "eras")}
+          </p>
+        </div>
         <p>Move from early rock and roll to streaming-era pop culture.</p>
       </header>
 
@@ -145,9 +144,7 @@ const structuredData = [
               <QuizCard
                 href={`/${quiz.id}/`}
                 image={getQuizArtwork(quiz.id)}
-                eyebrow="Decade quiz"
                 title={quiz.data.title}
-                description={quiz.data.description}
                 variant="decade"
               />
             </li>
@@ -162,30 +159,45 @@ const structuredData = [
       aria-labelledby="journeys-title"
     >
       <header class="quiz-library__header">
-        <p class="eyebrow">
-          {countLabel(journeys.length, "listening path", "listening paths")}
-        </p>
-        <h2 id="journeys-title">Follow a genre journey</h2>
+        <div class="quiz-library__heading-row">
+          <h2 id="journeys-title">Follow a genre journey</h2>
+          <p class="quiz-library__count">
+            {countLabel(journeys.length, "listening path", "listening paths")}
+          </p>
+        </div>
         <p>Trace how artists, studios, formats, and local scenes changed the music.</p>
       </header>
 
-      <ul class="quiz-grid quiz-grid--journeys">
+      <div class="quiz-library__journey-layout">
         {
-          featuredJourneys.map((quiz) => (
-            <li>
-              <QuizCard
-                href={`/${quiz.id}/`}
-                image={getQuizArtwork(quiz.id)}
-                eyebrow="Genre journey"
-                title={quiz.data.title}
-                description={quiz.data.description}
-                topics={quiz.data.featuredTopics}
-                variant="journey"
-              />
-            </li>
-          ))
+          journeyLead && (
+            <QuizCard
+              href={`/${journeyLead.id}/`}
+              image={getQuizArtwork(journeyLead.id)}
+              title={journeyLead.data.title}
+              description={journeyLead.data.description}
+              topics={journeyLead.data.featuredTopics}
+              variant="lead"
+            />
+          )
         }
-      </ul>
+        <ul class="quiz-grid quiz-grid--journey-previews">
+          {
+            journeyPreview.map((quiz) => (
+              <li>
+                <QuizCard
+                  href={`/${quiz.id}/`}
+                  image={getQuizArtwork(quiz.id)}
+                  title={quiz.data.title}
+                  description={quiz.data.description}
+                  topics={quiz.data.featuredTopics}
+                  variant="compact"
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
       {
         moreJourneys.length > 0 && (
           <details class="quiz-library__more">
@@ -197,17 +209,16 @@ const structuredData = [
                 Show fewer genre journeys
               </span>
             </summary>
-            <ul class="quiz-grid quiz-grid--journeys">
+            <ul class="quiz-grid quiz-grid--journey-more">
               {moreJourneys.map((quiz) => (
                 <li>
                   <QuizCard
                     href={`/${quiz.id}/`}
                     image={getQuizArtwork(quiz.id)}
-                    eyebrow="Genre journey"
                     title={quiz.data.title}
                     description={quiz.data.description}
                     topics={quiz.data.featuredTopics}
-                    variant="journey"
+                    variant="compact"
                   />
                 </li>
               ))}
@@ -219,10 +230,12 @@ const structuredData = [
 
     <section class="quiz-library" id="artists" aria-labelledby="artists-title">
       <header class="quiz-library__header">
-        <p class="eyebrow">
-          {countLabel(artists.length, "singular career", "singular careers")}
-        </p>
-        <h2 id="artists-title">Follow an artist</h2>
+        <div class="quiz-library__heading-row">
+          <h2 id="artists-title">Follow an artist</h2>
+          <p class="quiz-library__count">
+            {countLabel(artists.length, "singular career", "singular careers")}
+          </p>
+        </div>
         <p>
           Connect creative turning points, collaborators, studio methods, and musical
           independence.
@@ -236,11 +249,10 @@ const structuredData = [
               <QuizCard
                 href={`/${quiz.id}/`}
                 image={getQuizArtwork(quiz.id)}
-                eyebrow="Artist spotlight"
                 title={quiz.data.title}
                 description={quiz.data.description}
                 topics={quiz.data.featuredTopics}
-                variant="journey"
+                variant="feature"
               />
             </li>
           ))
@@ -250,10 +262,12 @@ const structuredData = [
 
     <section class="quiz-library" id="albums" aria-labelledby="albums-title">
       <header class="quiz-library__header">
-        <p class="eyebrow">
-          {countLabel(albums.length, "landmark record", "landmark records")}
-        </p>
-        <h2 id="albums-title">Go inside an album</h2>
+        <div class="quiz-library__heading-row">
+          <h2 id="albums-title">Go inside an album</h2>
+          <p class="quiz-library__count">
+            {countLabel(albums.length, "landmark record", "landmark records")}
+          </p>
+        </div>
         <p>
           Hear how songs, performances, production choices, and cultural afterlives fit
           together.
@@ -267,11 +281,10 @@ const structuredData = [
               <QuizCard
                 href={`/${quiz.id}/`}
                 image={getQuizArtwork(quiz.id)}
-                eyebrow="Album story"
                 title={quiz.data.title}
                 description={quiz.data.description}
                 topics={quiz.data.featuredTopics}
-                variant="journey"
+                variant="feature"
               />
             </li>
           ))
@@ -401,13 +414,17 @@ const structuredData = [
   }
 
   .quiz-home__privacy {
-    inline-size: fit-content;
-    padding: var(--space-sm) var(--space-md);
     font-size: 0.95rem;
-    color: var(--warm-ink);
-    background: var(--raised-night);
-    border: 1px solid var(--line-soft);
-    border-radius: var(--radius-pill);
+    color: var(--quiet-ink);
+  }
+
+  .quiz-home__trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+    align-items: center;
+    padding-block-start: var(--space-md);
+    border-block-start: 1px solid var(--line-soft);
   }
 
   .quiz-home__actions {
@@ -415,26 +432,6 @@ const structuredData = [
     flex-wrap: wrap;
     gap: var(--space-sm);
     margin-block: var(--space-xs);
-  }
-
-  .quiz-home__category-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs) var(--space-lg);
-  }
-
-  .quiz-home__category-nav a {
-    display: inline-flex;
-    align-items: center;
-    min-block-size: 2.75rem;
-    font-weight: 700;
-    color: var(--quiet-ink);
-    text-decoration: none;
-  }
-
-  .quiz-home__category-nav a:hover,
-  .quiz-home__category-nav a:focus-visible {
-    color: var(--warm-ink);
   }
 
   .quiz-library__more {
@@ -523,6 +520,25 @@ const structuredData = [
     color: var(--quiet-ink);
   }
 
+  .quiz-library__heading-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-md);
+    align-items: baseline;
+  }
+
+  .quiz-library__count {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+  }
+
+  .quiz-library__journey-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+  }
+
   .quiz-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -530,6 +546,15 @@ const structuredData = [
     padding: 0;
     margin: 0;
     list-style: none;
+  }
+
+  .quiz-grid--decades {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quiz-grid--journey-previews,
+  .quiz-grid--journey-more {
+    gap: var(--space-sm);
   }
 
   @media (width >= 48rem) {
@@ -541,27 +566,23 @@ const structuredData = [
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .quiz-grid--journeys,
+    .quiz-grid--journey-previews,
+    .quiz-grid--journey-more,
     .quiz-grid--features {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
   @media (width >= 64rem) {
-    .quiz-grid--journeys {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .quiz-library__journey-layout {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      align-items: start;
     }
   }
 
   @media (width >= 80rem) {
     .quiz-grid--decades {
       grid-template-columns: repeat(7, minmax(0, 1fr));
-    }
-  }
-
-  @media (width >= 90rem) {
-    .quiz-grid--journeys {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 </style>

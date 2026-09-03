@@ -462,9 +462,10 @@ export function initQuiz(): void {
     session.complete = true;
     const score = getScore(session);
     const breakdown = getResultBreakdown(session);
+    const scoreBand = getScoreBand(score);
+    getElement<HTMLElement>("quiz-result-title").textContent = scoreBand;
     getElement<HTMLElement>("quiz-score").textContent =
       `${score} of ${session.questions.length} correct`;
-    getElement<HTMLElement>("quiz-score-band").textContent = getScoreBand(score);
     getElement<HTMLElement>("quiz-result-correct").textContent = String(
       breakdown.correct
     );

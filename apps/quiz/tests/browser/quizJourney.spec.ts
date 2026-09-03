@@ -4,32 +4,26 @@ test("keeps the catalog actionable and compact on a phone", async ({ page }) => 
   await page.setViewportSize({ width: 360, height: 800 });
   await page.goto("/");
 
-  const randomQuiz = page.getByRole("link", { name: "Start a random quiz" });
+  const randomQuiz = page.getByRole("link", { name: "Choose a quiz for me" });
   await expect(randomQuiz).toBeInViewport();
   await expect(page.locator("html")).toHaveJSProperty("scrollWidth", 360);
-  await expect(page.locator("#artists .quiz-card")).toHaveCount(2);
-  await expect(page.locator("#albums .quiz-card")).toHaveCount(2);
+  await expect(page.locator("#artists .quiz-card--feature")).toHaveCount(2);
+  await expect(page.locator("#albums .quiz-card--feature")).toHaveCount(2);
 
-  const firstCard = page.locator(".quiz-grid--decades .quiz-card").first();
+  const firstCard = page.locator(".quiz-grid--decades .quiz-card--decade").first();
   await firstCard.scrollIntoViewIfNeeded();
   const box = await firstCard.boundingBox();
-  expect(box?.height).toBeLessThan(190);
+  expect(box?.height).toBeLessThan(140);
 });
 
 test("exposes the expanded catalog without desktop overflow", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/");
 
+  await expect(page.locator("#genre-journeys .quiz-card--lead")).toBeVisible();
   await expect(
-    page
-      .locator(".quiz-home__category-nav")
-      .getByRole("link", { name: "Artists", exact: true })
-  ).toBeVisible();
-  await expect(
-    page
-      .locator(".quiz-home__category-nav")
-      .getByRole("link", { name: "Albums", exact: true })
-  ).toBeVisible();
+    page.locator("#genre-journeys .quiz-grid--journey-previews .quiz-card--compact")
+  ).toHaveCount(3);
   await expect(page.getByRole("heading", { name: "Follow an artist" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Go inside an album" })).toBeVisible();
   await expect(page.locator("html")).toHaveJSProperty("scrollWidth", 1280);
@@ -107,7 +101,8 @@ test("reviews revealed answers and recommends the next quiz", async ({ page }) =
       .click();
   }
 
-  await expect(page.getByRole("heading", { name: "Your result" })).toBeFocused();
+  await expect(page.getByRole("heading", { name: "Getting started" })).toBeFocused();
+  await expect(page.locator("#quiz-score")).toHaveText("0 of 10 correct");
   await expect(page.locator(".quiz-review-item")).toHaveCount(10);
   await expect(page.getByRole("heading", { name: "The 1960s" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Start next quiz" })).toHaveAttribute(
@@ -284,8 +279,10 @@ test("folds extra genre journeys behind a disclosure on a phone", async ({ page 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
 
-  const featuredGrid = page.locator("#genre-journeys .quiz-grid--journeys").first();
-  await expect(featuredGrid.locator(".quiz-card")).toHaveCount(4);
+  await expect(page.locator("#genre-journeys .quiz-card--lead")).toHaveCount(1);
+  await expect(
+    page.locator("#genre-journeys .quiz-grid--journey-previews .quiz-card--compact")
+  ).toHaveCount(3);
   await expect(page.locator("#genre-journeys .quiz-library__more")).toBeVisible();
   await expect(page.locator("#genre-journeys .quiz-library__more")).not.toHaveAttribute(
     "open"
