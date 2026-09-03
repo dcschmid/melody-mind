@@ -29,7 +29,6 @@ interface Props {
 const { story, related } = Astro.props;
 const { Content } = await render(story);
 const canonical = new URL(`/${story.id}/`, Astro.site).toString();
-const image = new URL(story.data.hero.image.src, Astro.site).toString();
 /* Generated 1200x630 social card (scripts/generate-social-images.mjs). */
 const socialImageUrl = new URL(`/og/${story.id}.jpg`, Astro.site).toString();
 const allImages = [story.data.hero, ...story.data.figures];
@@ -47,7 +46,7 @@ const articleSchema = {
   description: story.data.seoDescription,
   datePublished: story.data.publishedAt.toISOString(),
   mainEntityOfPage: canonical,
-  image,
+  image: socialImageUrl,
   author: {
     "@type": "Organization",
     name: story.data.byline,

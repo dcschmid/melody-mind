@@ -190,6 +190,7 @@ services:
       paths:
         - apps/reviews/**
         - scripts/**
+        - package.json
         - pnpm-lock.yaml
         - turbo.json
         - pnpm-workspace.yaml
