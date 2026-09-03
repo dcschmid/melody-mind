@@ -190,6 +190,11 @@ const bindMoodNavigator = (): void => {
     const copyButton = root.querySelector<HTMLButtonElement>("[data-mood-copy]");
     const radioLink = root.querySelector<HTMLAnchorElement>("[data-mood-radio]");
     const actionStatus = root.querySelector<HTMLElement>("[data-mood-action-status]");
+    const advancedToggle = root.querySelector<HTMLButtonElement>(
+      "[data-mood-advanced-toggle]"
+    );
+    const advancedFilters = root.querySelector<HTMLElement>("[data-mood-advanced]");
+    const mobileFiltersQuery = window.matchMedia("(max-width: 700px)");
 
     if (!form || !count || !summary || !empty || !surpriseButton) {
       return;
@@ -250,7 +255,27 @@ const bindMoodNavigator = (): void => {
     };
 
     restoreFormFromUrl(form);
+    const setAdvancedOpen = (open: boolean): void => {
+      advancedToggle?.setAttribute("aria-expanded", String(open));
+      advancedFilters?.toggleAttribute("hidden", !open);
+    };
+    const syncAdvancedFilters = (): void => {
+      if (!mobileFiltersQuery.matches) {
+        setAdvancedOpen(true);
+        return;
+      }
+      const filters = getFilters(form);
+      setAdvancedOpen(
+        Boolean(filters.energy || filters.language || filters.voice || filters.time)
+      );
+    };
+    syncAdvancedFilters();
     applyFilters(false);
+
+    advancedToggle?.addEventListener("click", () => {
+      setAdvancedOpen(advancedToggle.getAttribute("aria-expanded") !== "true");
+    });
+    mobileFiltersQuery.addEventListener("change", syncAdvancedFilters);
 
     form.addEventListener("change", () => applyFilters());
     form.addEventListener("submit", (event) => {
@@ -262,6 +287,9 @@ const bindMoodNavigator = (): void => {
       button.addEventListener("click", () => {
         form.reset();
         applyFilters();
+        if (mobileFiltersQuery.matches) {
+          setAdvancedOpen(false);
+        }
         form.querySelector<HTMLInputElement>('[name="mood"][value=""]')?.focus();
       });
     });

@@ -143,12 +143,7 @@ const GRID_COVER_IMAGE_SIZES =
           <Icon name="arrow-left" aria-hidden="true" />
           <span>All genres</span>
         </a>
-        <p class="genre-landing__eyebrow">{page.eyebrow}</p>
         <h1 id="genre-landing-title" class="genre-landing__title">{page.title}</h1>
-        <a class="genre-landing__catalog-link" href="#genre-albums-title">
-          Browse albums
-          <Icon name="arrow-right" aria-hidden="true" />
-        </a>
         <p class="genre-landing__summary">{page.description}</p>
         <p class="genre-landing__catalog-note">
           <Icon name="disc" aria-hidden="true" />
@@ -169,15 +164,17 @@ const GRID_COVER_IMAGE_SIZES =
 
     <section class="genre-landing__albums" aria-labelledby="genre-albums-title">
       <div class="genre-landing__section-header">
-        <p class="genre-landing__section-kicker">
-          {`${albumCards.length} ${albumCards.length === 1 ? "album" : "albums"}`}
-        </p>
         <h2 id="genre-albums-title" class="genre-landing__section-title">
           Albums in this genre
         </h2>
       </div>
 
-      <AlbumGridFilter albumCount={albumCards.length} genreTitle={page.eyebrow}>
+      <AlbumGridFilter
+        albumCount={albumCards.length}
+        label={`Filter ${page.eyebrow} albums`}
+        inputId={`${page.slug}-album-filter`}
+        placeholder="Title, subgenre, or mood"
+      >
         <ul class="genre-landing__grid">
           {
             albumCards.map((album) => (
@@ -270,17 +267,6 @@ const GRID_COVER_IMAGE_SIZES =
     max-inline-size: 72ch;
   }
 
-  .genre-landing__eyebrow,
-  .genre-landing__section-kicker {
-    margin: 0;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.2;
-    color: var(--genre-landing-accent);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
-  }
-
   .genre-landing__back {
     display: inline-flex;
     gap: var(--spacing-xs);
@@ -320,35 +306,6 @@ const GRID_COVER_IMAGE_SIZES =
     line-height: 0.98;
     letter-spacing: 0;
     text-wrap: balance;
-  }
-
-  .genre-landing__catalog-link {
-    display: inline-flex;
-    gap: 0.45rem;
-    align-items: center;
-    inline-size: fit-content;
-    min-block-size: var(--control-min-block-size);
-    margin-block: 0.8rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--accent-primary);
-    text-decoration: none;
-  }
-
-  .genre-landing__catalog-link:hover,
-  .genre-landing__catalog-link:focus-visible {
-    color: var(--accent-secondary);
-    text-decoration: underline;
-    text-underline-offset: 0.18em;
-  }
-
-  .genre-landing__catalog-link:focus-visible {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 0.2rem;
-  }
-
-  .genre-landing__catalog-link :global(svg) {
-    inline-size: 1rem;
-    block-size: 1rem;
   }
 
   .genre-landing__intro {
@@ -523,37 +480,5 @@ const GRID_COVER_IMAGE_SIZES =
   .genre-landing__intro a {
     color: var(--genre-landing-accent);
     text-underline-offset: 0.18em;
-  }
-
-  .genre-landing__card .content-card__media {
-    position: relative;
-  }
-
-  /* Soft accent glow that blooms over the cover on hover/focus. */
-  .genre-landing__card .content-card__media::before {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    content: "";
-    background: radial-gradient(
-      120% 90% at 50% 100%,
-      color-mix(in srgb, var(--genre-landing-accent) 42%, transparent),
-      transparent 62%
-    );
-    mix-blend-mode: screen;
-    opacity: 0;
-  }
-
-  .genre-landing__card.content-card--interactive:hover .content-card__media::before,
-  .genre-landing__card.content-card--interactive:focus-within
-    .content-card__media::before {
-    opacity: 1;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .genre-landing__card .content-card__media::before {
-      transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
   }
 </style>

@@ -80,7 +80,6 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
 >
   <div class="album-embed-generator__intro">
     <div class="album-embed-generator__copy">
-      <p class="album-embed-generator__eyebrow">For your website</p>
       <h2 class="album-embed-generator__title" id={`${generatorId}-title`}>
         Embed this {entityKind}
       </h2>
@@ -401,20 +400,11 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
     gap: var(--spacing-xs);
   }
 
-  .album-embed-generator__eyebrow,
   .album-embed-generator__title,
   .album-embed-generator__description,
   .album-embed-generator__status,
   .album-embed-generator__privacy {
     margin: 0;
-  }
-
-  .album-embed-generator__eyebrow {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
   }
 
   .album-embed-generator__title {

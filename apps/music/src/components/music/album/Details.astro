@@ -32,7 +32,9 @@ const {
 } = Astro.props;
 
 const hasValidShareUrl = /^https?:\/\//i.test(shareUrl);
-const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
+const hasAfterLinerNotes = Astro.slots.has("after-liner-notes");
+const shouldRenderDetails =
+  hasAlbumContent || hasValidShareUrl || Boolean(zipUrl) || hasAfterLinerNotes;
 ---
 
 {
@@ -58,26 +60,7 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
         </article>
       )}
 
-      {hasValidShareUrl && (
-        <div class="album-detail-sections__share">
-          <ShareSection
-            id="album-share"
-            shareUrl={shareUrl}
-            contentTitle={contentTitle}
-            contentDescription={contentDescription}
-            title="Share this album"
-            note="Pick a network, copy the link, or share it by email."
-            copyAriaLabel="Copy link to this album"
-          />
-          {embed && embed.songs.length > 0 && (
-            <AlbumEmbedGenerator
-              albumId={embed.albumId}
-              albumTitle={embed.albumTitle}
-              songs={embed.songs}
-            />
-          )}
-        </div>
-      )}
+      {hasAfterLinerNotes && <slot name="after-liner-notes" />}
 
       {zipUrl && (
         <section
@@ -85,7 +68,6 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
           aria-labelledby="album-download-title"
         >
           <div class="album-detail-sections__download-copy">
-            <p class="album-detail-sections__download-eyebrow">Full album download</p>
             <h2 id="album-download-title" class="album-detail-sections__download-title">
               Download the complete album
             </h2>
@@ -110,6 +92,29 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
             </a>
           </div>
         </section>
+      )}
+
+      {hasValidShareUrl && (
+        <div class="album-detail-sections__share">
+          <ShareSection
+            id="album-share"
+            shareUrl={shareUrl}
+            contentTitle={contentTitle}
+            contentDescription={contentDescription}
+            title="Share this album"
+            note="Share with your device or copy a direct link."
+            copyAriaLabel="Copy link to this album"
+          >
+            {embed && embed.songs.length > 0 && (
+              <AlbumEmbedGenerator
+                slot="more-options"
+                albumId={embed.albumId}
+                albumTitle={embed.albumTitle}
+                songs={embed.songs}
+              />
+            )}
+          </ShareSection>
+        </div>
       )}
     </div>
   )
@@ -168,7 +173,8 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
   }
 
   .album-detail-sections__prose {
-    max-inline-size: 86ch;
+    max-inline-size: 72ch;
+    margin-block-start: var(--spacing-base);
     font-size: clamp(var(--font-size-base), 1vw, var(--font-size-lg));
     line-height: var(--line-height-loose);
     color: var(--album-details-prose-color);
@@ -300,16 +306,6 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
     display: grid;
     gap: var(--spacing-xs);
     min-inline-size: 0;
-  }
-
-  .album-detail-sections__download-eyebrow {
-    margin: 0;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    line-height: 1.2;
-    color: var(--music-album-accent);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
   }
 
   .album-detail-sections__download-title {

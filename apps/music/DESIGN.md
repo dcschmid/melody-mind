@@ -27,9 +27,14 @@ typography:
     lineHeight: 1.6
   label:
     fontFamily: "Atkinson Hyperlegible, system-ui, sans-serif"
-    fontSize: "1.125rem"
+    fontSize: "1rem"
     fontWeight: 700
     lineHeight: 1.2
+  caption:
+    fontFamily: "Atkinson Hyperlegible, system-ui, sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 600
+    lineHeight: 1.3
 rounded:
   sm: "4px"
   md: "8px"
@@ -105,11 +110,12 @@ rather than changing type families.
 - **Display** (700, up to 4.75rem, 0.98): featured album and page identity.
 - **Headline** (700, 2rem, 1.1): major content sections.
 - **Title** (700, 1.5rem, 1.15): albums and subsections.
-- **Body** (400, 1rem, 1.6): descriptions and liner notes, capped at 72ch.
-- **Label** (700, 0.875rem, 1.2): metadata and controls; uppercase only for short cues.
+- **Body** (400, 1.125rem, 1.6): descriptions and liner notes, capped at 72ch.
+- **Label** (700, 1rem, 1.2): informative metadata and controls.
+- **Caption** (600, 0.875rem, 1.3): noncritical labels; uppercase only for short cues.
 
-**The Listening Density Rule.** Body copy never drops below 16px, but discovery UI
-must not inherit editorial display sizing.
+**The Listening Density Rule.** Normal reading and control copy stays at 18px,
+informative metadata may use 16px, and only noncritical captions may use 14px.
 
 ## Elevation
 

@@ -75,7 +75,7 @@ const DEFAULT_FOOTER_SETTINGS_TEXT = {
 
 export const DEFAULT_APP_SHELL_SITE_NAME = "Melody Mind";
 export const DEFAULT_APP_SHELL_SITE_DESCRIPTION =
-  "AI-generated music albums from MelodyMind.";
+  "AI-assisted music albums from MelodyMind.";
 export const DEFAULT_APP_SHELL_LANG = "en";
 export const MUSIC_SITE_URL = "https://melody-mind.de";
 export const DEFAULT_APP_SHELL_COPYRIGHT_YEAR = 2026;

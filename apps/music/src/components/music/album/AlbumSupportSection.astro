@@ -21,7 +21,6 @@ const supportLinks = links.filter((link) => link.href && link.label);
   supportLinks.length ? (
     <section class="album-support" aria-labelledby={titleId}>
       <div class="album-support__copy">
-        <p class="album-support__eyebrow">Support MelodyMind</p>
         <h2 class="album-support__title" id={titleId}>
           Help keep the albums coming
         </h2>
@@ -74,16 +73,6 @@ const supportLinks = links.filter((link) => link.href && link.label);
     display: grid;
     gap: var(--spacing-xs);
     min-inline-size: 0;
-  }
-
-  .album-support__eyebrow {
-    margin: 0;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    line-height: 1.2;
-    color: var(--music-album-accent);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
   }
 
   .album-support__title {

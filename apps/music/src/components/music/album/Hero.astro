@@ -80,7 +80,7 @@ const getFactIcon = (label: string) => {
         loading="eager"
         decoding="async"
         widths={[224, 424, 640, 848]}
-        sizes="(max-width: 420px) 68vw, (max-width: 760px) 8.6rem, min(46vw, 26.5rem)"
+        sizes="(max-width: 420px) min(48vw, 11rem), (max-width: 760px) 8.6rem, min(46vw, 26.5rem)"
         fetchpriority="high"
         formats={["avif"]}
       />
@@ -120,7 +120,7 @@ const getFactIcon = (label: string) => {
       <AiDisclosure
         compact
         variant="generated"
-        label="AI-generated music and artwork"
+        label="Made with generative AI; directed and curated by Daniel."
         detailsHref="/about/#ai-transparency"
       />
       <div class="album-hero__actions">
@@ -212,12 +212,9 @@ const getFactIcon = (label: string) => {
     margin: 0;
     overflow: hidden;
     background: var(--music-album-paper, var(--surface-panel-bg));
-    border: 1px solid color-mix(in srgb, var(--album-hero-accent) 38%, transparent);
+    border: 1px solid color-mix(in srgb, var(--album-hero-ink) 14%, transparent);
     border-radius: var(--album-hero-cover-radius);
-    box-shadow:
-      var(--album-hero-cover-shadow),
-      0 0 3rem color-mix(in srgb, var(--album-hero-accent) 20%, transparent),
-      0 1.5rem 4rem color-mix(in srgb, var(--album-hero-accent) 12%, transparent);
+    box-shadow: var(--album-hero-cover-shadow);
   }
 
   .album-hero__cover-lockup :global(.album-hero__cover-image) {
@@ -464,8 +461,8 @@ const getFactIcon = (label: string) => {
 
   @media (width <= 760px) {
     .album-hero {
-      inline-size: 100vw;
-      max-inline-size: 100vw;
+      inline-size: 100%;
+      max-inline-size: 100%;
       min-block-size: auto;
       padding: 5.35rem 1rem 0.8rem;
     }
@@ -474,8 +471,8 @@ const getFactIcon = (label: string) => {
       grid-template-columns: minmax(6.75rem, 38vw) minmax(0, 1fr);
       gap: var(--spacing-sm);
       place-items: start;
-      inline-size: calc(100vw - 2rem);
-      max-inline-size: calc(100vw - 2rem);
+      inline-size: 100%;
+      max-inline-size: 100%;
     }
 
     .album-hero__cover-lockup {
@@ -552,7 +549,7 @@ const getFactIcon = (label: string) => {
       grid-column: 1 / -1;
       gap: var(--spacing-sm) var(--spacing-base);
       inline-size: 100%;
-      max-inline-size: calc(100vw - 2rem);
+      max-inline-size: 100%;
       padding-block-start: var(--spacing-sm);
       margin-block-start: var(--spacing-2xs);
     }
@@ -578,6 +575,10 @@ const getFactIcon = (label: string) => {
   }
 
   @media (width <= 420px) {
+    .album-hero {
+      padding-block-start: 4.6rem;
+    }
+
     .album-hero__lockup {
       grid-template-columns: minmax(0, 1fr);
       gap: var(--spacing-base);
@@ -586,8 +587,8 @@ const getFactIcon = (label: string) => {
     .album-hero__cover-lockup {
       grid-row: auto;
       justify-self: center;
-      inline-size: min(68vw, 16rem);
-      max-inline-size: 16rem;
+      inline-size: min(48vw, 11rem);
+      max-inline-size: 11rem;
     }
 
     .album-hero__title-panel {
@@ -601,10 +602,17 @@ const getFactIcon = (label: string) => {
     }
 
     .album-hero__actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
       inline-size: 100%;
     }
 
     .album-hero__play {
+      inline-size: 100%;
+      min-block-size: 3rem;
+    }
+
+    .album-hero__favorite {
       inline-size: 100%;
       min-block-size: 3rem;
     }

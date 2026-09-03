@@ -848,6 +848,12 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
   }
 
   @media (width <= 520px) {
+    .series-landing__title {
+      max-inline-size: 100%;
+      font-size: clamp(2rem, 10vw, 2.75rem);
+      overflow-wrap: anywhere;
+    }
+
     .series-landing__item {
       grid-template-columns: minmax(0, 1fr);
       gap: var(--spacing-xs);

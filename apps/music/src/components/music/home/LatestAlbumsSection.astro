@@ -202,19 +202,12 @@ const { albums, title } = Astro.props as Props;
 
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
     .latest-albums__cover-link,
-    .latest-albums__cover-link :global(.latest-albums__cover),
     .latest-albums__play,
     .latest-albums__title a {
       transition:
         color var(--motion-duration-fast) var(--motion-ease-standard),
         background-color var(--motion-duration-fast) var(--motion-ease-standard),
-        border-color var(--motion-duration-fast) var(--motion-ease-standard),
-        transform var(--motion-duration-fast) var(--motion-ease-standard);
-    }
-
-    .latest-albums__cover-link:hover :global(.latest-albums__cover),
-    .latest-albums__cover-link:focus-visible :global(.latest-albums__cover) {
-      transform: scale(1.02);
+        border-color var(--motion-duration-fast) var(--motion-ease-standard);
     }
   }
 

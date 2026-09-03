@@ -41,6 +41,7 @@ const bindAlbumGridFilters = () => {
       });
 
       status.textContent = `${visibleCount} ${visibleCount === 1 ? "album" : "albums"} shown`;
+      status.hidden = !normalizedValue;
       empty.hidden = visibleCount > 0;
       clearButtons.forEach((button) => {
         if (!button.closest("[data-album-filter-empty]")) {

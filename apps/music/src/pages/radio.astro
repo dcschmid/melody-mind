@@ -124,6 +124,7 @@ const structuredData = [
           </h2>
           <span class="radio-page__stations-count">{catalog.stations.length}</span>
         </div>
+        <p class="radio-page__stations-hint">Swipe sideways to explore every station.</p>
         <div class="radio-page__station-groups">
           {
             stationGroups.map((group) => (
@@ -356,7 +357,6 @@ const structuredData = [
     inline-size: 100%;
     max-inline-size: none;
     padding: 0;
-    overflow-x: clip;
   }
 
   .radio-page {
@@ -463,6 +463,13 @@ const structuredData = [
 
   .radio-page__stations-heading {
     font-size: var(--font-size-lg);
+  }
+
+  .radio-page__stations-hint {
+    display: none;
+    margin: var(--spacing-xs) 0 0;
+    font-size: var(--font-size-caption);
+    color: var(--text-secondary);
   }
 
   .radio-page__station-groups {
@@ -925,6 +932,10 @@ const structuredData = [
       padding-inline: var(--spacing-base);
     }
 
+    .radio-page__stations-hint {
+      display: block;
+    }
+
     .radio-page__station-list {
       grid-template-columns: none;
       grid-auto-columns: min(82vw, 20rem);
@@ -934,7 +945,8 @@ const structuredData = [
       max-inline-size: 100%;
       padding-block-end: var(--spacing-sm);
       overflow-x: auto;
-      scroll-snap-type: inline proximity;
+      scroll-snap-type: inline mandatory;
+      scroll-padding-inline: var(--spacing-sm);
       border-block-start: 0;
     }
 

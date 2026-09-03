@@ -65,7 +65,7 @@ const t = {
   latestAlbums: "New Releases",
   series: "Album Series",
   mainGenres: "Main Genres",
-  exploreAlbums: "Browse Genres",
+  exploreAlbums: "Browse All Albums",
   keywords: [
     "ai music",
     "generated music",
@@ -111,14 +111,14 @@ const structuredData = [
   locale="en-US"
   canonical={canonical}
   {structuredData}
-  contentShellClass="music-layout__container--home"
+  variant="home"
 >
   <div class="music-home">
     <Hero
       {...featuredAlbum ? { featuredAlbum } : {}}
       eyebrow={t.subtitle}
       exploreAlbumsLabel={t.exploreAlbums}
-      exploreAlbumsHref="/genre/"
+      exploreAlbumsHref="/albums/"
     />
 
     <div class="music-home__content" id="discover">
@@ -138,16 +138,6 @@ const structuredData = [
 </Layout>
 
 <style>
-  :global(.music-layout__container) {
-    max-inline-size: none;
-    padding: 0;
-    overflow-x: clip;
-  }
-
-  :global(.music-layout__main)::before {
-    display: none;
-  }
-
   .music-home {
     /* Local aliases onto the global palette so high-contrast and
        forced-colors overrides propagate into this page. */
@@ -160,10 +150,8 @@ const structuredData = [
     --music-home-line: var(--border-default);
 
     position: relative;
-    inline-size: min(100%, 100vw);
-    max-inline-size: 100vw;
+    inline-size: 100%;
     min-block-size: 100svh;
-    overflow-x: clip;
     color: var(--music-home-ink);
     isolation: isolate;
   }
@@ -209,7 +197,6 @@ const structuredData = [
       gap: 2rem;
       inline-size: 100%;
       padding: 0.55rem 1rem clamp(2rem, 6vw, 5rem);
-      overflow-x: clip;
     }
   }
 </style>

@@ -44,6 +44,7 @@ export interface Props {
   pageSeo?: PageSeoResult;
   mainClass?: string;
   contentShellClass?: string;
+  variant?: "default" | "home" | "album";
 }
 
 const {
@@ -70,6 +71,7 @@ const {
   pageSeo,
   mainClass = "",
   contentShellClass = "",
+  variant = "default",
 } = Astro.props as Props;
 
 const siteTitle = "MelodyMind Music";
@@ -145,11 +147,25 @@ const seoProps = {
   ...(pageSeoResolved.modifiedDate ? { modifiedDate: pageSeoResolved.modifiedDate } : {}),
   ...(pageSeoResolved.authorName ? { authorName: pageSeoResolved.authorName } : {}),
 };
-const mainClasses = ["music-layout__main", mainClass].filter(Boolean).join(" ");
-const contentShellClasses = ["music-layout__container", contentShellClass]
+const variantMainClass = variant === "album" ? "music-layout__main--album" : "";
+const variantShellClass =
+  variant === "home"
+    ? "music-layout__container--home"
+    : variant === "album"
+      ? "music-layout__container--album"
+      : "";
+const mainClasses = ["music-layout__main", variantMainClass, mainClass]
   .filter(Boolean)
   .join(" ");
-const isAlbumLayout = mainClass.split(/\s+/).includes("music-layout__main--album");
+const contentShellClasses = [
+  "music-layout__container",
+  variantShellClass,
+  contentShellClass,
+]
+  .filter(Boolean)
+  .join(" ");
+const isAlbumLayout =
+  variant === "album" || mainClass.split(/\s+/).includes("music-layout__main--album");
 const bodyClasses = ["music-layout", isAlbumLayout ? "music-layout--album" : ""]
   .filter(Boolean)
   .join(" ");
@@ -157,6 +173,11 @@ const radioNavItem: HeaderNavItem = {
   href: "/radio/",
   label: "Radio",
   icon: "wave",
+};
+const albumsNavItem: HeaderNavItem = {
+  href: "/albums/",
+  label: "Albums",
+  icon: "disc",
 };
 const moodNavItem: HeaderNavItem = {
   href: "/mood/",
@@ -170,7 +191,7 @@ const genresNavItem: HeaderNavItem = {
 };
 const seriesNavItem: HeaderNavItem = {
   href: "/series/",
-  label: "Album Series",
+  label: "Series",
   icon: "book-open",
 };
 const favoritesNavItem: HeaderNavItem = {
@@ -179,6 +200,7 @@ const favoritesNavItem: HeaderNavItem = {
   icon: "heart",
 };
 const headerNavItems: HeaderNavItem[] = [
+  albumsNavItem,
   radioNavItem,
   moodNavItem,
   genresNavItem,
@@ -345,7 +367,6 @@ const headerNavItems: HeaderNavItem[] = [
     max-inline-size: none;
     padding: 0;
     margin: 0;
-    overflow-x: clip;
   }
 
   @media (width >= 480px) {

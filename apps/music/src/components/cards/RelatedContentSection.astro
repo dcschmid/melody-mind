@@ -8,7 +8,6 @@ import type { RelatedContentCardItem } from "./relatedContent";
 
 interface Props {
   id?: string;
-  eyebrow?: string;
   title: string;
   copy?: string;
   listAriaLabel?: string;
@@ -18,7 +17,6 @@ interface Props {
 
 const {
   id = "related-content-section",
-  eyebrow = "Related",
   title,
   copy,
   listAriaLabel = title,
@@ -37,7 +35,6 @@ const RELATED_COVER_IMAGE_SIZES =
     <section class="related-content-section" id={id} aria-labelledby={titleId}>
       <Stack className="related-content-section__header" gap="base">
         <Stack className="related-content-section__copy-block" gap="xs">
-          <p class="related-content-section__eyebrow">{eyebrow}</p>
           <Headline level="h2" textSize="2xl" className="related-content-section__title">
             <span id={titleId}>{title}</span>
           </Headline>
@@ -100,16 +97,6 @@ const RELATED_COVER_IMAGE_SIZES =
 
   .related-content-section__copy-block {
     max-inline-size: var(--measure-copy-compact);
-  }
-
-  .related-content-section__eyebrow {
-    margin: 0;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    line-height: 1.2;
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
   }
 
   .related-content-section__title {

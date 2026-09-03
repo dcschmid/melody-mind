@@ -34,7 +34,10 @@
   --font-mono: ui-monospace, "SF Mono", monaco, "Cascadia Code", monospace;
 
   /* Font sizes */
-  /* Accessible floor: all visible interface copy starts at 18px. */
+  /* Normal reading and control copy stays at 18px. Metadata and noncritical
+     captions use explicit semantic tokens instead of shrinking the whole scale. */
+  --font-size-caption: 0.875rem;
+  --font-size-meta: 1rem;
   --font-size-xs: 1.125rem;
   --font-size-sm: 1.125rem;
   --font-size-base: 1.125rem;

@@ -57,7 +57,7 @@ export function buildAppShellConfig({
       brandText: footerBrandText,
       exploreTitle: "Explore",
       exploreLinks: [
-        { href: "/", label: "Albums" },
+        { href: "/albums/", label: "Albums" },
         { href: "/radio/", label: "Radio" },
         { href: "/mood/", label: "Mood Navigator" },
         { href: "/genre/", label: "Genres" },
@@ -78,7 +78,7 @@ export function buildAppShellConfig({
 export const musicAppShellConfig = buildAppShellConfig({
   siteName: "MelodyMind Music",
   siteDescription:
-    "AI-generated music albums from MelodyMind. Listen to original compositions spanning genres from ambient to pop.",
+    "AI-assisted music albums from MelodyMind. Listen to original compositions spanning genres from ambient to pop.",
   rssTitle: "MelodyMind Music",
   brandLogoAlt: "MelodyMind Music",
   brandAriaLabel: "Go to the MelodyMind Music homepage",
@@ -101,5 +101,5 @@ export const musicAppShellConfig = buildAppShellConfig({
     },
   ],
   footerBrandText:
-    "Original AI-generated music spanning genres from ambient soundscapes to pop productions.",
+    "Original AI-assisted music spanning genres from ambient soundscapes to pop productions.",
 });

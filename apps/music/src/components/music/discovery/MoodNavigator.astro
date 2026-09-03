@@ -105,62 +105,81 @@ const moodCounts = new Map(
         </div>
       </fieldset>
 
-      <fieldset class="mood-navigator__group">
-        <legend>Energy</legend>
-        <div class="mood-navigator__choices">
-          {
-            [
-              ["", "Any"],
-              ["low", "Low"],
-              ["medium", "Medium"],
-              ["high", "High"],
-            ].map(([value, label]) => (
-              <label class="mood-navigator__choice">
-                <input type="radio" name="energy" value={value} checked={value === ""} />
-                <span>{label}</span>
-              </label>
-            ))
-          }
-        </div>
-      </fieldset>
+      <button
+        class="mood-navigator__advanced-toggle"
+        type="button"
+        aria-expanded="true"
+        aria-controls="mood-advanced-filters"
+        data-mood-advanced-toggle
+      >
+        <Icon name="filter" aria-hidden="true" />
+        <span>More filters</span>
+        <Icon name="chevron-down" aria-hidden="true" />
+      </button>
 
-      <fieldset class="mood-navigator__group">
-        <legend>Voice</legend>
-        <div class="mood-navigator__choices">
-          {
-            [
-              ["", "Any"],
-              ["vocal", "Vocal"],
-              ["instrumental", "Instrumental"],
-            ].map(([value, label]) => (
-              <label class="mood-navigator__choice">
-                <input type="radio" name="voice" value={value} checked={value === ""} />
-                <span>{label}</span>
-              </label>
-            ))
-          }
-        </div>
-      </fieldset>
+      <div class="mood-navigator__advanced" id="mood-advanced-filters" data-mood-advanced>
+        <fieldset class="mood-navigator__group">
+          <legend>Energy</legend>
+          <div class="mood-navigator__choices">
+            {
+              [
+                ["", "Any"],
+                ["low", "Low"],
+                ["medium", "Medium"],
+                ["high", "High"],
+              ].map(([value, label]) => (
+                <label class="mood-navigator__choice">
+                  <input
+                    type="radio"
+                    name="energy"
+                    value={value}
+                    checked={value === ""}
+                  />
+                  <span>{label}</span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
 
-      <label class="mood-navigator__select">
-        <span>Language</span>
-        <select name="language">
-          <option value="">Any language</option>
-          <option value="non-english">Not in English</option>
-          {languages.map((language) => <option value={language}>{language}</option>)}
-        </select>
-      </label>
+        <fieldset class="mood-navigator__group">
+          <legend>Voice</legend>
+          <div class="mood-navigator__choices">
+            {
+              [
+                ["", "Any"],
+                ["vocal", "Vocal"],
+                ["instrumental", "Instrumental"],
+              ].map(([value, label]) => (
+                <label class="mood-navigator__choice">
+                  <input type="radio" name="voice" value={value} checked={value === ""} />
+                  <span>{label}</span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
 
-      <label class="mood-navigator__select">
-        <span>Available time</span>
-        <select name="time">
-          <option value="">Any length</option>
-          <option value="45">Up to 45 minutes</option>
-          <option value="60">Up to 60 minutes</option>
-          <option value="75">Up to 75 minutes</option>
-          <option value="90">Up to 90 minutes</option>
-        </select>
-      </label>
+        <label class="mood-navigator__select">
+          <span>Language</span>
+          <select name="language">
+            <option value="">Any language</option>
+            <option value="non-english">Not in English</option>
+            {languages.map((language) => <option value={language}>{language}</option>)}
+          </select>
+        </label>
+
+        <label class="mood-navigator__select">
+          <span>Available time</span>
+          <select name="time">
+            <option value="">Any length</option>
+            <option value="45">Up to 45 minutes</option>
+            <option value="60">Up to 60 minutes</option>
+            <option value="75">Up to 75 minutes</option>
+            <option value="90">Up to 90 minutes</option>
+          </select>
+        </label>
+      </div>
     </form>
   </section>
 
@@ -389,6 +408,17 @@ const moodCounts = new Map(
 
   .mood-navigator__group--wide {
     grid-column: 1 / -1;
+  }
+
+  .mood-navigator__advanced {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-column: 1 / -1;
+    gap: var(--spacing-xl);
+  }
+
+  .mood-navigator__advanced-toggle {
+    display: none;
   }
 
   .mood-navigator__group legend,
@@ -760,6 +790,45 @@ const moodCounts = new Map(
       grid-column: auto;
     }
 
+    .mood-navigator__advanced-toggle {
+      display: flex;
+      gap: var(--spacing-xs);
+      align-items: center;
+      justify-content: space-between;
+      min-block-size: var(--control-min-block-size);
+      padding-inline: var(--spacing-base);
+      font: inherit;
+      font-weight: var(--font-weight-bold);
+      color: var(--text-primary);
+      cursor: pointer;
+      background: var(--surface-2);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-base);
+    }
+
+    .mood-navigator__advanced-toggle :global(svg) {
+      inline-size: 1rem;
+      block-size: 1rem;
+    }
+
+    .mood-navigator__advanced-toggle[aria-expanded="true"] :global(svg:last-child) {
+      transform: rotate(180deg);
+    }
+
+    .mood-navigator__advanced-toggle:focus-visible {
+      outline: var(--focus-ring-width) solid var(--focus-ring-color);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    .mood-navigator__advanced {
+      grid-template-columns: minmax(0, 1fr);
+      grid-column: auto;
+    }
+
+    .mood-navigator__advanced[hidden] {
+      display: none;
+    }
+
     .mood-navigator__actions {
       justify-content: flex-start;
     }
@@ -797,6 +866,12 @@ const moodCounts = new Map(
     .mood-navigator__item[data-surprise="true"] .mood-navigator__album {
       outline-color: Highlight;
       border-color: Highlight;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .mood-navigator__advanced-toggle :global(svg:last-child) {
+      transition: transform var(--transition-fast);
     }
   }
 </style>

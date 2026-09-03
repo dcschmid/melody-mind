@@ -59,20 +59,18 @@ const isActiveItem = (href: string) => {
     normalizedCurrentPath.startsWith(`${comparableHref}/`)
   );
 };
+const primaryItems = items.filter((item) => !item.secondary);
+const secondaryItems = items.filter((item) => item.secondary);
+const isSecondaryActive = secondaryItems.some((item) => isActiveItem(item.href));
 ---
 
 <ul class="music-header-nav">
   {
-    items.map((item) => {
+    primaryItems.map((item) => {
       const isActive = isActiveItem(item.href);
 
       return (
-        <li
-          class:list={[
-            "music-header-nav__item",
-            { "music-header-nav__item--secondary": item.secondary },
-          ]}
-        >
+        <li class:list={["music-header-nav__item"]}>
           <a
             class="music-header-nav__link"
             href={item.href}
@@ -83,6 +81,64 @@ const isActiveItem = (href: string) => {
             {item.icon && (
               <Icon name={item.icon} class="music-header-nav__icon" aria-hidden="true" />
             )}
+            <span>{item.label}</span>
+            <Icon
+              name="chevron-right"
+              class="music-header-nav__chevron"
+              aria-hidden="true"
+            />
+          </a>
+        </li>
+      );
+    })
+  }
+  {
+    secondaryItems.length > 0 && (
+      <li class="music-header-nav__item music-header-nav__item--more">
+        <details class="music-header-nav__more">
+          <summary
+            class="music-header-nav__more-toggle"
+            aria-current={isSecondaryActive ? "page" : undefined}
+          >
+            <span>More</span>
+            <Icon name="chevron-down" aria-hidden="true" />
+          </summary>
+          <ul class="music-header-nav__more-list">
+            {secondaryItems.map((item) => {
+              const isActive = isActiveItem(item.href);
+              return (
+                <li>
+                  <a
+                    class="music-header-nav__more-link"
+                    href={item.href}
+                    target={item.target}
+                    rel={item.rel}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    <Icon name={item.icon} aria-hidden="true" />
+                    <span>{item.label}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </details>
+      </li>
+    )
+  }
+  {
+    secondaryItems.map((item) => {
+      const isActive = isActiveItem(item.href);
+      return (
+        <li class="music-header-nav__item music-header-nav__item--secondary-mobile">
+          <a
+            class="music-header-nav__link"
+            href={item.href}
+            target={item.target}
+            rel={item.rel}
+            aria-current={isActive ? "page" : undefined}
+          >
+            <Icon name={item.icon} class="music-header-nav__icon" aria-hidden="true" />
             <span>{item.label}</span>
             <Icon
               name="chevron-right"
@@ -164,15 +220,89 @@ const isActiveItem = (href: string) => {
     outline-offset: var(--focus-ring-offset);
   }
 
-  @media (width >= 1024px) {
-    .music-header-nav__item--secondary {
-      padding-inline-start: var(--spacing-xs);
-      border-inline-start: 1px solid var(--border-default);
-    }
+  .music-header-nav__item--more {
+    position: relative;
+  }
 
-    .music-header-nav__item--secondary .music-header-nav__link {
-      font-size: var(--font-size-sm);
-      color: var(--text-tertiary);
+  .music-header-nav__more-toggle {
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: center;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-xs);
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-secondary);
+    cursor: pointer;
+    list-style: none;
+    border-radius: var(--radius-sm);
+  }
+
+  .music-header-nav__more-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .music-header-nav__more-toggle svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .music-header-nav__more-toggle:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .music-header-nav__more-list {
+    position: absolute;
+    inset-block-start: calc(100% + var(--spacing-xs));
+    inset-inline-end: 0;
+    z-index: 20;
+    display: grid;
+    min-inline-size: 12rem;
+    padding: var(--spacing-xs);
+    margin: 0;
+    list-style: none;
+    background: var(--surface-1);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .music-header-nav__more-link {
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+
+  .music-header-nav__more-link svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .music-header-nav__more[open] .music-header-nav__more-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  .music-header-nav__more-link:hover,
+  .music-header-nav__more-link:focus-visible,
+  .music-header-nav__more-link[aria-current="page"] {
+    color: var(--link-hover);
+    background: var(--surface-2);
+  }
+
+  .music-header-nav__more-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: -2px;
+  }
+
+  @media (width >= 72rem) {
+    .music-header-nav__item--secondary-mobile {
+      display: none;
     }
   }
 
@@ -194,7 +324,7 @@ const isActiveItem = (href: string) => {
     display: none;
   }
 
-  @media (width <= 1023.98px) {
+  @media (width < 72rem) {
     .music-header-nav {
       display: grid;
       grid-template-columns: 100%;
@@ -208,6 +338,10 @@ const isActiveItem = (href: string) => {
       display: block;
       inline-size: 100%;
       min-inline-size: 0;
+    }
+
+    .music-header-nav__item--more {
+      display: none;
     }
 
     .music-header-nav__link {
@@ -297,6 +431,10 @@ const isActiveItem = (href: string) => {
       transition:
         opacity var(--motion-duration-fast) ease-out,
         transform var(--motion-duration-fast) ease-out;
+    }
+
+    .music-header-nav__more-toggle svg {
+      transition: transform var(--motion-duration-fast) ease-out;
     }
   }
 </style>

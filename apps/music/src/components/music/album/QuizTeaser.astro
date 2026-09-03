@@ -13,7 +13,6 @@ const titleId = "album-quiz-teaser-title";
 
 <section class="quiz-teaser" aria-labelledby={titleId}>
   <div class="quiz-teaser__copy">
-    <p class="quiz-teaser__eyebrow">MelodyMind Quiz</p>
     <h2 class="quiz-teaser__title" id={titleId}>{quizTitle}</h2>
     <p class="quiz-teaser__text">{copy}</p>
   </div>
@@ -42,16 +41,6 @@ const titleId = "album-quiz-teaser-title";
     min-inline-size: 0;
   }
 
-  .quiz-teaser__eyebrow {
-    margin: 0;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    line-height: 1.2;
-    color: var(--music-album-accent);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
-  }
-
   .quiz-teaser__title {
     margin: 0;
     font-size: clamp(var(--font-size-md), 1.5vw, var(--font-size-lg));
@@ -72,10 +61,12 @@ const titleId = "album-quiz-teaser-title";
   }
 
   .quiz-teaser__button {
+    box-sizing: border-box;
     display: inline-flex;
     gap: var(--spacing-xs);
     align-items: center;
     justify-content: center;
+    max-inline-size: 100%;
     min-block-size: var(--control-min-block-size);
     padding: var(--spacing-sm) var(--spacing-base);
     font-size: var(--font-size-sm);

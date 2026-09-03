@@ -146,7 +146,7 @@ const mobileExtraProps = {
       );
       const drawer = header.querySelector<HTMLElement>(".music-site-header__inner");
       const nav = header.querySelector<HTMLElement>("[data-music-menu-nav]");
-      const desktopQuery = window.matchMedia("(min-width: 1024px)");
+      const desktopQuery = window.matchMedia("(min-width: 1152px)");
       const focusableSelector =
         'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
       const inertedElements = new Map<HTMLElement, boolean>();
@@ -361,7 +361,7 @@ const mobileExtraProps = {
     outline-offset: var(--focus-ring-offset);
   }
 
-  @media (width <= 1023.98px) {
+  @media (width < 72rem) {
     .music-site-header {
       --music-menu-bg-start: var(--bg-primary);
       --music-menu-bg-end: var(--bg-secondary);
@@ -561,7 +561,7 @@ const mobileExtraProps = {
       transform: scale(0.96);
     }
 
-    @media (width <= 1023.98px) {
+    @media (width < 72rem) {
       .music-site-header:not([data-open="true"]) .music-site-header__nav {
         pointer-events: none;
       }

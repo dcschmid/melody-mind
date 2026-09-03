@@ -71,7 +71,7 @@ const iconSrc = variant === "generated" ? "/ai-generated-eu.svg" : "/ai-eu.svg";
 
   .ai-disclosure--compact {
     gap: 0.45rem;
-    min-block-size: 2rem;
+    min-block-size: var(--control-min-block-size);
     padding: 0.28rem 0.55rem 0.28rem 0.4rem;
     border-radius: var(--radius-base);
   }
@@ -82,7 +82,7 @@ const iconSrc = variant === "generated" ? "/ai-generated-eu.svg" : "/ai-eu.svg";
   }
 
   .ai-disclosure--compact .ai-disclosure__copy {
-    font-size: 0.72rem;
+    font-size: var(--font-size-meta);
   }
 
   @media (forced-colors: active) {

@@ -55,7 +55,7 @@ const ambientImage = featuredAlbum
             width={640}
             height={640}
             widths={[240, 360, 480, 640]}
-            sizes="(max-width: 760px) min(64vw, 15rem), min(34vw, 25rem)"
+            sizes="(max-width: 760px) min(48vw, 11rem), min(34vw, 25rem)"
             loading="eager"
             decoding="async"
             fetchpriority="high"
@@ -82,7 +82,7 @@ const ambientImage = featuredAlbum
           <AiDisclosure
             compact
             variant="generated"
-            label="AI-generated music and artwork"
+            label="Made with generative AI; directed and curated by Daniel."
             detailsHref="/about/#ai-transparency"
           />
           <div class="music-home-hero__actions">
@@ -268,6 +268,7 @@ const ambientImage = featuredAlbum
   }
 
   .music-home-hero__button {
+    box-sizing: border-box;
     display: inline-flex;
     gap: 0.5rem;
     align-items: center;
@@ -315,7 +316,7 @@ const ambientImage = featuredAlbum
 
     .music-home-hero__cover-link {
       justify-self: center;
-      inline-size: min(64vw, 15rem);
+      inline-size: min(48vw, 11rem);
     }
 
     .music-home-hero__ambient {
@@ -335,7 +336,11 @@ const ambientImage = featuredAlbum
 
     .music-home-hero__actions {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .music-home-hero__button {
+      inline-size: 100%;
     }
   }
 
