@@ -484,22 +484,6 @@ const articleSchema = {
     color: var(--oxide);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .story__backlink {
-      display: block;
-      inline-size: fit-content;
-      min-block-size: var(--control-size);
-      padding-block: var(--space-sm);
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--quiet-ink);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      transition: none;
-    }
-  }
-
   .story__backlink {
     display: block;
     inline-size: fit-content;
@@ -511,7 +495,6 @@ const articleSchema = {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     text-decoration: none;
-    transition: color 300ms var(--ease-out);
   }
 
   .story__backlink:hover,
@@ -560,20 +543,6 @@ const articleSchema = {
     color: var(--quiet-ink);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .story__related {
-      display: grid;
-      grid-template-columns: clamp(6.5rem, 18vw, 12rem) minmax(0, 1fr);
-      gap: var(--space-md) clamp(var(--space-md), 3vw, var(--space-xl));
-      align-items: center;
-      padding-block: var(--space-xl);
-      color: var(--paper-ink);
-      text-decoration: none;
-      border-block: 1px solid var(--line);
-      transition: none;
-    }
-  }
-
   .story__related {
     display: grid;
     grid-template-columns: clamp(6.5rem, 18vw, 12rem) minmax(0, 1fr);
@@ -583,7 +552,6 @@ const articleSchema = {
     color: var(--paper-ink);
     text-decoration: none;
     border-block: 1px solid var(--line);
-    transition: border-color 300ms var(--ease-out);
   }
 
   .story__related-image {
@@ -593,24 +561,11 @@ const articleSchema = {
     background: var(--desk-night);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .story__related-image :global(img) {
-      inline-size: 100%;
-      block-size: 100%;
-      object-fit: cover;
-      filter: saturate(0.86) contrast(1.04);
-      transition: none;
-    }
-  }
-
   .story__related-image :global(img) {
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
     filter: saturate(0.86) contrast(1.04);
-    transition:
-      filter 300ms var(--ease-out),
-      transform 500ms var(--ease-out);
   }
 
   .story__related-copy {
@@ -618,18 +573,9 @@ const articleSchema = {
     gap: var(--space-xs);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .story__related strong {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 4vw, 2.4rem);
-      transition: none;
-    }
-  }
-
   .story__related strong {
     font-family: var(--font-display);
     font-size: clamp(1.5rem, 4vw, 2.4rem);
-    transition: color 300ms var(--ease-out);
   }
 
   .story__related-copy span:last-child {
@@ -639,12 +585,6 @@ const articleSchema = {
   .story__related:hover,
   .story__related:focus-visible {
     border-block-color: color-mix(in oklch, var(--archive-teal) 55%, var(--line));
-  }
-
-  .story__related:hover .story__related-image :global(img),
-  .story__related:focus-visible .story__related-image :global(img) {
-    filter: saturate(1) contrast(1);
-    transform: scale(1.02);
   }
 
   .story__related:hover strong,
@@ -675,12 +615,17 @@ const articleSchema = {
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .story__backlink,
-    .story__related,
-    .story__related-image :global(img),
+  @media (prefers-reduced-motion: no-preference) {
+    .story__backlink {
+      transition: color 300ms var(--ease-out);
+    }
+
+    .story__related {
+      transition: border-color 300ms var(--ease-out);
+    }
+
     .story__related strong {
-      transition: none;
+      transition: color 300ms var(--ease-out);
     }
   }
 </style>

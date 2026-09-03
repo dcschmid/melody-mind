@@ -493,7 +493,6 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
     color: var(--paper-ink);
     text-decoration: none;
     border-block-start: 1px solid var(--line);
-    transition: border-color 300ms var(--ease-out);
   }
 
   .story-card a::before {
@@ -505,7 +504,6 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
     line-height: 1;
     color: color-mix(in oklch, var(--oxide) 68%, transparent);
     content: counter(story-index, decimal-leading-zero);
-    transition: color 300ms var(--ease-out);
   }
 
   .story-card a:hover,
@@ -534,9 +532,6 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
     block-size: 100%;
     object-fit: cover;
     filter: saturate(0.86) contrast(1.04);
-    transition:
-      filter 300ms var(--ease-out),
-      transform 500ms var(--ease-out);
   }
 
   .story-card__copy {
@@ -550,7 +545,6 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
     max-inline-size: 17ch;
     font-size: clamp(1.7rem, 3.6vw, 2.8rem);
     letter-spacing: -0.025em;
-    transition: color 300ms var(--ease-out);
   }
 
   .story-card__dek {
@@ -565,12 +559,6 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
     min-block-size: var(--control-size);
     font-weight: 700;
     color: var(--archive-teal-strong);
-  }
-
-  .story-card a:hover .story-card__image :global(img),
-  .story-card a:focus-visible .story-card__image :global(img) {
-    filter: saturate(1) contrast(1);
-    transform: scale(1.02);
   }
 
   .story-card a:hover h2,
@@ -641,21 +629,17 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: no-preference) {
     .story-card a {
-      transition: none;
+      transition: border-color 300ms var(--ease-out);
     }
 
     .story-card a::before {
-      transition: none;
-    }
-
-    .story-card__image :global(img) {
-      transition: none;
+      transition: color 300ms var(--ease-out);
     }
 
     .story-card h2 {
-      transition: none;
+      transition: color 300ms var(--ease-out);
     }
   }
 

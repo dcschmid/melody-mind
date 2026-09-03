@@ -144,7 +144,7 @@ const collectionSchema = {
   {
     isFirstPage && (
       <aside class="home-note reading-shell">
-        <p class="eyebrow">How we work</p>
+        <p class="kicker">How we work</p>
         <p>
           MelodyMind Stories publishes in English, documents every image, and names the
           sources behind each article. Research and drafting use AI assistance; editorial
@@ -192,7 +192,7 @@ const collectionSchema = {
     letter-spacing: -0.05em;
   }
 
-  .home-hero__copy > p:not(.eyebrow) {
+  .home-hero__copy h1 + p {
     max-inline-size: 54ch;
     font-size: clamp(1.12rem, 2vw, 1.4rem);
     color: var(--quiet-ink);
@@ -204,24 +204,6 @@ const collectionSchema = {
     font-size: 0.78rem;
     line-height: 1.45;
     color: var(--quiet-ink);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .home-hero__cta {
-      display: inline-flex;
-      gap: var(--space-sm);
-      align-items: center;
-      justify-self: start;
-      inline-size: fit-content;
-      min-block-size: var(--control-size);
-      padding: 0.65rem 1.4rem;
-      font-weight: 700;
-      color: var(--paper-ink);
-      text-decoration: none;
-      border: 1px solid color-mix(in oklch, var(--archive-teal) 40%, var(--line));
-      border-radius: 999px;
-      transition: none;
-    }
   }
 
   .home-hero__cta {
@@ -237,19 +219,18 @@ const collectionSchema = {
     text-decoration: none;
     border: 1px solid color-mix(in oklch, var(--archive-teal) 40%, var(--line));
     border-radius: 999px;
-    transition:
-      color 300ms var(--ease-out),
-      border-color 300ms var(--ease-out);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .home-hero__cta span {
-      transition: none;
+  @media (prefers-reduced-motion: no-preference) {
+    .home-hero__cta {
+      transition:
+        color 300ms var(--ease-out),
+        border-color 300ms var(--ease-out);
     }
-  }
 
-  .home-hero__cta span {
-    transition: transform 300ms var(--ease-out);
+    .home-hero__cta span {
+      transition: transform 300ms var(--ease-out);
+    }
   }
 
   .home-hero__cta:hover,
@@ -261,6 +242,18 @@ const collectionSchema = {
   .home-hero__cta:hover span,
   .home-hero__cta:focus-visible span {
     transform: translateX(0.3rem);
+  }
+
+  .home-note {
+    display: grid;
+    gap: var(--space-lg);
+    padding-block: var(--space-3xl);
+  }
+
+  .home-note .kicker + p {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    line-height: 1.45;
   }
 
   .archive {
@@ -288,18 +281,6 @@ const collectionSchema = {
     color: var(--quiet-ink);
   }
 
-  .home-note {
-    display: grid;
-    gap: var(--space-lg);
-    padding-block: var(--space-3xl);
-  }
-
-  .home-note > p:not(.eyebrow) {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3vw, 2.4rem);
-    line-height: 1.45;
-  }
-
   @media (width >= 64rem) {
     .home-hero {
       grid-template-rows: 1fr auto;
@@ -320,13 +301,6 @@ const collectionSchema = {
 
     .home-hero__copy h1 {
       font-size: clamp(4.4rem, 5.8vw, 5.35rem);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .home-hero__cta,
-    .home-hero__cta span {
-      transition: none;
     }
   }
 

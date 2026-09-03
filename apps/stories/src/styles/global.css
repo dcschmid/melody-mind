@@ -151,6 +151,12 @@ ol {
   text-transform: uppercase;
 }
 
+.kicker {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--quiet-ink);
+}
+
 .skip-link {
   position: fixed;
   inset-block-start: var(--space-sm);
