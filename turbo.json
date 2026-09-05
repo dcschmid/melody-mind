@@ -1,9 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [".env.example", "scripts/**"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/scripts/**"],
       "outputs": ["dist/**", ".astro/**"],
       "passThroughEnv": ["NODE_OPTIONS"],
       "env": ["GOOGLE_SITE_VERIFICATION", "PUBLIC_EMBED_ORIGIN"]
@@ -23,18 +23,19 @@
       "outputLogs": "new-only"
     },
     "lint": {
-      "inputs": ["src/**"],
+      "cache": false,
       "outputLogs": "new-only"
     },
     "lint:check": {
-      "inputs": ["src/**"],
+      "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/eslint.config.mjs", "$TURBO_ROOT$/stylelint.config.cjs"],
       "outputLogs": "new-only"
     },
     "format": {
       "cache": false
     },
     "format:check": {
-      "cache": false
+      "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/prettier.config.cjs"],
+      "outputLogs": "new-only"
     },
     "clean": {
       "cache": false,

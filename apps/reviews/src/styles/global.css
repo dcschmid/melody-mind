@@ -9,8 +9,8 @@
   --lifted-night: oklch(21% 0.032 250deg);
   --paper-ink: oklch(95.5% 0.014 82deg);
   --quiet-ink: oklch(77% 0.024 246deg);
-  --signal: oklch(76% 0.14 55deg);
-  --signal-strong: oklch(84% 0.12 61deg);
+  --signal: oklch(80% 0.115 180deg);
+  --signal-strong: oklch(84% 0.1 180deg);
   --line: oklch(38% 0.031 250deg);
   --line-soft: oklch(28% 0.028 250deg);
   --focus: oklch(84% 0.11 181deg);

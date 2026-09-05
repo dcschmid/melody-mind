@@ -137,7 +137,7 @@ export default defineConfig({
     }),
   ],
   build: {
-    inlineStylesheets: "always",
+    inlineStylesheets: "auto",
     assets: "assets",
     format: "directory",
   },

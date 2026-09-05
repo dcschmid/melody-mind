@@ -7,6 +7,7 @@ services:
   - type: web
     name: melody-mind-music
     runtime: static
+    autoDeployTrigger: checksPass
     buildCommand: pnpm install && pnpm build
     staticPublishPath: apps/music/dist
     buildFilter:
@@ -58,6 +59,7 @@ services:
   - type: web
     name: melody-mind-embed
     runtime: static
+    autoDeployTrigger: checksPass
     buildCommand: pnpm install && pnpm build:embed
     staticPublishPath: apps/music/dist-embed
     domains:
@@ -97,6 +99,7 @@ services:
   - type: web
     name: melody-mind-quiz
     runtime: static
+    autoDeployTrigger: checksPass
     buildCommand: pnpm install && pnpm build:quiz
     staticPublishPath: apps/quiz/dist
     buildFilter:
@@ -137,6 +140,7 @@ services:
   - type: web
     name: melody-mind-stories
     runtime: static
+    autoDeployTrigger: checksPass
     buildCommand: pnpm install && pnpm build:stories
     staticPublishPath: apps/stories/dist
     domains:
@@ -182,6 +186,7 @@ services:
   - type: web
     name: melody-mind-reviews
     runtime: static
+    autoDeployTrigger: checksPass
     buildCommand: pnpm install && pnpm build:reviews
     staticPublishPath: apps/reviews/dist
     domains:
