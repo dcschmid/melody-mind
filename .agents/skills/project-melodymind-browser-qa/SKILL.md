@@ -1,5 +1,5 @@
 ---
-name: melodymind-browser-qa
+name: project-melodymind-browser-qa
 description: Verify MelodyMind frontend changes in a real browser. Use for localhost UI validation, route and interaction testing, responsive checks, accessibility behavior, no-JavaScript fallbacks, browser regressions, or evidence after changing the Music, Quiz, Stories, Reviews, or Embed interfaces.
 ---
 

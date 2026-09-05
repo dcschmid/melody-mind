@@ -1,5 +1,5 @@
 ---
-name: fact-checker
+name: project-fact-checker
 description: Verify individual claims, pasted text, complete articles, and web pages or URLs using available research tools. Use when the user asks to fact-check, verify, assess accuracy or source credibility, identify misinformation or outdated claims, correct factual errors, or distinguish facts from opinions, forecasts, and unverifiable statements.
 ---
 

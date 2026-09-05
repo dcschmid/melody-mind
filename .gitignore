@@ -4,6 +4,34 @@ dist-embed/
 .output/
 .astro/
 
+ # local agent/tooling state (machine-local)
+.omp/
+.claude/skills/
+.frontend-ai-managed-skill-links.json
+.frontend-ai-profile.json
+
+ # locally linked agent skills (machine-local symlinks)
+.agents/skills/anti-ui-slop
+.agents/skills/core-accessibility-audit
+.agents/skills/core-api-contract
+.agents/skills/core-astro
+.agents/skills/core-astro-content
+.agents/skills/core-astro-migration
+.agents/skills/core-astro-ui-review
+.agents/skills/core-avoid-overengineering
+.agents/skills/core-dependency-hygiene
+.agents/skills/core-frontend
+.agents/skills/core-migration-safety
+.agents/skills/core-performance-budget
+.agents/skills/core-project-memory
+.agents/skills/core-skill-quality
+.agents/skills/core-test-gap
+.agents/skills/core-web-research-efficient
+.agents/skills/impeccable
+.agents/skills/private-anti-ui-slop-adapter
+.agents/skills/private-editorial-naturalness
+.agents/skills/private-project-health-audit
+
 # generated social images (scripts/generate-social-images.mjs)
 apps/music/public/og/
 apps/quiz/public/og/
