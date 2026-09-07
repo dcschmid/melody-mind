@@ -40,6 +40,12 @@ interface MusicAlbumListSchemaOptions {
   name?: string;
   site: string | URL | undefined;
   getCoverImageUrl: (coverImage: string) => string;
+  /** Display order of the list as rendered on the page (default: descending). */
+  itemListOrder?: "ascending" | "descending";
+  /** Zero-based offset of the first item's global position (paginated lists). */
+  positionOffset?: number;
+  /** Total items in the full collection when only a page is listed. */
+  numberOfItems?: number;
 }
 
 const siteUrlFromCanonical = (canonical: string): string => new URL(canonical).origin;
@@ -172,6 +178,9 @@ export function buildMusicAlbumListSchema({
   name = "MelodyMind Music albums",
   site,
   getCoverImageUrl,
+  itemListOrder = "descending",
+  positionOffset = 0,
+  numberOfItems,
 }: MusicAlbumListSchemaOptions): Record<string, unknown> {
   const siteUrl = siteUrlFromCanonical(canonical);
   const artistId = `${siteUrl}#artist`;
@@ -182,15 +191,18 @@ export function buildMusicAlbumListSchema({
     "@id": `${canonical}#album-list`,
     name,
     description,
-    numberOfItems: albums.length,
-    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: numberOfItems ?? albums.length,
+    itemListOrder:
+      itemListOrder === "ascending"
+        ? "https://schema.org/ItemListOrderAscending"
+        : "https://schema.org/ItemListOrderDescending",
     itemListElement: albums.map((album, index) => {
       const albumUrl = resolvePageUrl(site, `/${album.id}/`);
       const coverImageUrl = getCoverImageUrl(album.coverImage);
 
       return {
         "@type": "ListItem",
-        position: index + 1,
+        position: positionOffset + index + 1,
         url: albumUrl,
         item: {
           "@type": "MusicAlbum",

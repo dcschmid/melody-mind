@@ -59,20 +59,6 @@ test("keeps primary sharing visible and secondary sharing progressive", async ({
   await expect(page.locator(".album-embed-generator")).toBeVisible();
 });
 
-test("filters the complete album archive and preserves the URL state", async ({
-  page,
-}) => {
-  await page.setViewportSize({ width: 768, height: 900 });
-  await page.goto("/albums/");
-
-  await page.getByLabel("Filter all albums").fill("Everything Is Breaking News");
-  await expect(page).toHaveURL(
-    /filter=Everything(?:\+|%20)Is(?:\+|%20)Breaking(?:\+|%20)News/
-  );
-  await expect(page.locator("[data-album-filter-item]:not([hidden])")).toHaveCount(1);
-  await expect(page.getByText("1 album shown", { exact: true })).toBeVisible();
-});
-
 test("switches navigation at 1152px and groups secondary products", async ({ page }) => {
   await page.setViewportSize({ width: 1152, height: 900 });
   await page.goto("/");

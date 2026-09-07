@@ -143,4 +143,29 @@ describe("buildMusicAlbumListSchema", () => {
     expect(firstItem.image).toBe("https://melody-mind.de/covers/alpha.webp");
     expect(firstItem.datePublished).toBe("2026-02-01T00:00:00.000Z");
   });
+
+  it("builds an ascending paginated ItemList with global positions and full total", () => {
+    const albums = [
+      makeAlbum({ id: "gamma", title: "Gamma" }),
+      makeAlbum({ id: "delta", title: "Delta" }),
+    ];
+
+    const schema = buildMusicAlbumListSchema({
+      albums,
+      canonical: "https://melody-mind.de/albums/page/2/",
+      description: "Page 2 of the album archive.",
+      site: "https://melody-mind.de",
+      getCoverImageUrl: (coverImage) => `https://melody-mind.de/covers/${coverImage}`,
+      itemListOrder: "ascending",
+      positionOffset: 24,
+      numberOfItems: 132,
+    }) as Record<string, unknown>;
+
+    expect(schema.numberOfItems).toBe(132);
+    expect(schema.itemListOrder).toBe("https://schema.org/ItemListOrderAscending");
+
+    const items = schema.itemListElement as Array<Record<string, unknown>>;
+    expect(items.map((item) => item.position)).toEqual([25, 26]);
+    expect(items[0]?.url).toBe("https://melody-mind.de/gamma/");
+  });
 });

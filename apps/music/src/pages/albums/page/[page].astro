@@ -1,0 +1,33 @@
+---
+import type { GetStaticPaths } from "astro";
+import AlbumArchive from "@components/music/discovery/AlbumArchive.astro";
+import {
+  ALBUM_ARCHIVE_PAGE_SIZE,
+  formatAlbumArchivePageUrl,
+  getAlbumArchiveItems,
+} from "../../../utils/albumArchive";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const items = await getAlbumArchiveItems();
+  return paginate(items, {
+    pageSize: ALBUM_ARCHIVE_PAGE_SIZE,
+    format: formatAlbumArchivePageUrl,
+  }).slice(1);
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const paginationUrls = {
+  ...(page.url.prev ? { prevUrl: page.url.prev } : {}),
+  ...(page.url.next ? { nextUrl: page.url.next } : {}),
+};
+---
+
+<AlbumArchive
+  items={page.data}
+  currentPage={page.currentPage}
+  lastPage={page.lastPage}
+  start={page.start + 1}
+  end={page.end + 1}
+  total={page.total}
+  {...paginationUrls}
+/>

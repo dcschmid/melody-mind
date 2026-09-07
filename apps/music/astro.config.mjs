@@ -10,6 +10,7 @@ import { getNewestSitemapDate, readSitemapMeta } from "../../scripts/sitemap-dat
 const SITE_URL = "https://melody-mind.de";
 const SITEMAP_EXCLUDED_PATHS = new Set([
   "/404/",
+  "/album-search-index.json",
   "/categories/",
   "/drive/",
   "/taxonomy/",
@@ -124,6 +125,14 @@ export default defineConfig({
         } else {
           item.priority = 0.8;
           item.changefreq = "monthly";
+        }
+        // The paginated album archive changes whenever a new album ships.
+        if (
+          (pathname === "/albums/" || pathname.startsWith("/albums/page/")) &&
+          newestAlbumDate
+        ) {
+          item.lastmod = newestAlbumDate;
+          item.changefreq = "weekly";
         }
         return item;
       },

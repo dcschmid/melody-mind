@@ -1,0 +1,617 @@
+---
+import ContentCard from "@components/cards/ContentCard.astro";
+import Icon from "@components/visual/Icon.astro";
+import { buildCollectionPageSchema } from "@utils/seo/seoSchema";
+import { resolvePageUrl } from "@utils/siteUrls";
+
+import Layout from "../../../layouts/Layout.astro";
+import {
+  ALBUM_ARCHIVE_PAGE_SIZE,
+  getAlbumArchivePageHref,
+  type AlbumArchiveItem,
+} from "../../../utils/albumArchive";
+import {
+  getAlbumCoverImageUrl,
+  musicDefaultSocialImageUrl,
+} from "../../../utils/musicImages";
+import { buildMusicAlbumListSchema } from "../../../utils/musicSeo";
+
+interface Props {
+  items: AlbumArchiveItem[];
+  currentPage: number;
+  lastPage: number;
+  start: number;
+  end: number;
+  total: number;
+  prevUrl?: string;
+  nextUrl?: string;
+}
+
+const { items, currentPage, lastPage, start, end, total, prevUrl, nextUrl } =
+  Astro.props as Props;
+const isFirstPage = currentPage === 1;
+const title = isFirstPage
+  ? "All Albums | MelodyMind Music"
+  : `All Albums — Page ${currentPage} | MelodyMind Music`;
+const description = isFirstPage
+  ? "Browse every MelodyMind concept album in one alphabetical archive, with instant filtering by title, genre, mood, or album series."
+  : `Page ${currentPage} of the alphabetical MelodyMind album archive, showing albums ${start}–${end} of ${total}.`;
+const canonical = resolvePageUrl(Astro.site, getAlbumArchivePageHref(currentPage));
+const pageImage = items[0] ? `/og/${items[0].album.id}.webp` : musicDefaultSocialImageUrl;
+const albumArchiveUrl = resolvePageUrl(Astro.site, "/albums/");
+const breadcrumbs = isFirstPage
+  ? [
+      { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+      { name: "Albums", url: albumArchiveUrl },
+    ]
+  : [
+      { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+      { name: "Albums", url: albumArchiveUrl },
+      { name: `Page ${currentPage}`, url: canonical },
+    ];
+const structuredData = [
+  buildCollectionPageSchema({
+    url: canonical,
+    name: isFirstPage ? "All Albums" : `All Albums — Page ${currentPage}`,
+    description,
+    lang: "en",
+    image: pageImage,
+    mainEntityId: `${canonical}#album-list`,
+  }),
+  buildMusicAlbumListSchema({
+    albums: items.map((item) => item.album),
+    canonical,
+    description,
+    name: "All MelodyMind albums",
+    site: Astro.site,
+    getCoverImageUrl: getAlbumCoverImageUrl,
+    itemListOrder: "ascending",
+    positionOffset: start - 1,
+    numberOfItems: total,
+  }),
+];
+const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
+const GRID_COVER_IMAGE_SIZES =
+  "(max-width: 520px) calc(100vw - 2rem), (max-width: 760px) 44vw, (max-width: 1180px) 28vw, min(18rem, calc((100vw - 10rem) / 4))";
+---
+
+<Layout
+  {title}
+  {description}
+  keywords={["MelodyMind albums", "AI-assisted music", "concept albums", "album archive"]}
+  type="website"
+  image={pageImage}
+  imageWidth={1200}
+  imageHeight={630}
+  imageType="image/webp"
+  language="en"
+  locale="en-US"
+  {canonical}
+  {breadcrumbs}
+  {structuredData}
+>
+  <main
+    class="album-archive"
+    aria-labelledby="album-archive-title"
+    data-album-archive
+    data-album-page-size={ALBUM_ARCHIVE_PAGE_SIZE}
+  >
+    <header class="album-archive__header">
+      <a class="album-archive__back" href="/">
+        <Icon name="arrow-left" aria-hidden="true" />
+        <span>Home</span>
+      </a>
+      <h1 id="album-archive-title" class="album-archive__title">All albums</h1>
+      <p class="album-archive__intro">{description}</p>
+      <p class="album-archive__count">
+        <Icon name="disc" aria-hidden="true" />
+        {`${total} ${total === 1 ? "album" : "albums"}, A–Z`}
+      </p>
+      {
+        !isFirstPage && (
+          <p class="album-archive__position" data-album-archive-position>
+            Archive page {currentPage} of {lastPage} · Albums {start}–{end}
+          </p>
+        )
+      }
+    </header>
+
+    <section class="album-archive__directory" aria-label="Album directory">
+      <div class="album-archive__search" data-album-archive-controls hidden>
+        <form class="album-archive__search-form" role="search" data-album-search-form>
+          <label for="album-archive-filter">Filter all albums</label>
+          <div class="album-archive__search-row">
+            <input
+              id="album-archive-filter"
+              type="search"
+              name="filter"
+              placeholder="Title, genre, mood, or series"
+              autocomplete="off"
+              data-album-search-input
+            />
+            <button type="submit">Search</button>
+            <button
+              type="button"
+              class="album-archive__clear"
+              data-album-search-clear
+              hidden
+            >
+              Clear
+            </button>
+          </div>
+        </form>
+        <p
+          class="album-archive__search-status"
+          role="status"
+          aria-atomic="true"
+          aria-live="polite"
+          data-album-search-status
+        >
+          Search across all {total} albums.
+        </p>
+      </div>
+
+      <ul
+        class="album-archive__grid"
+        id="album-list"
+        aria-label="All MelodyMind albums"
+        data-album-archive-grid
+      >
+        {
+          items.map((item) => (
+            <li class="album-archive__item" data-album-archive-item>
+              <ContentCard
+                id={`album-archive-card-${item.album.id}`}
+                class="album-archive__card"
+                href={`/${item.album.id}/`}
+                dataTestId="album-archive-card"
+                variant="default"
+                size="compact"
+                mediaAspectRatio="1 / 1"
+                mediaObjectFit="cover"
+                imageSrc={item.imageSrc}
+                imageAlt={`Cover art for the album ${item.title}`}
+                imageWidth={640}
+                imageHeight={640}
+                imageSizes={GRID_COVER_IMAGE_SIZES}
+                imageWidths={[240, 360, 480, 640]}
+                imageFormats={["avif"]}
+                title={item.title}
+                titleLevel="h2"
+                description={item.description}
+                metaItems={[
+                  ...(item.genre
+                    ? [{ iconName: "disc" as const, label: item.genre }]
+                    : []),
+                  { iconName: "music" as const, label: `${item.trackCount} tracks` },
+                  ...(item.seriesTitles[0]
+                    ? [{ iconName: "book-open" as const, label: item.seriesTitles[0] }]
+                    : []),
+                ]}
+                ctaSrText={`Open album ${item.title}`}
+              />
+            </li>
+          ))
+        }
+      </ul>
+
+      <ol
+        class="album-archive__results"
+        aria-label="Matching albums"
+        data-album-search-results
+        hidden
+      >
+      </ol>
+      <nav
+        class="album-archive__result-pages"
+        aria-label="Filtered album result pages"
+        data-album-search-result-pages
+        hidden
+      >
+        <button type="button" data-album-search-previous>Previous</button>
+        <span data-album-search-result-page></span>
+        <button type="button" data-album-search-next>Next</button>
+      </nav>
+
+      <template data-album-search-result-template>
+        <li class="album-search-result" data-album-search-result>
+          <a
+            class="album-search-result__image-link"
+            href="/"
+            data-album-search-result-link
+          >
+            <img
+              alt=""
+              width="160"
+              height="160"
+              loading="lazy"
+              decoding="async"
+              data-album-search-result-image
+            />
+          </a>
+          <div class="album-search-result__body">
+            <h2><a href="/" data-album-search-result-title>Album title</a></h2>
+            <p data-album-search-result-description></p>
+            <p class="album-search-result__meta">
+              <span data-album-search-result-genre></span>
+              <span data-album-search-result-tracks></span>
+              <span data-album-search-result-series></span>
+            </p>
+          </div>
+        </li>
+      </template>
+
+      <div class="album-archive__pagination" data-album-archive-pagination>
+        <p>Showing {start}–{end} of {total}</p>
+        {
+          lastPage > 1 && (
+            <nav aria-label="Album archive pages">
+              {prevUrl ? (
+                <a class="album-archive__direction" href={prevUrl}>
+                  Previous
+                </a>
+              ) : (
+                <span
+                  class="album-archive__direction album-archive__direction--inactive"
+                  aria-hidden="true"
+                >
+                  Previous
+                </span>
+              )}
+              <ol>
+                {pages.map((page) => (
+                  <li>
+                    {page === currentPage ? (
+                      <span aria-current="page">{page}</span>
+                    ) : (
+                      <a
+                        href={getAlbumArchivePageHref(page)}
+                        aria-label={`Album archive page ${page}`}
+                      >
+                        {page}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ol>
+              {nextUrl ? (
+                <a class="album-archive__direction" href={nextUrl}>
+                  Next
+                </a>
+              ) : (
+                <span
+                  class="album-archive__direction album-archive__direction--inactive"
+                  aria-hidden="true"
+                >
+                  Next
+                </span>
+              )}
+            </nav>
+          )
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  import "../../../scripts/music/album-archive";
+</script>
+
+<style>
+  .album-archive {
+    --album-archive-ink: var(--text-primary);
+    --album-archive-muted: var(--text-secondary);
+    --album-archive-line: var(--border-default);
+
+    display: grid;
+    gap: clamp(2rem, 4vw, 4rem);
+    inline-size: 100%;
+    padding-block: clamp(2rem, 5vw, 5rem);
+  }
+
+  .album-archive__header {
+    display: grid;
+    gap: clamp(0.8rem, 1.5vw, 1.25rem);
+    max-inline-size: 72ch;
+    padding-block-end: clamp(1.5rem, 3vw, 2.5rem);
+    border-block-end: 1px solid var(--album-archive-line);
+  }
+
+  .album-archive__back {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-xs);
+    margin-inline-start: calc(-1 * var(--spacing-xs));
+    font-weight: var(--font-weight-bold);
+    color: var(--album-archive-muted);
+    text-decoration: none;
+    border-radius: var(--radius-base);
+  }
+
+  .album-archive__back:hover,
+  .album-archive__back:focus-visible {
+    color: var(--accent-primary);
+  }
+
+  .album-archive__back :global(svg),
+  .album-archive__count :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .album-archive__title {
+    max-inline-size: 16ch;
+    margin: 0;
+    font-size: clamp(2.4rem, 1.9rem + 2.4vw, 4.25rem);
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .album-archive__intro {
+    max-inline-size: 66ch;
+    margin: 0;
+    font-size: var(--font-size-md);
+    line-height: 1.62;
+    color: var(--album-archive-muted);
+    text-wrap: pretty;
+  }
+
+  .album-archive__count {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    inline-size: fit-content;
+    margin: 0;
+    font-weight: var(--font-weight-bold);
+  }
+
+  .album-archive__count :global(svg) {
+    color: var(--accent-primary);
+  }
+
+  .album-archive__position {
+    margin: 0;
+    color: var(--album-archive-muted);
+  }
+
+  .album-archive__directory {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .album-archive__search {
+    display: grid;
+    gap: var(--spacing-sm);
+    max-inline-size: 52rem;
+  }
+
+  .album-archive__search-form,
+  .album-archive__search-form label {
+    display: grid;
+    gap: var(--spacing-xs);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .album-archive__search-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .album-archive__search-row input {
+    flex: 1 1 18rem;
+    min-inline-size: 0;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-md);
+    color: var(--text-primary);
+    background: var(--surface-raised);
+    border: 1px solid var(--album-archive-line);
+    border-radius: var(--radius-base);
+  }
+
+  .album-archive__search-row button,
+  .album-archive__result-pages button {
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+    color: var(--button-text-accent);
+    cursor: pointer;
+    background: var(--accent-primary);
+    border: 0;
+    border-radius: var(--radius-base);
+  }
+
+  .album-archive__search-row button:disabled,
+  .album-archive__result-pages button:disabled {
+    cursor: default;
+    opacity: 0.55;
+  }
+
+  .album-archive__clear {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+    border: 1px solid var(--album-archive-line) !important;
+  }
+
+  .album-archive__search-status {
+    min-block-size: 1.5rem;
+    margin: 0;
+    color: var(--album-archive-muted);
+  }
+
+  .album-archive__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1rem, 1.6vw, 1.4rem);
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .album-archive__item {
+    display: grid;
+    min-inline-size: 0;
+    contain-intrinsic-size: auto 26rem;
+    content-visibility: auto;
+  }
+
+  .album-archive__card {
+    block-size: 100%;
+  }
+
+  .album-archive__results {
+    display: grid;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-block-start: 1px solid var(--album-archive-line);
+  }
+
+  .album-search-result {
+    display: grid;
+    grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr);
+    gap: clamp(1rem, 2vw, 1.75rem);
+    padding-block: clamp(1rem, 2vw, 1.5rem);
+    border-block-end: 1px solid var(--album-archive-line);
+  }
+
+  .album-search-result__image-link,
+  .album-search-result__image-link img {
+    display: block;
+    inline-size: 100%;
+    aspect-ratio: 1;
+  }
+
+  .album-search-result__image-link img {
+    object-fit: cover;
+    border-radius: var(--radius-base);
+  }
+
+  .album-search-result__body {
+    display: grid;
+    gap: var(--spacing-sm);
+    align-content: center;
+  }
+
+  .album-search-result__body h2,
+  .album-search-result__body p {
+    margin: 0;
+  }
+
+  .album-search-result__body h2 {
+    font-size: clamp(1.2rem, 1rem + 0.7vw, 1.65rem);
+  }
+
+  .album-search-result__body h2 a {
+    color: var(--album-archive-ink);
+    text-decoration-color: var(--accent-primary);
+    text-underline-offset: 0.2em;
+  }
+
+  .album-search-result__body > p {
+    color: var(--album-archive-muted);
+  }
+
+  .album-search-result__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+
+  .album-search-result__meta span[hidden] {
+    display: none;
+  }
+
+  .album-archive__result-pages,
+  .album-archive__pagination nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .album-archive__pagination {
+    display: grid;
+    gap: var(--spacing-md);
+    padding-block-start: var(--spacing-md);
+    border-block-start: 1px solid var(--album-archive-line);
+  }
+
+  .album-archive__pagination > p {
+    margin: 0;
+    color: var(--album-archive-muted);
+    text-align: center;
+  }
+
+  .album-archive__pagination ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .album-archive__pagination nav a,
+  .album-archive__pagination ol span,
+  .album-archive__direction {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: var(--control-min-block-size);
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--album-archive-ink);
+    text-decoration: none;
+    border: 1px solid var(--album-archive-line);
+    border-radius: var(--radius-base);
+  }
+
+  .album-archive__pagination nav a:hover,
+  .album-archive__pagination nav a:focus-visible {
+    color: var(--accent-primary);
+  }
+
+  .album-archive__pagination ol span[aria-current="page"] {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+
+  .album-archive__direction--inactive {
+    opacity: 0.45;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  @media (width <= 760px) {
+    .album-archive {
+      padding-inline: 0;
+    }
+
+    .album-archive__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width <= 520px) {
+    .album-archive__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .album-search-result {
+      grid-template-columns: 5.5rem minmax(0, 1fr);
+    }
+  }
+</style>
