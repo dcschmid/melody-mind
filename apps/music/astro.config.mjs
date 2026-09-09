@@ -12,14 +12,12 @@ const SITEMAP_EXCLUDED_PATHS = new Set([
   "/404/",
   "/album-search-index.json",
   "/categories/",
-  "/drive/",
   "/taxonomy/",
-  "/visuals/",
 ]);
 // Noindex pages don't belong in the sitemap — listing them sends
 // contradictory crawl signals.
 const SITEMAP_LEGAL_PATHS = new Set(["/cookies/", "/imprint/", "/privacy/"]);
-const SITEMAP_NOINDEX_PREFIXES = ["/embed/", "/visuals-data/"];
+const SITEMAP_NOINDEX_PREFIXES = ["/embed/"];
 const albumMetaByPath = readSitemapMeta({
   contentDirectory: new URL("./src/content/albums/", import.meta.url),
   extensions: [".mdx"],

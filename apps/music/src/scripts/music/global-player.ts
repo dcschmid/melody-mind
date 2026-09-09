@@ -312,7 +312,6 @@ const initGlobalPlayer = (): void => {
   const mute = root.querySelector<HTMLButtonElement>(
     '[data-global-player-action="mute"]'
   );
-  const driveLink = root.querySelector<HTMLAnchorElement>("[data-global-player-drive]");
   const controller = new AbortController();
   const { signal } = controller;
   const playerResizeObserver =
@@ -1147,15 +1146,6 @@ const initGlobalPlayer = (): void => {
         { signal }
       );
     });
-  driveLink?.addEventListener(
-    "click",
-    () => {
-      if (state.queue && !state.isPlaying && !state.seriesIntermission) {
-        handleCommand({ action: "play" });
-      }
-    },
-    { signal }
-  );
   progress?.addEventListener(
     "input",
     () => handleCommand({ action: "seek", value: Number(progress.value) }),

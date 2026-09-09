@@ -101,10 +101,6 @@ const bindPlayer = (player: HTMLElement): void => {
   const currentTitle = player.querySelector<HTMLElement>("[data-current-track-title]");
   const status = player.querySelector<HTMLElement>("[data-playlist-status]");
   const volume = player.querySelector<HTMLButtonElement>('[data-action="volume"]');
-  const visualsLink = player.querySelector<HTMLAnchorElement>(
-    "[data-open-album-visuals]"
-  );
-  const driveLink = player.querySelector<HTMLAnchorElement>("[data-open-album-drive]");
   const trackItems = Array.from(
     player.querySelectorAll<HTMLElement>("[data-track-index]")
   );
@@ -274,28 +270,6 @@ const bindPlayer = (player: HTMLElement): void => {
   volume?.addEventListener("click", () => loadOrCommand({ action: "mute" }), {
     signal,
   });
-  visualsLink?.addEventListener(
-    "click",
-    () => {
-      if (!isThisAlbum(latestState)) {
-        dispatchLoad({ queue, startIndex: 0, autoplay: false });
-      }
-    },
-    { signal }
-  );
-  driveLink?.addEventListener(
-    "click",
-    () => {
-      if (isThisAlbum(latestState)) {
-        if (!latestState.isPlaying) {
-          dispatchCommand({ action: "play" });
-        }
-      } else {
-        dispatchLoad({ queue, startIndex: 0, autoplay: true });
-      }
-    },
-    { signal }
-  );
   progress?.addEventListener(
     "input",
     () => {
