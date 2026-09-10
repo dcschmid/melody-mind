@@ -7,7 +7,7 @@ services:
   - type: web
     name: melody-mind-music
     runtime: static
-    autoDeployTrigger: checksPass
+    autoDeployTrigger: commit
     buildCommand: pnpm install --frozen-lockfile && pnpm build
     staticPublishPath: apps/music/dist
     buildFilter:
@@ -63,7 +63,7 @@ services:
   - type: web
     name: melody-mind-embed
     runtime: static
-    autoDeployTrigger: checksPass
+    autoDeployTrigger: commit
     buildCommand: pnpm install --frozen-lockfile && pnpm build:embed
     staticPublishPath: apps/music/dist-embed
     domains:
@@ -103,7 +103,7 @@ services:
   - type: web
     name: melody-mind-quiz
     runtime: static
-    autoDeployTrigger: checksPass
+    autoDeployTrigger: commit
     buildCommand: pnpm install --frozen-lockfile && pnpm build:quiz
     staticPublishPath: apps/quiz/dist
     buildFilter:
@@ -145,7 +145,7 @@ services:
   - type: web
     name: melody-mind-stories
     runtime: static
-    autoDeployTrigger: checksPass
+    autoDeployTrigger: commit
     buildCommand: pnpm install --frozen-lockfile && pnpm build:stories
     staticPublishPath: apps/stories/dist
     domains:
@@ -192,7 +192,7 @@ services:
   - type: web
     name: melody-mind-reviews
     runtime: static
-    autoDeployTrigger: checksPass
+    autoDeployTrigger: commit
     buildCommand: pnpm install --frozen-lockfile && pnpm build:reviews
     staticPublishPath: apps/reviews/dist
     domains:
