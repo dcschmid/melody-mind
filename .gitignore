@@ -39,6 +39,9 @@ apps/quiz/public/og/
 apps/stories/public/og/
 apps/reviews/public/og/
 
+# album cover source artwork (local only; repo tracks the .webp derivatives)
+apps/music/src/assets/album-covers/*.png
+
 # dependencies
 node_modules/
 
