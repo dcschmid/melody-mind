@@ -43,6 +43,7 @@ pnpm lint:check
 pnpm format
 pnpm format:check
 pnpm clean
+pnpm test:browser:all
 ```
 
 `pnpm dev` starts the workspace apps in parallel.
@@ -76,7 +77,13 @@ pnpm format:check:all
 pnpm lint:check:all
 pnpm check
 pnpm test
+pnpm test:browser:all
 ```
+
+`pnpm test:browser:all` runs the Playwright browser suites for Music, Quiz,
+Stories, and Reviews, building each app first. Use
+`pnpm test:browser:all:built` instead when `pnpm build:all` has already
+completed, so the suites run against the existing builds without rebuilding.
 
 App-specific gates also exist, for example `pnpm lint:check:quiz`,
 `pnpm format:check:stories`, `pnpm build:reviews`, and

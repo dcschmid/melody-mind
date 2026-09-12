@@ -99,8 +99,11 @@ pnpm --filter music stylelint:check
 player queue loading, favorites, drive, visuals, discovery, radio catalog, SEO/schema
 builders, album content integrity, and small utilities; Quiz covers its selection,
 scoring, persistence engine, and artwork catalog; Stories and Reviews validate content,
-archive pagination, and RSS feeds. Quiz additionally has Playwright browser tests
-(`pnpm --filter quiz test:browser`). `pnpm test` runs all app suites via turbo and
+archive pagination, and RSS feeds. Music, Quiz, Stories, and Reviews each have
+Playwright browser tests (`pnpm --filter <app> test:browser`, or
+`pnpm test:browser:all` for all four apps, which builds each app first;
+`pnpm test:browser:all:built` runs the suites against an existing
+`pnpm build:all`). `pnpm test` runs all app suites via turbo and
 `pnpm check` runs `astro check` in every app; the husky pre-commit hook runs format,
 lint, astro check, and tests before every commit.
 
