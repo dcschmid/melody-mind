@@ -11,22 +11,44 @@ import { formatStoryLabel } from "@utils/storySearch";
 
 export async function getStaticPaths() {
   const sorted = await getPublishedStories();
+  const byId = new Map(sorted.map((story) => [story.id, story]));
 
-  return sorted.map((story, index) => ({
-    params: { slug: story.id },
-    props: {
-      story,
-      related: sorted[(index + 1) % sorted.length],
-    },
-  }));
+  return sorted.map((story, index) => {
+    const relatedSlug = story.data.relatedSlug;
+    let related: CollectionEntry<"stories">;
+    let relatedLabel: string;
+
+    if (relatedSlug) {
+      if (relatedSlug === story.id) {
+        throw new Error(`Story "${story.id}" cannot reference itself as relatedSlug.`);
+      }
+      const target = byId.get(relatedSlug);
+      if (!target) {
+        throw new Error(
+          `Story "${story.id}" references missing or draft related story "${relatedSlug}".`
+        );
+      }
+      related = target;
+      relatedLabel = "Related story";
+    } else {
+      related = sorted[(index + 1) % sorted.length];
+      relatedLabel = "Read next";
+    }
+
+    return {
+      params: { slug: story.id },
+      props: { story, related, relatedLabel },
+    };
+  });
 }
 
 interface Props {
   story: CollectionEntry<"stories">;
   related: CollectionEntry<"stories">;
+  relatedLabel: string;
 }
 
-const { story, related } = Astro.props;
+const { story, related, relatedLabel } = Astro.props;
 const { Content } = await render(story);
 const canonical = new URL(`/${story.id}/`, Astro.site).toString();
 /* Generated 1200x630 social card (scripts/generate-social-images.mjs). */
@@ -262,7 +284,7 @@ const articleSchema = {
           />
         </span>
         <span class="story__related-copy">
-          <span class="eyebrow">Read next</span>
+          <span class="eyebrow">{relatedLabel}</span>
           <strong>{related.data.title}</strong>
           <span>{related.data.dek}</span>
         </span>

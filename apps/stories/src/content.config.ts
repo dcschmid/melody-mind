@@ -77,6 +77,10 @@ const stories = defineCollection({
           .max(7),
         sources: z.array(sourceSchema).min(3),
         artifact: artifactSchema.optional(),
+        relatedSlug: z
+          .string()
+          .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+          .optional(),
       })
       .superRefine((story, ctx) => {
         for (const issue of validateStoryRelationships(story)) {

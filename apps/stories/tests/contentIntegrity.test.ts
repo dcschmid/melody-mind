@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { load } from "js-yaml";
 import { describe, expect, it } from "vitest";
 
 const appDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -25,6 +26,45 @@ describe("story content integrity", () => {
         if (!storyIds.has(target) && !STATIC_ROOT_ROUTES.has(target)) {
           failures.push(`${file}: unresolved internal link "/${target}/".`);
         }
+      }
+    }
+    expect(failures).toEqual([]);
+  });
+
+  it("resolves every relatedSlug to a different published story", () => {
+    const failures: string[] = [];
+    for (const file of storyFiles) {
+      const raw = fs.readFileSync(path.join(storiesDir, file), "utf8");
+      const match = raw.match(/^---\n([\s\S]*?)\n---/);
+      if (!match) {
+        failures.push(`${file}: missing frontmatter.`);
+        continue;
+      }
+      const frontmatter = load(match[1]) as {
+        relatedSlug?: unknown;
+        draft?: unknown;
+      };
+      if (frontmatter.relatedSlug === undefined) {
+        continue;
+      }
+      const sourceId = file.replace(/\.md$/, "");
+      const targetId = String(frontmatter.relatedSlug);
+      if (targetId === sourceId) {
+        failures.push(`${file}: relatedSlug references itself.`);
+        continue;
+      }
+      const targetFile = `${targetId}.md`;
+      if (!storyIds.has(targetId)) {
+        failures.push(`${file}: relatedSlug "${targetId}" does not exist.`);
+        continue;
+      }
+      const targetRaw = fs.readFileSync(path.join(storiesDir, targetFile), "utf8");
+      const targetMatch = targetRaw.match(/^---\n([\s\S]*?)\n---/);
+      const targetFrontmatter = targetMatch
+        ? (load(targetMatch[1]) as { draft?: unknown })
+        : {};
+      if (targetFrontmatter.draft === true) {
+        failures.push(`${file}: relatedSlug "${targetId}" is a draft.`);
       }
     }
     expect(failures).toEqual([]);
