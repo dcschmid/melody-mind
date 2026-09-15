@@ -1,4 +1,4 @@
-import { ARCHIVE_PAGE_SIZE } from "./archivePagination";
+import { normalizeSearchValue } from "@melodymind/archive-utils";
 
 export interface ReviewSearchRecord {
   id: string;
@@ -22,15 +22,8 @@ const REVIEW_MAIN_GENRE_TERMS: Record<ReviewMainGenre, string[]> = {
   Rock: ["rock", "grunge"],
 };
 
-export const normalizeReviewSearchValue = (value: string) =>
-  value
-    .normalize("NFKD")
-    .replaceAll(/\p{Diacritic}/gu, "")
-    .toLocaleLowerCase("en")
-    .trim();
-
 export const getReviewMainGenres = (genres: string[]): ReviewMainGenre[] => {
-  const normalizedGenres = genres.map(normalizeReviewSearchValue);
+  const normalizedGenres = genres.map(normalizeSearchValue);
 
   return REVIEW_MAIN_GENRES.filter((mainGenre) =>
     REVIEW_MAIN_GENRE_TERMS[mainGenre].some((term) =>
@@ -44,17 +37,17 @@ export const filterReviewSearchRecords = (
   query: string,
   mainGenre: string
 ) => {
-  const normalizedQuery = normalizeReviewSearchValue(query);
-  const normalizedMainGenre = normalizeReviewSearchValue(mainGenre);
+  const normalizedQuery = normalizeSearchValue(query);
+  const normalizedMainGenre = normalizeSearchValue(mainGenre);
 
   return records.filter((record) => {
     const recordMainGenres = record.mainGenres ?? getReviewMainGenres(record.genres);
     const matchesMainGenre =
       !normalizedMainGenre ||
       recordMainGenres.some(
-        (candidate) => normalizeReviewSearchValue(candidate) === normalizedMainGenre
+        (candidate) => normalizeSearchValue(candidate) === normalizedMainGenre
       );
-    const haystack = normalizeReviewSearchValue(
+    const haystack = normalizeSearchValue(
       [
         record.title,
         record.artist,
@@ -65,20 +58,4 @@ export const filterReviewSearchRecords = (
     );
     return matchesMainGenre && (!normalizedQuery || haystack.includes(normalizedQuery));
   });
-};
-
-export const paginateReviewSearchRecords = <T>(records: T[], requestedPage: number) => {
-  const lastPage = Math.max(1, Math.ceil(records.length / ARCHIVE_PAGE_SIZE));
-  const currentPage = Math.min(Math.max(1, Math.trunc(requestedPage) || 1), lastPage);
-  const offset = (currentPage - 1) * ARCHIVE_PAGE_SIZE;
-  const data = records.slice(offset, offset + ARCHIVE_PAGE_SIZE);
-
-  return {
-    currentPage,
-    data,
-    end: Math.min(offset + data.length, records.length),
-    lastPage,
-    start: data.length > 0 ? offset + 1 : 0,
-    total: records.length,
-  };
 };

@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 import {
   filterReviewSearchRecords,
   getReviewMainGenres,
-  paginateReviewSearchRecords,
   type ReviewSearchRecord,
 } from "../src/utils/reviewSearch";
 
@@ -44,19 +43,5 @@ describe("Review archive search", () => {
 
   it("combines query and genre instead of widening the result", () => {
     expect(filterReviewSearchRecords(reviews, "Album", "Metal")).toEqual([]);
-  });
-
-  it("keeps filtered results in groups of thirty", () => {
-    const records = Array.from({ length: 61 }, (_, index) => makeReview(index + 1));
-    expect(paginateReviewSearchRecords(records, 1)).toMatchObject({
-      start: 1,
-      end: 30,
-      lastPage: 3,
-    });
-    expect(paginateReviewSearchRecords(records, 3)).toMatchObject({
-      start: 61,
-      end: 61,
-      lastPage: 3,
-    });
   });
 });

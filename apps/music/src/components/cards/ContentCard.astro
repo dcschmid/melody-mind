@@ -3,12 +3,7 @@ import type { ImageMetadata } from "astro";
 import OptimizedImage from "@components/media/OptimizedImage.astro";
 import Icon from "@components/visual/Icon.astro";
 import type { IconName } from "@components/visual/Icon.astro";
-
-interface ContentCardMetaItem {
-  label: string;
-  iconName?: IconName;
-  datetime?: string;
-}
+import type { ContentCardMetaItem } from "./relatedContent";
 
 interface Props extends astroHTML.JSX.HTMLAttributes {
   id: string;

@@ -1,7 +1,7 @@
 ---
 import HomeArchive from "@components/HomeArchive.astro";
 import { getPublishedStories } from "@utils/archive";
-import { getArchivePageSlice } from "@utils/archivePagination";
+import { getArchivePageSlice } from "@melodymind/archive-utils";
 
 const stories = await getPublishedStories();
 const page = getArchivePageSlice(stories, 1);

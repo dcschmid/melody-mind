@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 
 import {
   filterStorySearchRecords,
-  paginateStorySearchRecords,
   type StoryFormat,
   type StorySearchRecord,
 } from "../src/utils/storySearch";
@@ -50,19 +49,5 @@ describe("Story archive search", () => {
     expect(
       filterStorySearchRecords(stories, "", "artist-portrait").map(({ id }) => id)
     ).toEqual(["story-2"]);
-  });
-
-  it("keeps filtered results in groups of thirty", () => {
-    const records = Array.from({ length: 61 }, (_, index) => makeStory(index + 1));
-    expect(paginateStorySearchRecords(records, 1)).toMatchObject({
-      start: 1,
-      end: 30,
-      lastPage: 3,
-    });
-    expect(paginateStorySearchRecords(records, 3)).toMatchObject({
-      start: 61,
-      end: 61,
-      lastPage: 3,
-    });
   });
 });

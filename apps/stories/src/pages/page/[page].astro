@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import HomeArchive from "@components/HomeArchive.astro";
 import { getPublishedStories } from "@utils/archive";
-import { ARCHIVE_PAGE_SIZE, formatArchivePageUrl } from "@utils/archivePagination";
+import { ARCHIVE_PAGE_SIZE, formatArchivePageUrl } from "@melodymind/archive-utils";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const stories = await getPublishedStories();

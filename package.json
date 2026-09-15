@@ -56,7 +56,6 @@
   "devDependencies": {
     "@double-great/stylelint-a11y": "^3.5.1",
     "@eslint/js": "^10.0.1",
-    "astro": "^7.2.0",
     "eslint": "^10.8.1",
     "eslint-plugin-astro": "^2.1.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -68,10 +67,7 @@
     "stylelint": "^17.14.1",
     "stylelint-config-recess-order": "^7.7.0",
     "stylelint-config-standard": "^40.0.0",
-    "stylelint-high-performance-animation": "^2.0.0",
-    "stylelint-no-unsupported-browser-features": "^8.1.1",
     "stylelint-order": "^8.1.1",
-    "stylelint-plugin-logical-css": "^2.1.0",
     "turbo": "^2.10.9",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.66.0"

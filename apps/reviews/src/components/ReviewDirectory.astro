@@ -134,9 +134,9 @@ const {
 </section>
 
 <script>
+  import { getSearchPageSlice } from "@melodymind/archive-utils";
   import {
     filterReviewSearchRecords,
-    paginateReviewSearchRecords,
     type ReviewSearchRecord,
   } from "@utils/reviewSearch";
 
@@ -311,7 +311,7 @@ const {
           try {
             const allRecords = await loadRecords();
             const matches = filterReviewSearchRecords(allRecords, query, genre);
-            const page = paginateReviewSearchRecords(matches, requestedResultPage);
+            const page = getSearchPageSlice(matches, requestedResultPage);
             requestedResultPage = page.currentPage;
             searchList.replaceChildren(
               ...page.data

@@ -1,4 +1,4 @@
-import { ARCHIVE_PAGE_SIZE } from "./archivePagination";
+import { normalizeSearchValue } from "@melodymind/archive-utils";
 
 export const formatStoryLabel = (format: string) =>
   format
@@ -27,27 +27,20 @@ export const STORY_FORMATS = [
 
 export type StoryFormat = (typeof STORY_FORMATS)[number];
 
-export const normalizeStorySearchValue = (value: string) =>
-  value
-    .normalize("NFKD")
-    .replaceAll(/\p{Diacritic}/gu, "")
-    .toLocaleLowerCase("en")
-    .trim();
-
 export const filterStorySearchRecords = (
   records: StorySearchRecord[],
   query: string,
   format: string
 ) => {
-  const normalizedQuery = normalizeStorySearchValue(query);
-  const normalizedFormat = normalizeStorySearchValue(format);
+  const normalizedQuery = normalizeSearchValue(query);
+  const normalizedFormat = normalizeSearchValue(format);
 
   return records.filter((record) => {
     const matchesFormat =
       !normalizedFormat ||
-      normalizeStorySearchValue(formatStoryLabel(record.format)) === normalizedFormat ||
-      normalizeStorySearchValue(record.format) === normalizedFormat;
-    const haystack = normalizeStorySearchValue(
+      normalizeSearchValue(formatStoryLabel(record.format)) === normalizedFormat ||
+      normalizeSearchValue(record.format) === normalizedFormat;
+    const haystack = normalizeSearchValue(
       [
         record.title,
         record.dek,
@@ -57,20 +50,4 @@ export const filterStorySearchRecords = (
     );
     return matchesFormat && (!normalizedQuery || haystack.includes(normalizedQuery));
   });
-};
-
-export const paginateStorySearchRecords = <T>(records: T[], requestedPage: number) => {
-  const lastPage = Math.max(1, Math.ceil(records.length / ARCHIVE_PAGE_SIZE));
-  const currentPage = Math.min(Math.max(1, Math.trunc(requestedPage) || 1), lastPage);
-  const offset = (currentPage - 1) * ARCHIVE_PAGE_SIZE;
-  const data = records.slice(offset, offset + ARCHIVE_PAGE_SIZE);
-
-  return {
-    currentPage,
-    data,
-    end: Math.min(offset + data.length, records.length),
-    lastPage,
-    start: data.length > 0 ? offset + 1 : 0,
-    total: records.length,
-  };
 };

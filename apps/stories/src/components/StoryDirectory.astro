@@ -139,10 +139,10 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
 </div>
 
 <script>
+  import { getSearchPageSlice } from "@melodymind/archive-utils";
   import {
     filterStorySearchRecords,
     formatStoryLabel,
-    paginateStorySearchRecords,
     type StorySearchRecord,
   } from "@utils/storySearch";
 
@@ -293,7 +293,7 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
         try {
           const allRecords = await loadRecords();
           const matches = filterStorySearchRecords(allRecords, query, format);
-          const page = paginateStorySearchRecords(matches, requestedResultPage);
+          const page = getSearchPageSlice(matches, requestedResultPage);
           requestedResultPage = page.currentPage;
           searchGrid.replaceChildren(
             ...page.data
