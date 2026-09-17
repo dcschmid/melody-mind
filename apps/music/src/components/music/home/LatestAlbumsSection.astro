@@ -18,7 +18,7 @@ const { albums, title } = Astro.props as Props;
       <SectionHeader headingId="latest-albums-heading" iconName="sparkles" {title} />
 
       <ul class="latest-albums__list">
-        {albums.map((album, index) => (
+        {albums.map((album) => (
           <li class="latest-albums__item">
             <article class="latest-albums__album">
               <a
@@ -33,11 +33,7 @@ const { albums, title } = Astro.props as Props;
                   width={480}
                   height={480}
                   widths={[160, 240, 320, 480]}
-                  sizes={
-                    index === 0
-                      ? "(max-width: 640px) 44vw, (max-width: 1199px) 29vw, 27vw"
-                      : "(max-width: 640px) 44vw, (max-width: 1199px) 29vw, 13vw"
-                  }
+                  sizes="(max-width: 640px) 44vw, (max-width: 1199px) 29vw, 15vw"
                   loading="lazy"
                   decoding="async"
                   formats={["avif"]}
@@ -223,11 +219,7 @@ const { albums, title } = Astro.props as Props;
 
   @media (width >= 1200px) {
     .latest-albums__list {
-      grid-template-columns: repeat(7, minmax(0, 1fr));
-    }
-
-    .latest-albums__item:first-child {
-      grid-column: span 2;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
     }
   }
 
