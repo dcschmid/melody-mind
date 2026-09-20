@@ -24,7 +24,6 @@ export interface AlbumData {
   language?: string;
   era?: string;
   energy: "low" | "medium" | "high";
-  radioIntro?: string;
   artist: string;
   isAvailable: boolean;
   songs: Song[];

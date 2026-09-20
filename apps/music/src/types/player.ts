@@ -32,18 +32,6 @@ export interface AlbumPlayerQueue extends PlayerQueueBase {
   album: PlayerAlbumContext;
 }
 
-export interface RadioPlayerTrack extends PlayerTrack {
-  album: PlayerAlbumContext;
-  transitionText: string;
-  laneId?: string;
-}
-
-export interface RadioPlayerQueue extends Omit<PlayerQueueBase, "tracks"> {
-  kind: "radio";
-  stationId: string;
-  tracks: RadioPlayerTrack[];
-}
-
 export interface SeriesPlayerTrack extends PlayerTrack {
   album: PlayerAlbumContext;
   partNumber: number;
@@ -67,7 +55,7 @@ export interface SeriesPlayerIntermission extends SeriesPlayerTransition {
   toPartNumber: number;
 }
 
-export type PlayerQueue = AlbumPlayerQueue | RadioPlayerQueue | SeriesPlayerQueue;
+export type PlayerQueue = AlbumPlayerQueue | SeriesPlayerQueue;
 
 export type PlaybackPhase =
   | "idle"
@@ -119,7 +107,6 @@ declare global {
     "melodymind:player-load": CustomEvent<PlayerLoadDetail>;
     "melodymind:player-command": CustomEvent<PlayerCommand>;
     "melodymind:playback-state": CustomEvent<PlayerState>;
-    "melodymind:radio-event": CustomEvent<import("./radio").RadioEventDetail>;
   }
 
   interface Window {

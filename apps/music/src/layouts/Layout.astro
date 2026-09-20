@@ -168,20 +168,10 @@ const isAlbumLayout =
 const bodyClasses = ["music-layout", isAlbumLayout ? "music-layout--album" : ""]
   .filter(Boolean)
   .join(" ");
-const radioNavItem: HeaderNavItem = {
-  href: "/radio/",
-  label: "Radio",
-  icon: "wave",
-};
 const albumsNavItem: HeaderNavItem = {
   href: "/albums/",
   label: "Albums",
   icon: "disc",
-};
-const moodNavItem: HeaderNavItem = {
-  href: "/mood/",
-  label: "Mood",
-  icon: "compass",
 };
 const genresNavItem: HeaderNavItem = {
   href: "/genre/",
@@ -206,8 +196,6 @@ const artistsNavItem: HeaderNavItem = {
 const headerNavItems: HeaderNavItem[] = [
   albumsNavItem,
   artistsNavItem,
-  radioNavItem,
-  moodNavItem,
   genresNavItem,
   seriesNavItem,
   favoritesNavItem,

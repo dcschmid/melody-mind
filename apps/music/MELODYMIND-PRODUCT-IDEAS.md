@@ -47,9 +47,7 @@ Dabei gelten folgende Grenzen:
 | Idee                |     Produktwert |          Aufwand | Empfehlung                 |
 | ------------------- | --------------: | ---------------: | -------------------------- |
 | MelodyMind Stories  |       Sehr hoch |           Mittel | Signature-Prototyp         |
-| MelodyMind Radio    |       Sehr hoch |           Mittel | Früh testen                |
 | Continue Listening  |            Hoch |            Klein | Quick Win                  |
-| Mood Navigator      |            Hoch | Klein bis mittel | Quick Win                  |
 | Series Marathon     |            Hoch | Klein bis mittel | Früh umsetzen              |
 | MelodyMind Quiz Lab |            Hoch |           Mittel | Beste Verbindung zu Quiz   |
 | Listening Passport  |            Hoch |           Mittel | Lokal starten              |
@@ -533,7 +531,7 @@ Ein monatlicher digitaler Plattenclub mit einer festen redaktionellen Auswahl.
 
 ### Empfehlung
 
-Erst sinnvoll, wenn Daily, Radio oder redaktionelle Pfade zeigen, dass Nutzer
+Erst sinnvoll, wenn Daily oder redaktionelle Pfade zeigen, dass Nutzer
 regelmäßig wegen kuratierter Auswahl zurückkehren.
 
 ---
@@ -866,7 +864,6 @@ gemeinsamer Katalog-Feed für Music und Quiz kann deutlich früher sinnvoll sein
 Diese Funktionen verbessern den normalen Hörvorgang und benötigen keine eigene App:
 
 - Continue Listening
-- Mood Navigator
 - Favoriten
 - Series Marathon
 - zufälliges Album
@@ -875,7 +872,6 @@ Diese Funktionen verbessern den normalen Hörvorgang und benötigen keine eigene
 - ähnliche Alben
 - persönliche Queue
 - zuletzt gehörte Alben
-- Radio-Prototyp
 - Story-Mode-Pilot
 
 ## Was eine eigene App tragen könnte
@@ -883,7 +879,6 @@ Diese Funktionen verbessern den normalen Hörvorgang und benötigen keine eigene
 | App      | Eigenständiger Nutzungsgrund             |
 | -------- | ---------------------------------------- |
 | Stories  | Album als interaktive Erzählung erleben  |
-| Radio    | Ohne vorherige Auswahl dauerhaft hören   |
 | Atlas    | Den Katalog visuell erforschen           |
 | Quiz Lab | Wiederkehrendes Spiel mit eigenem Ablauf |
 | Rooms    | Gemeinsam und synchron hören             |
@@ -899,10 +894,8 @@ Diese Funktionen verbessern den normalen Hörvorgang und benötigen keine eigene
 
 1. Continue Listening
 2. Series Marathon
-3. Mood Navigator
-4. Favoriten und lokale Hörhistorie
-5. Radio mit fünf festen Sendern
-6. Verbindung von Music und Quiz
+3. Favoriten und lokale Hörhistorie
+4. Verbindung von Music und Quiz
 
 ### Stufe 2: eine eigene Identität aufbauen
 
@@ -916,9 +909,8 @@ Diese Funktionen verbessern den normalen Hörvorgang und benötigen keine eigene
 
 1. MelodyMind Trails
 2. Atlas-Prototyp
-3. persönliche Radiosender
-4. Lyrics und Übersetzungen
-5. Visuals für TV und Tablet
+3. Lyrics und Übersetzungen
+4. Visuals für TV und Tablet
 
 ### Stufe 4: Community testen
 
@@ -928,18 +920,13 @@ Diese Funktionen verbessern den normalen Hörvorgang und benötigen keine eigene
 4. optionale Konten
 5. Synchronisierung zwischen Geräten
 
-## Drei empfohlene Prototypen
+## Zwei empfohlene Prototypen
 
 ### Story Mode
 
 Story Mode zeigt am deutlichsten, was MelodyMind von gewöhnlichen Musikarchiven
 unterscheidet. Ein einziger sauber ausgearbeiteter Album-Pilot reicht für eine erste
 Bewertung.
-
-### MelodyMind Radio
-
-Radio nutzt den gesamten vorhandenen Katalog und schafft einen einfachen Grund,
-regelmäßig zurückzukehren. Die erste Version kann vollständig regelbasiert arbeiten.
 
 ### Quiz Lab
 
@@ -956,7 +943,6 @@ Diese Änderungen können einzelne Hypothesen testen, bevor größere Apps entst
 - ein Album des Tages
 - eine teilbare URL ab Zeitmarke
 - lokale Favoriten
-- drei feste Radiosender
 - ein Story-Track mit Szenentext
 - fünf Quizfragen zu einem Album
 - ein Cover-Reveal-Spiel
@@ -969,7 +955,6 @@ erheben. Wenige, verständliche Signale reichen:
 
 - gestartete und vollständig gehörte Alben
 - Wechsel zum nächsten Serienalbum
-- wiederkehrende Radio-Sessions
 - Nutzung von Continue Listening
 - abgeschlossene Albumquizze
 - Interaktion mit Story-Szenen

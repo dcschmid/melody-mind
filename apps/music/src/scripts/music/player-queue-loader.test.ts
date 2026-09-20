@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import type { AlbumPlayerQueue } from "../../types/player";
-import { loadPlayerQueue } from "./player-queue-loader";
+import { isPlayerQueue, loadPlayerQueue } from "./player-queue-loader";
 
 const albumQueue: AlbumPlayerQueue = {
   kind: "album",
@@ -23,8 +23,35 @@ const albumQueue: AlbumPlayerQueue = {
   ],
 };
 
+const legacyRadioQueue = {
+  kind: "radio",
+  queueId: "radio:midnight-metal:1",
+  title: "Midnight Metal",
+  url: "/radio/",
+  stationId: "midnight-metal",
+  tracks: [
+    {
+      trackNumber: 1,
+      title: "Legacy Track",
+      audioUrl: "/legacy-track.mp3",
+      album: { id: "test-album", title: "Test Album", url: "/test-album/" },
+      transitionText: "Next is Test Album.",
+    },
+  ],
+};
+
 afterEach(() => {
   vi.unstubAllGlobals();
+});
+
+describe("isPlayerQueue", () => {
+  it("rejects a legacy radio queue so it cannot be restored or dispatched", () => {
+    expect(isPlayerQueue(legacyRadioQueue)).toBe(false);
+  });
+
+  it("accepts the album queue shape", () => {
+    expect(isPlayerQueue(albumQueue)).toBe(true);
+  });
 });
 
 describe("loadPlayerQueue", () => {

@@ -5,9 +5,7 @@ import type {
   PlayerLoadDetail,
   PlayerQueue,
   PlayerState,
-  RadioPlayerTrack,
 } from "../../types/player";
-import type { RadioEventDetail } from "../../types/radio";
 import { isPlayerQueue, loadPlayerQueue } from "./player-queue-loader";
 import { writeSeriesMarathonProgress } from "./series-marathon-storage";
 
@@ -31,12 +29,6 @@ interface StoredPlayerState extends Omit<
 > {
   version: 4;
 }
-
-const dispatchRadioEvent = (detail: RadioEventDetail): void => {
-  window.dispatchEvent(
-    new CustomEvent<RadioEventDetail>("melodymind:radio-event", { detail })
-  );
-};
 
 const getTrackAlbum = (
   queue: PlayerQueue,
@@ -78,22 +70,6 @@ const localizeQueueArtwork = (queue: PlayerQueue): PlayerQueue => {
         ...queue.album,
         ...(artworkUrl ? { artworkUrl } : {}),
       },
-    };
-  }
-
-  if (queue.kind === "radio") {
-    return {
-      ...queue,
-      tracks: queue.tracks.map((track) => {
-        const artworkUrl = localizeArtworkUrl(track.album.artworkUrl);
-        return {
-          ...track,
-          album: {
-            ...track.album,
-            ...(artworkUrl ? { artworkUrl } : {}),
-          },
-        };
-      }),
     };
   }
 
@@ -342,17 +318,6 @@ const initGlobalPlayer = (): void => {
   let preloadedUrl = "";
   let playerView: "expanded" | "compact" = "expanded";
   let hasFinished = false;
-  let pendingTrackReason: Extract<RadioEventDetail, { type: "track_started" }>["reason"] =
-    "resume";
-  let lastStartedRadioTrack = "";
-  let radioSession: {
-    stationId: string;
-    queueId: string;
-    listenedMilliseconds: number;
-    playingSince: number | null;
-    tracksStarted: number;
-    skips: number;
-  } | null = null;
   const nextTrackPreloader = new Audio();
   nextTrackPreloader.preload = "metadata";
 
@@ -402,23 +367,15 @@ const initGlobalPlayer = (): void => {
             album: { ...queue.album },
             tracks: queue.tracks.map((track) => ({ ...track })),
           }
-        : queue.kind === "radio"
-          ? {
-              ...queue,
-              tracks: queue.tracks.map((track) => ({
-                ...track,
-                album: { ...track.album },
-              })),
-            }
-          : {
-              ...queue,
-              series: { ...queue.series },
-              transitions: queue.transitions.map((transition) => ({ ...transition })),
-              tracks: queue.tracks.map((track) => ({
-                ...track,
-                album: { ...track.album },
-              })),
-            }
+        : {
+            ...queue,
+            series: { ...queue.series },
+            transitions: queue.transitions.map((transition) => ({ ...transition })),
+            tracks: queue.tracks.map((track) => ({
+              ...track,
+              album: { ...track.album },
+            })),
+          }
       : null;
     return {
       ...state,
@@ -433,57 +390,6 @@ const initGlobalPlayer = (): void => {
     if (status) {
       status.textContent = message;
     }
-  };
-
-  const updateRadioListeningTime = (): void => {
-    if (!radioSession?.playingSince) {
-      return;
-    }
-    radioSession.listenedMilliseconds += performance.now() - radioSession.playingSince;
-    radioSession.playingSince = null;
-  };
-
-  const startRadioSession = (restoredSession: boolean): void => {
-    if (state.queue?.kind !== "radio") {
-      return;
-    }
-    radioSession = {
-      stationId: state.queue.stationId,
-      queueId: state.queue.queueId,
-      listenedMilliseconds: 0,
-      playingSince: null,
-      tracksStarted: 0,
-      skips: 0,
-    };
-    dispatchRadioEvent({
-      type: "session_started",
-      stationId: state.queue.stationId,
-      queueId: state.queue.queueId,
-      queueLength: state.queue.tracks.length,
-      restored: restoredSession,
-      timestamp: Date.now(),
-    });
-  };
-
-  const endRadioSession = (
-    reason: Extract<RadioEventDetail, { type: "session_ended" }>["reason"]
-  ): void => {
-    if (!radioSession) {
-      return;
-    }
-    updateRadioListeningTime();
-    dispatchRadioEvent({
-      type: "session_ended",
-      stationId: radioSession.stationId,
-      queueId: radioSession.queueId,
-      reason,
-      listenedSeconds: Math.round(radioSession.listenedMilliseconds / 1000),
-      tracksStarted: radioSession.tracksStarted,
-      skips: radioSession.skips,
-      timestamp: Date.now(),
-    });
-    radioSession = null;
-    lastStartedRadioTrack = "";
   };
 
   const getAudioErrorMessage = (): string => {
@@ -631,7 +537,6 @@ const initGlobalPlayer = (): void => {
   };
 
   const clearPlayer = () => {
-    endRadioSession("cleared");
     audio.pause();
     audio.removeAttribute("src");
     audio.load();
@@ -731,11 +636,9 @@ const initGlobalPlayer = (): void => {
       messageText.textContent = state.errorMessage
         ? state.errorMessage
         : hasFinished
-          ? queue.kind === "radio"
-            ? "Station finished"
-            : queue.kind === "series"
-              ? "Series complete"
-              : "Album finished"
+          ? queue.kind === "series"
+            ? "Series complete"
+            : "Album finished"
           : "";
       messageText.hidden = !state.errorMessage && !hasFinished;
     }
@@ -764,11 +667,9 @@ const initGlobalPlayer = (): void => {
           : nextSeriesTrack
             ? `Play next album ${nextSeriesTrack.album.title}`
             : hasFinished
-              ? queue.kind === "radio"
-                ? `Replay station ${queue.title}`
-                : queue.kind === "series"
-                  ? `Replay series ${queue.series.title}`
-                  : `Replay album ${queue.album.title}`
+              ? queue.kind === "series"
+                ? `Replay series ${queue.series.title}`
+                : `Replay album ${queue.album.title}`
               : `${state.isPlaying ? "Pause" : "Play"} ${track.title}`
       );
     }
@@ -895,16 +796,11 @@ const initGlobalPlayer = (): void => {
     });
   };
 
-  const changeTrack = (
-    index: number,
-    autoplay = state.isPlaying,
-    reason: Extract<RadioEventDetail, { type: "track_started" }>["reason"] = "auto"
-  ) => {
+  const changeTrack = (index: number, autoplay = state.isPlaying) => {
     if (!state.queue?.tracks.length) {
       return;
     }
     const normalized = (index + state.queue.tracks.length) % state.queue.tracks.length;
-    pendingTrackReason = reason;
     setSource(normalized);
     dispatch(true);
     if (autoplay) {
@@ -956,7 +852,7 @@ const initGlobalPlayer = (): void => {
       return;
     }
     const nextTitle = state.queue.tracks[nextIndex]?.album.title || "next album";
-    changeTrack(nextIndex, true, "auto");
+    changeTrack(nextIndex, true);
     announce(`Playing ${nextTitle}`);
   };
 
@@ -966,9 +862,6 @@ const initGlobalPlayer = (): void => {
     state.playbackPhase = "finished";
     audio.currentTime = 0;
     dispatch(true);
-    if (state.queue?.kind === "radio") {
-      endRadioSession("finished");
-    }
     announce(`Finished ${state.queue?.title || "album"}`);
   };
 
@@ -983,42 +876,17 @@ const initGlobalPlayer = (): void => {
     const startTime = Math.max(0, Number(detail.startTime) || 0);
     playerView = "expanded";
     hasFinished = false;
-    const previousQueue = state.queue;
     const sameTrack =
       state.queue?.queueId === detail.queue.queueId &&
       state.currentTrackIndex === index &&
       getTrack()?.audioUrl === detail.queue.tracks[index]?.audioUrl;
-    if (previousQueue?.queueId !== detail.queue.queueId) {
-      if (previousQueue?.kind === "radio") {
-        const isStationSwitch =
-          detail.queue.kind === "radio" &&
-          previousQueue.stationId !== detail.queue.stationId;
-        endRadioSession(isStationSwitch ? "switched" : "replaced");
-        if (isStationSwitch && detail.queue.kind === "radio") {
-          dispatchRadioEvent({
-            type: "station_switched",
-            fromStationId: previousQueue.stationId,
-            toStationId: detail.queue.stationId,
-            timestamp: Date.now(),
-          });
-        }
-      }
-      lastStartedRadioTrack = "";
-    }
     state.queue = detail.queue;
     state.playbackPhase = "loading";
     if (!sameTrack || detail.startTime !== undefined) {
-      pendingTrackReason = "initial";
       setSource(index, startTime);
     }
     state.seriesIntermission =
       detail.queue.kind === "series" ? detail.seriesIntermission || null : null;
-    if (
-      detail.queue.kind === "radio" &&
-      previousQueue?.queueId !== detail.queue.queueId
-    ) {
-      startRadioSession(false);
-    }
     dispatch(true);
     const shouldAutoplay = detail.autoplay !== false && !state.seriesIntermission;
     announce(`${shouldAutoplay ? "Playing" : "Ready"} ${getTrack()?.title}`);
@@ -1033,7 +901,7 @@ const initGlobalPlayer = (): void => {
         if (state.seriesIntermission) {
           continueSeries();
         } else if (hasFinished) {
-          changeTrack(0, true, "initial");
+          changeTrack(0, true);
         } else {
           audio.paused ? play() : audio.pause();
         }
@@ -1042,7 +910,7 @@ const initGlobalPlayer = (): void => {
         if (state.seriesIntermission) {
           continueSeries();
         } else if (hasFinished) {
-          changeTrack(0, true, "initial");
+          changeTrack(0, true);
         } else {
           play();
         }
@@ -1052,35 +920,18 @@ const initGlobalPlayer = (): void => {
         break;
       case "previous":
         if (state.seriesIntermission) {
-          changeTrack(state.currentTrackIndex, true, "previous");
+          changeTrack(state.currentTrackIndex, true);
         } else if (audio.currentTime > 3 || state.currentTrackIndex === 0) {
           audio.currentTime = 0;
           dispatch(true);
         } else {
-          changeTrack(state.currentTrackIndex - 1, !audio.paused, "previous");
+          changeTrack(state.currentTrackIndex - 1, !audio.paused);
         }
         break;
       case "next": {
         if (state.seriesIntermission) {
           continueSeries();
           break;
-        }
-        if (state.queue?.kind === "radio") {
-          const track = state.queue.tracks[state.currentTrackIndex];
-          if (track) {
-            if (radioSession) {
-              radioSession.skips += 1;
-            }
-            dispatchRadioEvent({
-              type: "track_skipped",
-              stationId: state.queue.stationId,
-              queueId: state.queue.queueId,
-              albumId: track.album.id,
-              trackNumber: track.trackNumber,
-              elapsedSeconds: Math.round(audio.currentTime || state.currentTime),
-              timestamp: Date.now(),
-            });
-          }
         }
         if (state.queue?.kind === "series") {
           if (state.currentTrackIndex + 1 >= state.queue.tracks.length) {
@@ -1091,7 +942,7 @@ const initGlobalPlayer = (): void => {
             break;
           }
         }
-        changeTrack(state.currentTrackIndex + 1, !audio.paused, "skip");
+        changeTrack(state.currentTrackIndex + 1, !audio.paused);
         break;
       }
       case "shuffle": {
@@ -1101,7 +952,7 @@ const initGlobalPlayer = (): void => {
           while (next === state.currentTrackIndex) {
             next = Math.floor(Math.random() * length);
           }
-          changeTrack(next, true, "skip");
+          changeTrack(next, true);
         }
         break;
       }
@@ -1149,27 +1000,6 @@ const initGlobalPlayer = (): void => {
   progress?.addEventListener(
     "input",
     () => handleCommand({ action: "seek", value: Number(progress.value) }),
-    { signal }
-  );
-  albumLink?.addEventListener(
-    "click",
-    () => {
-      if (state.queue?.kind !== "radio") {
-        return;
-      }
-      const track = state.queue.tracks[state.currentTrackIndex];
-      if (!track) {
-        return;
-      }
-      dispatchRadioEvent({
-        type: "album_opened",
-        stationId: state.queue.stationId,
-        queueId: state.queue.queueId,
-        albumId: track.album.id,
-        trackNumber: track.trackNumber,
-        timestamp: Date.now(),
-      });
-    },
     { signal }
   );
 
@@ -1251,32 +1081,6 @@ const initGlobalPlayer = (): void => {
     () => {
       state.errorMessage = null;
       hasFinished = false;
-      if (state.queue?.kind === "radio") {
-        if (!radioSession || radioSession.queueId !== state.queue.queueId) {
-          startRadioSession(state.queue.queueId === restored?.queue?.queueId);
-        }
-        if (radioSession && radioSession.playingSince === null) {
-          radioSession.playingSince = performance.now();
-        }
-        const track = state.queue.tracks[state.currentTrackIndex] as
-          RadioPlayerTrack | undefined;
-        const trackKey = `${state.queue.queueId}:${state.currentTrackIndex}`;
-        if (track && trackKey !== lastStartedRadioTrack) {
-          lastStartedRadioTrack = trackKey;
-          if (radioSession) {
-            radioSession.tracksStarted += 1;
-          }
-          dispatchRadioEvent({
-            type: "track_started",
-            stationId: state.queue.stationId,
-            queueId: state.queue.queueId,
-            albumId: track.album.id,
-            trackNumber: track.trackNumber,
-            reason: pendingTrackReason,
-            timestamp: Date.now(),
-          });
-        }
-      }
       dispatch(true);
       announce(`Playing ${getTrack()?.title || "track"}`);
     },
@@ -1338,7 +1142,6 @@ const initGlobalPlayer = (): void => {
   audio.addEventListener(
     "pause",
     () => {
-      updateRadioListeningTime();
       dispatch(true);
     },
     { signal }
@@ -1378,10 +1181,9 @@ const initGlobalPlayer = (): void => {
   audio.addEventListener(
     "ended",
     () => {
-      updateRadioListeningTime();
       if (state.currentTrackIndex + 1 < (state.queue?.tracks.length || 0)) {
         if (!enterSeriesIntermission()) {
-          changeTrack(state.currentTrackIndex + 1, true, "auto");
+          changeTrack(state.currentTrackIndex + 1, true);
         }
       } else {
         finishQueue();

@@ -3,8 +3,6 @@ import type {
   PlayerAlbumContext,
   PlayerQueue,
   PlayerTrack,
-  RadioPlayerQueue,
-  RadioPlayerTrack,
   SeriesPlayerQueue,
   SeriesPlayerTrack,
   SeriesPlayerTransition,
@@ -30,9 +28,7 @@ const isAlbumContext = (value: unknown): value is PlayerAlbumContext =>
     typeof (value as Partial<PlayerAlbumContext>).url === "string"
   );
 
-const hasQueueBase = (
-  queue: Partial<AlbumPlayerQueue | RadioPlayerQueue | SeriesPlayerQueue>
-): boolean =>
+const hasQueueBase = (queue: Partial<AlbumPlayerQueue | SeriesPlayerQueue>): boolean =>
   typeof queue.queueId === "string" &&
   typeof queue.title === "string" &&
   typeof queue.url === "string" &&
@@ -58,7 +54,7 @@ export const isPlayerQueue = (value: unknown): value is PlayerQueue => {
     return false;
   }
 
-  const queue = value as Partial<AlbumPlayerQueue | RadioPlayerQueue | SeriesPlayerQueue>;
+  const queue = value as Partial<AlbumPlayerQueue | SeriesPlayerQueue>;
   if (!hasQueueBase(queue)) {
     return false;
   }
@@ -67,18 +63,6 @@ export const isPlayerQueue = (value: unknown): value is PlayerQueue => {
     return (
       isAlbumContext(queue.album) &&
       (queue.tracks as unknown[]).every((track) => isTrack(track))
-    );
-  }
-
-  if (queue.kind === "radio") {
-    return (
-      typeof queue.stationId === "string" &&
-      (queue.tracks as unknown[]).every(
-        (track) =>
-          isTrack(track) &&
-          isAlbumContext((track as Partial<RadioPlayerTrack>).album) &&
-          typeof (track as Partial<RadioPlayerTrack>).transitionText === "string"
-      )
     );
   }
 

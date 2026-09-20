@@ -51,7 +51,6 @@ const albums = defineCollection({
     language: z.string().optional(),
     era: z.string().optional(),
     energy: z.enum(["low", "medium", "high"]),
-    radioIntro: z.string().trim().min(24).optional(),
     artist: z.string().default("MelodyMind"),
     isAvailable: z.boolean().default(true),
     songs: z.array(songSchema),
