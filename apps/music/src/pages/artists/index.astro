@@ -1,0 +1,201 @@
+---
+import { getCollection } from "astro:content";
+import ContentCard from "@components/cards/ContentCard.astro";
+import CollectionGridFilter from "@components/music/discovery/CollectionGridFilter.astro";
+import DirectoryHero from "@components/music/discovery/DirectoryHero.astro";
+import Layout from "@layouts/Layout.astro";
+import { getArtistImage } from "@utils/artistImages";
+import { resolvePageUrl } from "@utils/siteUrls";
+import { buildCollectionPageSchema } from "@utils/seo/seoSchema";
+
+const artists = await getCollection("artists");
+const nameCollator = new Intl.Collator("en", { numeric: true, sensitivity: "base" });
+const sortedArtists = [...artists].sort((a, b) =>
+  nameCollator.compare(a.data.name, b.data.name)
+);
+
+const artistCards = sortedArtists.map((artist) => {
+  const image = getArtistImage(artist.data.portrait);
+  return {
+    id: artist.id,
+    name: artist.data.name,
+    shortBio: artist.data.shortBio,
+    image,
+    metaItems: [
+      {
+        iconName: "mic" as const,
+        label: `${artist.data.lead} · ${artist.data.primaryGenre}`,
+      },
+      { iconName: "tag" as const, label: artist.data.subgenres.join(" · ") },
+    ],
+    searchText: [
+      artist.data.name,
+      artist.data.lead,
+      artist.data.primaryGenre,
+      ...artist.data.subgenres,
+    ].join(" "),
+  };
+});
+
+const canonical = resolvePageUrl(Astro.site, "/artists/");
+const title = "Meet the MelodyMind Artists";
+const description =
+  "Meet the recurring lead voices across MelodyMind releases and explore their sound, phrasing, dynamics, and musical character.";
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: "Artists", url: canonical },
+];
+const structuredData = [
+  buildCollectionPageSchema({
+    url: canonical,
+    name: title,
+    description,
+    lang: "en",
+    mainEntityId: `${canonical}#artist-list`,
+  }),
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${canonical}#artist-list`,
+    name: "MelodyMind artists",
+    numberOfItems: sortedArtists.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: sortedArtists.map((artist, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: artist.data.name,
+      url: resolvePageUrl(Astro.site, `/artists/${artist.id}/`),
+    })),
+  },
+];
+const GRID_PORTRAIT_SIZES =
+  "(max-width: 520px) 90vw, (max-width: 760px) 44vw, (max-width: 1180px) 30vw, min(20rem, calc((100vw - 10rem) / 4))";
+---
+
+<Layout
+  title={`${title} | MelodyMind Music`}
+  {description}
+  keywords={["MelodyMind artists", "lead vocals", "vocal profiles", "MelodyMind"]}
+  type="website"
+  canonical={canonical}
+  {breadcrumbs}
+  {structuredData}
+  contentShellClass="music-layout__container--artists-index"
+>
+  <div class="artists-index">
+    <DirectoryHero
+      eyebrow="Recurring lead voices"
+      title="Meet the voices behind the music"
+      description={description}
+      meta={`${artists.length} artist profiles`}
+      alternateHref="/albums/"
+      alternateLabel="Browse all albums"
+    />
+
+    <section class="artists-index__directory" aria-label="Artist directory">
+      <CollectionGridFilter
+        itemCount={artistCards.length}
+        itemSingular="artist"
+        itemPlural="artists"
+        label="Filter artists"
+        placeholder="Name, genre, or vocal style"
+      >
+        <ul class="artists-index__grid">
+          {
+            artistCards.map((artist) => (
+              <li
+                class="artists-index__item"
+                data-collection-filter-item
+                data-collection-filter-text={artist.searchText}
+              >
+                <ContentCard
+                  id={`artist-card-${artist.id}`}
+                  class="artists-index__card"
+                  href={`/artists/${artist.id}/`}
+                  dataTestId="artist-card"
+                  variant="default"
+                  size="compact"
+                  mediaAspectRatio="4 / 5"
+                  mediaObjectFit="cover"
+                  imageSrc={artist.image}
+                  imageAlt={`Portrait of ${artist.name}`}
+                  imageWidth={artist.image.width}
+                  imageHeight={artist.image.height}
+                  imageSizes={GRID_PORTRAIT_SIZES}
+                  imageWidths={[240, 360, 480, 640].filter(
+                    (width) => width <= artist.image.width
+                  )}
+                  title={artist.name}
+                  description={artist.shortBio}
+                  metaItems={artist.metaItems}
+                  ctaSrText={`Open artist profile ${artist.name}`}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </CollectionGridFilter>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  :global(.music-layout__container.music-layout__container--artists-index) {
+    inline-size: 100%;
+    max-inline-size: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: clip;
+  }
+
+  .artists-index {
+    box-sizing: border-box;
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    inline-size: min(100%, 90rem);
+    min-block-size: 100svh;
+    padding: max(clamp(var(--spacing-xl), 5vw, var(--spacing-4xl)), 6rem)
+      clamp(1rem, 4vw, 4rem) clamp(var(--spacing-3xl), 7vw, 6rem);
+    margin-inline: auto;
+  }
+
+  .artists-index__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1rem, 1.6vw, 1.4rem);
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .artists-index__item {
+    display: grid;
+    min-inline-size: 0;
+    contain-intrinsic-size: auto 28rem;
+
+    /* Long grids (90 cards): skip layout/paint work for items
+       outside the viewport until the user scrolls near them. */
+    content-visibility: auto;
+  }
+
+  .artists-index__card {
+    block-size: 100%;
+  }
+
+  @media (width <= 760px) {
+    .artists-index {
+      padding-inline: 1rem;
+    }
+
+    .artists-index__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width <= 520px) {
+    .artists-index__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

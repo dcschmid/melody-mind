@@ -121,8 +121,28 @@ const series = defineCollection({
     }),
 });
 
+const artists = defineCollection({
+  loader: glob({
+    pattern: "**/*.mdx",
+    base: "./src/content/artists",
+  }),
+  schema: z.object({
+    name: z.string(),
+    voiceId: z.string().regex(/^MM-[A-Z-]+-MASTER-[MF]$/),
+    lead: z.enum(["Male lead", "Female lead"]),
+    primaryGenre: z.string().trim().min(1),
+    subgenres: z.array(z.string().trim().min(1)).min(1),
+    portrait: z.string().trim().min(1),
+    shortBio: z
+      .string()
+      .trim()
+      .min(80, "Artist short bios must contain at least 80 characters."),
+  }),
+});
+
 export const collections = {
   albums,
   genres,
   series,
+  artists,
 };

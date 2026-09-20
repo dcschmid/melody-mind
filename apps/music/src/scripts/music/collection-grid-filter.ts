@@ -1,4 +1,4 @@
-const FILTER_ROOT_SELECTOR = '[data-album-grid-filter="true"]';
+const FILTER_ROOT_SELECTOR = '[data-collection-filter="true"]';
 
 const normalizeFilterValue = (value: string): string =>
   value
@@ -7,20 +7,20 @@ const normalizeFilterValue = (value: string): string =>
     .trim()
     .toLocaleLowerCase("en");
 
-const bindAlbumGridFilters = () => {
+const bindCollectionGridFilters = () => {
   document.querySelectorAll<HTMLElement>(FILTER_ROOT_SELECTOR).forEach((root) => {
     if (root.dataset.bound === "true") {
       return;
     }
 
-    const input = root.querySelector<HTMLInputElement>("[data-album-filter-input]");
-    const status = root.querySelector<HTMLElement>("[data-album-filter-status]");
-    const empty = root.querySelector<HTMLElement>("[data-album-filter-empty]");
+    const input = root.querySelector<HTMLInputElement>("[data-collection-filter-input]");
+    const status = root.querySelector<HTMLElement>("[data-collection-filter-status]");
+    const empty = root.querySelector<HTMLElement>("[data-collection-filter-empty]");
     const clearButtons = root.querySelectorAll<HTMLButtonElement>(
-      "[data-album-filter-clear]"
+      "[data-collection-filter-clear]"
     );
     const items = Array.from(
-      root.querySelectorAll<HTMLElement>("[data-album-filter-item]")
+      root.querySelectorAll<HTMLElement>("[data-collection-filter-item]")
     );
 
     if (!input || !status || !empty || items.length === 0) {
@@ -29,22 +29,27 @@ const bindAlbumGridFilters = () => {
 
     root.dataset.bound = "true";
 
+    const itemSingular = root.dataset.collectionFilterSingular || "item";
+    const itemPlural = root.dataset.collectionFilterPlural || "items";
+
     const applyFilter = (value: string, updateUrl = true) => {
       const normalizedValue = normalizeFilterValue(value);
       let visibleCount = 0;
 
       items.forEach((item) => {
-        const searchText = normalizeFilterValue(item.dataset.albumFilterText || "");
+        const searchText = normalizeFilterValue(item.dataset.collectionFilterText || "");
         const isVisible = !normalizedValue || searchText.includes(normalizedValue);
         item.hidden = !isVisible;
         visibleCount += isVisible ? 1 : 0;
       });
 
-      status.textContent = `${visibleCount} ${visibleCount === 1 ? "album" : "albums"} shown`;
+      status.textContent = `${visibleCount} ${
+        visibleCount === 1 ? itemSingular : itemPlural
+      } shown`;
       status.hidden = !normalizedValue;
       empty.hidden = visibleCount > 0;
       clearButtons.forEach((button) => {
-        if (!button.closest("[data-album-filter-empty]")) {
+        if (!button.closest("[data-collection-filter-empty]")) {
           button.hidden = !normalizedValue;
         }
       });
@@ -75,5 +80,5 @@ const bindAlbumGridFilters = () => {
   });
 };
 
-bindAlbumGridFilters();
-document.addEventListener("astro:page-load", bindAlbumGridFilters);
+bindCollectionGridFilters();
+document.addEventListener("astro:page-load", bindCollectionGridFilters);

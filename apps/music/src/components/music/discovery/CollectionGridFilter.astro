@@ -2,7 +2,9 @@
 import Icon from "@components/visual/Icon.astro";
 
 interface Props {
-  albumCount: number;
+  itemCount: number;
+  itemSingular: string;
+  itemPlural: string;
   label?: string;
   inputId?: string;
   placeholder?: string;
@@ -10,53 +12,57 @@ interface Props {
 }
 
 const {
-  albumCount,
-  label = "Filter albums",
-  inputId = "album-filter",
-  placeholder = "Title, genre, or series",
+  itemCount,
+  itemSingular,
+  itemPlural,
+  label = `Filter ${itemPlural}`,
+  inputId = "collection-filter",
+  placeholder = "Name, genre, or style",
   threshold = 12,
 } = Astro.props as Props;
-const showFilter = albumCount >= threshold;
+const showFilter = itemCount >= threshold;
 ---
 
 <div
-  class="album-grid-filter"
-  data-album-grid-filter={showFilter ? "true" : undefined}
-  data-album-count={albumCount}
+  class="collection-grid-filter"
+  data-collection-filter={showFilter ? "true" : undefined}
+  data-collection-filter-count={itemCount}
+  data-collection-filter-singular={itemSingular}
+  data-collection-filter-plural={itemPlural}
 >
   {
     showFilter && (
-      <div class="album-grid-filter__controls">
-        <label class="album-grid-filter__label" for={inputId}>
+      <div class="collection-grid-filter__controls">
+        <label class="collection-grid-filter__label" for={inputId}>
           {label}
         </label>
-        <div class="album-grid-filter__field">
-          <Icon name="search" class="album-grid-filter__icon" aria-hidden="true" />
+        <div class="collection-grid-filter__field">
+          <Icon name="search" class="collection-grid-filter__icon" aria-hidden="true" />
           <input
             id={inputId}
-            class="album-grid-filter__input"
+            class="collection-grid-filter__input"
             type="search"
             placeholder={placeholder}
             autocomplete="off"
-            data-album-filter-input
+            data-collection-filter-input
           />
           <button
-            class="album-grid-filter__clear"
+            class="collection-grid-filter__clear"
             type="button"
-            data-album-filter-clear
+            data-collection-filter-clear
             hidden
           >
             Clear
           </button>
         </div>
         <p
-          class="album-grid-filter__status"
+          class="collection-grid-filter__status"
           aria-live="polite"
           aria-atomic="true"
-          data-album-filter-status
+          data-collection-filter-status
           hidden
         >
-          {albumCount} albums shown
+          {itemCount} {itemPlural} shown
         </p>
       </div>
     )
@@ -66,10 +72,15 @@ const showFilter = albumCount >= threshold;
 
   {
     showFilter && (
-      <div class="album-grid-filter__empty" data-album-filter-empty hidden role="status">
-        <p>No albums match this filter.</p>
-        <button type="button" data-album-filter-clear>
-          Show all albums
+      <div
+        class="collection-grid-filter__empty"
+        data-collection-filter-empty
+        hidden
+        role="status"
+      >
+        <p>No {itemPlural} match this filter.</p>
+        <button type="button" data-collection-filter-clear>
+          Show all {itemPlural}
         </button>
       </div>
     )
@@ -77,20 +88,20 @@ const showFilter = albumCount >= threshold;
 </div>
 
 <script>
-  import "../../../scripts/music/album-grid-filter";
+  import "../../../scripts/music/collection-grid-filter";
 </script>
 
 <style>
-  .album-grid-filter {
+  .collection-grid-filter {
     display: grid;
     gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
   }
 
-  .album-grid-filter :global([data-album-filter-item][hidden]) {
+  .collection-grid-filter :global([data-collection-filter-item][hidden]) {
     display: none;
   }
 
-  .album-grid-filter__controls {
+  .collection-grid-filter__controls {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: var(--spacing-xs) var(--spacing-base);
@@ -98,7 +109,7 @@ const showFilter = albumCount >= threshold;
     inline-size: min(100%, 32rem);
   }
 
-  .album-grid-filter__label {
+  .collection-grid-filter__label {
     grid-row: 1;
     grid-column: 1;
     font-size: var(--font-size-xs);
@@ -107,7 +118,7 @@ const showFilter = albumCount >= threshold;
     color: var(--text-secondary);
   }
 
-  .album-grid-filter__field {
+  .collection-grid-filter__field {
     box-sizing: border-box;
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
@@ -123,19 +134,19 @@ const showFilter = albumCount >= threshold;
     border-radius: var(--radius-base);
   }
 
-  .album-grid-filter__field:focus-within {
+  .collection-grid-filter__field:focus-within {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
     border-color: var(--accent-primary);
   }
 
-  .album-grid-filter__icon {
+  .collection-grid-filter__icon {
     inline-size: 1rem;
     block-size: 1rem;
     color: var(--text-tertiary);
   }
 
-  .album-grid-filter__input {
+  .collection-grid-filter__input {
     min-inline-size: 0;
     min-block-size: calc(var(--control-min-block-size) - 2px);
     padding: 0;
@@ -146,12 +157,12 @@ const showFilter = albumCount >= threshold;
     border: 0;
   }
 
-  .album-grid-filter__input::placeholder {
+  .collection-grid-filter__input::placeholder {
     color: var(--text-tertiary);
   }
 
-  .album-grid-filter__clear,
-  .album-grid-filter__empty button {
+  .collection-grid-filter__clear,
+  .collection-grid-filter__empty button {
     min-block-size: var(--control-min-block-size);
     padding-inline: var(--spacing-sm);
     font: inherit;
@@ -164,24 +175,24 @@ const showFilter = albumCount >= threshold;
     border-radius: var(--radius-base);
   }
 
-  .album-grid-filter__empty button {
+  .collection-grid-filter__empty button {
     padding-inline: 0;
   }
 
-  .album-grid-filter__clear:hover,
-  .album-grid-filter__clear:focus-visible,
-  .album-grid-filter__empty button:hover,
-  .album-grid-filter__empty button:focus-visible {
+  .collection-grid-filter__clear:hover,
+  .collection-grid-filter__clear:focus-visible,
+  .collection-grid-filter__empty button:hover,
+  .collection-grid-filter__empty button:focus-visible {
     color: var(--accent-strong);
   }
 
-  .album-grid-filter__clear:focus-visible,
-  .album-grid-filter__empty button:focus-visible {
+  .collection-grid-filter__clear:focus-visible,
+  .collection-grid-filter__empty button:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
   }
 
-  .album-grid-filter__status {
+  .collection-grid-filter__status {
     grid-row: 1;
     grid-column: 2;
     justify-self: end;
@@ -193,11 +204,11 @@ const showFilter = albumCount >= threshold;
     color: var(--text-tertiary);
   }
 
-  .album-grid-filter__status[hidden] {
+  .collection-grid-filter__status[hidden] {
     display: none;
   }
 
-  .album-grid-filter__empty {
+  .collection-grid-filter__empty {
     display: grid;
     gap: var(--spacing-sm);
     justify-items: start;
@@ -208,27 +219,27 @@ const showFilter = albumCount >= threshold;
     border-radius: var(--radius-base);
   }
 
-  .album-grid-filter__empty[hidden] {
+  .collection-grid-filter__empty[hidden] {
     display: none;
   }
 
-  .album-grid-filter__empty p {
+  .collection-grid-filter__empty p {
     margin: 0;
   }
 
   @media (width <= 640px) {
-    .album-grid-filter__controls {
+    .collection-grid-filter__controls {
       grid-template-columns: minmax(0, 1fr);
     }
 
-    .album-grid-filter__label,
-    .album-grid-filter__field,
-    .album-grid-filter__status {
+    .collection-grid-filter__label,
+    .collection-grid-filter__field,
+    .collection-grid-filter__status {
       grid-row: auto;
       grid-column: auto;
     }
 
-    .album-grid-filter__status {
+    .collection-grid-filter__status {
       justify-self: start;
     }
   }

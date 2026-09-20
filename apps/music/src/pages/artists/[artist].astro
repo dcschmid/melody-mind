@@ -1,0 +1,251 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Icon from "@components/visual/Icon.astro";
+import OptimizedImage from "@components/media/OptimizedImage.astro";
+import Layout from "@layouts/Layout.astro";
+import { getArtistImage, getArtistImageUrl } from "@utils/artistImages";
+import { resolvePageUrl } from "@utils/siteUrls";
+
+type ArtistEntry = CollectionEntry<"artists">;
+
+export async function getStaticPaths() {
+  const artists: ArtistEntry[] = await getCollection("artists");
+  return artists.map((entry) => ({
+    params: { artist: entry.id },
+    props: {
+      entry,
+    },
+  }));
+}
+
+const { entry } = Astro.props as { entry: ArtistEntry };
+const artist = entry.data;
+const { Content } = await render(entry);
+
+const canonical = resolvePageUrl(Astro.site, `/artists/${entry.id}/`);
+const portrait = getArtistImage(artist.portrait);
+const portraitUrl = getArtistImageUrl(artist.portrait);
+const portraitAlt = `Portrait of ${artist.name}`;
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: "Artists", url: resolvePageUrl(Astro.site, "/artists/") },
+  { name: artist.name, url: canonical },
+];
+const keywords = [
+  artist.name,
+  artist.primaryGenre,
+  ...artist.subgenres,
+  "MelodyMind artist",
+  "vocal profile",
+];
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${canonical}#profilepage`,
+    url: canonical,
+    name: `${artist.name} | MelodyMind Music`,
+    description: artist.shortBio,
+    inLanguage: "en",
+    mainEntity: {
+      "@type": "Person",
+      "@id": `${canonical}#artist`,
+      name: artist.name,
+      description: artist.shortBio,
+      url: canonical,
+      image: portraitUrl,
+      knowsAbout: [artist.primaryGenre, ...artist.subgenres],
+    },
+  },
+];
+const HERO_PORTRAIT_SIZES = "(max-width: 900px) 90vw, min(28rem, 32vw)";
+---
+
+<Layout
+  title={`${artist.name} | MelodyMind Music`}
+  description={artist.shortBio}
+  {keywords}
+  type="website"
+  title={artist.name}
+  imageWidth={portrait.width}
+  imageHeight={portrait.height}
+  imageType="image/webp"
+  imageAlt={portraitAlt}
+  language="en"
+  locale="en-US"
+  canonical={canonical}
+  {breadcrumbs}
+  {structuredData}
+  contentShellClass="music-layout__container--artist-profile"
+>
+  <article class="artist-profile" aria-labelledby="artist-profile-title">
+    <header class="artist-profile__hero">
+      <a class="artist-profile__back" href="/artists/">
+        <Icon name="arrow-left" aria-hidden="true" />
+        <span>All artists</span>
+      </a>
+      <div class="artist-profile__split">
+        <div class="artist-profile__media">
+          <OptimizedImage
+            src={portrait}
+            alt={portraitAlt}
+            class="artist-profile__portrait"
+            width={portrait.width}
+            height={portrait.height}
+            loading="eager"
+            sizes={HERO_PORTRAIT_SIZES}
+            widths={[320, 480, 720, 960].filter((width) => width <= portrait.width)}
+          />
+        </div>
+        <div class="artist-profile__copy">
+          <p class="artist-profile__eyebrow">
+            {artist.lead} · {artist.primaryGenre}
+          </p>
+          <h1 id="artist-profile-title" class="artist-profile__title">{artist.name}</h1>
+          <p class="artist-profile__subgenres">{artist.subgenres.join(" · ")}</p>
+          <div class="artist-profile__prose">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </header>
+  </article>
+</Layout>
+
+<style>
+  :global(.music-layout__container.music-layout__container--artist-profile) {
+    inline-size: 100%;
+    max-inline-size: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: clip;
+  }
+
+  .artist-profile {
+    box-sizing: border-box;
+    inline-size: min(100%, 72rem);
+    min-block-size: 100svh;
+    padding: max(clamp(var(--spacing-xl), 5vw, var(--spacing-4xl)), 6rem)
+      clamp(1rem, 4vw, 4rem) clamp(var(--spacing-3xl), 7vw, 6rem);
+    margin-inline: auto;
+  }
+
+  .artist-profile__hero {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .artist-profile__back {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-xs);
+    margin-inline-start: calc(-1 * var(--spacing-xs));
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-tertiary);
+    text-decoration: none;
+    border-radius: var(--radius-base);
+  }
+
+  .artist-profile__back:hover,
+  .artist-profile__back:focus-visible {
+    color: var(--accent-primary);
+  }
+
+  .artist-profile__back:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .artist-profile__back :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .artist-profile__split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .artist-profile__media {
+    max-inline-size: 28rem;
+  }
+
+  .artist-profile__portrait {
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  .artist-profile__copy {
+    display: grid;
+    gap: clamp(0.9rem, 2vw, 1.25rem);
+    min-inline-size: 0;
+  }
+
+  .artist-profile__eyebrow {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .artist-profile__title {
+    max-inline-size: 18ch;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(2.2rem, 1.8rem + 2.2vw, 3.8rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 0.98;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+
+  .artist-profile__subgenres {
+    margin: 0;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-tertiary);
+  }
+
+  .artist-profile__prose {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (width >= 900px) {
+    .artist-profile__split {
+      grid-template-columns: minmax(18rem, 28rem) minmax(0, 1fr);
+    }
+  }
+</style>
+
+<style is:global>
+  .artist-profile__prose > * {
+    max-inline-size: 76ch;
+  }
+
+  .artist-profile__prose > *:first-child {
+    margin-block-start: 0;
+  }
+
+  .artist-profile__prose > *:last-child {
+    margin-block-end: 0;
+  }
+
+  .artist-profile__prose p {
+    margin: 0;
+    font-size: var(--font-size-md);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+</style>

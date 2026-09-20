@@ -1,7 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import ContentCard from "@components/cards/ContentCard.astro";
-import AlbumGridFilter from "@components/music/discovery/AlbumGridFilter.astro";
+import CollectionGridFilter from "@components/music/discovery/CollectionGridFilter.astro";
 import Icon from "@components/visual/Icon.astro";
 import Layout from "../../layouts/Layout.astro";
 import { resolvePageUrl } from "@utils/siteUrls";
@@ -169,8 +169,10 @@ const GRID_COVER_IMAGE_SIZES =
         </h2>
       </div>
 
-      <AlbumGridFilter
-        albumCount={albumCards.length}
+      <CollectionGridFilter
+        itemCount={albumCards.length}
+        itemSingular="album"
+        itemPlural="albums"
         label={`Filter ${page.eyebrow} albums`}
         inputId={`${page.slug}-album-filter`}
         placeholder="Title, subgenre, or mood"
@@ -180,8 +182,8 @@ const GRID_COVER_IMAGE_SIZES =
             albumCards.map((album) => (
               <li
                 class="genre-landing__item"
-                data-album-filter-item
-                data-album-filter-text={album.searchText}
+                data-collection-filter-item
+                data-collection-filter-text={album.searchText}
               >
                 <ContentCard
                   id={`genre-album-card-${album.id}`}
@@ -216,7 +218,7 @@ const GRID_COVER_IMAGE_SIZES =
             ))
           }
         </ul>
-      </AlbumGridFilter>
+      </CollectionGridFilter>
     </section>
   </div>
 </Layout>

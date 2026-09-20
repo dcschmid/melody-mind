@@ -58,6 +58,7 @@ export function buildAppShellConfig({
       exploreTitle: "Explore",
       exploreLinks: [
         { href: "/albums/", label: "Albums" },
+        { href: "/artists/", label: "Artists" },
         { href: "/radio/", label: "Radio" },
         { href: "/mood/", label: "Mood Navigator" },
         { href: "/genre/", label: "Genres" },
