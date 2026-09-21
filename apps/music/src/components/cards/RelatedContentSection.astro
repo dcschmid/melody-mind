@@ -13,6 +13,8 @@ interface Props {
   listAriaLabel?: string;
   items: RelatedContentCardItem[];
   mediaObjectFit?: "cover" | "contain";
+  /** "grid" (default card grid) or "list" (image left, copy right, one per row) */
+  layout?: "grid" | "list";
 }
 
 const {
@@ -22,17 +24,26 @@ const {
   listAriaLabel = title,
   items = [],
   mediaObjectFit = "contain",
+  layout = "grid",
 } = Astro.props as Props;
 
 const titleId = `${id}-title`;
 const defaultCoverImage = "/default-cover.jpg";
 const RELATED_COVER_IMAGE_SIZES =
   "(max-width: 640px) 7.5rem, (max-width: 760px) 44vw, (max-width: 1180px) 28vw, min(18rem, calc((100vw - 10rem) / 5))";
+const RELATED_PORTRAIT_IMAGE_SIZES = "(max-width: 640px) 40vw, min(15rem, 22vw)";
 ---
 
 {
   items.length ? (
-    <section class="related-content-section" id={id} aria-labelledby={titleId}>
+    <section
+      class:list={[
+        "related-content-section",
+        layout === "list" && "related-content-section--list",
+      ]}
+      id={id}
+      aria-labelledby={titleId}
+    >
       <Stack className="related-content-section__header" gap="base">
         <Stack className="related-content-section__copy-block" gap="xs">
           <Headline level="h2" textSize="2xl" className="related-content-section__title">
@@ -62,15 +73,19 @@ const RELATED_COVER_IMAGE_SIZES =
               href={item.href}
               variant="default"
               size="compact"
-              mediaAspectRatio="1 / 1"
+              {...(layout === "list" ? {} : { mediaAspectRatio: "1 / 1" })}
               mediaObjectFit={mediaObjectFit}
               imageSrc={item.imageSrc || defaultCoverImage}
               imageAlt={
                 item.imageAlt ?? (item.imageSrc ? `Cover image for ${item.title}` : "")
               }
-              imageWidth={640}
-              imageHeight={640}
-              imageSizes={RELATED_COVER_IMAGE_SIZES}
+              imageWidth={layout === "list" ? (item.imageWidth ?? 1086) : 640}
+              imageHeight={layout === "list" ? (item.imageHeight ?? 1448) : 640}
+              imageSizes={
+                layout === "list"
+                  ? RELATED_PORTRAIT_IMAGE_SIZES
+                  : RELATED_COVER_IMAGE_SIZES
+              }
               imageWidths={[240, 360, 480, 640]}
               imageFormats={["avif"]}
               title={item.title}
@@ -271,18 +286,6 @@ const RELATED_COVER_IMAGE_SIZES =
   }
 
   @media (width < 40rem) {
-    .related-content-section__card .content-card__content {
-      display: grid;
-      grid-template-columns: minmax(5.75rem, 7.5rem) minmax(0, 1fr);
-      align-items: stretch;
-    }
-
-    .related-content-section__card .content-card__media {
-      border-block-end: 0;
-      border-inline-end: 1px solid
-        color-mix(in srgb, var(--surface-border-accent) 48%, transparent);
-    }
-
     .related-content-section__card .content-card__body {
       min-inline-size: 0;
       padding: var(--spacing-sm);
@@ -306,6 +309,85 @@ const RELATED_COVER_IMAGE_SIZES =
   @media (width <= 440px) {
     .related-content-section .related-content-section__grid.auto-grid {
       grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* List layout: full portrait on the left, copy on the right, one entry per row */
+  .related-content-section--list .related-content-section__grid.auto-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1rem, 1.6vw, 1.4rem);
+  }
+
+  .related-content-section--list .related-content-section__item {
+    contain-intrinsic-size: auto 16rem;
+  }
+
+  .related-content-section--list .related-content-section__card .content-card__content {
+    display: grid;
+    grid-template-columns: minmax(10rem, 15rem) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .related-content-section--list .related-content-section__card .content-card__media {
+    /* Natural portrait ratio (derived from the real image size); never stretched,
+       so the full image shows even when the text column is taller. */
+    align-self: start;
+    border-block-end: 0;
+    border-inline-end: 1px solid
+      color-mix(in srgb, var(--surface-border-accent) 48%, transparent);
+  }
+
+  .related-content-section--list .related-content-section__card .content-card__body {
+    gap: var(--spacing-sm);
+
+    /* Portrait sets row height; keep title + bio + meta together, centred against it */
+    justify-content: center;
+    padding: clamp(var(--spacing-base), 1.6vw, var(--spacing-lg));
+  }
+
+  .related-content-section--list .related-content-section__card .content-card__meta {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+    padding-block-start: var(--spacing-xs);
+
+    /* neutralise the grid layout's margin-block-start: auto */
+    margin-block-start: 0;
+  }
+
+  @media (width < 40rem) {
+    .related-content-section--list .related-content-section__card .content-card__content {
+      grid-template-columns: minmax(6.5rem, 9rem) minmax(0, 1fr);
+    }
+
+    .related-content-section--list
+      .related-content-section__card
+      .content-card__meta-item {
+      /* keep the icon on the first text line when the label wraps */
+      align-items: flex-start;
+    }
+
+    .related-content-section--list
+      .related-content-section__card
+      .content-card__meta-icon {
+      margin-block-start: 0.15em;
+    }
+
+    .related-content-section--list
+      .related-content-section__card
+      .content-card__meta-item
+      span {
+      white-space: normal;
+    }
+
+    .related-content-section--list
+      .related-content-section__card
+      .content-card__description {
+      display: block;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 4;
+      /* stylelint-disable-next-line property-no-deprecated */
+      -webkit-box-orient: vertical;
     }
   }
 </style>

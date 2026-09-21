@@ -1,12 +1,17 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
+import RelatedContentSection from "@components/cards/RelatedContentSection.astro";
+import type { RelatedContentCardItem } from "@components/cards/relatedContent";
 import Icon from "@components/visual/Icon.astro";
 import OptimizedImage from "@components/media/OptimizedImage.astro";
-import Layout from "@layouts/Layout.astro";
 import { getArtistImage, getArtistImageUrl } from "@utils/artistImages";
+import Layout from "@layouts/Layout.astro";
+import { getAlbumCoverImage } from "@utils/musicImages";
 import { resolvePageUrl } from "@utils/siteUrls";
+import type { Song } from "../../types/album";
 
 type ArtistEntry = CollectionEntry<"artists">;
+type AlbumEntry = CollectionEntry<"albums">;
 
 export async function getStaticPaths() {
   const artists: ArtistEntry[] = await getCollection("artists");
@@ -22,6 +27,48 @@ const { entry } = Astro.props as { entry: ArtistEntry };
 const artist = entry.data;
 const { Content } = await render(entry);
 
+const allAlbums: AlbumEntry[] = await getCollection(
+  "albums",
+  (album: AlbumEntry) => album.data.isAvailable
+);
+const artistAlbums = allAlbums
+  .filter((album: AlbumEntry) => (album.data.vocalists ?? []).includes(entry.id))
+  .sort(
+    (a: AlbumEntry, b: AlbumEntry) =>
+      b.data.publishedAt.getTime() - a.data.publishedAt.getTime() ||
+      a.data.title.localeCompare(b.data.title)
+  );
+const artistAlbumCards: RelatedContentCardItem[] = artistAlbums.map(
+  (album: AlbumEntry) => {
+    const totalDuration = album.data.songs.reduce(
+      (acc: number, song: Song) => acc + (song.durationSeconds || 0),
+      0
+    );
+    return {
+      id: album.id,
+      href: `/${album.id}/`,
+      title: album.data.title,
+      description: album.data.description,
+      imageSrc: getAlbumCoverImage(album.data.coverImage),
+      imageAlt: `Cover art for the album ${album.data.title}`,
+      metaItems: [
+        ...(album.data.genre
+          ? [{ iconName: "disc" as const, label: album.data.genre }]
+          : []),
+        { iconName: "music" as const, label: `${album.data.songs.length} tracks` },
+        ...(totalDuration
+          ? [
+              {
+                iconName: "clock" as const,
+                label: `${Math.round(totalDuration / 60)} min`,
+              },
+            ]
+          : []),
+      ],
+      ctaSrText: "Opens album",
+    };
+  }
+);
 const canonical = resolvePageUrl(Astro.site, `/artists/${entry.id}/`);
 const portrait = getArtistImage(artist.portrait);
 const portraitUrl = getArtistImageUrl(artist.portrait);
@@ -55,6 +102,12 @@ const structuredData = [
       url: canonical,
       image: portraitUrl,
       knowsAbout: [artist.primaryGenre, ...artist.subgenres],
+      performerIn: artistAlbums.map((album) => ({
+        "@type": "MusicAlbum",
+        "@id": `${resolvePageUrl(Astro.site, `/${album.id}/`)}#music-album`,
+        name: album.data.title,
+        url: resolvePageUrl(Astro.site, `/${album.id}/`),
+      })),
     },
   },
 ];
@@ -109,6 +162,26 @@ const HERO_PORTRAIT_SIZES = "(max-width: 900px) 90vw, min(28rem, 32vw)";
         </div>
       </div>
     </header>
+    {
+      artistAlbumCards.length > 0 && (
+        <section
+          class="artist-profile__discography"
+          aria-labelledby="artist-discography-title"
+        >
+          <h2 id="artist-discography-title" class="artist-profile__discography-title">
+            Albums featuring {artist.name}
+          </h2>
+          <RelatedContentSection
+            id="artist-albums"
+            title="Discography"
+            copy="MelodyMind albums where this voice carries the lead."
+            listAriaLabel={`Albums featuring ${artist.name}`}
+            items={artistAlbumCards}
+            mediaObjectFit="cover"
+          />
+        </section>
+      )
+    }
   </article>
 </Layout>
 
@@ -225,6 +298,22 @@ const HERO_PORTRAIT_SIZES = "(max-width: 900px) 90vw, min(28rem, 32vw)";
     .artist-profile__split {
       grid-template-columns: minmax(18rem, 28rem) minmax(0, 1fr);
     }
+  }
+</style>
+<style>
+  .artist-profile__discography {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-block-start: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .artist-profile__discography-title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(1.6rem, 1.3rem + 1.4vw, 2.4rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1;
+    text-wrap: balance;
   }
 </style>
 

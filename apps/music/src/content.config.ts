@@ -52,6 +52,7 @@ const albums = defineCollection({
     era: z.string().optional(),
     energy: z.enum(["low", "medium", "high"]),
     artist: z.string().default("MelodyMind"),
+    vocalists: z.array(z.string()).default([]),
     isAvailable: z.boolean().default(true),
     songs: z.array(songSchema),
     zipUrl: z.url().optional(),

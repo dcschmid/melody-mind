@@ -31,6 +31,13 @@ interface MusicAlbumSchemaOptions {
   totalDurationSeconds: number;
   /** Collection pages the album belongs to (genre landing, series pages). */
   collectionPages?: Array<{ url: string; name: string }>;
+  /** Lead singers credited on the album, linked to their artist profile pages. */
+  vocalists?: Array<{
+    name: string;
+    url: string;
+    entityId: string;
+    description?: string;
+  }>;
 }
 
 interface MusicAlbumListSchemaOptions {
@@ -99,6 +106,7 @@ export function buildMusicAlbumSchema({
   songs,
   totalDurationSeconds,
   collectionPages = [],
+  vocalists = [],
 }: MusicAlbumSchemaOptions): Record<string, unknown> {
   const siteUrl = siteUrlFromCanonical(canonical);
   const artistId = `${siteUrl}#artist`;
@@ -144,6 +152,17 @@ export function buildMusicAlbumSchema({
       name: album.artist || "MelodyMind",
       url: siteUrl,
     },
+    ...(vocalists.length > 0
+      ? {
+          vocalist: vocalists.map((vocalist) => ({
+            "@type": "Person",
+            "@id": vocalist.entityId,
+            name: vocalist.name,
+            url: vocalist.url,
+            ...(vocalist.description ? { description: vocalist.description } : {}),
+          })),
+        }
+      : {}),
     track: sortedSongs.map((song) => ({
       "@type": "MusicRecording",
       "@id": getTrackUrl(canonical, song.trackNumber),

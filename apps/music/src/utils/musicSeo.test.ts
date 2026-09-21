@@ -19,6 +19,7 @@ const makeAlbum = (overrides: Partial<AlbumData> = {}): AlbumData => ({
   tags: [],
   energy: "medium",
   artist: "MelodyMind",
+  vocalists: [],
   isAvailable: true,
   songs: [],
   ...overrides,
@@ -102,6 +103,44 @@ describe("buildMusicAlbumSchema", () => {
     expect(schema.duration).toBe("PT3M1S");
     const tracks = schema.track as Array<Record<string, unknown>>;
     expect(tracks[0]?.duration).toBe("PT3M1S");
+  });
+
+  it("links credited vocalists and omits the node when none are credited", () => {
+    const withVocalists = buildMusicAlbumSchema({
+      album: makeAlbum(),
+      canonical,
+      coverImageUrl: "https://melody-mind.de/covers/test.webp",
+      songs: [],
+      totalDurationSeconds: 0,
+      vocalists: [
+        {
+          name: "Ronan Vale",
+          url: "https://melody-mind.de/artists/ronan-vale/",
+          entityId: "https://melody-mind.de/artists/ronan-vale/#artist",
+          description: "A hard rock lead voice.",
+        },
+      ],
+    }) as Record<string, unknown>;
+
+    expect(withVocalists.vocalist).toEqual([
+      {
+        "@type": "Person",
+        "@id": "https://melody-mind.de/artists/ronan-vale/#artist",
+        name: "Ronan Vale",
+        url: "https://melody-mind.de/artists/ronan-vale/",
+        description: "A hard rock lead voice.",
+      },
+    ]);
+
+    const withoutVocalists = buildMusicAlbumSchema({
+      album: makeAlbum(),
+      canonical,
+      coverImageUrl: "https://melody-mind.de/covers/test.webp",
+      songs: [],
+      totalDurationSeconds: 0,
+    }) as Record<string, unknown>;
+
+    expect(withoutVocalists).not.toHaveProperty("vocalist");
   });
 });
 

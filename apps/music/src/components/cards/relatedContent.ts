@@ -14,6 +14,8 @@ export interface RelatedContentCardItem {
   href: string;
   imageSrc?: string | ImageMetadata;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   metaItems?: ContentCardMetaItem[];
   ctaSrText?: string;
 }

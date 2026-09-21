@@ -21,6 +21,7 @@ interface AlbumFrontmatter {
   publishedAt?: string | Date;
   songs?: AlbumSong[];
   zipUrl?: string;
+  vocalists?: string[];
 }
 
 interface LoadedAlbum {
@@ -31,8 +32,10 @@ interface LoadedAlbum {
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
 const albumsDirectory = path.resolve(currentDirectory, "../../content/albums");
 const coversDirectory = path.resolve(currentDirectory, "../../assets/album-covers");
+const artistsDirectory = path.resolve(currentDirectory, "../../content/artists");
 
 let albums: LoadedAlbum[] = [];
+let artistSlugs: Set<string> = new Set();
 
 const parseFrontmatter = (source: string): AlbumFrontmatter | null => {
   const match = source.match(/^---\n([\s\S]*?)\n---/u);
@@ -57,6 +60,11 @@ beforeAll(async () => {
         parseFrontmatter(await readFile(path.join(albumsDirectory, fileName), "utf8")) ??
         {},
     }))
+  );
+  artistSlugs = new Set(
+    (await readdir(artistsDirectory))
+      .filter((name) => name.endsWith(".mdx"))
+      .map((name) => name.replace(/\.mdx$/u, ""))
   );
 });
 
@@ -156,5 +164,25 @@ describe("album content integrity", () => {
     });
 
     expect(issues, issues.join("\n")).toEqual([]);
+  });
+
+  it("points vocalist credits at existing artist profiles", () => {
+    const issues = albums.flatMap((album) =>
+      (album.data.vocalists ?? []).flatMap((vocalist) =>
+        artistSlugs.has(vocalist)
+          ? []
+          : [`${album.id}: vocalist "${vocalist}" has no artist profile`]
+      )
+    );
+
+    expect(issues, issues.join("\n")).toEqual([]);
+  });
+
+  it("credits the morning meeting album to both lead singers", () => {
+    const album = albums.find(
+      (candidate) => candidate.id === "the-morning-meeting-has-been-extended"
+    );
+
+    expect(album?.data.vocalists).toEqual(["ronan-vale", "tessa-vane"]);
   });
 });

@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { resolvePageUrl } from "@utils/siteUrls";
 import { getCollection, getEntry, render } from "astro:content";
 import { getAlbumCoverImage, getAlbumCoverImageUrl } from "../utils/musicImages";
+import { getArtistImage } from "@utils/artistImages";
 import { getAlbumDiscoveryMeta, getRelatedAlbums } from "../utils/albumDiscovery";
 import { buildMusicAlbumSchema } from "../utils/musicSeo";
 import type { Song } from "../types/album";
@@ -20,6 +21,7 @@ import { getQuizTeaser } from "@data/quizTeasers";
 type AlbumEntry = CollectionEntry<"albums">;
 type GenreEntry = CollectionEntry<"genres">;
 type SeriesEntry = CollectionEntry<"series">;
+type ArtistEntry = CollectionEntry<"artists">;
 
 export async function getStaticPaths() {
   const collection = await getCollection(
@@ -79,11 +81,38 @@ const rawBody = entry.body || "";
 const hasAlbumContent = rawBody.trim().length > 0;
 const { Content } = await render(entry);
 
-const [allAlbums, genreEntries, seriesEntries] = await Promise.all([
+const [allAlbums, genreEntries, seriesEntries, artistEntries] = await Promise.all([
   getCollection("albums", (albumEntry: AlbumEntry) => albumEntry.data.isAvailable),
   getCollection("genres") as Promise<GenreEntry[]>,
   getCollection("series") as Promise<SeriesEntry[]>,
+  getCollection("artists") as Promise<ArtistEntry[]>,
 ]);
+const vocalistEntries = (currentAlbum.vocalists ?? [])
+  .map((vocalistId: string) =>
+    artistEntries.find((candidate: ArtistEntry) => candidate.id === vocalistId)
+  )
+  .filter((candidate: ArtistEntry | undefined): candidate is ArtistEntry =>
+    Boolean(candidate)
+  );
+const vocalistItems: RelatedContentCardItem[] = vocalistEntries.map(
+  (vocalist: ArtistEntry) => ({
+    id: vocalist.id,
+    href: `/artists/${vocalist.id}/`,
+    title: vocalist.data.name,
+    description: vocalist.data.shortBio,
+    imageSrc: getArtistImage(vocalist.data.portrait),
+    imageAlt: `Portrait of ${vocalist.data.name}`,
+    imageWidth: getArtistImage(vocalist.data.portrait).width,
+    imageHeight: getArtistImage(vocalist.data.portrait).height,
+    metaItems: [
+      {
+        iconName: "mic" as const,
+        label: `${vocalist.data.lead} · ${vocalist.data.primaryGenre}`,
+      },
+    ],
+    ctaSrText: "Opens artist profile",
+  })
+);
 const genreEntry = currentAlbum.mainGenre
   ? genreEntries.find((candidate) => candidate.data.mainGenre === currentAlbum.mainGenre)
   : undefined;
@@ -149,6 +178,12 @@ const structuredData = [
         name: series.title,
       })),
     ],
+    vocalists: vocalistEntries.map((vocalist: ArtistEntry) => ({
+      name: vocalist.data.name,
+      url: resolvePageUrl(Astro.site, `/artists/${vocalist.id}/`),
+      entityId: `${resolvePageUrl(Astro.site, `/artists/${vocalist.id}/`)}#artist`,
+      description: vocalist.data.shortBio,
+    })),
   }),
 ];
 const availableAlbums = allAlbums.map((albumEntry: AlbumEntry) => ({
@@ -263,6 +298,20 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
       zipUrl={currentAlbum.zipUrl}
     >
       <Content />
+      {
+        vocalistItems.length > 0 && (
+          <RelatedContentSection
+            slot="after-liner-notes"
+            id="featured-artists"
+            title="Featured Artists"
+            copy="The lead voices behind this record."
+            listAriaLabel="Featured artists"
+            items={vocalistItems}
+            mediaObjectFit="cover"
+            layout="list"
+          />
+        )
+      }
       <RelatedContentSection
         slot="after-liner-notes"
         id="related-albums"

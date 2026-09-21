@@ -25,6 +25,7 @@ export interface AlbumData {
   era?: string;
   energy: "low" | "medium" | "high";
   artist: string;
+  vocalists?: string[];
   isAvailable: boolean;
   songs: Song[];
   zipUrl?: string;
