@@ -24,17 +24,17 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@melodymind/archive-utils": "workspace:*",
     "@melodymind/site-nav": "workspace:*",
-    "astro": "^7.2.0",
+    "astro": "^7.3.3",
     "astro-minify-html-swc": "^0.1.12",
     "lightningcss": "^1.33.0",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
-    "@playwright/test": "^1.62.1",
-    "js-yaml": "^5.2.3",
-    "vitest": "^4.1.10"
+    "@playwright/test": "^1.63.0",
+    "js-yaml": "^5.4.2",
+    "vitest": "^5.0.1"
   }
 }

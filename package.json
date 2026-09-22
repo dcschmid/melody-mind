@@ -5,6 +5,8 @@
   "description": "MelodyMind Music, Quiz, Stories, and Reviews apps",
   "pnpm": {
     "overrides": {
+      "@emnapi/core": "^1.11.3",
+      "@emnapi/runtime": "^1.11.3",
       "sharp": "^0.35.3",
       "yaml": ">=2.8.3"
     }
@@ -54,23 +56,25 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@double-great/stylelint-a11y": "^3.5.1",
+    "@double-great/stylelint-a11y": "^3.5.4",
+    "@emnapi/core": "^1.11.3",
+    "@emnapi/runtime": "^1.11.3",
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.8.1",
-    "eslint-plugin-astro": "^2.1.1",
+    "eslint": "^10.11.0",
+    "eslint-plugin-astro": "^3.2.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "husky": "^9.1.7",
     "postcss-html": "^2.0.0",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.8",
     "prettier-plugin-astro": "^0.14.1",
-    "sharp": "^0.35.3",
-    "stylelint": "^17.14.1",
-    "stylelint-config-recess-order": "^7.7.0",
+    "sharp": "^0.35.4",
+    "stylelint": "^17.15.0",
+    "stylelint-config-recess-order": "^7.8.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-order": "^8.1.1",
-    "turbo": "^2.10.9",
+    "turbo": "^2.11.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.66.0"
+    "typescript-eslint": "^8.70.1"
   },
   "packageManager": "pnpm@10.33.0",
   "engines": {
