@@ -176,7 +176,7 @@ const getFactIcon = (label: string) => {
     --album-hero-ink: var(--music-album-ink, var(--text-primary));
     --album-hero-muted: var(--music-album-muted, var(--text-secondary));
     --album-hero-line: var(--music-album-line, var(--surface-border-soft));
-    --album-hero-cover-radius: var(--radius-md);
+    --album-hero-cover-radius: var(--radius-base);
     --album-hero-cover-shadow: var(--shadow-xl);
     --album-hero-cover-shadow-mobile: var(--shadow-lg);
 
@@ -186,8 +186,7 @@ const getFactIcon = (label: string) => {
     inline-size: 100%;
     min-inline-size: 0;
     min-block-size: min(37rem, calc(100svh - 4.5rem));
-    padding: max(clamp(1.25rem, 4vw, 3rem), 5.35rem) clamp(1.25rem, 5vw, 4.5rem)
-      clamp(1.25rem, 4vw, 3rem);
+    padding: clamp(1.25rem, 4vw, 3rem) clamp(1.25rem, 5vw, 4.5rem);
     overflow: hidden;
     isolation: isolate;
   }
@@ -464,7 +463,7 @@ const getFactIcon = (label: string) => {
       inline-size: 100%;
       max-inline-size: 100%;
       min-block-size: auto;
-      padding: 5.35rem 1rem 0.8rem;
+      padding: 1.25rem 1rem 0.8rem;
     }
 
     .album-hero__lockup {

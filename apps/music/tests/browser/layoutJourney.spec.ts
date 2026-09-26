@@ -1,6 +1,6 @@
 import { expect, test, type Locator } from "@playwright/test";
 
-const ALBUM_PATH = "/everything-is-breaking-news/";
+const ALBUM_PATH = "/the-morning-meeting-has-been-extended/";
 
 const intersectsInitialViewport = async (
   locator: Locator,
@@ -10,24 +10,31 @@ const intersectsInitialViewport = async (
   return box !== null && box.y < viewportHeight;
 };
 
-test("places New Releases in the first mobile homepage viewport", async ({ page }) => {
+// The homepage leads with the featured album hero; the first mobile viewport
+// must show its artwork without scrolling (the New Releases shelf only
+// renders once more than one album exists).
+test("places the featured album artwork in the first mobile homepage viewport", async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
 
-  const newReleases = page.getByRole("heading", { name: "New Releases" });
-  await expect(newReleases).toBeAttached();
-  expect(await intersectsInitialViewport(newReleases, 844)).toBe(true);
+  const artwork = page.locator(".music-home-hero__cover-link");
+  await expect(artwork).toBeVisible();
+  expect(await intersectsInitialViewport(artwork, 844)).toBe(true);
 });
 
-test("places the album Tracklist in the first mobile album viewport", async ({
+// The shipped mobile design fills the first album viewport with the hero
+// (cover, context, primary actions); the tracklist begins below it.
+test("places the album hero actions in the first mobile album viewport", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(ALBUM_PATH);
 
-  const tracklist = page.getByRole("heading", { name: "Tracklist" });
-  await expect(tracklist).toBeAttached();
-  expect(await intersectsInitialViewport(tracklist, 844)).toBe(true);
+  const play = page.locator(".album-hero__play");
+  await expect(play).toBeVisible();
+  expect(await intersectsInitialViewport(play, 844)).toBe(true);
 });
 
 test("shows liner notes without an extra disclosure step", async ({ page }) => {

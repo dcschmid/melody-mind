@@ -108,9 +108,9 @@ const versionAssetPath = (path: string): string =>
   </head>
   <body class={bodyClasses} transition:animate="none">
     {showSkipLink && <SkipLink targetId={mainId} />}
+    <slot name="before-main" />
     <div class={contentShellClasses || undefined}>
       <slot name="body-start" />
-      <slot name="before-main" />
       <main id={mainId} tabindex="-1" role="main" class={mainClasses}>
         <slot />
       </main>

@@ -115,11 +115,11 @@ const HERO_PORTRAIT_SIZES = "(max-width: 900px) 90vw, min(28rem, 32vw)";
 ---
 
 <Layout
-  title={`${artist.name} | MelodyMind Music`}
+  title={artist.name}
   description={artist.shortBio}
   {keywords}
-  type="website"
-  title={artist.name}
+  type="profile"
+  image={portraitUrl}
   imageWidth={portrait.width}
   imageHeight={portrait.height}
   imageType="image/webp"
@@ -146,6 +146,8 @@ const HERO_PORTRAIT_SIZES = "(max-width: 900px) 90vw, min(28rem, 32vw)";
             width={portrait.width}
             height={portrait.height}
             loading="eager"
+            fetchpriority="high"
+            formats={["avif"]}
             sizes={HERO_PORTRAIT_SIZES}
             widths={[320, 480, 720, 960].filter((width) => width <= portrait.width)}
           />

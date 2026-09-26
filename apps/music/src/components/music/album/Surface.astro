@@ -26,21 +26,6 @@
     isolation: isolate;
   }
 
-  /* Ambient glow fixed to the viewport so it never creates a seam mid-page. */
-  .album-page-surface::before {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-    background: radial-gradient(
-      140vw 90vh at 50% -25%,
-      color-mix(in srgb, var(--accent-primary) 9%, transparent),
-      color-mix(in srgb, var(--accent-strong) 4%, transparent) 45%,
-      transparent 80%
-    );
-  }
-
   .album-page-surface,
   .album-page-surface *,
   .album-page-surface *::before,

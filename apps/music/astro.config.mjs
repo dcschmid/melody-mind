@@ -12,6 +12,7 @@ const SITEMAP_EXCLUDED_PATHS = new Set([
   "/404/",
   "/album-search-index.json",
   "/categories/",
+  "/favorites/",
   "/taxonomy/",
 ]);
 // Noindex pages don't belong in the sitemap — listing them sends

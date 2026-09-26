@@ -59,19 +59,9 @@ const containerClasses = ["page-shell__container", containerClass]
     margin-block-end: 0;
   }
 
-  /* Variant: Wide container */
-  .page-shell__container--wide {
-    max-inline-size: var(--page-shell-max-inline-wide);
-  }
-
   /* Variant: Extra spacious padding */
   .page-shell__container--spacious {
     padding: var(--spacing-3xl) var(--spacing-lg);
-  }
-
-  /* Variant: Narrow container for reading */
-  .page-shell__container--narrow {
-    max-inline-size: var(--page-shell-max-inline-narrow);
   }
 
   /* Tablet breakpoint - increase padding */
@@ -96,13 +86,6 @@ const containerClasses = ["page-shell__container", containerClass]
 
     .page-shell__container--spacious {
       padding: var(--page-shell-padding-y-spacious) var(--spacing-2xl);
-    }
-  }
-
-  /* Large desktop - expand wide variant */
-  @media (width >= 1280px) {
-    .page-shell__container--wide {
-      max-inline-size: var(--page-shell-max-inline-wide-xl);
     }
   }
 </style>

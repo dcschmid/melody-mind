@@ -56,8 +56,7 @@ const {
     align-items: baseline;
     justify-content: space-between;
     padding-block-end: var(--spacing-sm);
-    border-block-end: 1px solid
-      color-mix(in srgb, var(--section-header-accent) 22%, var(--border-default));
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
   .section-header__title {
@@ -108,8 +107,6 @@ const {
     color: var(--section-header-accent);
     background: color-mix(in srgb, var(--section-header-accent) 14%, transparent);
     border-color: color-mix(in srgb, var(--section-header-accent) 45%, transparent);
-    box-shadow: 0 0 1.5rem
-      color-mix(in srgb, var(--section-header-accent) 22%, transparent);
   }
 
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -118,7 +115,6 @@ const {
         color var(--motion-duration-fast) var(--motion-ease-standard),
         background-color var(--motion-duration-fast) var(--motion-ease-standard),
         border-color var(--motion-duration-fast) var(--motion-ease-standard),
-        box-shadow var(--motion-duration-fast) var(--motion-ease-standard),
         transform var(--motion-duration-fast) var(--motion-ease-standard);
     }
 

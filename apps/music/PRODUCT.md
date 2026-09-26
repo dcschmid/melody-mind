@@ -19,9 +19,11 @@ that make each record distinct.
 
 ## Brand Personality
 
-Focused, atmospheric, and approachable. The interface should feel like a carefully
-run listening room: confident enough to foreground the music, calm enough to stay out
-of the way, and familiar enough that playback never needs explanation.
+Focused, atmospheric, and approachable. The interface is a **Cover-Lit Listening
+Room**: confident enough to foreground the music, calm enough to stay out
+of the way, and familiar enough that playback never needs explanation. Cover
+artwork — increasingly detailed, color-rich illustration — carries the visual
+identity; the room around it stays quiet, deep blue, and permanently legible.
 
 ## Anti-references
 
@@ -40,7 +42,11 @@ of the way, and familiar enough that playback never needs explanation.
 
 ## Accessibility & Inclusion
 
-WCAG 2.2 AA is the required baseline, with the existing AAA contrast targets retained
-where practical. The app supports keyboard navigation, visible focus, reduced motion,
-forced colors, high contrast, screen-reader names, 44px touch targets, and no autoplay.
-Dark mode is the only visual theme.
+WCAG 2.2 Level AAA is the required target for every applicable success
+criterion on the public Music routes. Contrast gates are enforced in CI
+(`node apps/music/scripts/check-contrast.mjs`): 7:1 for normal text, 4.5:1 for
+large text, 3:1 for non-text UI and focus indicators. No public claim of
+conformity is published until the scripted and manual verification passes.
+The app supports keyboard navigation, visible focus, reduced motion, forced
+colors, high contrast, screen-reader names, 44px touch targets, and no
+autoplay. Dark mode is the only visual theme.

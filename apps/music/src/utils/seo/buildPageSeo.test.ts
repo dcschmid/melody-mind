@@ -83,6 +83,18 @@ describe("buildPageSeo type inference", () => {
     expect(result.type).toBe("musicAlbum");
     expect(result.openGraph.type).toBe("music.album");
   });
+
+  it("passes the explicit profile type through to Open Graph", () => {
+    const result = buildPageSeo({
+      ...baseParams,
+      title: "T",
+      type: "profile",
+      memoize: false,
+    });
+
+    expect(result.type).toBe("profile");
+    expect(result.openGraph.type).toBe("profile");
+  });
 });
 
 describe("buildPageSeo robots directives", () => {

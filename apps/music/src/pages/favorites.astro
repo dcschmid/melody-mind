@@ -19,6 +19,7 @@ const breadcrumbs = [
   type="website"
   {canonical}
   {breadcrumbs}
+  index={false}
   contentShellClass="music-layout__container--favorites"
 >
   <div class="favorites-page">
@@ -294,7 +295,7 @@ const breadcrumbs = [
     max-inline-size: 34rem;
     padding: var(--spacing-xl);
     border: 1px dashed var(--border-default);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-base);
   }
 
   .favorites-page__empty[hidden] {
@@ -344,21 +345,13 @@ const breadcrumbs = [
 
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
     .favorites-page :global(.favorites-page__cover-link),
-    .favorites-page :global(.favorites-page__cover),
     .favorites-page :global(.favorites-page__play),
     .favorites-page :global(.favorites-page__favorite),
     .favorites-page :global(.favorites-page__card-title a) {
       transition:
         color var(--motion-duration-fast) var(--motion-ease-standard),
         background-color var(--motion-duration-fast) var(--motion-ease-standard),
-        border-color var(--motion-duration-fast) var(--motion-ease-standard),
-        transform var(--motion-duration-fast) var(--motion-ease-standard);
-    }
-
-    .favorites-page :global(.favorites-page__cover-link:hover .favorites-page__cover),
-    .favorites-page
-      :global(.favorites-page__cover-link:focus-visible .favorites-page__cover) {
-      transform: scale(1.02);
+        border-color var(--motion-duration-fast) var(--motion-ease-standard);
     }
   }
 

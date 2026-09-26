@@ -107,7 +107,7 @@ const RELATED_PORTRAIT_IMAGE_SIZES = "(max-width: 640px) 40vw, min(15rem, 22vw)"
     padding-block: clamp(var(--spacing-lg), 2.5vw, var(--spacing-2xl));
     padding-inline: 0;
     margin-block-start: var(--spacing-xl);
-    border-block-start: 1px solid var(--surface-border-accent);
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
   .related-content-section__copy-block {
@@ -162,58 +162,10 @@ const RELATED_PORTRAIT_IMAGE_SIZES = "(max-width: 640px) 40vw, min(15rem, 22vw)"
 </style>
 
 <style is:global>
-  .related-content-section__card {
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-panel-raised) 92%, var(--accent-primary) 8%),
-        var(--surface-panel-raised) 54%
-      ),
-      var(--surface-panel-raised);
-    border-color: color-mix(in srgb, var(--surface-border-accent) 64%, transparent);
-    border-radius: var(--radius-md);
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 58%, transparent),
-      0 1.2rem 2.7rem color-mix(in srgb, var(--surface-shadow) 18%, transparent);
-  }
-
   .related-content-section .related-content-section__grid.auto-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: clamp(1rem, 1.6vw, 1.4rem);
     align-items: stretch;
-  }
-
-  .related-content-section__card.content-card--interactive:hover,
-  .related-content-section__card.content-card--interactive:focus-within {
-    border-color: color-mix(
-      in srgb,
-      var(--accent-primary) 56%,
-      var(--surface-border-accent)
-    );
-    transform: translateY(-3px);
-  }
-
-  .related-content-section__card .content-card__media {
-    background: color-mix(
-      in srgb,
-      var(--surface-panel-raised) 82%,
-      var(--text-primary) 18%
-    );
-    border-block-end-color: color-mix(
-      in srgb,
-      var(--surface-border-accent) 54%,
-      transparent
-    );
-  }
-
-  .related-content-section__card .content-card__media::after {
-    position: absolute;
-    inset: 0;
-    display: block;
-    pointer-events: none;
-    content: "";
-    background: linear-gradient(180deg, transparent 62%, var(--surface-scrim));
-    box-shadow: inset 0 0 0 1px var(--surface-border-soft);
   }
 
   .related-content-section__card .content-card__content {
@@ -256,7 +208,7 @@ const RELATED_PORTRAIT_IMAGE_SIZES = "(max-width: 640px) 40vw, min(15rem, 22vw)"
   .related-content-section__card .content-card__meta-item:first-child {
     grid-column: 1 / -1;
     max-inline-size: 100%;
-    color: color-mix(in srgb, var(--text-primary) 88%, var(--accent-primary) 12%);
+    color: var(--text-primary);
   }
 
   .related-content-section__card .content-card__meta-item span {
@@ -300,10 +252,6 @@ const RELATED_PORTRAIT_IMAGE_SIZES = "(max-width: 640px) 40vw, min(15rem, 22vw)"
       gap: var(--spacing-xs);
       padding-block-start: var(--spacing-xs);
     }
-
-    .related-content-section__card .content-card__meta-item:first-child {
-      color: color-mix(in srgb, var(--text-primary) 88%, var(--accent-primary) 12%);
-    }
   }
 
   @media (width <= 440px) {
@@ -333,8 +281,7 @@ const RELATED_PORTRAIT_IMAGE_SIZES = "(max-width: 640px) 40vw, min(15rem, 22vw)"
        so the full image shows even when the text column is taller. */
     align-self: start;
     border-block-end: 0;
-    border-inline-end: 1px solid
-      color-mix(in srgb, var(--surface-border-accent) 48%, transparent);
+    border-inline-end: 1px solid var(--surface-border-soft);
   }
 
   .related-content-section--list .related-content-section__card .content-card__body {

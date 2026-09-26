@@ -307,11 +307,12 @@ const mobileExtraProps = {
 
 <style>
   .music-site-header {
-    position: absolute;
+    position: sticky;
     inset-block-start: 0;
-    inset-inline: 0;
     z-index: 90;
     padding-inline: clamp(0.75rem, 3vw, 2rem);
+    background: var(--surface-1);
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
   .music-site-header__inner {
@@ -319,7 +320,7 @@ const mobileExtraProps = {
     grid-template-columns: auto minmax(0, 1fr);
     gap: clamp(1.25rem, 3vw, 3rem);
     align-items: center;
-    max-inline-size: 90rem;
+    max-inline-size: var(--shell-immersive, 90rem);
     min-block-size: 4.25rem;
     margin-inline: auto;
   }
@@ -363,33 +364,16 @@ const mobileExtraProps = {
 
   @media (width < 72rem) {
     .music-site-header {
-      --music-menu-bg-start: var(--bg-primary);
-      --music-menu-bg-end: var(--bg-secondary);
-      --music-menu-bg-glow: color-mix(in srgb, var(--accent-primary) 34%, transparent);
+      --music-menu-bg-start: var(--surface-1);
       --music-menu-text: var(--text-primary);
       --music-menu-muted: var(--text-tertiary);
       --music-menu-line: var(--border-muted);
-      --music-menu-accent: var(--accent-primary);
       --music-menu-chevron: color-mix(in srgb, var(--text-primary) 82%, transparent);
       --music-menu-active-text: var(--link-hover);
-      --music-menu-active-bg: color-mix(
-        in srgb,
-        var(--accent-primary) 28%,
-        var(--surface-2)
-      );
-      --music-menu-chip-bg: color-mix(in srgb, var(--surface-1) 74%, transparent);
-      --music-menu-chip-border: color-mix(
-        in srgb,
-        var(--accent-primary) 34%,
-        var(--border-muted)
-      );
+      --music-menu-chip-bg: var(--surface-2);
+      --music-menu-chip-border: var(--surface-border-soft);
       --music-menu-cta-bg: var(--accent-primary);
       --music-menu-cta-text: var(--button-text-accent);
-      --music-menu-cta-shadow: color-mix(
-        in srgb,
-        var(--music-menu-accent) 28%,
-        transparent
-      );
 
       padding-inline: 0;
     }
@@ -417,8 +401,8 @@ const mobileExtraProps = {
       padding: 0;
       color: var(--text-primary);
       cursor: pointer;
-      background: color-mix(in srgb, var(--bg-primary) 52%, transparent);
-      border: 1px solid color-mix(in srgb, var(--text-primary) 22%, transparent);
+      background: transparent;
+      border: 1px solid var(--surface-border-soft);
       border-radius: var(--radius-full);
     }
 

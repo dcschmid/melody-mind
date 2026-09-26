@@ -288,21 +288,25 @@ const optimizedImageResponsiveProps =
     overflow: hidden;
     background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
-    border-radius: calc(var(--radius-xl) + var(--spacing-xs));
-    box-shadow: var(--shadow-base);
-    transition: transform var(--transition-base) var(--motion-ease-standard);
+    border-radius: var(--radius-base);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
     .content-card {
-      transition: none;
+      transition:
+        border-color var(--motion-duration-fast) var(--motion-ease-standard),
+        background-color var(--motion-duration-fast) var(--motion-ease-standard);
+    }
+
+    .content-card__title {
+      transition: color var(--motion-duration-fast) var(--motion-ease-standard);
     }
   }
 
-  /* Card lift on hover for interactive cards */
+  /* Flat state feedback on interactive cards */
   .content-card--interactive:hover,
   .content-card--interactive:focus-within {
-    transform: translateY(-2px);
+    background: var(--surface-2);
   }
 
   .content-card--interactive.content-card--action:hover,
@@ -313,13 +317,6 @@ const optimizedImageResponsiveProps =
   .content-card--interactive.content-card--action:focus-within {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .content-card--interactive:hover,
-    .content-card--interactive:focus-within {
-      transform: none;
-    }
   }
 
   .content-card__media {
@@ -340,7 +337,7 @@ const optimizedImageResponsiveProps =
 
   .content-card--feature .content-card__media {
     background: var(--surface-pill-bg);
-    border-block-end-color: var(--surface-border-accent);
+    border-block-end-color: var(--surface-border-soft);
   }
 
   /* Minimal chrome removes media bottom border */
@@ -439,7 +436,7 @@ const optimizedImageResponsiveProps =
   /* Subtle accent undertone on interactive titles */
   .content-card--interactive:hover .content-card__title,
   .content-card--interactive:focus-within .content-card__title {
-    color: color-mix(in srgb, var(--heading-color) 85%, var(--accent-primary) 15%);
+    color: var(--accent-primary);
   }
 
   .content-card__description {
@@ -453,14 +450,6 @@ const optimizedImageResponsiveProps =
 
   .content-card--size-compact .content-card__description {
     font-size: var(--font-size-sm);
-  }
-
-  .content-card__description--clamped {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: var(--content-card-description-line-clamp);
-    /* stylelint-disable-next-line property-no-deprecated */
-    -webkit-box-orient: vertical;
   }
 
   .content-card__meta {
@@ -498,12 +487,6 @@ const optimizedImageResponsiveProps =
     color: var(--accent-primary);
   }
 
-  /* Icon color shift indicates metadata presence on hover */
-  .content-card--interactive:hover .content-card__meta-icon,
-  .content-card--interactive:focus-within .content-card__meta-icon {
-    color: var(--accent-primary);
-  }
-
   .content-card__footer {
     padding: 0 clamp(var(--spacing-lg), 2vw, var(--spacing-xl))
       clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
@@ -532,7 +515,6 @@ const optimizedImageResponsiveProps =
     background: color-mix(in srgb, var(--surface-1) 78%, transparent);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
-    box-shadow: var(--shadow-xs);
   }
 
   .content-card__cta-icon {
@@ -545,7 +527,6 @@ const optimizedImageResponsiveProps =
     color: var(--button-text-accent);
     background: var(--button-primary-bg);
     border-color: var(--surface-border-accent);
-    box-shadow: var(--shadow-lg);
   }
 
   .content-card--action .content-card__cta {
@@ -664,31 +645,5 @@ const optimizedImageResponsiveProps =
     block-size: auto;
     max-block-size: 100%;
     object-fit: contain;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    :is(
-        .content-card--interactive.content-card--action:hover,
-        .content-card--interactive.content-card--action:focus-within,
-        .content-card--interactive.content-card--feature:hover,
-        .content-card--interactive.content-card--feature:focus-within
-      )
-      :where(.content-card__media img, .content-card__media picture > img) {
-      transform: none;
-      transition: none;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: no-preference) {
-    :is(
-        .content-card--interactive.content-card--action:hover,
-        .content-card--interactive.content-card--action:focus-within,
-        .content-card--interactive.content-card--feature:hover,
-        .content-card--interactive.content-card--feature:focus-within
-      )
-      :where(.content-card__media img, .content-card__media picture > img) {
-      transform: scale(1.05);
-      transition: transform var(--motion-duration-slow) var(--motion-ease-standard);
-    }
   }
 </style>

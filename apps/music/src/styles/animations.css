@@ -6,27 +6,9 @@
 /* -----------------------------------------------------------------------------
    KEYFRAMES
    ----------------------------------------------------------------------------- */
-@keyframes theme-rise-in {
-  from {
-    opacity: var(--motion-opacity-soft);
-    transform: translateY(var(--motion-distance-sm));
-  }
-
-  to {
-    opacity: var(--motion-opacity-full);
-    transform: translateY(0);
-  }
-}
-
-@keyframes theme-fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: var(--motion-opacity-full);
-  }
-}
+/* Feedback pulse for transient state changes (e.g. a saved/updated cue).
+   Reveal-on-load animations are intentionally absent: content is never gated
+   behind an automatic page inszenierung. */
 
 @keyframes theme-state-pulse {
   0%,
@@ -40,20 +22,10 @@
 }
 
 /* -----------------------------------------------------------------------------
-   ANIMATION CLASSES
+   FEEDBACK CLASS
    Applied via data-animate attribute in HTML
    ----------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
-  [data-animate="rise-in"] {
-    animation: theme-rise-in var(--motion-duration-base) var(--motion-ease-standard)
-      var(--motion-delay, var(--motion-delay-none)) both;
-  }
-
-  [data-animate="soft-fade"] {
-    animation: theme-fade-in var(--motion-duration-base) linear
-      var(--motion-delay, var(--motion-delay-none)) both;
-  }
-
   [data-animate="state-pulse"] {
     animation: theme-state-pulse var(--motion-duration-feedback)
       var(--motion-ease-standard) var(--motion-delay, var(--motion-delay-none))

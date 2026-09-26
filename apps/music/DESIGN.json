@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-07-16T12:00:00+02:00",
-  "title": "Design System: MelodyMind Music",
+  "title": "Design System: MelodyMind Music — Cover-Lit Listening Room",
   "extensions": {
     "colorMeta": {
       "room-night": {
@@ -66,18 +66,19 @@
     ],
     "breakpoints": [
       { "name": "mobile", "value": "760px" },
-      { "name": "desktop-nav", "value": "1024px" }
+      { "name": "desktop-nav", "value": "1152px" }
     ]
   },
   "components": [],
   "narrative": {
-    "northStar": "The Focused Listening Room",
-    "overview": "MelodyMind is a dark-only product surface built for discovery and uninterrupted listening. Album covers carry the emotional range; navigation and playback controls stay restrained, familiar, and stable.",
+    "northStar": "The Cover-Lit Listening Room",
+    "overview": "MelodyMind is a dark-only product surface built for discovery and uninterrupted listening. Album artwork — increasingly detailed, color-rich illustration — is the only variable color source and carries atmosphere and recognition; navigation and playback controls stay restrained, familiar, and stable.",
     "keyCharacteristics": [
-      "Deep blue-black tonal layers rather than pure black.",
-      "Warm readable text and one action-focused teal signal.",
-      "Compact streaming patterns balanced by editorial album context.",
-      "Square artwork, linear track lists, and persistent playback."
+      "Deep blue canvas (hue 250) with warm primary white; no pure black.",
+      "One teal accent reserved for action, selection, links, focus, and active playback.",
+      "Cover artwork is the only variable color source; atmosphere only as a decorative ambient layer behind an opaque deep-blue scrim.",
+      "Square artwork undistorted in a clear frame; flat track rows; shadows only for featured artwork or floating controls.",
+      "Compact streaming patterns balanced by editorial album context; persistent playback."
     ],
     "rules": [
       {
@@ -89,10 +90,15 @@
         "name": "The Flat-by-Default Rule",
         "body": "Content shelves and track rows use spacing, dividers, and tonal selection before shadows.",
         "section": "elevation"
+      },
+      {
+        "name": "The Cover-Light Rule",
+        "body": "Never render text or controls on uncontrolled cover imagery; cover atmosphere appears only as a decorative ambient layer behind an opaque scrim, never as a source of text or control color.",
+        "section": "colors"
       }
     ],
     "dos": [
-      "Do keep all normal text at WCAG 2.2 AA contrast or better.",
+      "Do keep all normal text at WCAG 2.2 AAA contrast (7:1 normal, 4.5:1 large) and non-text UI/focus at 3:1.",
       "Do use 44px minimum interactive targets and visible keyboard focus."
     ],
     "donts": [

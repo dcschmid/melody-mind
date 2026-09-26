@@ -38,10 +38,10 @@ const optimizedLogoHeight =
     : Math.round((optimizedLogoWidth * brandLogoSrc.height) / brandLogoSrc.width);
 const footerGroups: FooterGroup[] = [
   {
-    id: "explore",
-    title: footerConfig.exploreTitle || "Explore",
+    id: "about",
+    title: footerConfig.exploreTitle || "About",
     links: footerConfig.exploreLinks || [],
-    ariaLabel: "Explore MelodyMind Music",
+    ariaLabel: "About MelodyMind Music",
   },
   {
     id: "support",
@@ -157,25 +157,12 @@ const footerGroups: FooterGroup[] = [
   }
 
   .music-footer__inner {
-    position: relative;
     display: grid;
     gap: clamp(1rem, 2.5vw, 1.7rem);
-    max-inline-size: 90rem;
+    max-inline-size: var(--shell-immersive);
     padding: clamp(var(--music-footer-space-lg), 3vw, 2.25rem) clamp(1rem, 4vw, 4rem);
     margin-inline: auto;
-  }
-
-  .music-footer__inner::before {
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline: clamp(1rem, 4vw, 4rem);
-    block-size: 1px;
-    content: "";
-    background: color-mix(
-      in srgb,
-      var(--music-footer-accent) 18%,
-      var(--music-footer-line)
-    );
+    border-block-start: 1px solid var(--music-footer-line);
   }
 
   .music-footer__brand {
@@ -192,8 +179,8 @@ const footerGroups: FooterGroup[] = [
   }
 
   .music-footer__brand-link:focus-visible {
-    outline: 2px solid var(--music-footer-accent);
-    outline-offset: 4px;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
   .music-footer__logo {
@@ -227,7 +214,7 @@ const footerGroups: FooterGroup[] = [
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
-    color: var(--music-footer-accent);
+    color: var(--music-footer-ink);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wider);
     text-wrap: balance;
@@ -270,8 +257,8 @@ const footerGroups: FooterGroup[] = [
   }
 
   .music-footer__link:focus-visible {
-    outline: 2px solid var(--music-footer-accent);
-    outline-offset: 4px;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
   .music-footer__link-icon {
@@ -285,15 +272,14 @@ const footerGroups: FooterGroup[] = [
     align-items: center;
     min-block-size: 3rem;
     padding-block-start: var(--music-footer-space-md);
-    border-block-start: 1px solid
-      color-mix(in srgb, var(--music-footer-accent) 12%, var(--music-footer-line));
+    border-block-start: 1px solid var(--music-footer-line);
   }
 
   .music-footer__copyright {
     margin: 0;
     font-size: var(--font-size-xs);
     line-height: 1.45;
-    color: color-mix(in srgb, var(--music-footer-muted) 86%, var(--music-footer-accent));
+    color: var(--music-footer-muted);
   }
 
   @media (width >= 760px) {

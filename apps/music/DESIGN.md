@@ -1,6 +1,6 @@
 ---
-name: MelodyMind Music
-description: A focused dark listening room for concept-album discovery and playback.
+name: MelodyMind Music — Cover-Lit Listening Room
+description: A dark listening room where album covers light the space; controls stay calm and AAA-legible.
 colors:
   room-night: "oklch(11.5% 0.03 250deg)"
   raised-night: "oklch(17% 0.032 250deg)"
@@ -58,23 +58,49 @@ components:
     padding: "8px"
 ---
 
-# Design System: MelodyMind Music
+# Design System: MelodyMind Music — Cover-Lit Listening Room
 
 ## Overview
 
-**Creative North Star: "The Focused Listening Room"**
+**Creative North Star: "The Cover-Lit Listening Room"**
 
 MelodyMind is a dark-only product surface built for discovery and uninterrupted
-listening. Album covers carry the emotional range; navigation and playback controls
-stay restrained, familiar, and stable. The interface rejects neon-dashboard styling,
-decorative glass, repeated generic card grids, and marketing copy that delays the music.
+listening. Album artwork — increasingly detailed, color-rich illustration — is the
+only variable color source and carries atmosphere and recognition. Navigation,
+player, text, and states stay calm, familiar, and permanently readable. The
+interface rejects neon-dashboard styling, decorative glass, repeated generic card
+grids, and marketing copy that delays the music.
 
 **Key Characteristics:**
 
-- Deep blue-black tonal layers rather than pure black.
-- Warm readable text and one action-focused teal signal.
-- Compact streaming patterns balanced by editorial album context.
-- Square artwork, linear track lists, and persistent playback.
+- Deep blue canvas (hue 250) with warm primary white; no pure black.
+- One teal accent, reserved for action, selection, links, focus, and active playback.
+- Cover artwork is the only variable color source; its atmosphere appears only as a
+  decorative, dimmed ambient layer behind an opaque deep-blue scrim.
+- Information hierarchy: cover/page title → primary play action → context/metadata →
+  deeper editorial content.
+- Square artwork stays undistorted inside a clear frame; lists and track rows stay
+  flat; shadows only for featured artwork or floating controls.
+
+## Visual Rules (exact)
+
+- Deep blue canvas; warm primary white text; no light theme, no second accent color.
+- Teal ONLY for action, selection, links, focus, and active playback.
+- Never render text directly on uncontrolled cover imagery; ambient art sits behind
+  an opaque/dark scrim, `aria-hidden`, low opacity, hidden in forced colors and on mobile.
+- Never derive text, control, or status color from cover pixels.
+- No gradient typography, no neon-cyberpunk surfaces, no decorative glass panels.
+- Typography stays Atkinson Hyperlegible: 18px body/control text, 16px informative
+  metadata only, 14px noncritical captions only; body measure capped at 68–72ch;
+  display tracking tight but never artificially compressed.
+- Shell widths: max 90rem for immersive music pages, 72rem for editorial/profile
+  pages; 44px minimum controls; 1px hairline dividers; max `--radius-md` for content
+  surfaces.
+- Responsive: compact mobile view through `760px`; desktop navigation from
+  `72rem`/`1152px` (the only navigation breakpoint).
+- Motion: short state/feedback transitions only, all behind
+  `prefers-reduced-motion: no-preference`; full static presentation under `reduce`;
+  no content gated behind animation.
 
 ## Colors
 
@@ -171,15 +197,17 @@ transport, and progress while the page reserves enough space to keep content vis
 
 ### Do:
 
-- **Do** keep all normal text at WCAG 2.2 AA contrast or better.
+- **Do** keep all normal text at WCAG 2.2 AAA contrast (7:1 normal, 4.5:1 large).
+- **Do** keep non-text UI and focus indicators at 3:1 against their real opaque backdrop.
 - **Do** use 44px minimum interactive targets and visible keyboard focus.
-- **Do** let one featured cover create atmosphere behind a stable text scrim.
+- **Do** let one featured cover create atmosphere behind a stable opaque scrim.
 - **Do** keep track order linear in both DOM and presentation.
 
 ### Don't:
 
 - **Don't** create a generic streaming-service clone with interchangeable cards.
 - **Don't** use neon cyberpunk gradients, decorative glass panels, or gradient text.
+- **Don't** place text or controls on uncontrolled cover imagery.
 - **Don't** use colored side-stripe borders or nested cards.
 - **Don't** autoplay restored media or hide standard playback affordances.
 - **Don't** use decorative motion that competes with listening.

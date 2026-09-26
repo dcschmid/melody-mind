@@ -72,18 +72,6 @@ const safeButtons = buttons
 </div>
 
 <style>
-  @keyframes rise-in-fade {
-    from {
-      opacity: 0;
-      transform: translateY(0.75rem);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   .not-found {
     display: flex;
     align-items: center;
@@ -185,25 +173,6 @@ const safeButtons = buttons
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .not-found__code-wrapper {
-      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard) both;
-    }
-
-    .not-found__title {
-      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard)
-        var(--motion-delay-base) both;
-    }
-
-    .not-found__text {
-      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard)
-        var(--motion-delay-slow) both;
-    }
-
-    .not-found__actions {
-      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard)
-        var(--motion-delay-base) both;
-    }
-
     .not-found__btn {
       transition:
         transform var(--transition-fast),

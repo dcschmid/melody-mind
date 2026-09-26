@@ -20,7 +20,13 @@ export type StructuredData = Record<string, unknown>;
 export type PageContentKind = "generic" | "news" | "playlist" | "podcast";
 
 type PageSeoType =
-  "website" | "article" | "musicAlbum" | "musicPlaylist" | "game" | "podcastEpisode";
+  | "website"
+  | "article"
+  | "musicAlbum"
+  | "musicPlaylist"
+  | "game"
+  | "podcastEpisode"
+  | "profile";
 
 /**
  * Input contract for `buildPageSeo()`.

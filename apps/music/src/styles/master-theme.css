@@ -90,9 +90,14 @@
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.28);
   --shadow-base: 0 2px 5px 0 rgba(0, 0, 0, 0.32), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 12px 20px -4px rgba(0, 0, 0, 0.4), 0 4px 8px -4px rgba(0, 0, 0, 0.34);
-  --shadow-lg-up: 0 -12px 20px -4px rgba(0, 0, 0, 0.4), 0 -4px 8px -4px rgba(0, 0, 0, 0.34);
+  --shadow-lg-up:
+    0 -12px 20px -4px rgba(0, 0, 0, 0.4), 0 -4px 8px -4px rgba(0, 0, 0, 0.34);
   --shadow-xl: 0 24px 32px -8px rgba(0, 0, 0, 0.46), 0 8px 14px -6px rgba(0, 0, 0, 0.38);
   --shadow-2xl: 0 32px 60px -12px rgba(0, 0, 0, 0.62);
+
+  /* Single shadow color role; components mix it to the needed alpha so
+     forced-colors and high-contrast modes can flatten every shadow at once. */
+  --surface-shadow: oklch(0% 0 0deg);
 
   /* ---------------------------------------------------------------------------
      TRANSITIONS & ANIMATIONS
@@ -120,6 +125,18 @@
   --focus-ring-offset: 2px;
   --focus-ring-color: oklch(84% 0.11 180deg);
   --z-modal: 1000;
+
+  /* Screen-reader-only primitive. Components compose these instead of
+     repeating the clip pattern locally, so the utility stays identical. */
+  --sr-only: absolute;
+  --sr-only-width: 1px;
+  --sr-only-height: 1px;
+  --sr-only-padding: 0;
+  --sr-only-margin: -1px;
+  --sr-only-overflow: hidden;
+  --sr-only-white-space: nowrap;
+  --sr-only-border: 0;
+  --sr-only-clip-path: inset(50%);
 }
 
 /* =============================================================================
@@ -187,16 +204,18 @@
   --heading-color: var(--text-primary);
 
   /* Layout */
-  --page-max-width: 84rem;
-  --max-width: var(--page-max-width);
+  /* Shell measures: 90rem immersive music pages, 72rem editorial/profile.
+     Every page shell derives from these two widths; nothing else hardcodes a max. */
+  --shell-immersive: 90rem;
+  --shell-editorial: 72rem;
+  --page-max-width: var(--shell-immersive);
+  --max-width: var(--shell-immersive);
   --measure-wide: 56rem;
   --measure-readable: 42rem;
   --measure-standard: 40rem;
   --measure-compact: 38rem;
-  --page-shell-max-inline: min(78rem, var(--page-max-width));
-  --page-shell-max-inline-wide: min(88rem, calc(var(--page-max-width) + 4rem));
-  --page-shell-max-inline-wide-xl: 92rem;
-  --page-shell-max-inline-narrow: 58rem;
+  --page-shell-max-inline: min(var(--shell-editorial), var(--page-max-width));
+  --page-shell-max-inline-wide: min(var(--shell-editorial), var(--page-max-width));
   --page-shell-padding-y-top: calc(var(--spacing-2xl) - var(--spacing-sm));
   --page-shell-padding-y-bottom: calc(var(--spacing-4xl) - var(--spacing-base));
   --page-shell-padding-y-top-desktop: calc(var(--page-padding-y) + var(--spacing-base));

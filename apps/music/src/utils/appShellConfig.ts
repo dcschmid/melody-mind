@@ -55,18 +55,13 @@ export function buildAppShellConfig({
     footer: {
       ...DEFAULT_APP_SHELL_FOOTER,
       brandText: footerBrandText,
-      exploreTitle: "Explore",
+      // Navigation the header already covers (primary nav + More menu) is
+      // deliberately not repeated here; the footer keeps only destinations
+      // that are absent from the header.
+      exploreTitle: "About",
       exploreLinks: [
-        { href: "/albums/", label: "Albums" },
-        { href: "/artists/", label: "Artists" },
-        { href: "/genre/", label: "Genres" },
-        { href: "/series/", label: "Album Series" },
-        { href: "/favorites/", label: "Favorites" },
-        { href: "/about/", label: "About" },
+        { href: "/about/", label: "About MelodyMind" },
         { href: "/about/#ai-transparency", label: "AI Transparency" },
-        { href: "https://quiz.melody-mind.de/", label: "Music Quiz" },
-        { href: "https://stories.melody-mind.de/", label: "Music Stories" },
-        { href: "https://reviews.melody-mind.de/", label: "Album Reviews" },
       ],
       legalLinks: buildAppShellLegalLinks(),
       copyrightText: buildDefaultCopyrightText(copyrightYear, copyrightBrand),
