@@ -179,7 +179,7 @@ const GRID_COVER_IMAGE_SIZES =
       >
         <ul class="genre-landing__grid">
           {
-            albumCards.map((album) => (
+            albumCards.map((album, index) => (
               <li
                 class="genre-landing__item"
                 data-collection-filter-item
@@ -201,6 +201,8 @@ const GRID_COVER_IMAGE_SIZES =
                   imageSizes={GRID_COVER_IMAGE_SIZES}
                   imageWidths={[240, 360, 480, 640]}
                   imageFormats={["avif"]}
+                  imageLoading={index === 0 ? "eager" : "lazy"}
+                  {...(index === 0 ? { imageFetchpriority: "high" } : {})}
                   title={album.title}
                   description={album.description}
                   metaItems={[

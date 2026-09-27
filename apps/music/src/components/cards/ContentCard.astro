@@ -24,6 +24,8 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   imageWidth?: number | `${number}`;
   imageHeight?: number | `${number}`;
   imageLoading?: "eager" | "lazy";
+  /** Browser fetch priority for the card image (set `high` on LCP heroes) */
+  imageFetchpriority?: "high" | "low" | "auto";
   imageDecoding?: "sync" | "async" | "auto";
   imageSizes?: string;
   /** Srcset widths for responsive card images (values must fit the source asset) */
@@ -61,6 +63,7 @@ const {
   imageWidth,
   imageHeight,
   imageLoading = "lazy",
+  imageFetchpriority,
   imageDecoding = "async",
   imageSizes,
   imageWidths,
@@ -168,6 +171,7 @@ const optimizedImageResponsiveProps =
               width={resolvedImageWidth}
               height={resolvedImageHeight}
               loading={imageLoading}
+              {...(imageFetchpriority ? { fetchpriority: imageFetchpriority } : {})}
               decoding={imageDecoding}
               {...optimizedImageA11yProps}
               {...optimizedImageSizeProps}

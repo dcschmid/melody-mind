@@ -23,8 +23,8 @@ test("artist profile emits profile social metadata for its own portrait", async 
   expect(ogImage).not.toContain("/og/default.webp");
   expect(twitterImage).toBe(ogImage);
 
-  expect(await metaContent(page, '[property="og:image:width"]')).toBe("700");
-  expect(await metaContent(page, '[property="og:image:height"]')).toBe("933");
+  expect(await metaContent(page, '[property="og:image:width"]')).toBe("1200");
+  expect(await metaContent(page, '[property="og:image:height"]')).toBe("630");
   expect(await metaContent(page, '[property="og:image:alt"]')).toBe(
     "Portrait of Nika Arden"
   );

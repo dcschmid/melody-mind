@@ -331,9 +331,10 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
                   width={288}
                   height={288}
                   widths={[104, 144, 216, 288]}
+                  formats={["avif"]}
                   sizes={SEQUENCE_COVER_IMAGE_SIZES}
                   loading={album.partNumber === 1 ? "eager" : "lazy"}
-                  decoding="async"
+                  {...(album.partNumber === 1 ? { fetchpriority: "high" } : {})}
                 />
                 <span class="series-landing__album-copy">
                   <span class="series-landing__part-label">

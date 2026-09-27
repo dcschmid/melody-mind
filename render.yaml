@@ -56,6 +56,11 @@ services:
       - path: /audio/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
+      # Generated OG social cards: unversioned filenames, so use a conservative
+      # TTL instead of the immutable /assets/* treatment.
+      - path: /og/*
+        name: Cache-Control
+        value: public, max-age=86400, stale-while-revalidate=604800
     envVars:
       - key: NODE_VERSION
         value: "22"
