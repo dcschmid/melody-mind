@@ -32,7 +32,7 @@ typography:
     lineHeight: 1.2
   caption:
     fontFamily: "Atkinson Hyperlegible, system-ui, sans-serif"
-    fontSize: "0.875rem"
+    fontSize: "1rem"
     fontWeight: 600
     lineHeight: 1.3
 rounded:
@@ -90,9 +90,9 @@ grids, and marketing copy that delays the music.
   an opaque/dark scrim, `aria-hidden`, low opacity, hidden in forced colors and on mobile.
 - Never derive text, control, or status color from cover pixels.
 - No gradient typography, no neon-cyberpunk surfaces, no decorative glass panels.
-- Typography stays Atkinson Hyperlegible: 18px body/control text, 16px informative
-  metadata only, 14px noncritical captions only; body measure capped at 68–72ch;
-  display tracking tight but never artificially compressed.
+- Typography stays Atkinson Hyperlegible: 18px body/control text and 16px minimum
+  for captions and metadata; body measure capped at 68–72ch; display tracking tight
+  but never artificially compressed.
 - Shell widths: max 90rem for immersive music pages, 72rem for editorial/profile
   pages; 44px minimum controls; 1px hairline dividers; max `--radius-md` for content
   surfaces.
@@ -138,10 +138,10 @@ rather than changing type families.
 - **Title** (700, 1.5rem, 1.15): albums and subsections.
 - **Body** (400, 1.125rem, 1.6): descriptions and liner notes, capped at 72ch.
 - **Label** (700, 1rem, 1.2): informative metadata and controls.
-- **Caption** (600, 0.875rem, 1.3): noncritical labels; uppercase only for short cues.
+- **Caption** (600, 1rem, 1.3): noncritical labels; uppercase only for short cues.
 
-**The Listening Density Rule.** Normal reading and control copy stays at 18px,
-informative metadata may use 16px, and only noncritical captions may use 14px.
+**The Listening Density Rule.** Normal reading and control copy stays at 18px and
+16px is the minimum for captions and metadata.
 
 ## Elevation
 

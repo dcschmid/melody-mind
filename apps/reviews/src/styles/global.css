@@ -1,13 +1,14 @@
 /* Shared product tokens: packages/design-tokens/src/tokens.css is the source
    of truth; the names below are Reviews-local aliases onto it. */
-@import "@melodymind/design-tokens/tokens.css";
+@import url("@melodymind/design-tokens/tokens.css");
 
 /* Fonts are registered via the Astro fonts API in astro.config.mjs and
    injected as --font-atkinson by the <Font /> component. */
 :root {
-  color-scheme: dark;
   font-family: var(--font-atkinson);
   font-synthesis: none;
+  color-scheme: dark;
+
   --archive-night: var(--mm-bg-primary);
   --desk-night: var(--mm-bg-secondary);
   --lifted-night: var(--mm-surface-2);
@@ -49,8 +50,8 @@ html {
 body {
   min-block-size: 100%;
   margin: 0;
-  font-size: var(--mm-font-size-body);
   font-family: var(--font-body);
+  font-size: var(--mm-font-size-body);
   color: var(--paper-ink);
   background: var(--archive-night);
 }

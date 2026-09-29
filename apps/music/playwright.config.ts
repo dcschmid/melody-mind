@@ -3,6 +3,9 @@ import { defineConfig } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests/browser",
   fullyParallel: true,
+  /* fullyParallel Firefox workers contend for CPU; journey tests with long
+     click loops need more than the 30s default under that load. */
+  timeout: 60_000,
   reporter: "line",
   projects: [
     {

@@ -1,13 +1,13 @@
 /* Shared product tokens: packages/design-tokens/src/tokens.css is the source
    of truth; the names below are Stories-local aliases onto it. */
-@import "@melodymind/design-tokens/tokens.css";
+@import url("@melodymind/design-tokens/tokens.css");
 
 /* Fonts are registered via the Astro fonts API in astro.config.mjs and
    injected as --font-atkinson by the <Font /> component. */
 :root {
-  color-scheme: dark;
   font-family: var(--font-atkinson);
   font-synthesis: none;
+  color-scheme: dark;
 
   --archive-night: var(--mm-bg-primary);
   --desk-night: var(--mm-bg-secondary);
@@ -17,6 +17,7 @@
   --archive-teal: var(--mm-accent);
   --archive-teal-strong: var(--mm-accent-strong);
   --editorial-accent: var(--archive-teal);
+
   /* Reading surface and reading ink are Stories-specific editorial tones,
      derived from the shared tokens rather than frozen as second literals. */
   --reading-surface: color-mix(in oklch, var(--mm-bg-secondary) 83%, var(--mm-bg-primary));
@@ -25,7 +26,6 @@
   --line: color-mix(in oklch, var(--mm-border) 84%, var(--mm-accent));
   --line-soft: color-mix(in oklch, var(--mm-border-muted) 88%, var(--mm-accent));
   --focus: var(--mm-focus);
-
   --font-display: var(--font-atkinson);
   --font-body: var(--font-atkinson);
   --reading-width: 70ch;
@@ -59,8 +59,8 @@ html {
 body {
   min-block-size: 100%;
   margin: 0;
-  font-size: var(--mm-font-size-body);
   font-family: var(--font-body);
+  font-size: var(--mm-font-size-body);
   color: var(--paper-ink);
   background:
     linear-gradient(
@@ -69,8 +69,8 @@ body {
       var(--archive-night) clamp(22rem, 46vh, 38rem)
     )
     var(--archive-night);
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 body,
@@ -146,16 +146,16 @@ ol {
 }
 
 .eyebrow {
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--archive-teal);
-  letter-spacing: 0.11em;
   text-transform: uppercase;
+  letter-spacing: 0.11em;
 }
 
 .kicker {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.4;
   color: var(--quiet-ink);
 }
@@ -265,7 +265,7 @@ ol {
   }
 
   a[href^="http"]::after {
-    font-size: 0.8em;
+    font-size: 1rem;
     content: " (" attr(href) ")";
   }
 }

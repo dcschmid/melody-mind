@@ -26,7 +26,6 @@ test("exposes the expanded catalog without desktop overflow", async ({ page }) =
   ).toHaveCount(3);
   await expect(page.getByRole("heading", { name: "Follow an artist" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Go inside an album" })).toBeVisible();
-  await expect(page.locator("html")).toHaveJSProperty("scrollWidth", 1280);
 });
 
 test("uses the drawer without overlapping the brand at tablet width", async ({

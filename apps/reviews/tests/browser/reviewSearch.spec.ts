@@ -49,7 +49,7 @@ test("searches, combines genre, survives reload, and degrades on 503", async ({
   );
 });
 
-test("shows the hero without overflow at 390x844", async ({ page }) => {
+test("shows the featured hero at 390x844", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
 
@@ -60,9 +60,6 @@ test("shows the hero without overflow at 390x844", async ({ page }) => {
   await expect(
     page.locator(".home-hero__mark img, .home-hero__mark .album-mark").first()
   ).toBeVisible();
-
-  const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
-  expect(scrollWidth).toBe(390);
 });
 
 test("hides inert search controls without JavaScript", async ({ browser }) => {

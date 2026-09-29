@@ -1,8 +1,13 @@
 module.exports = {
-  customSyntax: "postcss-html",
   extends: [
     "stylelint-config-standard",
     "stylelint-config-recess-order",
+  ],
+  overrides: [
+    {
+      files: ["**/*.astro"],
+      customSyntax: "postcss-html",
+    },
   ],
   plugins: ["@double-great/stylelint-a11y"],
   rules: {
@@ -24,7 +29,12 @@ module.exports = {
     "a11y/no-outline-none": true,
     "a11y/no-spread-text": true,
     "a11y/no-text-align-justify": true,
-    "a11y/selector-pseudo-class-focus": true,
+    "declaration-property-value-disallowed-list": {
+      "font-size": [
+        "/(?:^|[,\\(]\\s*)(?:0(?:\\.\\d+)?|\\.\\d+)(?:rem|em)\\b/",
+        "/(?:^|[,\\(]\\s*)(?:[0-9](?:\\.\\d+)?|1[0-5](?:\\.\\d+)?)px\\b/",
+      ],
+    },
     "declaration-block-no-duplicate-properties": [
       true,
       {

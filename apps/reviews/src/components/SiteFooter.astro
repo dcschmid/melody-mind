@@ -90,7 +90,7 @@ const year = new Date().getFullYear();
 
   .site-footer__product {
     padding-inline-start: var(--space-sm);
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--quiet-ink);
     border-inline-start: 1px solid var(--line);
   }
@@ -98,7 +98,7 @@ const year = new Date().getFullYear();
   .site-footer__brand p {
     max-inline-size: 48ch;
     margin-block-start: var(--space-xs);
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--quiet-ink);
   }
 
@@ -116,7 +116,7 @@ const year = new Date().getFullYear();
   .site-footer__navigation h2 {
     margin: 0 0 var(--space-sm);
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: var(--quiet-ink);
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -127,7 +127,7 @@ const year = new Date().getFullYear();
     align-items: center;
     inline-size: fit-content;
     min-block-size: var(--control-size);
-    font-size: 0.88rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--paper-ink);
     text-decoration: none;
@@ -148,13 +148,13 @@ const year = new Date().getFullYear();
 
   .site-footer__bottom p {
     margin: 0;
-    font-size: 0.76rem;
+    font-size: 1rem;
     color: var(--quiet-ink);
   }
 
   @media (width >= 48rem) {
     .site-footer__inner {
-      grid-template-columns: minmax(16rem, 1.2fr) minmax(28rem, 2fr);
+      grid-template-columns: minmax(16rem, 1.2fr) minmax(0, 2fr);
       align-items: start;
       inline-size: min(100% - 4rem, var(--wide-width));
     }

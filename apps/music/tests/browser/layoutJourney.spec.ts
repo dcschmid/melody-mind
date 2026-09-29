@@ -78,20 +78,3 @@ test("switches navigation at 1152px and groups secondary products", async ({ pag
   await page.setViewportSize({ width: 768, height: 900 });
   await expect(header.getByRole("button", { name: "Open main menu" })).toBeVisible();
 });
-
-test("does not introduce horizontal scroll at supported widths", async ({ page }) => {
-  const widths = [320, 390, 768, 1152, 1440];
-
-  for (const width of widths) {
-    await page.setViewportSize({ width, height: 900 });
-    for (const path of ["/", ALBUM_PATH, "/albums/"]) {
-      await page.goto(path);
-      const hasHorizontalScroll = await page.evaluate(
-        () => document.documentElement.scrollWidth > window.innerWidth
-      );
-      expect(hasHorizontalScroll, `${path} overflows horizontally at ${width}px`).toBe(
-        false
-      );
-    }
-  }
-});

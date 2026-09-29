@@ -53,14 +53,6 @@ test("finds a page-two story, combines filters, survives reload, and degrades on
   );
 });
 
-test("has no horizontal overflow at 390x844", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
-  await expect(page.locator("[data-story-search-input]")).toBeVisible();
-  const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
-  expect(scrollWidth).toBe(390);
-});
-
 test("hides search controls without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();

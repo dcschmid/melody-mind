@@ -1,13 +1,13 @@
 /* Shared product tokens: packages/design-tokens/src/tokens.css is the source
    of truth; the names below are Quiz-local aliases onto it. */
-@import "@melodymind/design-tokens/tokens.css";
+@import url("@melodymind/design-tokens/tokens.css");
 
 /* Atkinson Hyperlegible is registered via the Astro fonts API in
    astro.config.mjs and injected as --font-atkinson by the <Font /> component. */
 :root {
-  color-scheme: dark;
   font-family: var(--font-atkinson);
   font-synthesis: none;
+  color-scheme: dark;
 
   --room-night: var(--mm-bg-primary);
   --raised-night: var(--mm-bg-secondary);
@@ -22,7 +22,6 @@
   --line-soft: var(--mm-border-muted);
   --success: var(--mm-success);
   --error: var(--mm-error);
-
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
@@ -145,12 +144,12 @@ p {
 }
 
 .eyebrow {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--signal-teal);
-  letter-spacing: 0.08em;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .button {

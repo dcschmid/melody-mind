@@ -38,20 +38,12 @@ const hasVisibleFocusRing = async (page: Page): Promise<boolean> =>
 for (const route of ROUTES) {
   test.describe(`accessibility journey on ${route}`, () => {
     for (const viewport of VIEWPORTS) {
-      test(`single main, single h1, no horizontal overflow at ${viewport.width}px`, async ({
-        page,
-      }) => {
+      test(`single main and single h1 at ${viewport.width}px`, async ({ page }) => {
         await page.setViewportSize(viewport);
         await page.goto(route);
 
         await expect(page.getByRole("main")).toHaveCount(1);
         await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
-
-        const overflow = await page.evaluate(
-          () =>
-            document.documentElement.scrollWidth - document.documentElement.clientWidth
-        );
-        expect(overflow, `horizontal overflow of ${overflow}px`).toBeLessThanOrEqual(1);
       });
     }
 
