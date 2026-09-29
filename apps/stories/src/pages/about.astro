@@ -88,7 +88,7 @@ const canonical = new URL("/about/", Astro.site).toString();
   .about__hero h1 {
     max-inline-size: 15ch;
     font-size: clamp(3rem, 8vw, 7rem);
-    letter-spacing: -0.045em;
+    letter-spacing: var(--mm-letter-spacing-tight);
   }
 
   .about__hero > p:last-child {

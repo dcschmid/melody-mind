@@ -5,6 +5,7 @@ export default defineConfig({
   fullyParallel: true,
   reporter: "line",
   use: {
+    browserName: "firefox",
     baseURL: "http://127.0.0.1:4330",
     screenshot: "only-on-failure",
     trace: "retain-on-failure",

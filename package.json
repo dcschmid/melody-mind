@@ -36,6 +36,7 @@
     "test": "turbo run test",
     "test:browser:all": "pnpm --filter music test:browser && pnpm --filter quiz test:browser && pnpm --filter stories test:browser && pnpm --filter reviews test:browser",
     "test:browser:all:built": "pnpm --filter music exec playwright test && pnpm --filter quiz exec playwright test && pnpm --filter stories exec playwright test && pnpm --filter reviews exec playwright test",
+    "check:contrast": "pnpm --filter music check:contrast",
     "check": "turbo run check",
     "lint": "turbo run lint --filter=music",
     "lint:all": "turbo run lint",

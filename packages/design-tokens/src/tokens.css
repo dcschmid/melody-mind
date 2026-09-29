@@ -1,0 +1,66 @@
+/* =============================================================================
+   MELODY MIND DESIGN TOKENS
+   The single source of truth for product-wide invariants shared by Music,
+   Quiz, Stories and Reviews: the deep-blue canvas family (hue 250deg),
+   the single teal accent (hue 180deg), WCAG AAA text steps, and the
+   typography/control measures documented in DESIGN.md.
+
+   Apps alias their own semantic names onto these values (e.g.
+   `--warm-ink: var(--mm-text-primary)`); they must not re-declare literals.
+   App-specific intermediate tones are derived with color-mix() from here.
+
+   Every text/background pair below is verified by
+   `pnpm check:contrast` (apps/music/scripts/check-contrast.mjs).
+   Dark-only, permanently: no light variant exists or is planned.
+   ============================================================================= */
+
+:root {
+  /* Canvas & surfaces — one hue family, wide tonal elevation steps. */
+  --mm-bg-primary: oklch(11.5% 0.03 250deg);
+  --mm-bg-secondary: oklch(17% 0.032 250deg);
+  --mm-surface-1: oklch(17% 0.032 250deg);
+  --mm-surface-2: oklch(22.5% 0.035 250deg);
+  --mm-surface-3: oklch(28.5% 0.038 250deg);
+
+  /* Text — AAA on every surface above. */
+  --mm-text-primary: oklch(96.5% 0.01 85deg);
+  --mm-text-secondary: oklch(85% 0.022 245deg);
+  --mm-text-tertiary: oklch(79% 0.026 248deg);
+
+  /* Accent — the single teal story at 180deg. */
+  --mm-accent: oklch(80% 0.115 180deg);
+  --mm-accent-strong: oklch(84% 0.1 180deg);
+  --mm-accent-muted: oklch(72% 0.09 180deg);
+  --mm-accent-hover: oklch(85% 0.1 180deg);
+  --mm-accent-contrast: var(--mm-bg-primary);
+
+  /* Links share the accent hue; visited shifts slightly toward 210deg. */
+  --mm-link: oklch(84% 0.1 180deg);
+  --mm-link-hover: oklch(89% 0.08 180deg);
+  --mm-link-visited: oklch(84% 0.07 210deg);
+
+  /* Focus ring. */
+  --mm-focus: oklch(84% 0.11 180deg);
+
+  /* Borders. */
+  --mm-border: oklch(40% 0.035 250deg);
+  --mm-border-muted: oklch(32% 0.03 250deg / 0.7);
+  --mm-border-strong: oklch(60% 0.04 250deg);
+
+  /* Status colors. */
+  --mm-success: oklch(80% 0.11 155deg);
+  --mm-warning: oklch(82% 0.1 85deg);
+  --mm-error: oklch(80% 0.1 25deg);
+  --mm-info: oklch(80% 0.09 235deg);
+
+  /* Body copy: 18px at narrow viewports up to 20px; metadata and captions
+     stay on app-local semantic tokens instead of shrinking this. */
+  --mm-font-size-body: clamp(1.125rem, 1.1rem + 0.5vw, 1.25rem);
+
+  /* Atkinson Hyperlegible relies on distinct letterforms; tracking must
+     never go tighter than this. */
+  --mm-letter-spacing-tight: -0.015em;
+
+  /* Minimum touch target for interactive controls. */
+  --mm-control-min-size: 2.75rem;
+}

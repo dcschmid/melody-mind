@@ -547,7 +547,7 @@ const { stories, totalStories, cardStart = 1 } = Astro.props;
   .story-card h2 {
     max-inline-size: 17ch;
     font-size: clamp(1.7rem, 3.6vw, 2.8rem);
-    letter-spacing: -0.025em;
+    letter-spacing: var(--mm-letter-spacing-tight);
   }
 
   .story-card__dek {

@@ -4,7 +4,23 @@ export default defineConfig({
   testDir: "./tests/browser",
   fullyParallel: true,
   reporter: "line",
+  projects: [
+    {
+      name: "firefox",
+      testIgnore: /offlineJourney\.spec\.ts/,
+      use: { browserName: "firefox" },
+    },
+    {
+      /* Offline SW journey only: Firefox's offline emulation does not dispatch
+         worker fetch events for navigations, so the fallback cannot be
+         exercised there (see offlineJourney.spec.ts). */
+      name: "chromium",
+      testMatch: /offlineJourney\.spec\.ts/,
+      use: { browserName: "chromium" },
+    },
+  ],
   use: {
+    browserName: "firefox",
     baseURL: "http://127.0.0.1:4327",
     screenshot: "only-on-failure",
     trace: "retain-on-failure",

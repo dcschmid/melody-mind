@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 /**
- * WCAG AAA contrast gate for the design tokens in src/styles/master-theme.css.
+ * WCAG AAA contrast gate for the shared design tokens and the Music theme.
  *
- * Parses the base :root token definitions (first definition wins, so the
+ * Loads packages/design-tokens/src/tokens.css (the product-wide source of
+ * truth) and then src/styles/master-theme.css, so both the shared --mm-*
+ * values and the Music tokens derived from them are checked together.
+ *
+ * Parses the :root token definitions (first definition wins, so the
  * high-contrast/forced-colors overrides further down are ignored), resolves
  * var() references and srgb color-mix() derivations, converts OKLCH to sRGB,
  * and checks every text/background pair the UI actually uses.
@@ -19,11 +23,13 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const cssPath = join(
-  dirname(fileURLToPath(import.meta.url)),
-  "../src/styles/master-theme.css"
-);
-const css = readFileSync(cssPath, "utf8");
+const here = dirname(fileURLToPath(import.meta.url));
+const sharedPath = join(here, "../../../packages/design-tokens/src/tokens.css");
+const musicPath = join(here, "../src/styles/master-theme.css");
+// Shared tokens first: Music tokens reference --mm-* names, and first
+// definition wins per name, so the canonical values must be seen first.
+const css =
+  readFileSync(sharedPath, "utf8") + "\n" + readFileSync(musicPath, "utf8");
 
 /* ---------------------------------------------------------------- tokens */
 
@@ -277,7 +283,9 @@ for (const { fg, bg, min, note } of checks) {
 }
 
 const failed = rows.filter((r) => r.result === "FAIL");
-console.log(`Checked ${rows.length} token pairs from master-theme.css`);
+console.log(
+  `Checked ${rows.length} token pairs from design-tokens/src/tokens.css + master-theme.css`
+);
 for (const row of rows) {
   if (row.result === "FAIL" || process.argv.includes("--verbose")) {
     console.log(

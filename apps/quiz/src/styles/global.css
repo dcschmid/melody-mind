@@ -1,3 +1,7 @@
+/* Shared product tokens: packages/design-tokens/src/tokens.css is the source
+   of truth; the names below are Quiz-local aliases onto it. */
+@import "@melodymind/design-tokens/tokens.css";
+
 /* Atkinson Hyperlegible is registered via the Astro fonts API in
    astro.config.mjs and injected as --font-atkinson by the <Font /> component. */
 :root {
@@ -5,19 +9,19 @@
   font-family: var(--font-atkinson);
   font-synthesis: none;
 
-  --room-night: oklch(11.5% 0.03 250deg);
-  --raised-night: oklch(17% 0.032 250deg);
-  --listening-surface: oklch(22.5% 0.035 250deg);
-  --surface-hover: oklch(27% 0.038 250deg);
-  --warm-ink: oklch(96.5% 0.01 85deg);
-  --quiet-ink: oklch(79% 0.026 248deg);
-  --signal-teal: oklch(80% 0.115 180deg);
-  --strong-teal: oklch(86% 0.095 180deg);
-  --focus-teal: oklch(84% 0.11 180deg);
-  --line: oklch(40% 0.035 250deg);
-  --line-soft: oklch(32% 0.03 250deg / 0.76);
-  --success: oklch(80% 0.11 155deg);
-  --error: oklch(80% 0.1 25deg);
+  --room-night: var(--mm-bg-primary);
+  --raised-night: var(--mm-bg-secondary);
+  --listening-surface: var(--mm-surface-2);
+  --surface-hover: color-mix(in oklch, var(--mm-surface-2) 25%, var(--mm-surface-3));
+  --warm-ink: var(--mm-text-primary);
+  --quiet-ink: var(--mm-text-tertiary);
+  --signal-teal: var(--mm-accent);
+  --strong-teal: var(--mm-accent-hover);
+  --focus-teal: var(--mm-focus);
+  --line: var(--mm-border);
+  --line-soft: var(--mm-border-muted);
+  --success: var(--mm-success);
+  --error: var(--mm-error);
 
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
@@ -34,7 +38,7 @@
   --focus-ring: 3px solid var(--focus-teal);
   --content-wide: 82rem;
   --content-reading: 44rem;
-  --control-min-size: 2.75rem;
+  --control-min-size: var(--mm-control-min-size);
   --site-header-block-size: 4.5rem;
 }
 
@@ -56,6 +60,7 @@ html {
 body {
   min-block-size: 100%;
   margin: 0;
+  font-size: var(--mm-font-size-body);
   color: var(--warm-ink);
   background:
     radial-gradient(

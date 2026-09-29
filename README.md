@@ -61,6 +61,8 @@ lint, and format commands continue to target Music by default unless their name 
 │   ├── quiz/
 │   ├── stories/
 │   └── reviews/
+├── packages/
+│   └── design-tokens/
 ├── AGENTS.md
 ├── eslint.config.mjs
 ├── stylelint.config.cjs
@@ -75,6 +77,7 @@ Use the workspace-wide quality gates:
 ```bash
 pnpm format:check:all
 pnpm lint:check:all
+pnpm check:contrast
 pnpm check
 pnpm test
 pnpm test:browser:all
@@ -84,6 +87,10 @@ pnpm test:browser:all
 Stories, and Reviews, building each app first. Use
 `pnpm test:browser:all:built` instead when `pnpm build:all` has already
 completed, so the suites run against the existing builds without rebuilding.
+
+`pnpm check:contrast` verifies every shared/Music token pair against the WCAG
+AAA ratios documented in `DESIGN.md` (see
+`packages/design-tokens/src/tokens.css`).
 
 App-specific gates also exist, for example `pnpm lint:check:quiz`,
 `pnpm format:check:stories`, `pnpm build:reviews`, and

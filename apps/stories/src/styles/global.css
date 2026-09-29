@@ -1,3 +1,7 @@
+/* Shared product tokens: packages/design-tokens/src/tokens.css is the source
+   of truth; the names below are Stories-local aliases onto it. */
+@import "@melodymind/design-tokens/tokens.css";
+
 /* Fonts are registered via the Astro fonts API in astro.config.mjs and
    injected as --font-atkinson by the <Font /> component. */
 :root {
@@ -5,30 +9,28 @@
   font-family: var(--font-atkinson);
   font-synthesis: none;
 
-  --archive-night: oklch(11.5% 0.03 250deg);
-  --desk-night: oklch(17% 0.032 250deg);
-  --lifted-night: oklch(22.5% 0.035 250deg);
-  --paper-ink: oklch(96.5% 0.01 85deg);
-  --quiet-ink: oklch(79% 0.026 248deg);
-  --archive-teal: oklch(80% 0.115 180deg);
-  --archive-teal-strong: oklch(84% 0.1 180deg);
+  --archive-night: var(--mm-bg-primary);
+  --desk-night: var(--mm-bg-secondary);
+  --lifted-night: var(--mm-surface-2);
+  --paper-ink: var(--mm-text-primary);
+  --quiet-ink: var(--mm-text-tertiary);
+  --archive-teal: var(--mm-accent);
+  --archive-teal-strong: var(--mm-accent-strong);
   --editorial-accent: var(--archive-teal);
-  --reading-surface: oklch(16% 0.03 250deg);
-  --reading-ink: oklch(93% 0.014 82deg);
-  --reading-link: oklch(85% 0.095 181deg);
-  --line: color-mix(in oklch, oklch(40% 0.035 250deg) 84%, var(--archive-teal));
-  --line-soft: color-mix(
-    in oklch,
-    oklch(32% 0.03 250deg) 88%,
-    var(--archive-teal)
-  );
-  --focus: oklch(84% 0.11 180deg);
+  /* Reading surface and reading ink are Stories-specific editorial tones,
+     derived from the shared tokens rather than frozen as second literals. */
+  --reading-surface: color-mix(in oklch, var(--mm-bg-secondary) 83%, var(--mm-bg-primary));
+  --reading-ink: color-mix(in oklch, var(--mm-text-primary) 70%, var(--mm-text-secondary));
+  --reading-link: var(--mm-accent-hover);
+  --line: color-mix(in oklch, var(--mm-border) 84%, var(--mm-accent));
+  --line-soft: color-mix(in oklch, var(--mm-border-muted) 88%, var(--mm-accent));
+  --focus: var(--mm-focus);
 
   --font-display: var(--font-atkinson);
   --font-body: var(--font-atkinson);
   --reading-width: 70ch;
   --wide-width: 92rem;
-  --control-size: 2.75rem;
+  --control-size: var(--mm-control-min-size);
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
@@ -57,6 +59,7 @@ html {
 body {
   min-block-size: 100%;
   margin: 0;
+  font-size: var(--mm-font-size-body);
   font-family: var(--font-body);
   color: var(--paper-ink);
   background:

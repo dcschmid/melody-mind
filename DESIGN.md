@@ -96,8 +96,12 @@ components:
 MelodyMind is a trusted independent music publication with a well-kept
 listening room attached. The interface is editorial first: readable, specific,
 and confident without becoming academic or showy. The Music app
-(`apps/music`) is the product and visual source of truth; the tokens live in
-`apps/music/src/styles/master-theme.css`.
+(`apps/music`) is the product and visual source of truth. The shared color,
+typography, and control values live in
+`packages/design-tokens/src/tokens.css` (`@melodymind/design-tokens`);
+`apps/music/src/styles/master-theme.css` keeps the Music semantics and the
+component layer on top of them. Do not introduce a second palette or a new
+visual language.
 
 The system is **dark-only, permanently**: one deep blue canvas family
 (hue 250deg) with wide tonal elevation steps and a single teal accent
@@ -115,17 +119,19 @@ glows, and endless identical card grids.
 - Typography carries hierarchy before boxes and decoration. Only two real
   font faces exist (400 and 700); `font-synthesis: none` forbids fakes.
 - Every text/background token pair meets WCAG AAA (7:1) — enforced by
-  `apps/music/scripts/check-contrast.mjs`, which must pass before merging
-  any token change.
+  `pnpm check:contrast`, which must pass before merging any token
+  change.
 - Motion is short, stateful, and editorial, and fully respects
   `prefers-reduced-motion`.
 
 ## 2. Colors
 
-All colors are OKLCH tokens in `master-theme.css`. Components must reference
-tokens (or page-local aliases that resolve to tokens), never literals — the
-`prefers-contrast: more` and `forced-colors: active` overrides only reach
-token consumers.
+The canonical colors are OKLCH tokens in
+`packages/design-tokens/src/tokens.css`; apps import that file and alias
+their local names onto the `--mm-*` values (Music keeps its semantic names in
+`master-theme.css`). Components must reference tokens (or page-local aliases
+that resolve to tokens), never literals — the `prefers-contrast: more` and
+`forced-colors: active` overrides only reach token consumers.
 
 ### Canvas & Surfaces (hue 250deg)
 
@@ -165,8 +171,9 @@ be defined as `var(--…)` references onto the global tokens, never as frozen
 literals.
 
 **The AAA Gate Rule.** Any change to color tokens requires
-`node apps/music/scripts/check-contrast.mjs` to pass (132 pairs, 7:1 text /
-3:1 non-text). OKLCH lightness is not WCAG luminance — always run the gate.
+`pnpm check:contrast` to pass (132 pairs, 7:1 text / 3:1 non-text, computed
+over `packages/design-tokens/src/tokens.css` plus `master-theme.css`). OKLCH
+lightness is not WCAG luminance — always run the gate.
 
 ## 3. Typography
 
@@ -265,7 +272,7 @@ reserved for hero covers at low alpha (≤22% mix on borders, ≤9% ambient).
 
 - Reference the CSS custom properties for every color, radius, weight, and
   spacing value.
-- Run `node apps/music/scripts/check-contrast.mjs` after any token change.
+- Run `pnpm check:contrast` after any token change.
 - Keep the dark canvas atmospheric but readable; AAA is the floor, not the
   target.
 - Use the teal accent to communicate action, selection, and meaningful state.

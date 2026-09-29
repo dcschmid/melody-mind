@@ -8,11 +8,12 @@ services:
     name: melody-mind-music
     runtime: static
     autoDeployTrigger: commit
-    buildCommand: pnpm install --frozen-lockfile && pnpm build
+    buildCommand: pnpm install --frozen-lockfile && pnpm check:contrast && pnpm build
     staticPublishPath: apps/music/dist
     buildFilter:
       paths:
         - apps/music/**
+        - packages/design-tokens/**
         - scripts/**
         - package.json
         - pnpm-lock.yaml
@@ -69,13 +70,14 @@ services:
     name: melody-mind-embed
     runtime: static
     autoDeployTrigger: commit
-    buildCommand: pnpm install --frozen-lockfile && pnpm build:embed
+    buildCommand: pnpm install --frozen-lockfile && pnpm check:contrast && pnpm build:embed
     staticPublishPath: apps/music/dist-embed
     domains:
       - embed.melody-mind.de
     buildFilter:
       paths:
         - apps/music/**
+        - packages/design-tokens/**
         - scripts/**
         - package.json
         - pnpm-lock.yaml
@@ -109,12 +111,13 @@ services:
     name: melody-mind-quiz
     runtime: static
     autoDeployTrigger: commit
-    buildCommand: pnpm install --frozen-lockfile && pnpm build:quiz
+    buildCommand: pnpm install --frozen-lockfile && pnpm check:contrast && pnpm build:quiz
     staticPublishPath: apps/quiz/dist
     buildFilter:
       paths:
         - apps/quiz/**
         - packages/site-nav/**
+        - packages/design-tokens/**
         - scripts/**
         - package.json
         - pnpm-lock.yaml
@@ -151,7 +154,7 @@ services:
     name: melody-mind-stories
     runtime: static
     autoDeployTrigger: commit
-    buildCommand: pnpm install --frozen-lockfile && pnpm build:stories
+    buildCommand: pnpm install --frozen-lockfile && pnpm check:contrast && pnpm build:stories
     staticPublishPath: apps/stories/dist
     domains:
       - stories.melody-mind.de
@@ -159,6 +162,7 @@ services:
       paths:
         - apps/stories/**
         - packages/site-nav/**
+        - packages/design-tokens/**
         - scripts/**
         - package.json
         - pnpm-lock.yaml
@@ -198,7 +202,7 @@ services:
     name: melody-mind-reviews
     runtime: static
     autoDeployTrigger: commit
-    buildCommand: pnpm install --frozen-lockfile && pnpm build:reviews
+    buildCommand: pnpm install --frozen-lockfile && pnpm check:contrast && pnpm build:reviews
     staticPublishPath: apps/reviews/dist
     domains:
       - reviews.melody-mind.de
@@ -206,6 +210,7 @@ services:
       paths:
         - apps/reviews/**
         - packages/site-nav/**
+        - packages/design-tokens/**
         - scripts/**
         - package.json
         - pnpm-lock.yaml

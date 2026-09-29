@@ -1,24 +1,28 @@
+/* Shared product tokens: packages/design-tokens/src/tokens.css is the source
+   of truth; the names below are Reviews-local aliases onto it. */
+@import "@melodymind/design-tokens/tokens.css";
+
 /* Fonts are registered via the Astro fonts API in astro.config.mjs and
    injected as --font-atkinson by the <Font /> component. */
 :root {
   color-scheme: dark;
   font-family: var(--font-atkinson);
   font-synthesis: none;
-  --archive-night: oklch(11.5% 0.03 250deg);
-  --desk-night: oklch(17% 0.032 250deg);
-  --lifted-night: oklch(22.5% 0.035 250deg);
-  --paper-ink: oklch(96.5% 0.01 85deg);
-  --quiet-ink: oklch(79% 0.026 248deg);
-  --signal: oklch(80% 0.115 180deg);
-  --signal-strong: oklch(84% 0.1 180deg);
-  --line: oklch(40% 0.035 250deg);
-  --line-soft: oklch(32% 0.03 250deg / 0.7);
-  --focus: oklch(84% 0.11 180deg);
+  --archive-night: var(--mm-bg-primary);
+  --desk-night: var(--mm-bg-secondary);
+  --lifted-night: var(--mm-surface-2);
+  --paper-ink: var(--mm-text-primary);
+  --quiet-ink: var(--mm-text-tertiary);
+  --signal: var(--mm-accent);
+  --signal-strong: var(--mm-accent-strong);
+  --line: var(--mm-border);
+  --line-soft: var(--mm-border-muted);
+  --focus: var(--mm-focus);
   --font-display: var(--font-atkinson);
   --font-body: var(--font-atkinson);
   --reading-width: 70ch;
   --wide-width: 88rem;
-  --control-size: 2.75rem;
+  --control-size: var(--mm-control-min-size);
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
@@ -45,6 +49,7 @@ html {
 body {
   min-block-size: 100%;
   margin: 0;
+  font-size: var(--mm-font-size-body);
   font-family: var(--font-body);
   color: var(--paper-ink);
   background: var(--archive-night);

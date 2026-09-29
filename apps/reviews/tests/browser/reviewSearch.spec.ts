@@ -49,6 +49,22 @@ test("searches, combines genre, survives reload, and degrades on 503", async ({
   );
 });
 
+test("shows the hero without overflow at 390x844", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+
+  // The featured hero carries the single h1 on the first page.
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+  await expect(page.getByRole("link", { name: /Read the review/ })).toBeVisible();
+  // Cover art or its typographic fallback must be visible.
+  await expect(
+    page.locator(".home-hero__mark img, .home-hero__mark .album-mark").first()
+  ).toBeVisible();
+
+  const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(scrollWidth).toBe(390);
+});
+
 test("hides inert search controls without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();

@@ -1,3 +1,8 @@
+/* Shared product tokens: packages/design-tokens/src/tokens.css is the source
+   of truth for the canvas/accent/text values below; this file keeps the
+   Music-specific semantics and component layer. */
+@import "@melodymind/design-tokens/tokens.css";
+
 /* =============================================================================
    MELODY MIND DESIGN SYSTEM
    Responsive, WCAG AAA, Dark Mode
@@ -40,7 +45,7 @@
   --font-size-meta: 1rem;
   --font-size-xs: 1.125rem;
   --font-size-sm: 1.125rem;
-  --font-size-base: 1.125rem;
+  --font-size-base: var(--mm-font-size-body);
   --font-size-md: 1.125rem;
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.5rem;
@@ -60,7 +65,7 @@
 
   /* Letter spacing. Atkinson Hyperlegible relies on distinct letterforms;
      tighter tracking than -0.015em starts to defeat the typeface. */
-  --letter-spacing-tight: -0.015em;
+  --letter-spacing-tight: var(--mm-letter-spacing-tight);
   --letter-spacing-normal: 0em;
   --letter-spacing-wide: 0.025em;
   --letter-spacing-wider: 0.05em;
@@ -71,10 +76,10 @@
      Surface/text/accent/link/border colors live directly on the semantic
      tokens below; status colors are referenced as --color-* by components.
      --------------------------------------------------------------------------- */
-  --color-success: oklch(80% 0.11 155deg);
-  --color-warning: oklch(82% 0.1 85deg);
-  --color-error: oklch(80% 0.1 25deg);
-  --color-info: oklch(80% 0.09 235deg);
+  --color-success: var(--mm-success);
+  --color-warning: var(--mm-warning);
+  --color-error: var(--mm-error);
+  --color-info: var(--mm-info);
 
   /* ---------------------------------------------------------------------------
      RADIUS & SHADOWS
@@ -123,7 +128,7 @@
      --------------------------------------------------------------------------- */
   --focus-ring-width: 3px;
   --focus-ring-offset: 2px;
-  --focus-ring-color: oklch(84% 0.11 180deg);
+  --focus-ring-color: var(--mm-focus);
   --z-modal: 1000;
 
   /* Screen-reader-only primitive. Components compose these instead of
@@ -149,40 +154,40 @@
      One hue family (250deg) with wide lightness steps so elevation reads
      clearly; values are AAA-verified against the text tokens below
      (OKLCH lightness is not WCAG luminance — see scripts/check-contrast). */
-  --bg-primary: oklch(11.5% 0.03 250deg);
-  --bg-secondary: oklch(17% 0.032 250deg);
+  --bg-primary: var(--mm-bg-primary);
+  --bg-secondary: var(--mm-bg-secondary);
 
   /* Surface colors */
-  --surface-1: oklch(17% 0.032 250deg);
-  --surface-2: oklch(22.5% 0.035 250deg);
-  --surface-3: oklch(28.5% 0.038 250deg);
+  --surface-1: var(--mm-surface-1);
+  --surface-2: var(--mm-surface-2);
+  --surface-3: var(--mm-surface-3);
 
   /* Text colors */
-  --text-primary: oklch(96.5% 0.01 85deg);
-  --text-secondary: oklch(85% 0.022 245deg);
-  --text-tertiary: oklch(79% 0.026 248deg);
+  --text-primary: var(--mm-text-primary);
+  --text-secondary: var(--mm-text-secondary);
+  --text-tertiary: var(--mm-text-tertiary);
 
   /* Accent colors — a single teal story at 180deg */
-  --accent-primary: oklch(80% 0.115 180deg);
-  --accent-strong: oklch(84% 0.1 180deg);
-  --accent-muted: oklch(72% 0.09 180deg);
-  --accent-primary-hover: oklch(85% 0.1 180deg);
-  --accent-contrast: var(--bg-primary);
+  --accent-primary: var(--mm-accent);
+  --accent-strong: var(--mm-accent-strong);
+  --accent-muted: var(--mm-accent-muted);
+  --accent-primary-hover: var(--mm-accent-hover);
+  --accent-contrast: var(--mm-accent-contrast);
 
   /* Link colors */
-  --link-default: oklch(84% 0.1 180deg);
-  --link-hover: oklch(89% 0.08 180deg);
-  --link-visited: oklch(84% 0.07 210deg);
+  --link-default: var(--mm-link);
+  --link-hover: var(--mm-link-hover);
+  --link-visited: var(--mm-link-visited);
 
   /* Border colors */
-  --border-default: oklch(40% 0.035 250deg);
-  --border-muted: oklch(32% 0.03 250deg / 0.7);
-  --border-strong: oklch(60% 0.04 250deg);
+  --border-default: var(--mm-border);
+  --border-muted: var(--mm-border-muted);
+  --border-strong: var(--mm-border-strong);
 
   --page-background: var(--bg-primary);
   --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
   --button-text-accent: var(--accent-contrast);
-  --control-min-block-size: 2.75rem;
+  --control-min-block-size: var(--mm-control-min-size);
 }
 
 /* =============================================================================
